@@ -1,0 +1,6429 @@
+%!PS-Adobe-3.0
+%%BoundingBox: (atend)
+%%Pages: (atend)
+%%PageOrder: (atend)
+%%DocumentFonts: (atend)
+%%Creator: Frame 4.0
+%%DocumentData: Clean7Bit
+%%EndComments
+%%BeginProlog
+%
+% Frame ps_prolog 4.0, for use with Frame 4.0 products
+% This ps_prolog file is Copyright (c) 1986-1993 Frame Technology
+% Corporation.  All rights reserved.  This ps_prolog file may be
+% freely copied and distributed in conjunction with documents created
+% using FrameMaker, FrameBuilder and FrameViewer as long as this 
+% copyright notice is preserved.
+%
+% Frame products normally print colors as their true color on a color printer
+% or as shades of gray, based on luminance, on a black-and white printer. The
+% following flag, if set to True, forces all non-white colors to print as pure
+% black. This has no effect on bitmap images.
+/FMPrintAllColorsAsBlack             false def
+%
+% Frame products can either set their own line screens or use a printer's 
+% default settings. Three flags below control this separately for no 
+% separations, spot separations and process separations. If a flag
+% is true, then the default printer settings will not be changed. If it is
+% false, Frame products will use their own settings from a table based on
+% the printer's resolution.
+/FMUseDefaultNoSeparationScreen      true  def
+/FMUseDefaultSpotSeparationScreen    true  def
+/FMUseDefaultProcessSeparationScreen false def
+%
+% For any given PostScript printer resolution, Frame products have two sets of 
+% screen angles and frequencies for printing process separations, which are 
+% recomended by Adobe. The following variable chooses the higher frequencies
+% when set to true or the lower frequencies when set to false. This is only
+% effective if the appropriate FMUseDefault...SeparationScreen flag is false.
+/FMUseHighFrequencyScreens true def
+%
+% PostScript Level 2 printers contain an "Accurate Screens" feature which can
+% improve process separation rendering at the expense of compute time. This 
+% flag is ignored by PostScript Level 1 printers.
+/FMUseAcccurateScreens true def
+%
+% The following PostScript procedure defines the spot function that Frame
+% products will use for process separations. You may un-comment-out one of
+% the alternative functions below, or use your own.
+%
+% Dot function
+/FMSpotFunction {abs exch abs 2 copy add 1 gt 
+		{1 sub dup mul exch 1 sub dup mul add 1 sub }
+		{dup mul exch dup mul add 1 exch sub }ifelse } def
+%
+% Line function
+% /FMSpotFunction { pop } def
+%
+% Elipse function
+% /FMSpotFunction { dup 5 mul 8 div mul exch dup mul exch add 
+%		sqrt 1 exch sub } def
+%
+%
+/FMversion (4.0) def 
+/FMLevel1 /languagelevel where {pop languagelevel} {1} ifelse 2 lt def
+/FMPColor
+	FMLevel1 {
+		false
+		/colorimage where {pop pop true} if
+	} {
+		true
+	} ifelse
+def
+/FrameDict 400 dict def 
+systemdict /errordict known not {/errordict 10 dict def
+		errordict /rangecheck {stop} put} if
+% The readline in PS 23.0 doesn't recognize cr's as nl's on AppleTalk
+FrameDict /tmprangecheck errordict /rangecheck get put 
+errordict /rangecheck {FrameDict /bug true put} put 
+FrameDict /bug false put 
+mark 
+% Some PS machines read past the CR, so keep the following 3 lines together!
+currentfile 5 string readline
+00
+0000000000
+cleartomark 
+errordict /rangecheck FrameDict /tmprangecheck get put 
+FrameDict /bug get { 
+	/readline {
+		/gstring exch def
+		/gfile exch def
+		/gindex 0 def
+		{
+			gfile read pop 
+			dup 10 eq {exit} if 
+			dup 13 eq {exit} if 
+			gstring exch gindex exch put 
+			/gindex gindex 1 add def 
+		} loop
+		pop 
+		gstring 0 gindex getinterval true 
+		} bind def
+	} if
+/FMshowpage /showpage load def
+/FMquit /quit load def
+/FMFAILURE { 
+	dup = flush 
+	FMshowpage 
+	/Helvetica findfont 12 scalefont setfont
+	72 200 moveto
+	show FMshowpage 
+	FMquit 
+	} def 
+/FMVERSION {
+	FMversion ne {
+		(Frame product version does not match ps_prolog!) FMFAILURE
+		} if
+	} def 
+/FMBADEPSF { 
+	(PostScript Lang. Ref. Man., 2nd Ed., H.2.4 says EPS must not call X              )
+	dup dup (X) search pop exch pop exch pop length 
+	4 -1 roll 
+	putinterval 
+	FMFAILURE
+	} def
+/FMLOCAL {
+	FrameDict begin
+	0 def 
+	end 
+	} def 
+/concatprocs
+	{
+	/proc2 exch cvlit def/proc1 exch cvlit def/newproc proc1 length proc2 length add array def
+	newproc 0 proc1 putinterval newproc proc1 length proc2 putinterval newproc cvx
+}def
+FrameDict begin 
+/FMnone 0 def
+/FMcyan 1 def
+/FMmagenta 2 def
+/FMyellow 3 def
+/FMblack 4 def
+/FMcustom 5 def
+/FrameNegative false def 
+/FrameSepIs FMnone def 
+/FrameSepBlack 0 def
+/FrameSepYellow 0 def
+/FrameSepMagenta 0 def
+/FrameSepCyan 0 def
+/FrameSepRed 1 def
+/FrameSepGreen 1 def
+/FrameSepBlue 1 def
+/FrameCurGray 1 def
+/FrameCurPat null def
+/FrameCurColors [ 0 0 0 1 0 0 0 ] def 
+/FrameColorEpsilon .001 def	
+/eqepsilon {		
+	sub dup 0 lt {neg} if
+	FrameColorEpsilon le
+} bind def
+/FrameCmpColorsCMYK { 
+	2 copy 0 get exch 0 get eqepsilon {
+		2 copy 1 get exch 1 get eqepsilon {
+			2 copy 2 get exch 2 get eqepsilon {
+				3 get exch 3 get eqepsilon
+			} {pop pop false} ifelse
+		}{pop pop false} ifelse
+	} {pop pop false} ifelse
+} bind def
+/FrameCmpColorsRGB { 
+	2 copy 4 get exch 0 get eqepsilon {
+		2 copy 5 get exch 1 get eqepsilon {
+			6 get exch 2 get eqepsilon
+		}{pop pop false} ifelse
+	} {pop pop false} ifelse
+} bind def
+/RGBtoCMYK { 
+	1 exch sub 
+	3 1 roll 
+	1 exch sub 
+	3 1 roll 
+	1 exch sub 
+	3 1 roll 
+	3 copy 
+	2 copy 
+	le { pop } { exch pop } ifelse 
+	2 copy 
+	le { pop } { exch pop } ifelse 
+	dup dup dup 
+	6 1 roll 
+	4 1 roll 
+	7 1 roll 
+	sub 
+	6 1 roll 
+	sub 
+	5 1 roll 
+	sub 
+	4 1 roll 
+} bind def
+/CMYKtoRGB { 
+	dup dup 4 -1 roll add 						  
+	5 1 roll 3 -1 roll add 						  
+	4 1 roll add 								  
+	1 exch sub dup 0 lt {pop 0} if 3 1 roll 	  
+	1 exch sub dup 0 lt {pop 0} if exch 	      
+	1 exch sub dup 0 lt {pop 0} if exch	  		  
+} bind def
+/FrameSepInit {
+	1.0 RealSetgray
+} bind def
+/FrameSetSepColor { 
+	/FrameSepBlue exch def
+	/FrameSepGreen exch def
+	/FrameSepRed exch def
+	/FrameSepBlack exch def
+	/FrameSepYellow exch def
+	/FrameSepMagenta exch def
+	/FrameSepCyan exch def
+	/FrameSepIs FMcustom def
+	setCurrentScreen	
+} bind def
+/FrameSetCyan {
+	/FrameSepBlue 1.0 def
+	/FrameSepGreen 1.0 def
+	/FrameSepRed 0.0 def
+	/FrameSepBlack 0.0 def
+	/FrameSepYellow 0.0 def
+	/FrameSepMagenta 0.0 def
+	/FrameSepCyan 1.0 def
+	/FrameSepIs FMcyan def
+	setCurrentScreen	
+} bind def
+ 
+/FrameSetMagenta {
+	/FrameSepBlue 1.0 def
+	/FrameSepGreen 0.0 def
+	/FrameSepRed 1.0 def
+	/FrameSepBlack 0.0 def
+	/FrameSepYellow 0.0 def
+	/FrameSepMagenta 1.0 def
+	/FrameSepCyan 0.0 def
+	/FrameSepIs FMmagenta def
+	setCurrentScreen
+} bind def
+ 
+/FrameSetYellow {
+	/FrameSepBlue 0.0 def
+	/FrameSepGreen 1.0 def
+	/FrameSepRed 1.0 def
+	/FrameSepBlack 0.0 def
+	/FrameSepYellow 1.0 def
+	/FrameSepMagenta 0.0 def
+	/FrameSepCyan 0.0 def
+	/FrameSepIs FMyellow def
+	setCurrentScreen
+} bind def
+ 
+/FrameSetBlack {
+	/FrameSepBlue 0.0 def
+	/FrameSepGreen 0.0 def
+	/FrameSepRed 0.0 def
+	/FrameSepBlack 1.0 def
+	/FrameSepYellow 0.0 def
+	/FrameSepMagenta 0.0 def
+	/FrameSepCyan 0.0 def
+	/FrameSepIs FMblack def
+	setCurrentScreen
+} bind def
+ 
+/FrameNoSep { 
+	/FrameSepIs FMnone def
+	setCurrentScreen
+} bind def
+/FrameSetSepColors { 
+	FrameDict begin
+	[ exch 1 add 1 roll ]
+	/FrameSepColors  
+	exch def end
+	} bind def
+/FrameColorInSepListCMYK { 
+	FrameSepColors {  
+       		exch dup 3 -1 roll 
+       		FrameCmpColorsCMYK 
+       		{ pop true exit } if
+    	} forall 
+	dup true ne {pop false} if
+	} bind def
+/FrameColorInSepListRGB { 
+	FrameSepColors {  
+       		exch dup 3 -1 roll 
+       		FrameCmpColorsRGB 
+       		{ pop true exit } if
+    	} forall 
+	dup true ne {pop false} if
+	} bind def
+/RealSetgray /setgray load def
+/RealSetrgbcolor /setrgbcolor load def
+/RealSethsbcolor /sethsbcolor load def
+end 
+/setgray { 
+	FrameDict begin
+	FrameSepIs FMnone eq
+		{ RealSetgray } 
+		{ 
+		FrameSepIs FMblack eq 
+			{ RealSetgray } 
+			{ FrameSepIs FMcustom eq 
+			  FrameSepRed 0 eq and
+			  FrameSepGreen 0 eq and
+			  FrameSepBlue 0 eq and {
+			  	RealSetgray
+			  } {
+				1 RealSetgray pop 
+			  } ifelse
+			} ifelse
+		} ifelse
+	end
+} bind def
+/setrgbcolor { 
+	FrameDict begin
+	FrameSepIs FMnone eq
+	{  RealSetrgbcolor }
+	{
+		3 copy [ 4 1 roll ] 
+		FrameColorInSepListRGB
+		{
+				FrameSepBlue eq exch 
+			 	FrameSepGreen eq and exch 
+			 	FrameSepRed eq and
+			 	{ 0 } { 1 } ifelse
+		}
+		{
+			FMPColor {
+				RealSetrgbcolor
+				currentcmykcolor
+			} {
+				RGBtoCMYK
+			} ifelse
+			FrameSepIs FMblack eq
+			{1.0 exch sub 4 1 roll pop pop pop} {
+			FrameSepIs FMyellow eq
+			{pop 1.0 exch sub 3 1 roll pop pop} {
+			FrameSepIs FMmagenta eq
+			{pop pop 1.0 exch sub exch pop } {
+			FrameSepIs FMcyan eq
+			{pop pop pop 1.0 exch sub } 
+			{pop pop pop pop 1} ifelse } ifelse } ifelse } ifelse 
+		} ifelse
+		RealSetgray
+	} 
+	ifelse
+	end
+} bind def
+/sethsbcolor {
+	FrameDict begin
+	FrameSepIs FMnone eq 
+	{ RealSethsbcolor } 
+	{
+		RealSethsbcolor 
+		currentrgbcolor  
+		setrgbcolor 
+	} 
+	ifelse
+	end
+} bind def
+FrameDict begin
+/setcmykcolor where {
+	pop /RealSetcmykcolor /setcmykcolor load def
+} {
+	/RealSetcmykcolor {
+		4 1 roll
+		3 { 3 index add 0 max 1 min 1 exch sub 3 1 roll} repeat 
+		setrgbcolor pop
+	} bind def
+} ifelse
+userdict /setcmykcolor { 
+		FrameDict begin
+		FrameSepIs FMnone eq
+		{ RealSetcmykcolor } 
+		{
+			4 copy [ 5 1 roll ]
+			FrameColorInSepListCMYK
+			{
+				FrameSepBlack eq exch 
+				FrameSepYellow eq and exch 
+				FrameSepMagenta eq and exch 
+				FrameSepCyan eq and 
+				{ 0 } { 1 } ifelse
+			}
+			{
+				FrameSepIs FMblack eq
+				{1.0 exch sub 4 1 roll pop pop pop} {
+				FrameSepIs FMyellow eq
+				{pop 1.0 exch sub 3 1 roll pop pop} {
+				FrameSepIs FMmagenta eq
+				{pop pop 1.0 exch sub exch pop } {
+				FrameSepIs FMcyan eq
+				{pop pop pop 1.0 exch sub } 
+				{pop pop pop pop 1} ifelse } ifelse } ifelse } ifelse 
+			} ifelse
+			RealSetgray
+		}
+		ifelse
+		end
+	} bind put
+FMLevel1 not { 
+	
+	/patProcDict 5 dict dup begin
+		<0f1e3c78f0e1c387> { 3 setlinewidth -1 -1 moveto 9 9 lineto stroke 
+											4 -4 moveto 12 4 lineto stroke
+											-4 4 moveto 4 12 lineto stroke} bind def
+		<0f87c3e1f0783c1e> { 3 setlinewidth -1 9 moveto 9 -1 lineto stroke 
+											-4 4 moveto 4 -4 lineto stroke
+											4 12 moveto 12 4 lineto stroke} bind def
+		<8142241818244281> { 1 setlinewidth -1 9 moveto 9 -1 lineto stroke
+											-1 -1 moveto 9 9 lineto stroke } bind def
+		<03060c183060c081> { 1 setlinewidth -1 -1 moveto 9 9 lineto stroke 
+											4 -4 moveto 12 4 lineto stroke
+											-4 4 moveto 4 12 lineto stroke} bind def
+		<8040201008040201> { 1 setlinewidth -1 9 moveto 9 -1 lineto stroke 
+											-4 4 moveto 4 -4 lineto stroke
+											4 12 moveto 12 4 lineto stroke} bind def
+	end def
+	/patDict 15 dict dup begin
+		/PatternType 1 def		
+		/PaintType 2 def		
+		/TilingType 3 def		
+		/BBox [ 0 0 8 8 ] def 	
+		/XStep 8 def			
+		/YStep 8 def			
+		/PaintProc {
+			begin
+			patProcDict bstring known {
+				patProcDict bstring get exec
+			} {
+				8 8 true [1 0 0 -1 0 8] bstring imagemask
+			} ifelse
+			end
+		} bind def
+	end def
+} if
+/combineColor {
+    FrameSepIs FMnone eq
+	{
+		graymode FMLevel1 or not {
+			
+			[/Pattern [/DeviceCMYK]] setcolorspace
+			FrameCurColors 0 4 getinterval aload pop FrameCurPat setcolor
+		} {
+			FrameCurColors 3 get 1.0 ge {
+				FrameCurGray RealSetgray
+			} {
+				FMPColor graymode and {
+					0 1 3 { 
+						FrameCurColors exch get
+						1 FrameCurGray sub mul
+					} for
+					RealSetcmykcolor
+				} {
+					4 1 6 {
+						FrameCurColors exch get
+						graymode {
+							1 exch sub 1 FrameCurGray sub mul 1 exch sub
+						} {
+							1.0 lt {FrameCurGray} {1} ifelse
+						} ifelse
+					} for
+					RealSetrgbcolor
+				} ifelse
+			} ifelse
+		} ifelse
+	} { 
+		FrameCurColors 0 4 getinterval aload
+		FrameColorInSepListCMYK {
+			FrameSepBlack eq exch 
+			FrameSepYellow eq and exch 
+			FrameSepMagenta eq and exch 
+			FrameSepCyan eq and
+			FrameSepIs FMcustom eq and
+			{ FrameCurGray } { 1 } ifelse
+		} {
+			FrameSepIs FMblack eq
+			{FrameCurGray 1.0 exch sub mul 1.0 exch sub 4 1 roll pop pop pop} {
+			FrameSepIs FMyellow eq
+			{pop FrameCurGray 1.0 exch sub mul 1.0 exch sub 3 1 roll pop pop} {
+			FrameSepIs FMmagenta eq
+			{pop pop FrameCurGray 1.0 exch sub mul 1.0 exch sub exch pop } {
+			FrameSepIs FMcyan eq
+			{pop pop pop FrameCurGray 1.0 exch sub mul 1.0 exch sub } 
+			{pop pop pop pop 1} ifelse } ifelse } ifelse } ifelse 
+		} ifelse
+		graymode FMLevel1 or not {
+			
+			[/Pattern [/DeviceGray]] setcolorspace
+			FrameCurPat setcolor
+		} { 
+			graymode not FMLevel1 and {
+				
+				dup 1 lt {pop FrameCurGray} if
+			} if
+			RealSetgray
+		} ifelse
+	} ifelse
+} bind def
+/savematrix {
+	orgmatrix currentmatrix pop
+	} bind def
+/restorematrix {
+	orgmatrix setmatrix
+	} bind def
+/dmatrix matrix def
+/dpi    72 0 dmatrix defaultmatrix dtransform
+    dup mul exch   dup mul add   sqrt def
+	
+/freq dpi dup 72 div round dup 0 eq {pop 1} if 8 mul div def
+/sangle 1 0 dmatrix defaultmatrix dtransform exch atan def
+/dpiranges   [  2540    2400    1693     1270    1200     635      600      0      ] def
+/CMLowFreqs  [ 100.402  94.8683 89.2289 100.402  94.8683  66.9349  63.2456 47.4342 ] def
+/YLowFreqs   [  95.25   90.0    84.65    95.25   90.0     70.5556  66.6667 50.0    ] def
+/KLowFreqs   [  89.8026 84.8528 79.8088  89.8026 84.8528  74.8355  70.7107 53.033  ] def
+/CLowAngles  [  71.5651 71.5651 71.5651 71.5651  71.5651  71.5651  71.5651 71.5651 ] def
+/MLowAngles  [  18.4349 18.4349 18.4349 18.4349  18.4349  18.4349  18.4349 18.4349 ] def
+/YLowTDot    [  true    true    false    true    true     false    false   false   ] def
+/CMHighFreqs [ 133.87  126.491 133.843  108.503 102.523  100.402   94.8683 63.2456 ] def
+/YHighFreqs  [ 127.0   120.0   126.975  115.455 109.091   95.25    90.0    60.0    ] def
+/KHighFreqs  [ 119.737 113.137 119.713  128.289 121.218   89.8026  84.8528 63.6395 ] def
+/CHighAngles [  71.5651 71.5651 71.5651  70.0169 70.0169  71.5651  71.5651 71.5651 ] def
+/MHighAngles [  18.4349 18.4349 18.4349  19.9831 19.9831  18.4349  18.4349 18.4349 ] def
+/YHighTDot   [  false   false   true     false   false    true     true    false   ] def
+/PatFreq     [	10.5833 10.0     9.4055  10.5833 10.0	  10.5833  10.0	   9.375   ] def
+/screenIndex {
+	0 1 dpiranges length 1 sub { dup dpiranges exch get 1 sub dpi le {exit} {pop} ifelse } for
+} bind def
+/getCyanScreen {
+	FMUseHighFrequencyScreens { CHighAngles CMHighFreqs} {CLowAngles CMLowFreqs} ifelse
+		screenIndex dup 3 1 roll get 3 1 roll get /FMSpotFunction load
+} bind def
+/getMagentaScreen {
+	FMUseHighFrequencyScreens { MHighAngles CMHighFreqs } {MLowAngles CMLowFreqs} ifelse
+		screenIndex dup 3 1 roll get 3 1 roll get /FMSpotFunction load
+} bind def
+/getYellowScreen {
+	FMUseHighFrequencyScreens { YHighTDot YHighFreqs} { YLowTDot YLowFreqs } ifelse
+		screenIndex dup 3 1 roll get 3 1 roll get { 3 div
+			{2 { 1 add 2 div 3 mul dup floor sub 2 mul 1 sub exch} repeat
+			FMSpotFunction } } {/FMSpotFunction load } ifelse
+			0.0 exch
+} bind def
+/getBlackScreen  {
+	FMUseHighFrequencyScreens { KHighFreqs } { KLowFreqs } ifelse
+		screenIndex get 45.0 /FMSpotFunction load 
+} bind def
+/getSpotScreen {
+	getBlackScreen
+} bind def
+/getCompositeScreen {
+	getBlackScreen
+} bind def
+/FMSetScreen 
+	FMLevel1 { /setscreen load 
+	}{ {
+		8 dict begin
+		/HalftoneType 1 def
+		/SpotFunction exch def
+		/Angle exch def
+		/Frequency exch def
+		/AccurateScreens FMUseAcccurateScreens def
+		currentdict end sethalftone
+	} bind } ifelse
+def
+/setDefaultScreen {
+	FMPColor {
+		orgrxfer cvx orggxfer cvx orgbxfer cvx orgxfer cvx setcolortransfer
+	}
+	{
+		orgxfer cvx settransfer
+	} ifelse
+	orgfreq organgle orgproc cvx setscreen
+} bind def
+/setCurrentScreen {
+	FrameSepIs FMnone eq {
+		FMUseDefaultNoSeparationScreen {
+			setDefaultScreen
+		} {
+			getCompositeScreen FMSetScreen
+		} ifelse
+	} {
+		FrameSepIs FMcustom eq {
+			FMUseDefaultSpotSeparationScreen {
+				setDefaultScreen
+			} {
+				getSpotScreen FMSetScreen
+			} ifelse
+		} {
+			FMUseDefaultProcessSeparationScreen {
+				setDefaultScreen
+			} {
+				FrameSepIs FMcyan eq {
+					getCyanScreen FMSetScreen
+				} {
+					FrameSepIs FMmagenta eq {
+						getMagentaScreen FMSetScreen
+					} {
+						FrameSepIs FMyellow eq {
+							getYellowScreen FMSetScreen
+						} {
+							getBlackScreen FMSetScreen
+						} ifelse
+					} ifelse
+				} ifelse
+			} ifelse
+		} ifelse
+	} ifelse 
+} bind def
+end
+	/gstring FMLOCAL
+	/gfile FMLOCAL
+	/gindex FMLOCAL
+	/orgrxfer FMLOCAL
+	/orggxfer FMLOCAL
+	/orgbxfer FMLOCAL
+	/orgxfer FMLOCAL
+	/orgproc FMLOCAL
+	/orgrproc FMLOCAL
+	/orggproc FMLOCAL
+	/orgbproc FMLOCAL
+	/organgle FMLOCAL
+	/orgrangle FMLOCAL
+	/orggangle FMLOCAL
+	/orgbangle FMLOCAL
+	/orgfreq FMLOCAL
+	/orgrfreq FMLOCAL
+	/orggfreq FMLOCAL
+	/orgbfreq FMLOCAL
+	/yscale FMLOCAL
+	/xscale FMLOCAL
+	/edown FMLOCAL
+	/manualfeed FMLOCAL
+	/paperheight FMLOCAL
+	/paperwidth FMLOCAL
+/FMDOCUMENT { 
+	array /FMfonts exch def 
+	/#copies exch def
+	FrameDict begin
+	0 ne /manualfeed exch def
+	/paperheight exch def
+	/paperwidth exch def
+	0 ne /FrameNegative exch def 
+	0 ne /edown exch def 
+	/yscale exch def
+	/xscale exch def
+	FMLevel1 {
+		manualfeed {setmanualfeed} if
+		/FMdicttop countdictstack 1 add def 
+		/FMoptop count def 
+		setpapername 
+		manualfeed {true} {papersize} ifelse 
+		{manualpapersize} {false} ifelse 
+		{desperatepapersize} {false} ifelse 
+		{ (Can't select requested paper size for Frame print job!) FMFAILURE } if
+		count -1 FMoptop {pop pop} for
+		countdictstack -1 FMdicttop {pop end} for 
+		}
+		{{1 dict dup /PageSize [paperwidth paperheight]put setpagedevice}stopped
+		{ (Can't select requested paper size for Frame print job!) FMFAILURE } if
+		 {1 dict dup /ManualFeed manualfeed put setpagedevice } stopped pop }
+	ifelse 
+	
+	FMPColor {
+		currentcolorscreen
+			cvlit /orgproc exch def
+				  /organgle exch def 
+				  /orgfreq exch def
+			cvlit /orgbproc exch def
+				  /orgbangle exch def 
+				  /orgbfreq exch def
+			cvlit /orggproc exch def
+				  /orggangle exch def 
+				  /orggfreq exch def
+			cvlit /orgrproc exch def
+				  /orgrangle exch def 
+				  /orgrfreq exch def
+			currentcolortransfer 
+			FrameNegative {
+				1 1 4 { 
+					pop { 1 exch sub } concatprocs 4 1 roll
+				} for
+				4 copy
+				setcolortransfer
+			} if
+			cvlit /orgxfer exch def
+			cvlit /orgbxfer exch def
+			cvlit /orggxfer exch def
+			cvlit /orgrxfer exch def
+	} {
+		currentscreen 
+			cvlit /orgproc exch def
+				  /organgle exch def 
+				  /orgfreq exch def
+				  
+		currenttransfer 
+		FrameNegative {
+			{ 1 exch sub } concatprocs
+			dup settransfer
+		} if 
+		cvlit /orgxfer exch def
+	} ifelse
+	end 
+} def 
+/pagesave FMLOCAL
+/orgmatrix FMLOCAL
+/landscape FMLOCAL
+/pwid FMLOCAL
+/FMBEGINPAGE { 
+	FrameDict begin 
+	/pagesave save def
+	3.86 setmiterlimit
+	/landscape exch 0 ne def
+	landscape { 
+		90 rotate 0 exch dup /pwid exch def neg translate pop 
+	}{
+		pop /pwid exch def
+	} ifelse
+	edown { [-1 0 0 1 pwid 0] concat } if
+	0 0 moveto paperwidth 0 lineto paperwidth paperheight lineto 
+	0 paperheight lineto 0 0 lineto 1 setgray fill
+	xscale yscale scale
+	/orgmatrix matrix def
+	gsave 
+} def 
+/FMENDPAGE {
+	grestore 
+	pagesave restore
+	end 
+	showpage
+	} def 
+/FMFONTDEFINE { 
+	FrameDict begin
+	findfont 
+	ReEncode 
+	1 index exch 
+	definefont 
+	FMfonts 3 1 roll 
+	put
+	end 
+	} def 
+/FMFILLS {
+	FrameDict begin dup
+	array /fillvals exch def
+	dict /patCache exch def
+	end 
+	} def 
+/FMFILL {
+	FrameDict begin
+	 fillvals 3 1 roll put
+	end 
+	} def 
+/FMNORMALIZEGRAPHICS { 
+	newpath
+	0.0 0.0 moveto
+	1 setlinewidth
+	0 setlinecap
+	0 0 0 sethsbcolor
+	0 setgray 
+	} bind def
+	/fx FMLOCAL
+	/fy FMLOCAL
+	/fh FMLOCAL
+	/fw FMLOCAL
+	/llx FMLOCAL
+	/lly FMLOCAL
+	/urx FMLOCAL
+	/ury FMLOCAL
+/FMBEGINEPSF { 
+	end 
+	/FMEPSF save def 
+	/showpage {} def 
+% See Adobe's "PostScript Language Reference Manual, 2nd Edition", page 714.
+% "...the following operators MUST NOT be used in an EPS file:" (emphasis ours)
+	/banddevice {(banddevice) FMBADEPSF} def
+	/clear {(clear) FMBADEPSF} def
+	/cleardictstack {(cleardictstack) FMBADEPSF} def 
+	/copypage {(copypage) FMBADEPSF} def
+	/erasepage {(erasepage) FMBADEPSF} def
+	/exitserver {(exitserver) FMBADEPSF} def
+	/framedevice {(framedevice) FMBADEPSF} def
+	/grestoreall {(grestoreall) FMBADEPSF} def
+	/initclip {(initclip) FMBADEPSF} def
+	/initgraphics {(initgraphics) FMBADEPSF} def
+	/initmatrix {(initmatrix) FMBADEPSF} def
+	/quit {(quit) FMBADEPSF} def
+	/renderbands {(renderbands) FMBADEPSF} def
+	/setglobal {(setglobal) FMBADEPSF} def
+	/setpagedevice {(setpagedevice) FMBADEPSF} def
+	/setshared {(setshared) FMBADEPSF} def
+	/startjob {(startjob) FMBADEPSF} def
+	/lettertray {(lettertray) FMBADEPSF} def
+	/letter {(letter) FMBADEPSF} def
+	/lettersmall {(lettersmall) FMBADEPSF} def
+	/11x17tray {(11x17tray) FMBADEPSF} def
+	/11x17 {(11x17) FMBADEPSF} def
+	/ledgertray {(ledgertray) FMBADEPSF} def
+	/ledger {(ledger) FMBADEPSF} def
+	/legaltray {(legaltray) FMBADEPSF} def
+	/legal {(legal) FMBADEPSF} def
+	/statementtray {(statementtray) FMBADEPSF} def
+	/statement {(statement) FMBADEPSF} def
+	/executivetray {(executivetray) FMBADEPSF} def
+	/executive {(executive) FMBADEPSF} def
+	/a3tray {(a3tray) FMBADEPSF} def
+	/a3 {(a3) FMBADEPSF} def
+	/a4tray {(a4tray) FMBADEPSF} def
+	/a4 {(a4) FMBADEPSF} def
+	/a4small {(a4small) FMBADEPSF} def
+	/b4tray {(b4tray) FMBADEPSF} def
+	/b4 {(b4) FMBADEPSF} def
+	/b5tray {(b5tray) FMBADEPSF} def
+	/b5 {(b5) FMBADEPSF} def
+	FMNORMALIZEGRAPHICS 
+	[/fy /fx /fh /fw /ury /urx /lly /llx] {exch def} forall 
+	fx fw 2 div add fy fh 2 div add  translate
+	rotate
+	fw 2 div neg fh 2 div neg translate
+	fw urx llx sub div fh ury lly sub div scale 
+	llx neg lly neg translate 
+	/FMdicttop countdictstack 1 add def 
+	/FMoptop count def 
+	} bind def
+/FMENDEPSF {
+	count -1 FMoptop {pop pop} for 
+	countdictstack -1 FMdicttop {pop end} for 
+	FMEPSF restore
+	FrameDict begin 
+	} bind def
+FrameDict begin 
+/setmanualfeed {
+%%BeginFeature *ManualFeed True
+	 statusdict /manualfeed true put
+%%EndFeature
+	} bind def
+/max {2 copy lt {exch} if pop} bind def
+/min {2 copy gt {exch} if pop} bind def
+/inch {72 mul} def
+/pagedimen { 
+	paperheight sub abs 16 lt exch 
+	paperwidth sub abs 16 lt and
+	{/papername exch def} {pop} ifelse
+	} bind def
+	/papersizedict FMLOCAL
+/setpapername { 
+	/papersizedict 14 dict def 
+	papersizedict begin
+	/papername /unknown def 
+		/Letter 8.5 inch 11.0 inch pagedimen
+		/LetterSmall 7.68 inch 10.16 inch pagedimen
+		/Tabloid 11.0 inch 17.0 inch pagedimen
+		/Ledger 17.0 inch 11.0 inch pagedimen
+		/Legal 8.5 inch 14.0 inch pagedimen
+		/Statement 5.5 inch 8.5 inch pagedimen
+		/Executive 7.5 inch 10.0 inch pagedimen
+		/A3 11.69 inch 16.5 inch pagedimen
+		/A4 8.26 inch 11.69 inch pagedimen
+		/A4Small 7.47 inch 10.85 inch pagedimen
+		/B4 10.125 inch 14.33 inch pagedimen
+		/B5 7.16 inch 10.125 inch pagedimen
+	end
+	} bind def
+/papersize {
+	papersizedict begin
+		/Letter {lettertray letter} def
+		/LetterSmall {lettertray lettersmall} def
+		/Tabloid {11x17tray 11x17} def
+		/Ledger {ledgertray ledger} def
+		/Legal {legaltray legal} def
+		/Statement {statementtray statement} def
+		/Executive {executivetray executive} def
+		/A3 {a3tray a3} def
+		/A4 {a4tray a4} def
+		/A4Small {a4tray a4small} def
+		/B4 {b4tray b4} def
+		/B5 {b5tray b5} def
+		/unknown {unknown} def
+	papersizedict dup papername known {papername} {/unknown} ifelse get
+	end
+	statusdict begin stopped end 
+	} bind def
+/manualpapersize {
+	papersizedict begin
+		/Letter {letter} def
+		/LetterSmall {lettersmall} def
+		/Tabloid {11x17} def
+		/Ledger {ledger} def
+		/Legal {legal} def
+		/Statement {statement} def
+		/Executive {executive} def
+		/A3 {a3} def
+		/A4 {a4} def
+		/A4Small {a4small} def
+		/B4 {b4} def
+		/B5 {b5} def
+		/unknown {unknown} def
+	papersizedict dup papername known {papername} {/unknown} ifelse get
+	end
+	stopped 
+	} bind def
+/desperatepapersize {
+	statusdict /setpageparams known
+		{
+		paperwidth paperheight 0 1 
+		statusdict begin
+		{setpageparams} stopped 
+		end
+		} {true} ifelse 
+	} bind def
+/DiacriticEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /space /exclam /quotedbl
+/numbersign /dollar /percent /ampersand /quotesingle /parenleft
+/parenright /asterisk /plus /comma /hyphen /period /slash /zero /one
+/two /three /four /five /six /seven /eight /nine /colon /semicolon
+/less /equal /greater /question /at /A /B /C /D /E /F /G /H /I /J /K
+/L /M /N /O /P /Q /R /S /T /U /V /W /X /Y /Z /bracketleft /backslash
+/bracketright /asciicircum /underscore /grave /a /b /c /d /e /f /g /h
+/i /j /k /l /m /n /o /p /q /r /s /t /u /v /w /x /y /z /braceleft /bar
+/braceright /asciitilde /.notdef /Adieresis /Aring /Ccedilla /Eacute
+/Ntilde /Odieresis /Udieresis /aacute /agrave /acircumflex /adieresis
+/atilde /aring /ccedilla /eacute /egrave /ecircumflex /edieresis
+/iacute /igrave /icircumflex /idieresis /ntilde /oacute /ograve
+/ocircumflex /odieresis /otilde /uacute /ugrave /ucircumflex
+/udieresis /dagger /.notdef /cent /sterling /section /bullet
+/paragraph /germandbls /registered /copyright /trademark /acute
+/dieresis /.notdef /AE /Oslash /.notdef /.notdef /.notdef /.notdef
+/yen /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/ordfeminine /ordmasculine /.notdef /ae /oslash /questiondown
+/exclamdown /logicalnot /.notdef /florin /.notdef /.notdef
+/guillemotleft /guillemotright /ellipsis /.notdef /Agrave /Atilde
+/Otilde /OE /oe /endash /emdash /quotedblleft /quotedblright
+/quoteleft /quoteright /.notdef /.notdef /ydieresis /Ydieresis
+/fraction /currency /guilsinglleft /guilsinglright /fi /fl /daggerdbl
+/periodcentered /quotesinglbase /quotedblbase /perthousand
+/Acircumflex /Ecircumflex /Aacute /Edieresis /Egrave /Iacute
+/Icircumflex /Idieresis /Igrave /Oacute /Ocircumflex /.notdef /Ograve
+/Uacute /Ucircumflex /Ugrave /dotlessi /circumflex /tilde /macron
+/breve /dotaccent /ring /cedilla /hungarumlaut /ogonek /caron
+] def
+/ReEncode { 
+	dup 
+	length 
+	dict begin 
+	{
+	1 index /FID ne 
+		{def} 
+		{pop pop} ifelse 
+	} forall 
+	0 eq {/Encoding DiacriticEncoding def} if 
+	currentdict 
+	end 
+	} bind def
+FMPColor 
+	
+	{
+	/BEGINBITMAPCOLOR { 
+		BITMAPCOLOR} def
+	/BEGINBITMAPCOLORc { 
+		BITMAPCOLORc} def
+	/BEGINBITMAPTRUECOLOR { 
+		BITMAPTRUECOLOR } def
+	/BEGINBITMAPTRUECOLORc { 
+		BITMAPTRUECOLORc } def
+	}
+	
+	{
+	/BEGINBITMAPCOLOR { 
+		BITMAPGRAY} def
+	/BEGINBITMAPCOLORc { 
+		BITMAPGRAYc} def
+	/BEGINBITMAPTRUECOLOR { 
+		BITMAPTRUEGRAY } def
+	/BEGINBITMAPTRUECOLORc { 
+		BITMAPTRUEGRAYc } def
+	}
+ifelse
+/K { 
+	FMPrintAllColorsAsBlack {
+		dup 1 eq 2 index 1 eq and 3 index 1 eq and not
+			{7 {pop} repeat 0 0 0 1 0 0 0} if
+	} if 
+	FrameCurColors astore 
+	pop combineColor
+} bind def
+/graymode true def
+	/bwidth FMLOCAL
+	/bpside FMLOCAL
+	/bstring FMLOCAL
+	/onbits FMLOCAL
+	/offbits FMLOCAL
+	/xindex FMLOCAL
+	/yindex FMLOCAL
+	/x FMLOCAL
+	/y FMLOCAL
+/setPatternMode {
+	FMLevel1 {
+		/bwidth  exch def
+		/bpside  exch def
+		/bstring exch def
+		/onbits 0 def  /offbits 0 def
+		freq sangle landscape {90 add} if 
+			{/y exch def
+			 /x exch def
+			 /xindex x 1 add 2 div bpside mul cvi def
+			 /yindex y 1 add 2 div bpside mul cvi def
+			 bstring yindex bwidth mul xindex 8 idiv add get
+			 1 7 xindex 8 mod sub bitshift and 0 ne FrameNegative {not} if
+			 {/onbits  onbits  1 add def 1}
+			 {/offbits offbits 1 add def 0}
+			 ifelse
+			}
+			setscreen
+		offbits offbits onbits add div FrameNegative {1.0 exch sub} if
+		/FrameCurGray exch def
+	} { 
+		pop pop
+		dup patCache exch known {
+			patCache exch get
+		} { 
+			dup
+			patDict /bstring 3 -1 roll put
+			patDict 
+			9 PatFreq screenIndex get div dup matrix scale
+			makepattern
+			dup 
+			patCache 4 -1 roll 3 -1 roll put
+		} ifelse
+		/FrameCurGray 0 def
+		/FrameCurPat exch def
+	} ifelse
+	/graymode false def
+	combineColor
+} bind def
+/setGrayScaleMode {
+	graymode not {
+		/graymode true def
+		FMLevel1 {
+			setCurrentScreen
+		} if
+	} if
+	/FrameCurGray exch def
+	combineColor
+} bind def
+/normalize {
+	transform round exch round exch itransform
+	} bind def
+/dnormalize {
+	dtransform round exch round exch idtransform
+	} bind def
+/lnormalize { 
+	0 dtransform exch cvi 2 idiv 2 mul 1 add exch idtransform pop
+	} bind def
+/H { 
+	lnormalize setlinewidth
+	} bind def
+/Z {
+	setlinecap
+	} bind def
+	
+/PFill {
+	graymode FMLevel1 or not {
+		gsave 1 setgray eofill grestore
+	} if
+} bind def
+/PStroke {
+	graymode FMLevel1 or not {
+		gsave 1 setgray stroke grestore
+	} if
+	stroke
+} bind def
+	/fillvals FMLOCAL
+/X { 
+	fillvals exch get
+	dup type /stringtype eq
+	{8 1 setPatternMode} 
+	{setGrayScaleMode}
+	ifelse
+	} bind def
+/V { 
+	PFill gsave eofill grestore
+	} bind def
+/Vclip {
+	clip
+	} bind def
+/Vstrk {
+	currentlinewidth exch setlinewidth PStroke setlinewidth
+	} bind def
+/N { 
+	PStroke
+	} bind def
+/Nclip {
+	strokepath clip newpath
+	} bind def
+/Nstrk {
+	currentlinewidth exch setlinewidth PStroke setlinewidth
+	} bind def
+/M {newpath moveto} bind def
+/E {lineto} bind def
+/D {curveto} bind def
+/O {closepath} bind def
+	/n FMLOCAL
+/L { 
+ 	/n exch def
+	newpath
+	normalize
+	moveto 
+	2 1 n {pop normalize lineto} for
+	} bind def
+/Y { 
+	L 
+	closepath
+	} bind def
+	/x1 FMLOCAL
+	/x2 FMLOCAL
+	/y1 FMLOCAL
+	/y2 FMLOCAL
+/R { 
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	x1 y1
+	x2 y1
+	x2 y2
+	x1 y2
+	4 Y 
+	} bind def
+	/rad FMLOCAL
+/rarc 
+	{rad 
+	 arcto
+	} bind def
+/RR { 
+	/rad exch def
+	normalize
+	/y2 exch def
+	/x2 exch def
+	normalize
+	/y1 exch def
+	/x1 exch def
+	mark
+	newpath
+	{
+	x1 y1 rad add moveto
+	x1 y2 x2 y2 rarc
+	x2 y2 x2 y1 rarc
+	x2 y1 x1 y1 rarc
+	x1 y1 x1 y2 rarc
+	closepath
+	} stopped {x1 y1 x2 y2 R} if 
+	cleartomark
+	} bind def
+/RRR { 
+	/rad exch def
+	normalize /y4 exch def /x4 exch def
+	normalize /y3 exch def /x3 exch def
+	normalize /y2 exch def /x2 exch def
+	normalize /y1 exch def /x1 exch def
+	newpath
+	normalize moveto 
+	mark
+	{
+	x2 y2 x3 y3 rarc
+	x3 y3 x4 y4 rarc
+	x4 y4 x1 y1 rarc
+	x1 y1 x2 y2 rarc
+	closepath
+	} stopped
+	 {x1 y1 x2 y2 x3 y3 x4 y4 newpath moveto lineto lineto lineto closepath} if
+	cleartomark
+	} bind def
+/C { 
+	grestore
+	gsave
+	R 
+	clip
+	setCurrentScreen
+} bind def
+/CP { 
+	grestore
+	gsave
+	Y 
+	clip
+	setCurrentScreen
+} bind def
+	/FMpointsize FMLOCAL
+/F { 
+	FMfonts exch get
+	FMpointsize scalefont
+	setfont
+	} bind def
+/Q { 
+	/FMpointsize exch def
+	F 
+	} bind def
+/T { 
+	moveto show
+	} bind def
+/RF { 
+	rotate
+	0 ne {-1 1 scale} if
+	} bind def
+/TF { 
+	gsave
+	moveto 
+	RF
+	show
+	grestore
+	} bind def
+/P { 
+	moveto
+	0 32 3 2 roll widthshow
+	} bind def
+/PF { 
+	gsave
+	moveto 
+	RF
+	0 32 3 2 roll widthshow
+	grestore
+	} bind def
+/S { 
+	moveto
+	0 exch ashow
+	} bind def
+/SF { 
+	gsave
+	moveto
+	RF
+	0 exch ashow
+	grestore
+	} bind def
+/B { 
+	moveto
+	0 32 4 2 roll 0 exch awidthshow
+	} bind def
+/BF { 
+	gsave
+	moveto
+	RF
+	0 32 4 2 roll 0 exch awidthshow
+	grestore
+	} bind def
+/G { 
+	gsave
+	newpath
+	normalize translate 0.0 0.0 moveto 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath 
+	PFill fill
+	grestore
+	} bind def
+/Gstrk {
+	savematrix
+    newpath
+    2 index 2 div add exch 3 index 2 div sub exch 
+    normalize 2 index 2 div sub exch 3 index 2 div add exch 
+    translate
+    scale 
+    0.0 0.0 1.0 5 3 roll arc 
+    restorematrix
+    currentlinewidth exch setlinewidth PStroke setlinewidth
+    } bind def
+/Gclip { 
+	newpath
+	savematrix
+	normalize translate 0.0 0.0 moveto 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath 
+	clip newpath
+	restorematrix
+	} bind def
+/GG { 
+	gsave
+	newpath
+	normalize translate 0.0 0.0 moveto 
+	rotate 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath
+	PFill
+	fill
+	grestore
+	} bind def
+/GGclip { 
+	savematrix
+	newpath
+    normalize translate 0.0 0.0 moveto 
+    rotate 
+    dnormalize scale 
+    0.0 0.0 1.0 5 3 roll arc 
+    closepath
+	clip newpath
+	restorematrix
+	} bind def
+/GGstrk { 
+	savematrix
+    newpath
+    normalize translate 0.0 0.0 moveto 
+    rotate 
+    dnormalize scale 
+    0.0 0.0 1.0 5 3 roll arc 
+    closepath 
+	restorematrix
+    currentlinewidth exch setlinewidth PStroke setlinewidth
+	} bind def
+/A { 
+	gsave
+	savematrix
+	newpath
+	2 index 2 div add exch 3 index 2 div sub exch 
+	normalize 2 index 2 div sub exch 3 index 2 div add exch 
+	translate 
+	scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	restorematrix
+	PStroke
+	grestore
+	} bind def
+/Aclip {
+	newpath
+	savematrix
+	normalize translate 0.0 0.0 moveto 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath 
+	strokepath clip newpath
+	restorematrix
+} bind def
+/Astrk {
+	Gstrk
+} bind def
+/AA { 
+	gsave
+	savematrix
+	newpath
+	
+	3 index 2 div add exch 4 index 2 div sub exch 
+	
+	normalize 3 index 2 div sub exch 4 index 2 div add exch
+	translate 
+	rotate 
+	scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	restorematrix
+	PStroke
+	grestore
+	} bind def
+/AAclip {
+	savematrix
+	newpath
+    normalize translate 0.0 0.0 moveto 
+    rotate 
+    dnormalize scale 
+    0.0 0.0 1.0 5 3 roll arc 
+    closepath
+	strokepath clip newpath
+	restorematrix
+} bind def
+/AAstrk {
+	GGstrk
+} bind def
+	/x FMLOCAL
+	/y FMLOCAL
+	/w FMLOCAL
+	/h FMLOCAL
+	/xx FMLOCAL
+	/yy FMLOCAL
+	/ww FMLOCAL
+	/hh FMLOCAL
+	/FMsaveobject FMLOCAL
+	/FMoptop FMLOCAL
+	/FMdicttop FMLOCAL
+/BEGINPRINTCODE { 
+	/FMdicttop countdictstack 1 add def 
+	/FMoptop count 7 sub def 
+	/FMsaveobject save def
+	userdict begin 
+	/showpage {} def 
+	FMNORMALIZEGRAPHICS 
+	3 index neg 3 index neg translate
+	} bind def
+/ENDPRINTCODE {
+	count -1 FMoptop {pop pop} for 
+	countdictstack -1 FMdicttop {pop end} for 
+	FMsaveobject restore 
+	} bind def
+/gn { 
+	0 
+	{	46 mul 
+		cf read pop 
+		32 sub 
+		dup 46 lt {exit} if 
+		46 sub add 
+		} loop
+	add 
+	} bind def
+	/str FMLOCAL
+/cfs { 
+	/str sl string def 
+	0 1 sl 1 sub {str exch val put} for 
+	str def 
+	} bind def
+/ic [ 
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0223
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0223
+	0
+	{0 hx} {1 hx} {2 hx} {3 hx} {4 hx} {5 hx} {6 hx} {7 hx} {8 hx} {9 hx}
+	{10 hx} {11 hx} {12 hx} {13 hx} {14 hx} {15 hx} {16 hx} {17 hx} {18 hx}
+	{19 hx} {gn hx} {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12}
+	{13} {14} {15} {16} {17} {18} {19} {gn} {0 wh} {1 wh} {2 wh} {3 wh}
+	{4 wh} {5 wh} {6 wh} {7 wh} {8 wh} {9 wh} {10 wh} {11 wh} {12 wh}
+	{13 wh} {14 wh} {gn wh} {0 bl} {1 bl} {2 bl} {3 bl} {4 bl} {5 bl} {6 bl}
+	{7 bl} {8 bl} {9 bl} {10 bl} {11 bl} {12 bl} {13 bl} {14 bl} {gn bl}
+	{0 fl} {1 fl} {2 fl} {3 fl} {4 fl} {5 fl} {6 fl} {7 fl} {8 fl} {9 fl}
+	{10 fl} {11 fl} {12 fl} {13 fl} {14 fl} {gn fl}
+	] def
+	/sl FMLOCAL
+	/val FMLOCAL
+	/ws FMLOCAL
+	/im FMLOCAL
+	/bs FMLOCAL
+	/cs FMLOCAL
+	/len FMLOCAL
+	/pos FMLOCAL
+/ms { 
+	/sl exch def 
+	/val 255 def 
+	/ws cfs 
+	/im cfs 
+	/val 0 def 
+	/bs cfs 
+	/cs cfs 
+	} bind def
+400 ms 
+/ip { 
+	is 
+	0 
+	cf cs readline pop 
+	{	ic exch get exec 
+		add 
+		} forall 
+	pop 
+	
+	} bind def
+/rip { 
+	   
+	  
+	  bis ris copy pop 
+      is
+      0
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+	  pop pop 
+	  ris gis copy pop 
+	  dup is exch 
+	  
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+	  pop pop
+	  gis bis copy pop 
+	  dup add is exch 
+	  
+      cf cs readline pop 
+      {       ic exch get exec 
+              add 
+              } forall 
+      pop 
+      
+      } bind def
+/wh { 
+	/len exch def 
+	/pos exch def 
+	ws 0 len getinterval im pos len getinterval copy pop
+	pos len 
+	} bind def
+/bl { 
+	/len exch def 
+	/pos exch def 
+	bs 0 len getinterval im pos len getinterval copy pop
+	pos len 
+	} bind def
+/s1 1 string def
+/fl { 
+	/len exch def 
+	/pos exch def 
+	/val cf s1 readhexstring pop 0 get def
+	pos 1 pos len add 1 sub {im exch val put} for
+	pos len 
+	} bind def
+/hx { 
+	3 copy getinterval 
+	cf exch readhexstring pop pop 
+	} bind def
+	/h FMLOCAL
+	/w FMLOCAL
+	/d FMLOCAL
+	/lb FMLOCAL
+	/bitmapsave FMLOCAL
+	/is FMLOCAL
+	/cf FMLOCAL
+/wbytes { 
+      dup dup
+      24 eq { pop pop 3 mul }
+      { 8 eq {pop} {1 eq {7 add 8 idiv} {3 add 4 idiv} ifelse} ifelse } ifelse
+	} bind def
+/BEGINBITMAPBWc { 
+	1 {} COMMONBITMAPc
+	} bind def
+/BEGINBITMAPGRAYc { 
+	8 {} COMMONBITMAPc
+	} bind def
+/BEGINBITMAP2BITc { 
+	2 {} COMMONBITMAPc
+	} bind def
+/COMMONBITMAPc { 
+		 
+	/r exch def
+	/d exch def
+	gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/h exch def /w exch def
+	/lb w d wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+	r                    
+	/is im 0 lb getinterval def 
+	ws 0 lb getinterval is copy pop 
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{ip} image 
+	bitmapsave restore 
+	grestore
+	} bind def
+/BEGINBITMAPBW { 
+	1 {} COMMONBITMAP
+	} bind def
+/BEGINBITMAPGRAY { 
+	8 {} COMMONBITMAP
+	} bind def
+/BEGINBITMAP2BIT { 
+	2 {} COMMONBITMAP
+	} bind def
+/COMMONBITMAP { 
+	/r exch def
+	/d exch def
+	gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/h exch def /w exch def
+	/bitmapsave save def 
+	r                    
+	/is w d wbytes string def
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{cf is readhexstring pop} image
+	bitmapsave restore 
+	grestore
+	} bind def
+/ngrayt 256 array def
+/nredt 256 array def
+/nbluet 256 array def
+/ngreent 256 array def
+	/gryt FMLOCAL
+	/blut FMLOCAL
+	/grnt FMLOCAL
+	/redt FMLOCAL
+	/indx FMLOCAL
+	/cynu FMLOCAL
+	/magu FMLOCAL
+	/yelu FMLOCAL
+	/k FMLOCAL
+	/u FMLOCAL
+FMLevel1 {
+/colorsetup {
+	currentcolortransfer
+	/gryt exch def
+	/blut exch def
+	/grnt exch def
+	/redt exch def
+	0 1 255 {
+		/indx exch def
+		/cynu 1 red indx get 255 div sub def
+		/magu 1 green indx get 255 div sub def
+		/yelu 1 blue indx get 255 div sub def
+		/k cynu magu min yelu min def
+		/u k currentundercolorremoval exec def
+%		/u 0 def
+		nredt indx 1 0 cynu u sub max sub redt exec put
+		ngreent indx 1 0 magu u sub max sub grnt exec put
+		nbluet indx 1 0 yelu u sub max sub blut exec put
+		ngrayt indx 1 k currentblackgeneration exec sub gryt exec put
+	} for
+	{255 mul cvi nredt exch get}
+	{255 mul cvi ngreent exch get}
+	{255 mul cvi nbluet exch get}
+	{255 mul cvi ngrayt exch get}
+	setcolortransfer
+	{pop 0} setundercolorremoval
+	{} setblackgeneration
+	} bind def
+}
+{
+/colorSetup2 {
+	[ /Indexed /DeviceRGB 255 
+		{dup red exch get 255 div 
+		 exch dup green exch get 255 div 
+		 exch blue exch get 255 div}
+	] setcolorspace
+} bind def
+} ifelse
+	/tran FMLOCAL
+/fakecolorsetup {
+	/tran 256 string def
+	0 1 255 {/indx exch def 
+		tran indx
+		red indx get 77 mul
+		green indx get 151 mul
+		blue indx get 28 mul
+		add add 256 idiv put} for
+	currenttransfer
+	{255 mul cvi tran exch get 255.0 div}
+	exch concatprocs settransfer
+} bind def
+/BITMAPCOLOR { 
+	/d 8 def
+	gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/h exch def /w exch def
+	/bitmapsave save def
+	FMLevel1 {	
+		colorsetup
+		/is w d wbytes string def
+		/cf currentfile def 
+		w h d [w 0 0 h neg 0 h] 
+		{cf is readhexstring pop} {is} {is} true 3 colorimage 
+	} {
+		colorSetup2
+		/is w d wbytes string def
+		/cf currentfile def 
+		7 dict dup begin
+			/ImageType 1 def
+			/Width w def
+			/Height h def
+			/ImageMatrix [w 0 0 h neg 0 h] def
+			/DataSource {cf is readhexstring pop} bind def
+			/BitsPerComponent d def
+			/Decode [0 255] def
+		end image	
+	} ifelse
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPCOLORc { 
+	/d 8 def
+	gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/h exch def /w exch def
+	/lb w d wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+	FMLevel1 {	
+		colorsetup
+		/is im 0 lb getinterval def 
+		ws 0 lb getinterval is copy pop 
+		/cf currentfile def 
+		w h d [w 0 0 h neg 0 h] 
+		{ip} {is} {is} true 3 colorimage
+	} {
+		colorSetup2
+		/is im 0 lb getinterval def 
+		ws 0 lb getinterval is copy pop 
+		/cf currentfile def 
+		7 dict dup begin
+			/ImageType 1 def
+			/Width w def
+			/Height h def
+			/ImageMatrix [w 0 0 h neg 0 h] def
+			/DataSource {ip} bind def
+			/BitsPerComponent d def
+			/Decode [0 255] def
+		end image	
+	} ifelse
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPTRUECOLORc { 
+	/d 24 def
+        gsave
+ 	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/h exch def /w exch def
+	/lb w d wbytes def 
+	sl lb lt {lb ms} if 
+        /bitmapsave save def 
+        
+	/is im 0 lb getinterval def	
+	/ris im 0 w getinterval def	
+	/gis im w w getinterval def	
+	/bis im w 2 mul w getinterval def 
+        
+        ws 0 lb getinterval is copy pop 
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        {w rip pop ris} {gis} {bis} true 3 colorimage
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPTRUECOLOR { 
+        gsave
+		
+		3 index 2 div add exch	
+		4 index 2 div add exch	
+		translate		
+		rotate			
+		1 index 2 div neg	
+		1 index 2 div neg	
+		translate		
+		scale			
+		/h exch def /w exch def
+        /bitmapsave save def 
+        /is w string def
+        /gis w string def
+        /bis w string def
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        { cf is readhexstring pop } 
+        { cf gis readhexstring pop } 
+        { cf bis readhexstring pop } 
+        true 3 colorimage 
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPTRUEGRAYc { 
+	/d 24 def
+        gsave
+	
+	3 index 2 div add exch	
+	4 index 2 div add exch	
+	translate		
+	rotate			
+	1 index 2 div neg	
+	1 index 2 div neg	
+	translate		
+	scale			
+	/h exch def /w exch def
+	/lb w d wbytes def 
+	sl lb lt {lb ms} if 
+        /bitmapsave save def 
+        
+	/is im 0 lb getinterval def	
+	/ris im 0 w getinterval def	
+	/gis im w w getinterval def	
+	/bis im w 2 mul w getinterval def 
+        ws 0 lb getinterval is copy pop 
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        {w rip pop ris gis bis w gray} image
+        bitmapsave restore 
+        grestore
+        } bind def
+/ww FMLOCAL
+/r FMLOCAL
+/g FMLOCAL
+/b FMLOCAL
+/i FMLOCAL
+/gray { 
+        /ww exch def
+        /b exch def
+        /g exch def
+        /r exch def
+        0 1 ww 1 sub { /i exch def r i get .299 mul g i get .587 mul
+			b i get .114 mul add add r i 3 -1 roll floor cvi put } for
+        r
+        } bind def
+/BITMAPTRUEGRAY { 
+        gsave
+		
+		3 index 2 div add exch	
+		4 index 2 div add exch	
+		translate		
+		rotate			
+		1 index 2 div neg	
+		1 index 2 div neg	
+		translate		
+		scale			
+		/h exch def /w exch def
+        /bitmapsave save def 
+        /is w string def
+        /gis w string def
+        /bis w string def
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        { cf is readhexstring pop 
+          cf gis readhexstring pop 
+          cf bis readhexstring pop w gray}  image
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPGRAY { 
+	8 {fakecolorsetup} COMMONBITMAP
+	} bind def
+/BITMAPGRAYc { 
+	8 {fakecolorsetup} COMMONBITMAPc
+	} bind def
+/ENDBITMAP {
+	} bind def
+end 
+	/ALDsave FMLOCAL
+	/ALDmatrix matrix def ALDmatrix currentmatrix pop
+/StartALD {
+	/ALDsave save def
+	 savematrix
+	 ALDmatrix setmatrix
+	} bind def
+/InALD {
+	 restorematrix
+	} bind def
+/DoneALD {
+	 ALDsave restore
+	} bind def
+/I { setdash } bind def
+/J { [] 0 setdash } bind def
+%%EndProlog
+%%BeginSetup
+(4.0) FMVERSION
+1 1 0 0 595.3 841.9 0 1 8 FMDOCUMENT
+0 0 /Times-Roman FMFONTDEFINE
+1 0 /Times-Italic FMFONTDEFINE
+2 0 /Courier FMFONTDEFINE
+3 1 /ZapfDingbats FMFONTDEFINE
+4 0 /Times-Bold FMFONTDEFINE
+32 FMFILLS
+0 0 FMFILL
+1 0.1 FMFILL
+2 0.3 FMFILL
+3 0.5 FMFILL
+4 0.7 FMFILL
+5 0.9 FMFILL
+6 0.97 FMFILL
+7 1 FMFILL
+8 <0f1e3c78f0e1c387> FMFILL
+9 <0f87c3e1f0783c1e> FMFILL
+10 <cccccccccccccccc> FMFILL
+11 <ffff0000ffff0000> FMFILL
+12 <8142241818244281> FMFILL
+13 <03060c183060c081> FMFILL
+14 <8040201008040201> FMFILL
+16 1 FMFILL
+17 0.9 FMFILL
+18 0.7 FMFILL
+19 0.5 FMFILL
+20 0.3 FMFILL
+21 0.1 FMFILL
+22 0.03 FMFILL
+23 0 FMFILL
+24 <f0e1c3870f1e3c78> FMFILL
+25 <f0783c1e0f87c3e1> FMFILL
+26 <3333333333333333> FMFILL
+27 <0000ffff0000ffff> FMFILL
+28 <7ebddbe7e7dbbd7e> FMFILL
+29 <fcf9f3e7cf9f3f7e> FMFILL
+30 <7fbfdfeff7fbfdfe> FMFILL
+%%EndSetup
+%%Page: "20" 1
+%%BeginPaperSize: A4
+%%EndPaperSize
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+J
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(20) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+1 12 Q
+0 X
+(link) 81.65 735.48 T
+0 F
+0.01 (linear list of formal parameters, which is or) 117.65 736.95 P
+0.01 (ganized through) 325.44 736.95 P
+2 F
+0.02 (Object.link) 406.1 736.95 P
+0 F
+0.01 (. The \336rst) 485.3 736.95 P
+(parameter \050i.e. the object this \336eld points to\051 denotes the receiver) 117.65 722.95 T
+(.) 428.93 722.95 T
+3 8 Q
+(l) 63.65 695.48 T
+0 12 Q
+(form=strArray) 81.65 695.48 T
+1 F
+(len) 81.65 677.01 T
+0 F
+(number of elements in this dimension) 117.65 677.01 T
+1 F
+(base) 81.65 656.54 T
+0 F
+(the struct of an element in this dimension) 117.65 656.54 T
+1 F
+(link) 81.65 636.07 T
+2 F
+(NIL) 117.65 636.07 T
+3 8 Q
+(l) 63.65 608.6 T
+0 12 Q
+(form=strDynArray) 81.65 608.6 T
+1 F
+(base) 81.65 590.13 T
+0 F
+(the struct of an element in this dimension) 117.65 590.13 T
+1 F
+(link) 81.65 569.66 T
+2 F
+(NIL) 117.65 569.66 T
+3 8 Q
+(l) 63.65 542.19 T
+0 12 Q
+(form=strRecord) 81.65 542.19 T
+1 F
+(len) 81.65 523.72 T
+0 F
+-0.26 (extension level, i.e. number of extensions, which lead to this record. 0 means that there) 117.65 523.72 P
+(is no base record available.) 117.65 509.72 T
+1 F
+(base) 81.65 489.25 T
+0 F
+0.05 (the struct of the record which the current one is derived from. If) 117.65 489.25 P
+2 10 Q
+0.09 (len=0) 427.5 489.25 P
+0 12 Q
+0.05 ( holds true, this) 457.5 489.25 P
+-0.54 (\336eld is) 117.65 475.25 P
+2 F
+-1.3 (NIL) 151.9 475.25 P
+0 F
+-0.54 (. If len>0, then this \336eld points to a record structure, which could hold \336elds) 173.5 475.25 P
+0.34 (and type bound procedures, which are also visible within the current record structure.) 117.65 461.25 P
+(These \336elds are not replicated, though.) 117.65 447.25 T
+1 F
+(link) 81.65 426.78 T
+0 F
+-0.35 (a binary search tree of objects, in which all \336elds and type bound procedures belonging) 117.65 426.78 P
+(to this record are kept.) 117.65 412.78 T
+0.5 (If) 117.65 398.78 P
+1 F
+0.5 (link.mode=objField) 129.13 398.78 P
+0 F
+0.5 ( then follow the object\325) 224.89 398.78 P
+0.5 (s) 338.2 398.78 P
+2 10 Q
+0.99 (next) 346.36 398.78 P
+0 12 Q
+0.5 ( pointers to get hold of all of this) 370.36 398.78 P
+(record\325) 117.65 384.78 T
+(s \336elds in the order of declaration. This linear list is terminated with) 151.63 384.78 T
+2 F
+(NIL) 480.94 384.78 T
+0 F
+(.) 502.54 384.78 T
+2.07 (If) 117.65 370.78 P
+1 F
+2.07 (link.mode=objTBPr) 130.71 370.78 P
+2.07 (oc) 226.7 370.78 P
+0 F
+2.07 ( then no record \336elds are declared at this extension level.) 238.02 370.78 P
+-0.63 (T) 117.65 356.78 P
+-0.63 (ypebound procdures are only kept in the binary tree, not in the list of declaration order) 124.14 356.78 P
+-0.63 (.) 528.65 356.78 P
+4 18 Q
+(Appendix B.3) 63.65 317.31 T
+(Constants) 189.65 317.31 T
+2 10 Q
+(TYPE) 99.65 285.17 T
+(Const* = POINTER TO ConstDesc;) 117.65 273.17 T
+(ConstDesc* =) 117.65 261.17 T
+(RECORD) 195.65 261.17 T
+(string*) 153.65 249.17 T
+(:) 207.65 249.17 T
+(POINTER TO ARRAY OM.maxSizeString OF CHAR;) 225.65 249.17 T
+(intval*) 153.65 237.17 T
+(:) 207.65 237.17 T
+(LONGINT;) 225.65 237.17 T
+(\050* an integer constant *\051) 297.65 237.17 T
+(intval2*) 153.65 225.17 T
+(:) 207.65 225.17 T
+(LONGINT;) 225.65 225.17 T
+(set*) 153.65 213.17 T
+(:) 207.65 213.17 T
+(SET;) 225.65 213.17 T
+(\050* a set constant *\051) 297.65 213.17 T
+(real*) 153.65 201.17 T
+(:) 207.65 201.17 T
+(LONGREAL;) 225.65 201.17 T
+(\050* a real constant *\051) 297.65 201.17 T
+(END; \050* RECORD *\051) 135.65 189.17 T
+1 12 Q
+(string) 81.65 162.36 T
+0 F
+(pointer to a 0X terminated string) 117.65 162.36 T
+1 F
+(intval,intval2) 81.65 141.89 T
+0 F
+(integer constants) 148.32 141.89 T
+1 F
+(set) 81.65 121.42 T
+0 F
+(set constant) 117.65 121.42 T
+1 F
+(r) 81.65 100.95 T
+(eal) 85.87 100.95 T
+0 F
+(\050long-\051real constant) 117.65 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "20" 1
+%%Page: "19" 2
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(19) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+1 12 Q
+0 X
+(\337ags) 81.65 736.45 T
+0 F
+(\337ags set by the front end) 117.65 736.95 T
+2 F
+(flagExport) 117.65 722.95 T
+0 F
+( is set, if the struct was been written to the symbol \336le) 189.65 722.95 T
+2 F
+(flagExternal) 117.65 708.95 T
+0 F
+( is set, if the struct belongs to an external de\336nition) 204.05 708.95 T
+2 F
+(flagUnion) 117.65 694.95 T
+0 F
+( is set, if the struct \050record\051 denotes a C-union) 182.45 694.95 T
+3 8 Q
+(l) 63.65 668.45 T
+0 12 Q
+(form=strUndef) 81.65 668.45 T
+1.29 (\322unde\336ned\323 struct which is used for forward declarations as long as the type is not) 117.65 650.95 P
+(resolved, and to mark types that couldn\325) 117.65 636.95 T
+(t be determined due to compilation errors.) 310.4 636.95 T
+1 F
+(base) 81.65 617.45 T
+0 F
+(the struct itself for error recovery reasons) 117.65 617.45 T
+3 8 Q
+(l) 63.65 590.95 T
+0 12 Q
+(form={strBool, strChar) 81.65 590.95 T
+(, strShortInt, strInteger) 193.69 590.95 T
+(, strLongInt, strReal, strLongReal, strSet}) 302.53 590.95 T
+(prede\336ned types, structure of a prede\336ned type) 117.65 573.45 T
+3 8 Q
+(l) 63.65 546.95 T
+0 12 Q
+(form=strNone) 81.65 546.95 T
+(result type of a proper procedure, denoting the absence of a function result) 117.65 529.45 T
+3 8 Q
+(l) 63.65 502.95 T
+0 12 Q
+(form=strString) 81.65 502.95 T
+(type used for string constants) 117.65 485.45 T
+1 F
+(len) 81.65 465.95 T
+0 F
+(length of the string \050excl. 0X\051) 117.65 465.95 T
+1 F
+(base) 81.65 446.45 T
+2 F
+(NIL) 117.65 446.45 T
+1 F
+(link) 81.65 426.95 T
+2 F
+(NIL) 117.65 426.95 T
+3 8 Q
+(l) 63.65 400.45 T
+0 12 Q
+(form=strNil) 81.65 400.45 T
+(the type of identi\336er \322) 117.65 382.95 T
+2 F
+(NIL) 223.63 382.95 T
+0 F
+(\323) 245.23 382.95 T
+3 8 Q
+(l) 63.65 356.45 T
+0 12 Q
+(form={strSysByte, strSysPtr}) 81.65 356.45 T
+(types from module) 117.65 338.95 T
+2 F
+(SYSTEM) 211.31 338.95 T
+3 8 Q
+(l) 63.65 312.45 T
+0 12 Q
+(form=strPointer) 81.65 312.45 T
+1 F
+(base) 81.65 294.95 T
+0 F
+(type structure of the pointer) 117.65 294.95 T
+(\325) 251.4 294.95 T
+(s base type) 254.74 294.95 T
+1 F
+(link) 81.65 275.45 T
+2 F
+(NIL) 117.65 275.45 T
+3 8 Q
+(l) 63.65 248.95 T
+0 12 Q
+(form=strProc) 81.65 248.95 T
+1 F
+(len) 81.65 231.45 T
+0 F
+(number of formal parameters) 117.65 231.45 T
+1 F
+(base) 81.65 211.95 T
+0 F
+(the procedure\325) 117.65 211.95 T
+(s result type.) 186.62 211.95 T
+1 F
+(link) 81.65 192.45 T
+0 F
+0.3 (List of formal parameters, which are hold in an via) 117.65 192.45 P
+2 F
+0.71 (Object.link) 367.56 192.45 P
+0 F
+0.3 ( linked linear list.) 446.76 192.45 P
+0.63 (These formal parameters are put in the procedure\325) 117.65 178.45 P
+0.63 (s scope when calling) 361.67 178.45 P
+2 F
+1.52 (InsertPa-) 466.85 178.45 P
+(rams) 117.65 164.45 T
+0 F
+( in the front end.) 146.45 164.45 T
+3 8 Q
+(l) 63.65 137.95 T
+0 12 Q
+(form=strTBProc) 81.65 137.95 T
+1 F
+(obj) 81.65 120.45 T
+2 F
+(NIL) 117.65 120.45 T
+1 F
+(len) 81.65 100.95 T
+0 F
+(number of formal parameters incl. receiver) 117.65 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "19" 2
+%%Page: "18" 3
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(18) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+1 12 Q
+0 X
+(next) 81.65 736.76 T
+2 F
+(NIL) 117.65 736.95 T
+1 F
+(type) 81.65 717.95 T
+0 F
+-0.4 (the type bound procedure\325) 117.65 717.76 P
+-0.4 (s struct, which holds the result type and the formal parameter) 242.07 717.76 P
+(list. \050) 117.65 703.76 T
+1 F
+(type.form = strTBPr) 142.32 703.76 T
+(oc) 240.31 703.76 T
+0 F
+(\051.) 251.64 703.76 T
+3 8 Q
+(l) 63.65 677.57 T
+0 12 Q
+(mode=objT) 81.65 677.57 T
+(ype) 136.91 677.57 T
+1 F
+(link) 81.65 660.38 T
+2 F
+(NIL) 117.65 660.38 T
+1 F
+(type) 81.65 641.19 T
+0 F
+(the structure for this type.) 117.65 641.19 T
+3 8 Q
+(l) 63.65 615 T
+0 12 Q
+(mode=objForwardT) 81.65 615 T
+(ype) 177.56 615 T
+1 F
+(link) 81.65 597.81 T
+2 F
+(NIL) 117.65 597.81 T
+1 F
+(type) 81.65 578.62 T
+0 F
+(a dummy struct, which is of) 117.65 578.62 T
+2 F
+(form=strUndef) 254.64 578.62 T
+0 F
+(.) 348.24 578.62 T
+3 8 Q
+(l) 63.65 552.43 T
+0 12 Q
+(mode=objForwardProc) 81.65 552.43 T
+1 F
+(link) 81.65 535.24 T
+2 F
+(NIL) 117.65 535.24 T
+1 F
+(type) 81.65 516.05 T
+0 F
+(the struct of this procedure.) 117.65 516.05 T
+3 8 Q
+(l) 63.65 489.86 T
+0 12 Q
+(mode=objForwardTBProc) 81.65 489.86 T
+1 F
+(left,) 81.65 472.67 T
+(right) 81.65 458.67 T
+0 F
+(more objects in the current record) 117.65 458.67 T
+1 F
+(link) 81.65 439.48 T
+2 F
+(NIL) 117.65 439.48 T
+1 F
+(next) 81.65 420.29 T
+2 F
+(NIL) 117.65 420.29 T
+1 F
+(type) 81.65 401.1 T
+0 F
+(the struct of this type bound procedure.) 117.65 401.1 T
+4 18 Q
+(Appendix B.2) 63.65 362.9 T
+(Structs) 189.65 362.9 T
+0 12 Q
+(Structs are used for the internal representation of types.) 63.65 330.71 T
+2 10 Q
+(TYPE) 99.65 312.86 T
+(Struct* = POINTER TO StructDesc;) 117.65 300.86 T
+(StructDesc* =) 117.65 288.86 T
+(RECORD) 201.65 288.86 T
+(form*) 135.65 276.86 T
+(:SHORTINT;) 171.65 276.86 T
+(base*) 135.65 264.86 T
+(: Struct;) 171.65 264.86 T
+(\050* base type or function result *\051) 243.65 264.86 T
+(obj*) 135.65 252.86 T
+(: Object;) 171.65 252.86 T
+(\050* object, when named type *\051) 243.65 252.86 T
+(link*) 135.65 240.86 T
+(: Object;) 171.65 240.86 T
+(\050* the parameter list *\051) 243.65 240.86 T
+(f) 135.65 228.86 T
+(lags*) 141.65 228.86 T
+(: SET;) 171.65 228.86 T
+(len*) 135.65 216.86 T
+(: LONGINT;) 171.65 216.86 T
+(size* : LONGINT;) 135.65 204.86 T
+(END;) 117.65 192.86 T
+(\050* RECORD *\051) 153.65 192.86 T
+0 12 Q
+0.19 (As before, we will \336rstly enlist all \336elds with their meaning. Exceptions are explicitly mentioned) 63.65 167.33 P
+(afterwards.) 63.65 153.33 T
+1 F
+(form) 81.65 134.14 T
+0 F
+0.61 (T) 117.65 134.14 P
+0.61 (ype of the struct. This determines if it\325) 124.14 134.14 P
+0.61 (s a prede\336ned type \050e.g.) 312.41 134.14 P
+2 F
+1.47 (strInteger) 433.1 134.14 P
+0 F
+0.61 (\051 or a) 505.1 134.14 P
+(structured type \050e.g.) 117.65 120.14 T
+2 F
+(strArray) 216.62 120.14 T
+0 F
+(\051.) 274.22 120.14 T
+1 F
+(obj) 81.65 100.95 T
+0 F
+(an object, if the type is de\336ned as part of a type declaration, NIL otherwise) 117.65 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "18" 3
+%%Page: "17" 4
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(17) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+0 12 Q
+0 X
+(be called\051.) 117.65 736.95 T
+1 F
+(sort) 81.65 717.54 T
+0 F
+-0.23 (a linear list of objects, which is linked using the) 117.65 717.54 P
+2 F
+-0.55 (Object.sort) 347.69 717.54 P
+0 F
+-0.23 ( pointer) 426.89 717.54 P
+-0.23 (. This list con-) 463 717.54 P
+0.44 (tains all objects of the scope \050excluding imported modules or formal parameters\051 in a) 117.65 703.54 P
+-0.6 (sorted way) 117.65 689.54 P
+-0.6 (. The objects are sorted by their names using the Oberon-2 string comparison) 168.59 689.54 P
+(functions \322<\323 and \322>\323. The list starts with the \322smallest\323 identi\336er) 117.65 675.54 T
+(.) 434.82 675.54 T
+3 8 Q
+(l) 63.65 649.12 T
+0 12 Q
+(mode=objConst) 81.65 649.12 T
+1 F
+(link) 81.65 631.7 T
+2 F
+(NIL) 117.65 631.7 T
+1 F
+(type) 81.65 612.29 T
+0 F
+(the structure of a prede\336ned type. This is the type associated with this constant.) 117.65 612.29 T
+1 F
+(mark) 81.65 592.87 T
+0 F
+(export mark, only) 117.65 592.87 T
+2 F
+(exportNot) 206.3 592.87 T
+0 F
+( or) 271.1 592.87 T
+2 F
+(exportWrite) 287.1 592.87 T
+0 F
+( allowed.) 366.3 592.87 T
+1 F
+(const) 81.65 573.45 T
+0 F
+(a constant that holds the data.) 117.65 573.45 T
+3 8 Q
+(l) 63.65 547.04 T
+0 12 Q
+(mode=objV) 81.65 547.04 T
+(ar) 137.75 547.04 T
+1 F
+(link) 81.65 529.62 T
+0 F
+(the next formal parameter) 117.65 529.62 T
+(, if \050) 241.46 529.62 T
+2 F
+(flagParam IN Object.flag) 261.79 529.62 T
+0 F
+(\051 holds true.) 434.59 529.62 T
+2 F
+(NIL) 117.65 515.62 T
+0 F
+(, if no more formal parameters follow or) 139.25 515.62 T
+2 F
+(flagParam) 336.2 515.62 T
+0 F
+( is not set) 401 515.62 T
+1 F
+(\337ags) 81.65 496.2 T
+2 F
+(flagParam) 117.65 496.2 T
+0 F
+( is set, if part of a formal parameter list) 182.45 496.2 T
+3 8 Q
+(l) 63.65 469.79 T
+0 12 Q
+(mode=objV) 81.65 469.79 T
+(arPar) 137.75 469.79 T
+1 F
+(link) 81.65 452.37 T
+0 F
+(the next formal parameter) 117.65 452.37 T
+(,) 241.46 452.37 T
+2 F
+(NIL) 247.46 452.37 T
+0 F
+( if no more formal parameters follow) 269.06 452.37 T
+1 F
+(\337ags) 81.65 432.95 T
+2 F
+(flagParam) 117.65 432.95 T
+0 F
+( is always set) 182.45 432.95 T
+3 8 Q
+(l) 63.65 406.54 T
+0 12 Q
+(mode=objField) 81.65 406.54 T
+1 F
+(scope) 81.65 389.12 T
+2 F
+(NIL) 117.65 389.12 T
+1 F
+(left,) 81.65 369.7 T
+(right) 81.65 355.7 T
+0 F
+0.43 (other \336elds and type bound procedures belonging to the record, or) 117.65 355.7 P
+0.43 (ganised as a binary) 438.7 355.7 P
+(tree.) 117.65 341.7 T
+1 F
+(link) 81.65 322.29 T
+2 F
+(NIL) 117.65 322.29 T
+1 F
+(next) 81.65 302.87 T
+0 F
+(the next \336eld object declared in the corresponding record.) 117.65 302.87 T
+2 F
+(NIL) 397.58 302.87 T
+0 F
+(, if no \336eld follows) 419.18 302.87 T
+3 8 Q
+(l) 63.65 276.45 T
+0 12 Q
+(mode={objExtProc,objIntProc,objLocalProc}) 81.65 276.45 T
+1 F
+(link) 81.65 259.04 T
+0 F
+5.4 (the anchor of the procedure\325) 117.65 259.04 P
+5.4 (s scope, in which all local objects are stored.) 274.52 259.04 P
+(\050) 117.65 245.04 T
+1 F
+(link.mode=objScope) 121.64 245.04 T
+0 F
+(\051.) 220.73 245.04 T
+1 F
+(type) 81.65 225.62 T
+0 F
+0.39 (the struct of this procedure, which holds the result type and the formal parameter list.) 117.65 225.62 P
+(\050) 117.65 211.62 T
+1 F
+(type.form = strPr) 121.64 211.62 T
+(oc\051.) 205.63 211.62 T
+(mark) 81.65 192.2 T
+0 F
+(export mark,) 117.65 192.2 T
+2 F
+(exportNot) 181.97 192.2 T
+0 F
+( or) 246.77 192.2 T
+2 F
+(exportWrite) 262.76 192.2 T
+3 8 Q
+(l) 63.65 165.79 T
+0 12 Q
+(mode=objTBProc) 81.65 165.79 T
+1 F
+(left,) 81.65 148.37 T
+(right) 81.65 134.37 T
+0 F
+0.67 (more objects in the record this type bound procedure belongs to.) 117.65 134.37 P
+1 F
+0.67 (\050left|right\051.mode IN) 437.01 134.37 P
+({objTBPr) 117.65 120.37 T
+(oc, objField}) 163.34 120.37 T
+(link) 81.65 100.95 T
+0 F
+(the scope anchor for this type bound procedure. \050) 117.65 100.95 T
+1 F
+(link.mode = objScope) 353.26 100.95 T
+0 F
+(\051.) 458.34 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "17" 4
+%%Page: "16" 5
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(16) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+1 12 Q
+0 X
+(const) 81.65 736.23 T
+2 F
+(NIL) 117.65 736.95 T
+0 F
+(, except for module and constant objects) 139.25 736.95 T
+1 F
+(name) 81.65 717.95 T
+0 F
+(identi\336er of the object) 117.65 717.23 T
+1 F
+(extName) 81.65 697.51 T
+0 F
+(external name of the object, if not) 123.64 697.51 T
+2 F
+(NIL) 288.94 697.51 T
+1 F
+(next) 81.65 677.79 T
+0 F
+(the next object in the order of declaration) 117.65 677.79 T
+1 F
+(pos) 81.65 658.06 T
+0 F
+(position of the object in the source code) 117.65 658.06 T
+1 F
+(mark) 81.65 638.34 T
+0 F
+(export mark. Possible values are) 117.65 638.34 T
+2 F
+(exportNot) 276.29 638.34 T
+0 F
+(,) 341.09 638.34 T
+2 F
+(exportRead) 347.09 638.34 T
+0 F
+( or) 419.09 638.34 T
+2 F
+(exportWrite) 435.08 638.34 T
+0 F
+(.) 514.28 638.34 T
+1 F
+(type) 81.65 618.62 T
+0 F
+(a) 117.65 618.62 T
+1 F
+(struct) 125.98 618.62 T
+0 F
+( which describles the type structure of the object) 153.31 618.62 T
+1 F
+(\337ags) 81.65 598.9 T
+0 F
+(various \337ags set by the front end to give additional information to the backend) 117.65 598.9 T
+2 F
+(flagExport) 117.65 584.9 T
+0 F
+( is set, if the corresponding object is written into the symbol \336le) 189.65 584.9 T
+2 F
+(flagParam) 117.65 570.9 T
+0 F
+( is set, if the corresponding object is a formal parameter) 182.45 570.9 T
+2 F
+(flagReceiver) 117.65 556.9 T
+0 F
+( is set, if the corresponding formal parameter is a receiver) 204.05 556.9 T
+2 F
+-0.55 (flagForward) 117.65 542.9 P
+0 F
+-0.23 ( is set, if the corresponding object was declared forward \050type or proc\051) 196.85 542.9 P
+2 F
+(flagHasLocalProc) 117.65 528.9 T
+0 F
+( is set, if local procedures are declared in the scope) 232.85 528.9 T
+2 F
+(flagEmptyBody) 117.65 514.9 T
+0 F
+( is set, if the procedure\325) 211.25 514.9 T
+(s body is empty) 323.89 514.9 T
+2 F
+(flagExternal) 117.65 500.9 T
+0 F
+( is set, if the object belongs to an external de\336nition \050s.a. extName\051) 204.05 500.9 T
+2 F
+-1.08 (flagAddressed) 117.65 486.9 P
+0 F
+-0.45 (is set for an object in Object.\337ags, if it is passed as a variable para-) 217.36 486.9 P
+4.64 (meter to a normal \050ie, not prede\336ned\051 procedure or is used as ar) 117.65 472.9 P
+4.64 (gument of) 478.01 472.9 P
+2 F
+(SYSTEM.ADR) 117.65 458.9 T
+3 8 Q
+(l) 63.65 432.17 T
+0 12 Q
+(mode=objUndef) 81.65 432.17 T
+(unde\336ned object, signals error conditions) 117.65 414.45 T
+3 8 Q
+(l) 63.65 387.73 T
+0 12 Q
+(mode=objModule) 81.65 387.73 T
+1 F
+(link) 81.65 370.01 T
+0 F
+0.93 (the scope anchor of the module \050) 117.65 370.01 P
+1 F
+0.93 (link.mode=objScope) 280.53 370.01 P
+0 F
+0.93 (\051. All globally declared objects) 379.61 370.01 P
+(are inserted into this scope.) 117.65 356.01 T
+1 F
+(const) 81.65 336.29 T
+0 F
+-0.64 (constant that holds the symbol \336le key \050checksum\051. This key is only valid, if the module) 117.65 336.29 P
+0.05 (was imported \050) 117.65 322.29 P
+2 F
+0.12 (mnolev <= systemMnolev) 189.74 322.29 P
+0 F
+0.05 (\051, otherwise it will be calculated when) 348.38 322.29 P
+(the symbol \336le is written.) 117.65 308.29 T
+3 8 Q
+(l) 63.65 281.56 T
+0 12 Q
+(mode=objScope) 81.65 281.56 T
+1 F
+(scope) 81.65 263.84 T
+0 F
+-0.49 (the enclosing scope. This is the way to get from an inner scope to an enclosing one. The) 117.65 263.84 P
+(scopes are layered through this mechanism.) 117.65 249.84 T
+1 F
+(\050scope.mode=objScope) 329.94 249.84 T
+0 F
+(\051.) 442.34 249.84 T
+1 F
+(left) 81.65 230.12 T
+0 F
+(pointer to the scope\325) 117.65 230.12 T
+(s object. \050) 215.3 230.12 T
+1 F
+(left.mode IN {obj*Pr) 262.3 230.12 T
+(oc, obj*TBPr) 362.32 230.12 T
+(oc, objModule}) 426.54 230.12 T
+0 F
+(\051) 500.66 230.12 T
+1 F
+(link) 81.65 210.4 T
+0 F
+(pointer to the root of the scope\325) 117.65 210.4 T
+(s binary search tree.) 268.3 210.4 T
+1 F
+(right) 81.65 190.67 T
+0 F
+0.19 (pointer to the scope\325) 117.65 190.67 P
+0.19 (s \336rst declared object. T) 215.88 190.67 P
+0.19 (o walk through the objects in the order of) 331.46 190.67 P
+-0.1 (declaration, use this pointer and follow the object\325) 117.65 176.67 P
+-0.1 (s) 357.6 176.67 P
+2 F
+-0.24 (next) 365.17 176.67 P
+0 F
+-0.1 ( pointers. Formal parameters) 393.97 176.67 P
+0.78 (are not part of this list. They are only accessible via the procedure\325) 117.65 162.67 P
+0.78 (s) 446.56 162.67 P
+1 F
+0.78 (struct) 455 162.67 P
+0 F
+0.78 ( or can be) 482.34 162.67 P
+(found in the binary search tree.) 117.65 148.67 T
+1 F
+(next) 81.65 128.95 T
+0 F
+1.63 (After a call of) 117.65 128.95 P
+2 F
+3.9 (CloseScope) 194.12 128.95 P
+0 F
+1.63 ( at) 266.12 128.95 P
+2 F
+3.9 (mnolev=compileMnolev) 284.04 128.95 P
+0 F
+1.63 ( a list \050or) 428.04 128.95 P
+1.63 (ganised via) 475.7 128.95 P
+2 F
+1.43 (Object.next) 117.65 114.95 P
+0 F
+0.59 (\051 of all imported modules is linked to this pointer) 196.85 114.95 P
+0.59 (. This holds always) 437.2 114.95 P
+0.29 (true for the symbol tree after the symbol \336le is written \050i.e. when the back end should) 117.65 100.95 P
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "16" 5
+%%Page: "15" 6
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(15) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 18 Q
+0 X
+(Appendix B) 63.65 732.95 T
+(Description of the Symbol T) 171.65 732.95 T
+(able) 385.99 732.95 T
+0 12 Q
+2.95 (The symbol table is build out of three major elements:) 63.65 699.59 P
+2 F
+7.07 (objects) 356.44 699.59 P
+0 F
+2.95 ( for named declarations,) 406.84 699.59 P
+2 F
+0.21 (structs) 63.65 685.59 P
+0 F
+0.09 ( as an abstract type description and) 114.05 685.59 P
+2 F
+0.21 (consts) 285.63 685.59 P
+0 F
+0.09 ( for holding constant values. The manage-) 328.83 685.59 P
+(ment of the symbol table is implemented in module) 63.65 671.59 T
+2 10 Q
+(OTable) 313.98 671.59 T
+2 12 Q
+(.) 349.98 671.59 T
+4 18 Q
+(Appendix B.1) 63.65 632.23 T
+(Objects) 189.65 632.23 T
+2 10 Q
+(TYPE) 99.65 600.19 T
+(Object = POINTER TO ObjectDesc;) 117.65 588.19 T
+(ObjectDesc* =) 117.65 576.19 T
+(RECORD) 201.65 576.19 T
+(mode*) 135.65 564.19 T
+(: SHORTINT;) 189.65 564.19 T
+(\050* kind of object *\051) 261.65 564.19 T
+(scope-) 135.65 552.19 T
+(: Object;) 189.65 552.19 T
+( \050* the object\325s scope *\051) 243.65 552.19 T
+(left*,right*) 135.65 540.19 T
+(: Object;) 207.65 540.19 T
+(link*) 135.65 528.19 T
+(: Object; \050* internal pointer for objects *\051) 189.65 528.19 T
+(next*) 135.65 516.2 T
+(: Object; \050* the next object in declaration sequence *\051) 189.65 516.2 T
+(sort-) 135.65 504.2 T
+(: Object; \050* the next object in alphabetic order *\051) 189.65 504.2 T
+(name*) 135.65 492.2 T
+(: ARRAY OMachine.maxSizeIdent OF CHAR;) 189.65 492.2 T
+(extName* : POINTER TO ARRAY OMachine.maxSizeString OF CHAR;) 135.65 480.2 T
+(mark*) 135.65 468.2 T
+(: SHORTINT; \050* state of export *\051) 189.65 468.2 T
+(type*) 135.65 456.2 T
+(: Struct;) 189.65 456.2 T
+(const*) 135.65 444.2 T
+(: Const;) 189.65 444.2 T
+(f) 135.65 432.2 T
+(lags*) 141.65 432.2 T
+(: SET;) 189.65 432.2 T
+(mnolev*) 135.65 420.2 T
+(: LONGINT;) 189.65 420.2 T
+(pos) 135.65 408.2 T
+(: LONGINT; \050* source position of the object *\051) 189.65 408.2 T
+(END; \050* RECORD *\051) 117.65 396.2 T
+0 12 Q
+-0.02 (Objects are or) 63.65 369.5 P
+-0.02 (ganized in a lexicographic sorted binary tree within their scope. They are linked via) 130.7 369.5 P
+(the \336elds) 63.65 355.5 T
+2 F
+(Object.left) 110.32 355.5 T
+0 F
+( and) 189.52 355.5 T
+2 F
+(Object.right) 212.84 355.5 T
+0 F
+(.) 299.24 355.5 T
+(Here a short description of the \336elds. Dif) 63.65 335.13 T
+(ferences from these are enlisted explicitly later) 260.06 335.13 T
+(.) 484.01 335.13 T
+1 F
+(mode) 81.65 314.77 T
+0 F
+-0.64 (This is the \336eld which identi\336es the object, i.e. if it\325) 117.65 314.77 P
+-0.64 (s a procedure, a module or a variable) 358.88 314.77 P
+(declaration.) 117.65 300.77 T
+1 F
+(left) 81.65 280.41 T
+0 F
+(an object with a \322smaller\323 identi\336er) 117.65 280.41 T
+1 F
+(right) 81.65 260.04 T
+0 F
+(an object with a \322greater\323 identi\336er) 117.65 260.04 T
+1 F
+(scope) 81.65 239.68 T
+0 F
+-0.14 (the scope anchor of the scope in which this object was declared) 117.65 239.68 P
+1 F
+-0.14 (scope.mode=objScope) 423.24 239.68 P
+(sort) 81.65 219.32 T
+0 F
+(the next object in the sort order) 117.65 219.32 T
+1 F
+(mnolev) 81.65 198.95 T
+0 F
+(de\336nitionlevel of the object) 117.65 198.95 T
+2 F
+(predeclMnolev) 117.65 184.95 T
+0 F
+(: prede\336ned identi\336er) 211.25 184.95 T
+2 F
+(systemMnolev) 117.65 170.95 T
+0 F
+(: identi\336er of internal module) 204.05 170.95 T
+2 F
+(SYSTEM) 348.37 170.95 T
+0 F
+(<=) 117.65 156.95 T
+2 F
+(systemMnolev) 131.18 156.95 T
+0 F
+(: identi\336er from imported module) 217.58 156.95 T
+2 F
+4.43 (compileMnolev) 117.65 142.95 P
+0 F
+1.85 (: declared on global module level \050i.e. 0\051 of currently compiled) 211.25 142.95 P
+(module) 117.65 128.95 T
+-0.57 (>) 117.65 114.95 P
+2 F
+-1.38 (compileMnolev) 124.42 114.95 P
+0 F
+-0.57 (: nesting depth of the procedure holding this object. For every pro-) 218.02 114.95 P
+(cedure this value is increased by1) 117.65 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "15" 6
+%%Page: "14" 7
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(14) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 18 Q
+0 X
+(Appendix A.7) 63.65 732.95 T
+(Simpli\336cations of the Syntax T) 189.65 732.95 T
+(r) 424.35 732.95 T
+(ee) 432.02 732.95 T
+0 12 Q
+(During compilation the parser executes the following simpli\336cations:) 63.65 697.83 T
+3 8 Q
+(l) 63.65 675.7 T
+0 12 Q
+(Constant Folding) 81.65 675.7 T
+0.12 (Calls to prede\336ned functions and operators with constant operands are evaluated during com-) 81.65 661.7 P
+(pilation and replaced by a constant.) 81.65 647.7 T
+-0.73 (Note: There are no checks for over\337ow) 81.65 633.7 P
+-0.73 (, expressions like) 265.09 633.7 P
+2 F
+-1.75 (MAX\050LONGINT\051+1) 348.89 633.7 P
+0 F
+-0.73 (will be accepted) 455.13 633.7 P
+(without a warning.) 81.65 619.7 T
+3 8 Q
+(l) 63.65 597.58 T
+0 12 Q
+(Boolean Simpli\336cations) 81.65 597.58 T
+-0.05 (The shortcut evaluation of) 81.65 583.58 P
+2 F
+-0.13 (&) 210.75 583.58 P
+0 F
+-0.05 ( and) 217.95 583.58 P
+2 F
+-0.13 (OR) 241.17 583.58 P
+0 F
+-0.05 ( allows to reduce some expressions if one of the operands) 255.57 583.58 P
+(is a constant:) 81.65 569.58 T
+3 8 Q
+(l) 63.65 352.45 T
+0 12 Q
+(Folding of Conversion Nodes) 81.65 352.45 T
+-0.19 (T) 81.65 338.45 P
+-0.19 (ype changes of constants are done during compilation. For all other expressions type conver-) 88.14 338.45 P
+(sion nodes are joined as far as possible.) 81.65 324.45 T
+(Example:) 99.65 302.33 T
+2 10 Q
+(VAR si : SHORTINT; i : INTEGER; li : LONGINT; ch : CHAR;) 99.65 281.54 T
+(i := LONG \050SHORT \050i\051\051;) 99.65 269.54 T
+(li := LONG \050ORD \050ch\051\051;) 99.65 257.54 T
+(li := LONG \050LONG \050si\051\051;) 99.65 245.54 T
+(si := SHORT \050SHORT \050li\051\051;) 99.65 233.54 T
+(li := LONG \050ORD \050"a"\051\051;) 99.65 221.54 T
+0 12 Q
+1.88 (The \336rst expression needs two conversion node, the following three just one and the last) 81.65 193.08 P
+(expression will be translated into a single constant.) 81.65 179.08 T
+3 8 Q
+(l) 63.65 156.95 T
+0 12 Q
+(Unreachable) 81.65 156.95 T
+2 F
+(IF) 145.28 156.95 T
+0 F
+( and) 159.68 156.95 T
+2 F
+(WITH) 183.01 156.95 T
+0 F
+( Branches) 211.81 156.95 T
+0.14 (Branches in) 81.65 142.95 P
+2 F
+0.34 (IF) 141.92 142.95 P
+0 F
+0.14 ( statements are eliminated if they can\325) 156.32 142.95 P
+0.14 (t be reached due to constant guards. If a) 339.58 142.95 P
+0.34 (type test in a) 81.65 128.95 P
+2 F
+0.82 (WITH) 147.02 128.95 P
+0 F
+0.34 ( statement can never be evaluated to) 175.82 128.95 P
+2 F
+0.82 (TRUE) 355.17 128.95 P
+0 F
+0.34 (, because a preceding type test) 383.97 128.95 P
+-0.37 (tests the same variable against a base type, then the whole block will be removed. Additionally) 81.65 114.95 P
+(a warning is emitted.) 81.65 100.95 T
+4 F
+(T) 146.7 545.58 T
+(abelle 1:) 153.6 545.58 T
+0 F
+(expression) 91.99 519.58 T
+(will be replaced by) 179.83 519.58 T
+2 F
+(FALSE OR b) 69.65 495.58 T
+(b) 177.65 495.58 T
+(TRUE OR b) 69.65 473.58 T
+(TRUE) 177.65 473.58 T
+(FALSE & b) 69.65 451.58 T
+(FALSE) 177.65 451.58 T
+(TRUE & b) 69.65 429.58 T
+(b) 177.65 429.58 T
+(b OR FALSE) 69.65 407.58 T
+(b) 177.65 407.58 T
+(b & TRUE) 69.65 385.58 T
+(b) 177.65 385.58 T
+63.65 535.33 63.65 377.83 2 L
+V
+0.5 H
+0 Z
+N
+171.65 535.83 171.65 377.33 2 L
+V
+N
+279.65 535.33 279.65 377.83 2 L
+V
+N
+63.4 535.58 279.9 535.58 2 L
+V
+N
+63.9 510.83 279.4 510.83 2 L
+V
+N
+63.9 508.33 279.4 508.33 2 L
+V
+N
+63.4 487.58 279.9 487.58 2 L
+V
+N
+63.4 465.58 279.9 465.58 2 L
+V
+N
+63.4 443.58 279.9 443.58 2 L
+V
+N
+63.4 421.58 279.9 421.58 2 L
+V
+N
+63.4 399.58 279.9 399.58 2 L
+V
+N
+63.4 377.58 279.9 377.58 2 L
+V
+N
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "14" 7
+%%Page: "13" 8
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(13) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 12 Q
+0 X
+(IF-Statement) 63.65 736.95 T
+2 10 Q
+(VAR) 99.65 719.29 T
+(b0, b1, b2: BOOLEAN;) 117.65 695.29 T
+(...) 99.65 683.29 T
+(IF b0 THEN) 99.65 671.29 T
+(...) 117.65 659.29 T
+(ELSIF b1 THEN) 99.65 647.29 T
+(...) 117.65 635.29 T
+(ELSIF FALSE & b2 THEN) 99.65 623.29 T
+(...) 117.65 599.29 T
+(ELSE) 99.65 587.29 T
+(...) 117.65 575.29 T
+(END) 99.65 563.29 T
+0 12 Q
+-0.07 (The parser recognizes that) 63.65 179.95 P
+2 F
+-0.17 (FALSE & b2) 192.65 179.95 P
+0 F
+-0.07 ( can be simpli\336ed to) 264.31 179.95 P
+2 F
+-0.17 (FALSE) 364.29 179.95 P
+0 F
+-0.07 (. This causes the associated) 400.29 179.95 P
+2 F
+(IF) 63.65 165.95 T
+0 F
+( branch to become unreachable and the whole branch is eliminated.) 78.05 165.95 T
+63.65 96.95 531.65 744.95 C
+63.71 201.95 531.58 559.95 C
+0 0 0 1 0 0 0 K
+J
+0 0 0 1 0 0 0 K
+J
+246.54 462.45 312.21 531.45 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0.5 H
+2 Z
+0 X
+N
+2 10 Q
+(ndIfElse) 256.01 517.32 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+164.19 411.33 152.54 408.46 160.9 417.07 162.54 414.2 4 Y
+V
+246.54 462.45 162.55 414.2 2 L
+N
+332.46 449.88 339.21 439.95 328.23 444.8 330.35 447.34 4 Y
+V
+312.21 462.45 330.35 447.34 2 L
+N
+140.88 237.45 206.54 306.45 R
+7 X
+V
+0 X
+N
+(ndVar) 159.35 292.32 T
+(BOOLEAN) 153.35 268.5 T
+(b0) 168.35 256.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+152.54 339.45 218.21 408.45 R
+7 X
+V
+0 X
+N
+(ndId) 174.01 394.32 T
+147.84 316.23 140.88 306.46 141.6 318.43 144.72 317.33 4 Y
+V
+152.54 339.45 144.72 317.33 2 L
+N
+236.31 317.92 239.87 306.46 230.78 314.29 233.54 316.1 4 Y
+V
+218.21 339.45 233.55 316.1 2 L
+N
+338.88 215.45 404.54 284.45 R
+7 X
+V
+0 X
+N
+(ndVar) 357.35 270.32 T
+(BOOLEAN) 351.35 246.5 T
+(b1) 366.35 234.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+350.54 317.45 416.21 386.45 R
+7 X
+V
+0 X
+N
+(ndIf) 372.01 372.32 T
+345.84 294.23 338.87 284.46 339.6 296.43 342.72 295.33 4 Y
+V
+350.54 317.45 342.72 295.33 2 L
+N
+434.3 295.92 437.87 284.46 428.77 292.29 431.54 294.1 4 Y
+V
+416.21 317.45 431.55 294.1 2 L
+N
+(ELSE-) 339.21 439.95 T
+(statements) 339.21 429.95 T
+J
+339.7 391.61 350.54 386.46 338.62 385.09 339.16 388.35 4 Y
+V
+218.21 408.45 339.17 388.34 2 L
+N
+(statements) 241.21 295.95 T
+(statements) 440.21 271.95 T
+J
+235.29 535.61 246.54 531.45 234.79 529.01 235.04 532.31 4 Y
+V
+J
+159.46 537.95 235.04 532.31 2 L
+J
+159.46 537.95 160.21 537.9 2 L
+N
+[1.457 4.37] 1.457 I
+160.21 537.9 234.29 532.37 2 L
+N
+J
+234.29 532.37 235.04 532.31 2 L
+N
+J
+417.46 520.76 428.46 515.95 416.59 514.2 417.02 517.48 4 Y
+V
+J
+312.21 531.45 417.03 517.48 2 L
+J
+312.21 531.45 312.95 531.35 2 L
+N
+[1.468 4.405] 1.468 I
+312.95 531.35 416.28 517.58 2 L
+N
+J
+416.28 517.58 417.03 517.48 2 L
+N
+63.65 96.95 531.65 744.95 C
+0 -158.1 1000 841.9 C
+J
+0 0 0 1 0 0 0 K
+J
+FMENDPAGE
+%%EndPage: "13" 8
+%%Page: "12" 9
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(12) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 12 Q
+0 X
+(Pr) 63.65 736.95 T
+(ocedur) 76.09 736.95 T
+(e Call) 111.2 736.95 T
+2 10 Q
+(VAR) 99.65 719.29 T
+(a : SHORTINT;) 117.65 707.29 T
+(r : R;) 117.65 683.29 T
+(...) 117.65 671.29 T
+(r. B \050TRUE\051;) 99.65 659.29 T
+(A\0502, a\051;) 99.65 635.29 T
+0 12 Q
+0.45 (In the nodes) 63.65 242.95 P
+2 F
+1.09 (ndProc) 126.67 242.95 P
+0 F
+0.45 ( and) 169.87 242.95 P
+2 F
+1.09 (ndTBProc) 194.1 242.95 P
+0 F
+0.45 ( the \336eld) 251.7 242.95 P
+1 F
+0.45 (type) 298.06 242.95 P
+0 F
+0.45 ( \050in the table above it is labeled as) 318.05 242.95 P
+2 F
+1.09 (PROCE-) 488.45 242.95 P
+-0.1 (DURE) 63.65 228.95 P
+0 F
+-0.04 (\051 contains a link to the data type that is associated with each procedure. It describes the pro-) 92.45 228.95 P
+2.08 (cedure\325) 63.65 214.95 P
+2.08 (s formal parameter list and it\325) 98.96 214.95 P
+2.08 (s result type. When calling a type bound procedure the) 251 214.95 P
+(receiver is encoded as part of the procedure designator) 63.65 200.95 T
+(.) 324.9 200.95 T
+63.65 96.95 531.65 744.95 C
+63.65 288.95 531.65 631.95 C
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+268.28 412.45 333.95 481.45 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0.5 H
+2 Z
+0 X
+N
+2 10 Q
+(ndProc) 283.75 467.32 T
+(PROCEDURE) 274.75 443.5 T
+(A) 298.75 431.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+279.95 514.45 345.61 583.45 R
+7 X
+V
+0 X
+N
+(ndCall) 295.42 569.32 T
+(noType) 295.42 545.5 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+275.24 491.23 268.28 481.45 269.01 493.43 272.12 492.33 4 Y
+V
+279.95 514.45 272.13 492.33 2 L
+N
+363.71 492.91 367.27 481.46 358.18 489.28 360.94 491.1 4 Y
+V
+345.61 514.45 360.95 491.09 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+367.57 411.95 433.24 480.95 R
+7 X
+V
+0 X
+N
+(ndConst) 380.04 466.82 T
+(INTEGER) 380.04 443 T
+(2) 398.04 419.18 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+82.28 434.45 147.95 503.05 R
+7 X
+V
+0 X
+N
+(ndTBProc) 91.75 488.99 T
+(PROCEDURE) 88.75 465.31 T
+(B) 112.75 453.47 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+93.95 535.86 159.61 604.45 R
+7 X
+V
+0 X
+N
+(ndCall) 109.42 590.39 T
+(noType) 109.42 566.71 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+89.26 512.81 82.28 503.05 83.03 515.03 86.14 513.92 4 Y
+V
+93.95 535.86 86.15 513.92 2 L
+N
+177.68 514.5 181.28 503.05 172.16 510.85 174.92 512.68 4 Y
+V
+159.61 535.86 174.92 512.68 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+450.45 310.45 516.11 379.45 R
+7 X
+V
+0 X
+N
+(ndVar) 468.92 365.32 T
+(SHORTINT) 459.92 341.5 T
+(a) 480.92 329.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+462.11 412.45 527.78 481.45 R
+7 X
+V
+0 X
+N
+(ndConv) 477.58 467.32 T
+(INTEGER) 474.58 443.5 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+457.41 389.23 450.44 379.46 451.17 391.43 454.29 390.33 4 Y
+V
+462.11 412.45 454.29 390.33 2 L
+N
+180.95 434.45 246.61 503.45 R
+7 X
+V
+0 X
+N
+(ndConst) 193.42 489.32 T
+(BOOLEAN) 193.42 465.5 T
+(TRUE) 202.42 453.59 T
+(1) 211.42 441.68 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.95 328.45 129.61 397.45 R
+7 X
+V
+0 X
+N
+(ndVar) 82.42 383.32 T
+(R) 94.42 359.5 T
+(r) 94.42 347.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+72.03 406.33 63.95 397.46 66.11 409.26 69.07 407.79 4 Y
+V
+82.28 434.45 69.07 407.79 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+269.15 588.69 279.95 583.45 268.01 582.18 268.58 585.44 4 Y
+V
+159.61 604.45 268.58 585.44 2 L
+N
+450.52 484.56 462.11 481.45 450.64 477.95 450.58 481.25 4 Y
+V
+433.24 480.95 450.58 481.25 2 L
+N
+J
+83.19 609.78 93.95 604.45 82.01 603.27 82.6 606.52 4 Y
+V
+J
+63.78 609.95 82.6 606.52 2 L
+J
+63.78 609.95 64.52 609.82 2 L
+N
+[1.603 4.808] 1.603 I
+64.52 609.82 81.86 606.66 2 L
+N
+J
+81.86 606.66 82.6 606.52 2 L
+N
+J
+425.74 576.68 436.77 571.95 424.91 570.12 425.33 573.4 4 Y
+V
+J
+345.61 583.45 425.34 573.4 2 L
+J
+345.61 583.45 346.36 583.36 2 L
+N
+[1.434 4.301] 1.434 I
+346.36 583.36 424.59 573.49 2 L
+N
+J
+424.59 573.49 425.34 573.4 2 L
+N
+J
+63.65 96.95 531.65 744.95 C
+-8.35 24.95 603.65 816.95 C
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "12" 9
+%%Page: "11" 10
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(11) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 12 Q
+0 X
+(Module) 63.65 736.95 T
+2 10 Q
+(MODULE M;) 99.65 713.29 T
+(TYPE) 99.65 686.91 T
+(R = POINTER TO RDesc;) 117.65 673.72 T
+(RDesc = RECORD END;) 117.65 660.54 T
+(PROCEDURE A \050x, y : INTEGER\051;) 99.65 634.16 T
+(BEGIN ...) 117.65 620.97 T
+(END A;) 117.65 607.79 T
+(PROCEDURE \050r : R\051 B \050b : BOOLEAN\051;) 99.65 594.6 T
+(PROCEDURE C;) 117.65 581.41 T
+(BEGIN ...) 135.65 568.22 T
+(END C;) 135.65 555.04 T
+(BEGIN ...) 117.65 541.85 T
+(END B;) 117.65 528.66 T
+(BEGIN ...) 99.65 515.47 T
+(END M.) 99.65 502.29 T
+63.65 96.95 531.65 744.95 C
+99.61 128.95 495.69 498.95 C
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+171.61 280.95 237.28 349.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0.5 H
+0 Z
+0 X
+N
+2 10 Q
+(ndEnter) 184.08 335.82 T
+(A) 202.08 300.09 T
+120.28 394.95 185.94 463.95 R
+7 X
+V
+2 Z
+0 X
+N
+(ndEnter) 132.74 449.82 T
+(NIL) 144.74 414.09 T
+164.49 360.09 170.92 349.96 160.1 355.14 162.3 357.62 4 Y
+V
+120.28 394.95 162.3 357.61 2 L
+7 X
+V
+0 X
+N
+202.76 379.93 207.61 368.96 197.68 375.7 200.22 377.82 4 Y
+V
+185.94 394.95 200.23 377.81 2 L
+7 X
+V
+0 X
+N
+327.61 161.95 393.28 230.95 R
+7 X
+V
+0 Z
+0 X
+N
+(ndEnter) 340.08 216.82 T
+(C) 358.08 193 T
+282.27 265.95 347.94 334.95 R
+7 X
+V
+0 X
+N
+(ndEnter) 294.74 320.82 T
+(B) 312.74 285.09 T
+319.44 240.71 326.42 230.95 315.33 235.53 317.38 238.12 4 Y
+V
+282.27 265.95 317.38 238.12 2 L
+7 X
+V
+2 Z
+0 X
+N
+369.08 256.05 376.92 246.96 365.46 250.52 367.27 253.28 4 Y
+V
+347.94 265.95 367.27 253.28 2 L
+7 X
+V
+0 X
+N
+206.47 461.38 216.61 454.95 204.61 455.03 205.54 458.2 4 Y
+V
+185.94 463.95 205.54 458.2 2 L
+N
+(statements) 195.61 362.02 T
+272.38 341.74 282.27 334.95 270.28 335.46 271.33 338.6 4 Y
+V
+237.28 349.95 271.33 338.6 2 L
+N
+226.25 261.1 216.61 253.95 220.99 265.12 223.62 263.11 4 Y
+V
+237.28 280.95 223.62 263.11 2 L
+N
+(statements) 189.61 244.95 T
+(statements) 376.61 238.95 T
+415.41 150.33 422.91 140.96 411.59 144.93 413.5 147.63 4 Y
+V
+393.28 161.95 413.51 147.62 2 L
+N
+(statements) 423.61 133.95 T
+J
+119.04 475.89 120.28 463.95 112.9 473.42 115.97 474.66 4 Y
+V
+J
+108.61 492.95 115.97 474.65 2 L
+J
+108.61 492.95 108.89 492.26 2 L
+N
+[1.215 3.645] 1.215 I
+108.89 492.26 115.69 475.35 2 L
+N
+J
+115.69 475.35 115.97 474.65 2 L
+N
+J
+213.61 386.95 279.28 455.95 R
+7 X
+V
+0 X
+N
+(ndInitTd) 223.08 441.82 T
+(RDesc) 232.08 418 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 C
+-8.35 24.95 603.65 816.95 C
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "11" 10
+%%Page: "10" 11
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(10) 292.65 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 12 Q
+0 X
+(Set Arithmetics) 63.65 736.95 T
+2 10 Q
+(CONST) 99.65 719.29 T
+(c = {0..7};) 117.65 707.29 T
+(VAR) 99.65 695.29 T
+(x : SHORTINT;) 117.65 683.29 T
+(s : SET;) 117.65 671.29 T
+(...) 117.65 659.29 T
+(s := \050c + {8..15}\051 * {0..x};) 99.65 647.29 T
+0 12 Q
+(The constant expression) 63.65 191.95 T
+2 F
+(c+{8..15}) 182.63 191.95 T
+0 F
+( will be translated into) 247.43 191.95 T
+2 F
+({0..15}) 357.76 191.95 T
+0 F
+( during parsing.) 408.16 191.95 T
+63.65 96.95 531.65 744.95 C
+89.04 213.95 506.26 643.95 C
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+127.6 445.95 193.27 514.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0.5 H
+2 Z
+0 X
+N
+2 10 Q
+(ndVar) 146.07 500.82 T
+(SET) 152.07 477 T
+(s) 158.07 465.09 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+139.27 547.95 204.94 616.95 R
+7 X
+V
+0 X
+N
+(ndAssign) 148.74 602.82 T
+(scAssign) 148.74 590.91 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+134.56 524.73 127.6 514.95 128.33 526.93 131.45 525.83 4 Y
+V
+139.27 547.95 131.45 525.83 2 L
+N
+223.03 526.41 226.6 514.96 217.5 522.78 220.27 524.6 4 Y
+V
+204.93 547.95 220.27 524.6 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+214.6 343.95 280.27 412.95 R
+7 X
+V
+0 X
+N
+(ndConst) 227.07 398.82 T
+(SET) 239.07 375 T
+({0..15}) 227.07 351.18 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+226.27 445.95 291.94 514.95 R
+7 X
+V
+0 X
+N
+(ndDOp) 244.74 500.82 T
+(scTimes) 238.74 488.91 T
+(SET) 250.74 477 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+221.56 422.73 214.6 412.96 215.33 424.93 218.44 423.83 4 Y
+V
+226.27 445.95 218.45 423.83 2 L
+N
+310.03 424.42 313.6 412.96 304.5 420.78 307.27 422.6 4 Y
+V
+291.93 445.95 307.27 422.6 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+401.7 242.45 467.37 311.45 R
+7 X
+V
+0 X
+N
+(ndVar) 420.17 297.32 T
+(SHORTINT) 411.17 273.5 T
+(x) 432.17 261.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+302.7 242.45 368.37 311.45 R
+7 X
+V
+0 X
+N
+(ndConst) 315.17 297.32 T
+(SHORTINT) 312.17 273.5 T
+(0) 333.17 249.68 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+314.37 344.45 380.04 413.45 R
+7 X
+V
+0 X
+N
+(ndUpto) 329.84 399.32 T
+(SET) 338.84 375.5 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+309.67 321.23 302.7 311.46 303.43 323.43 306.55 322.33 4 Y
+V
+314.37 344.45 306.55 322.33 2 L
+N
+398.13 322.92 401.7 311.46 392.6 319.29 395.37 321.1 4 Y
+V
+380.04 344.45 395.37 321.09 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+J
+128.5 622.24 139.27 616.95 127.33 615.73 127.91 618.99 4 Y
+V
+J
+89.04 625.95 127.91 618.99 2 L
+J
+89.04 625.95 89.78 625.82 2 L
+N
+[1.407 4.222] 1.407 I
+89.78 625.82 127.18 619.12 2 L
+N
+J
+127.18 619.12 127.91 618.99 2 L
+N
+J
+303.2 604.09 314.04 598.95 302.12 597.57 302.66 600.83 4 Y
+V
+J
+204.93 616.95 302.66 600.83 2 L
+J
+204.93 616.95 205.67 616.83 2 L
+N
+[1.456 4.368] 1.456 I
+205.67 616.83 301.92 600.95 2 L
+N
+J
+301.92 600.95 302.66 600.83 2 L
+N
+J
+63.65 96.95 531.65 744.95 C
+-8.35 24.95 603.65 816.95 C
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "10" 11
+%%Page: "9" 12
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(9) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 12 Q
+0 X
+(T) 63.65 736.95 T
+(ype Conversions) 70.76 736.95 T
+2 F
+(VAR) 99.65 713.29 T
+(a, b : REAL;) 117.65 701.04 T
+(c : SHORTINT;) 117.65 688.79 T
+(ch : CHAR;) 117.65 676.54 T
+(...) 117.65 664.29 T
+(a := b / c + 1;) 99.65 652.04 T
+(ch := CHR \050c\051;) 99.65 639.79 T
+0 F
+-0.04 (T) 63.65 129.45 P
+-0.04 (ype conversions can occur implicitly as part of expressions, or as the result of a call to a prede\336-) 70.14 129.45 P
+0.8 (ned function like) 63.65 115.2 P
+2 F
+1.92 (LONG) 150.37 115.2 P
+0 F
+0.8 (,) 179.17 115.2 P
+2 F
+1.92 (CHR) 185.96 115.2 P
+0 F
+0.8 (, or) 207.57 115.2 P
+2 F
+1.92 (ENTIER) 228.16 115.2 P
+0 F
+0.8 (.  T) 271.36 115.2 P
+0.8 (ype conversions of constants are evaluated by the) 288.45 115.2 P
+(front end and won\325) 63.65 100.95 T
+(t show up in the syntax tree.) 155.08 100.95 T
+63.65 96.95 531.65 744.95 C
+63.65 157.45 531.65 636.45 C
+0 0 0 1 0 0 0 K
+J
+0 0 0 1 0 0 0 K
+J
+72.62 456.45 138.29 525.45 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0.5 H
+2 Z
+0 X
+N
+2 10 Q
+(ndVar) 91.09 511.32 T
+(REAL) 94.09 487.5 T
+(a) 103.09 475.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+84.29 558.45 149.95 627.45 R
+7 X
+V
+0 X
+N
+(ndAssign) 93.75 613.32 T
+(scAssign) 93.75 601.41 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+79.58 535.23 72.62 525.45 73.35 537.43 76.46 536.33 4 Y
+V
+84.29 558.45 76.46 536.33 2 L
+N
+168.05 536.91 171.62 525.46 162.52 533.28 165.29 535.1 4 Y
+V
+149.95 558.45 165.29 535.1 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+258.62 354.45 324.29 423.45 R
+7 X
+V
+0 X
+N
+(ndCont) 274.09 409.32 T
+(REAL) 280.09 385.5 T
+(1.0) 283.09 361.68 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+159.62 354.45 225.29 423.45 R
+7 X
+V
+0 X
+N
+(ndDOp) 178.09 409.32 T
+(scRDiv) 175.09 397.41 T
+(REAL) 181.09 385.5 T
+(b) 190.09 373.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+171.29 456.45 236.95 525.45 R
+7 X
+V
+0 X
+N
+(ndDOp) 189.76 511.32 T
+(scAdd) 189.76 499.41 T
+(REAL) 192.76 487.5 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+166.58 433.23 159.62 423.46 160.35 435.43 163.46 434.33 4 Y
+V
+171.29 456.45 163.46 434.33 2 L
+N
+255.05 434.92 258.62 423.46 249.52 431.28 252.29 433.1 4 Y
+V
+236.95 456.45 252.29 433.1 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+430.95 448.45 496.62 517.45 R
+7 X
+V
+0 X
+N
+(ndMOp) 449.42 503.32 T
+(scConv) 446.42 491.41 T
+(CHAR) 452.42 479.5 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+331.95 448.45 397.62 517.45 R
+7 X
+V
+0 X
+N
+(ndVar) 350.42 503.32 T
+(CHAR) 353.42 479.5 T
+(ch) 359.42 467.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+343.62 550.45 409.29 619.45 R
+7 X
+V
+0 X
+N
+(ndAssign) 353.09 605.32 T
+(scAssign) 353.09 593.41 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+338.91 527.23 331.95 517.45 332.68 529.43 335.8 528.33 4 Y
+V
+343.62 550.45 335.8 528.33 2 L
+N
+427.38 528.91 430.95 517.46 421.85 525.28 424.61 527.1 4 Y
+V
+409.29 550.45 424.62 527.1 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+451.95 343.45 517.62 412.45 R
+7 X
+V
+0 X
+N
+(ndVar) 470.42 398.32 T
+(SHORTINT) 461.42 374.5 T
+(c) 482.42 362.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+143.62 249.45 209.29 318.45 R
+7 X
+V
+0 X
+N
+(ndVar) 162.09 304.32 T
+(REAL) 165.09 280.5 T
+(b) 174.09 268.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+240.95 163.64 306.62 233.45 R
+7 X
+V
+0 X
+N
+(ndVar) 259.42 219.18 T
+(SHORTINT) 250.42 195.08 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+244.29 248.65 309.95 318.45 R
+7 X
+V
+0 X
+N
+(ndMOp) 262.76 304.18 T
+(scConv) 259.76 292.13 T
+(REAL) 265.76 280.08 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+246.65 244.02 240.95 233.46 240.19 245.43 243.42 244.73 4 Y
+V
+244.29 248.65 243.43 244.72 2 L
+N
+448.99 424.09 451.94 412.46 443.27 420.76 446.13 422.42 4 Y
+V
+430.95 448.45 446.14 422.42 2 L
+N
+332.23 623.23 343.62 619.45 331.96 616.62 332.09 619.93 4 Y
+V
+149.95 627.45 332.1 619.93 2 L
+N
+151.32 327.66 143.62 318.46 145.28 330.34 148.3 329 4 Y
+V
+159.62 354.45 148.3 328.99 2 L
+N
+241.83 330.2 244.29 318.46 235.98 327.11 238.9 328.66 4 Y
+V
+225.29 354.45 238.9 328.65 2 L
+N
+J
+484.43 615.81 495.61 611.45 483.82 609.22 484.13 612.52 4 Y
+V
+J
+409.29 619.45 484.13 612.52 2 L
+J
+409.29 619.45 410.03 619.38 2 L
+N
+[1.444 4.333] 1.444 I
+410.03 619.38 483.39 612.59 2 L
+N
+J
+483.39 612.59 484.13 612.52 2 L
+N
+J
+72.78 635.57 81.62 627.45 69.82 629.65 71.3 632.61 4 Y
+V
+J
+63.62 636.45 71.3 632.61 2 L
+J
+63.62 636.45 64.29 636.12 2 L
+N
+[1.013 3.038] 1.013 I
+64.29 636.12 70.63 632.95 2 L
+N
+J
+70.63 632.95 71.3 632.61 2 L
+N
+63.65 96.95 531.65 744.95 C
+-8.35 24.95 603.65 816.95 C
+J
+0 0 0 1 0 0 0 K
+J
+FMENDPAGE
+%%EndPage: "9" 12
+%%Page: "8" 13
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(8) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 18 Q
+0 X
+(Appendix A.6) 63.65 732.95 T
+(Examples) 189.65 732.95 T
+4 12 Q
+(Assignments) 63.65 700.95 T
+2 10 Q
+(VAR) 99.65 683.29 T
+(a, b, c : INTEGER;) 117.65 671.29 T
+(...) 117.65 659.29 T
+(a := b+c*4;) 99.65 647.29 T
+(INC \050a\051;) 99.65 635.29 T
+0 12 Q
+0.25 (Prede\336ned functions like) 63.65 176.95 P
+2 F
+0.61 (INC) 187.4 176.95 P
+0 F
+0.25 (,) 209 176.95 P
+2 F
+0.61 (DEC) 215.26 176.95 P
+0 F
+0.25 (,) 236.85 176.95 P
+2 F
+0.61 (INCL) 243.11 176.95 P
+0 F
+0.25 (,) 271.91 176.95 P
+2 F
+0.61 (EXCL) 278.17 176.95 P
+0 F
+0.25 ( are translated into nodes of class) 306.96 176.95 P
+2 F
+0.61 (ndAssign) 471.05 176.95 P
+0 F
+0.25 (.) 528.65 176.95 P
+(The exact node type is determined by the \336eld) 63.65 162.95 T
+1 F
+(subcl) 288.61 162.95 T
+0 F
+(.) 313.94 162.95 T
+63.65 96.95 531.65 744.95 C
+63.65 198.95 531.65 631.95 C
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+82.35 413.95 148.02 482.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0.5 H
+2 Z
+0 X
+N
+2 10 Q
+(ndVar) 100.82 468.82 T
+(INTEGER) 94.82 445 T
+(a) 112.82 433.09 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+94.02 515.95 159.68 584.95 R
+7 X
+V
+0 X
+N
+(ndAssign) 103.49 570.82 T
+(scAssign) 103.49 558.91 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+89.31 492.73 82.35 482.95 83.08 494.93 86.2 493.83 4 Y
+V
+94.02 515.95 86.2 493.83 2 L
+N
+177.78 494.41 181.35 482.96 172.25 490.78 175.02 492.6 4 Y
+V
+159.68 515.95 175.02 492.6 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+168.85 312.45 234.52 381.45 R
+7 X
+V
+0 X
+N
+(ndVar) 187.32 367.32 T
+(INTEGER) 181.32 343.5 T
+(b) 199.32 331.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+180.52 414.45 246.19 483.45 R
+7 X
+V
+0 X
+N
+(ndDOp) 198.99 469.32 T
+(scPlus) 195.99 457.41 T
+(INTEGER) 192.99 445.5 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+175.81 391.23 168.85 381.46 169.58 393.43 172.7 392.33 4 Y
+V
+180.52 414.45 172.7 392.33 2 L
+N
+264.28 392.92 267.85 381.46 258.75 389.29 261.52 391.1 4 Y
+V
+246.18 414.45 261.52 391.1 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+354.02 210.45 419.69 279.45 R
+7 X
+V
+0 X
+N
+(ndConst) 366.49 265.32 T
+(INTEGER) 366.49 241.5 T
+(4) 384.49 217.68 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+255.02 210.45 320.69 279.45 R
+7 X
+V
+0 X
+N
+(ndVar) 273.49 265.32 T
+(INTEGER) 267.49 241.5 T
+(b) 285.49 229.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+266.68 312.45 332.35 381.45 R
+7 X
+V
+0 X
+N
+(ndDOp) 285.15 367.32 T
+(scTimes) 279.15 355.41 T
+(INTEGER) 279.15 343.5 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+261.98 289.23 255.02 279.46 255.74 291.43 258.86 290.33 4 Y
+V
+266.68 312.45 258.86 290.33 2 L
+N
+350.45 290.92 354.01 279.46 344.92 287.29 347.68 289.1 4 Y
+V
+332.35 312.45 347.69 289.1 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+444.02 398.45 509.69 467.45 R
+7 X
+V
+0 X
+N
+(ndConst) 456.49 453.32 T
+(INTEGER) 456.49 429.5 T
+(1) 474.49 405.68 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+345.02 398.45 410.69 467.45 R
+7 X
+V
+0 X
+N
+(ndVar) 363.49 453.32 T
+(INTEGER) 357.49 429.5 T
+(a) 375.49 417.59 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+356.68 500.45 422.35 569.45 R
+7 X
+V
+0 X
+N
+(ndAssign) 366.15 555.32 T
+(scInc) 375.15 543.41 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+351.98 477.23 345.01 467.45 345.74 479.43 348.86 478.33 4 Y
+V
+356.68 500.45 348.86 478.33 2 L
+N
+440.44 478.91 444.01 467.46 434.91 475.28 437.68 477.1 4 Y
+V
+422.35 500.45 437.69 477.1 2 L
+N
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+341.15 571.29 352.34 566.95 340.56 564.7 340.86 568 4 Y
+V
+154.35 584.95 340.86 568 2 L
+N
+J
+84.21 591.87 94.02 584.95 82.04 585.62 83.12 588.74 4 Y
+V
+J
+62.38 595.95 83.12 588.74 2 L
+J
+62.38 595.95 63.09 595.71 2 L
+N
+[1.364 4.092] 1.364 I
+63.09 595.71 82.41 588.99 2 L
+N
+J
+82.41 588.99 83.12 588.74 2 L
+N
+J
+483.37 564.74 494.38 559.95 482.51 558.18 482.94 561.46 4 Y
+V
+J
+422.35 569.45 482.95 561.46 2 L
+J
+422.35 569.45 423.1 569.35 2 L
+N
+[1.529 4.586] 1.529 I
+423.1 569.35 482.2 561.56 2 L
+N
+J
+482.2 561.56 482.95 561.46 2 L
+N
+J
+63.65 96.95 531.65 744.95 C
+-8.35 24.95 603.65 816.95 C
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "8" 13
+%%Page: "7" 14
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(7) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+3 8 Q
+0 X
+(l) 63.65 736.95 T
+0 12 Q
+(class=ndAssert \050Assertion\051) 81.65 736.95 T
+1 F
+(left) 81.65 719.95 T
+0 F
+(trap number \050integer constant\051) 117.65 719.95 T
+1 F
+(right) 81.65 700.95 T
+0 F
+(guard \050) 117.65 700.95 T
+1 F
+(boolean) 151.97 700.95 T
+(expr) 193.63 700.95 T
+(ession) 214.51 700.95 T
+0 F
+(\051) 244.51 700.95 T
+4 18 Q
+(Appendix A.4) 63.65 662.95 T
+(Module Structur) 189.65 662.95 T
+(e) 318.82 662.95 T
+0 12 Q
+-0.67 (The root of the syntax tree, and of each procedure, is a) 63.65 630.95 P
+2 F
+-1.6 (ndEnter) 320.25 630.95 P
+0 F
+-0.67 ( node.) 370.65 630.95 P
+2 F
+-1.6 (ndEnter) 401.65 630.95 P
+0 F
+-0.67 ( and) 452.05 630.95 P
+2 F
+-1.6 (ndFoward) 474.05 630.95 P
+0 F
+(nodes on the same level are connected with) 63.65 616.95 T
+1 F
+(link) 274.93 616.95 T
+0 F
+(.) 292.93 616.95 T
+3 8 Q
+(l) 63.65 590.95 T
+0 12 Q
+(class=ndEnter \050module or procedure\051) 81.65 590.95 T
+1 F
+(obj) 81.65 573.95 T
+0 F
+(contains the procedure declaration.) 117.65 573.95 T
+1 F
+(obj) 288.6 573.95 T
+0 F
+(=) 303.94 573.95 T
+2 F
+(NIL) 310.7 573.95 T
+0 F
+( marks the module entry) 332.3 573.95 T
+(.) 448.18 573.95 T
+1 F
+(left) 81.65 554.95 T
+0 F
+(list of local procedures \050) 117.65 554.95 T
+2 F
+(ndEnter) 234.29 554.95 T
+0 F
+( or) 284.69 554.95 T
+2 F
+(ndForward) 300.68 554.95 T
+0 F
+(, linked with) 365.48 554.95 T
+1 F
+(link) 428.82 554.95 T
+0 F
+(\051) 446.82 554.95 T
+1 F
+(right) 81.65 535.95 T
+0 F
+(procedure resp. module body \050) 117.65 535.95 T
+1 F
+(statements) 264.61 535.95 T
+0 F
+(\051) 315.28 535.95 T
+1 F
+(link) 81.65 516.95 T
+0 F
+(next procedure resp. list of) 117.65 516.95 T
+2 F
+(ndInitTd) 248.95 516.95 T
+0 F
+( nodes \050if the node represents the module\051) 306.55 516.95 T
+3 8 Q
+(l) 63.65 490.95 T
+0 12 Q
+(class=ndForward \050marker for forward declared procedures\051) 81.65 490.95 T
+1 F
+(obj) 81.65 473.95 T
+0 F
+(contains the procedure declaration) 117.65 473.95 T
+3 8 Q
+(l) 63.65 447.95 T
+0 12 Q
+(class=ndInitTd \050type descriptor\051) 81.65 447.95 T
+1 F
+(type) 81.65 430.95 T
+2 F
+(RECORD) 117.65 430.95 T
+0 F
+( data type) 160.85 430.95 T
+1 F
+(link) 81.65 411.95 T
+0 F
+(next) 117.65 411.95 T
+2 F
+(ndInitTd) 141.31 411.95 T
+0 F
+( node) 198.91 411.95 T
+4 18 Q
+(Appendix A.5) 63.65 373.95 T
+(Initialisation of T) 189.65 373.95 T
+(ype Descriptors) 322.34 373.95 T
+0 12 Q
+-0.05 (The parser creates a) 63.65 341.95 P
+2 F
+-0.11 (ndInitTd) 162.09 341.95 P
+0 F
+-0.05 ( node for each record data type de\336ned in the module or in a pro-) 219.68 341.95 P
+0.02 (cedure. The list of those nodes can be found in) 63.65 327.95 P
+1 F
+0.02 (mod.link) 290.83 327.95 P
+0 F
+0.02 (, where) 332.49 327.95 P
+1 F
+0.02 (mod) 370.85 327.95 P
+0 F
+0.02 ( is the root of the syntax tree.) 391.51 327.95 P
+0.27 (All further nodes are linked with) 63.65 313.95 P
+1 F
+0.27 (link) 225.22 313.95 P
+0 F
+0.27 ( and are appended to the list in the order of de\336nition in the) 243.22 313.95 P
+1.44 (source program. This ensures that) 63.65 299.95 P
+2 F
+3.46 (ndInitTd) 236.15 299.95 P
+0 F
+1.44 ( nodes of base types appear before the ones for) 293.75 299.95 P
+0.36 (records extending them. A declaration of the kind \324) 63.65 285.95 P
+2 F
+0.87 (TYPE RecordA = RecordB;\325) 312.17 285.95 P
+0 F
+0.36 ( does not) 487.59 285.95 P
+(de\336ne a new record. Therefor no new entry is created for) 63.65 271.95 T
+2 F
+(RecordA) 340.21 271.95 T
+0 F
+(.) 390.61 271.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "7" 14
+%%Page: "6" 15
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(6) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+3 8 Q
+0 X
+(l) 63.65 736.95 T
+0 12 Q
+(class=ndWhile \050) 81.65 736.95 T
+2 F
+(WHILE) 160.07 736.95 T
+0 F
+( statement\051) 196.07 736.95 T
+1 F
+(left) 81.65 719.02 T
+0 F
+(guard \050) 117.65 719.02 T
+1 F
+(boolean expr) 151.97 719.02 T
+(ession) 214.51 719.02 T
+0 F
+(\051) 244.51 719.02 T
+1 F
+(right) 81.65 699.09 T
+0 F
+(loop body \050) 117.65 699.09 T
+1 F
+(statements) 172.98 699.09 T
+0 F
+(\051) 223.64 699.09 T
+3 8 Q
+(l) 63.65 672.15 T
+0 12 Q
+(class=ndRepeat \050) 81.65 672.15 T
+2 F
+(REPEAT) 164.06 672.15 T
+0 F
+( statement\051) 207.26 672.15 T
+1 F
+(left) 81.65 654.22 T
+0 F
+(loop body \050) 117.65 654.22 T
+1 F
+(statements) 172.98 654.22 T
+0 F
+(\051) 223.64 654.22 T
+1 F
+(right) 81.65 634.29 T
+0 F
+(termination condition \050) 117.65 634.29 T
+1 F
+(boolean expr) 228.31 634.29 T
+(ession) 290.86 634.29 T
+0 F
+(\051) 320.86 634.29 T
+3 8 Q
+(l) 63.65 607.35 T
+0 12 Q
+(class=ndFor \050) 81.65 607.35 T
+2 F
+(FOR) 147.41 607.35 T
+0 F
+( statement\051) 169.01 607.35 T
+1 F
+(left.link) 81.65 589.42 T
+0 F
+(control variable \050) 120.98 589.42 T
+1 F
+(designator) 203.63 589.42 T
+0 F
+(\051) 254.96 589.42 T
+1 F
+(left.left) 81.65 569.49 T
+0 F
+(starting value \050) 118.32 569.49 T
+1 F
+(expr) 190.31 569.49 T
+(ession) 211.19 569.49 T
+0 F
+(\051) 241.19 569.49 T
+1 F
+(left.right) 81.65 549.55 T
+0 F
+(ending value \050) 126.32 549.55 T
+1 F
+(expr) 194.98 549.55 T
+(ession) 215.86 549.55 T
+0 F
+(\051) 245.86 549.55 T
+1 F
+(left.conval.intval) 81.65 529.62 T
+0 F
+(step \050the parser sets it to 1 if no) 165.31 529.62 T
+2 F
+(BY) 318.96 529.62 T
+0 F
+( is given\051) 333.36 529.62 T
+1 F
+(left.type) 81.65 509.69 T
+0 F
+(type of step constant) 122.98 509.69 T
+1 F
+(right) 81.65 489.75 T
+0 F
+(loop body \050) 117.65 489.75 T
+1 F
+(statements) 172.98 489.75 T
+0 F
+(\051) 223.64 489.75 T
+3 8 Q
+(l) 63.65 462.82 T
+0 12 Q
+(class=ndLoop \050) 81.65 462.82 T
+2 F
+(LOOP) 156.07 462.82 T
+0 F
+( statement\051) 184.87 462.82 T
+1 F
+(left) 81.65 444.89 T
+0 F
+(loop body \050) 117.65 444.89 T
+1 F
+(statements) 172.98 444.89 T
+0 F
+(\051) 223.64 444.89 T
+3 8 Q
+(l) 63.65 417.95 T
+0 12 Q
+(class=ndW) 81.65 417.95 T
+(ithElse \050) 134.59 417.95 T
+2 F
+(WITH) 174.92 417.95 T
+0 F
+( statement\051) 203.72 417.95 T
+1 F
+(left) 81.65 400.02 T
+0 F
+(list of guards \050) 117.65 400.02 T
+2 F
+(ndWithGuard) 187.31 400.02 T
+0 F
+( linked with) 266.51 400.02 T
+1 F
+(link) 326.84 400.02 T
+0 F
+(\051) 344.84 400.02 T
+1 F
+(right) 81.65 380.09 T
+2 F
+(ELSE) 117.65 380.09 T
+0 F
+( part \050) 146.45 380.09 T
+1 F
+(statements) 175.1 380.09 T
+0 F
+(\051) 225.77 380.09 T
+1 F
+(conval.set) 81.65 360.15 T
+0 F
+(= {} if) 132.97 360.15 T
+(f no) 164.38 360.15 T
+2 F
+(ELSE) 186.37 360.15 T
+0 F
+( part exists) 215.17 360.15 T
+3 8 Q
+(l) 63.65 333.22 T
+0 12 Q
+(class=ndW) 81.65 333.22 T
+(ithGuard \050sub structure of) 134.59 333.22 T
+2 F
+(WITH) 261.9 333.22 T
+0 F
+( statement\051) 290.7 333.22 T
+1 F
+(left) 81.65 315.29 T
+0 F
+(variable \050) 117.65 315.29 T
+2 F
+(ndVar) 163.3 315.29 T
+0 F
+( or) 199.3 315.29 T
+2 F
+(ndVarPar) 215.29 315.29 T
+0 F
+(\051) 272.89 315.29 T
+1 F
+(right) 81.65 295.35 T
+0 F
+(body of regional type guard \050) 117.65 295.35 T
+1 F
+(statements) 257.95 295.35 T
+0 F
+(\051) 308.62 295.35 T
+1 F
+(obj) 81.65 275.42 T
+0 F
+(data type against which) 117.65 275.42 T
+1 F
+(left) 233.63 275.42 T
+0 F
+( is tested \050) 248.96 275.42 T
+2 F
+(obj.mode=objType) 297.96 275.42 T
+0 F
+(\051) 413.16 275.42 T
+1 F
+(link) 81.65 255.49 T
+0 F
+(next guard resp.) 117.65 255.49 T
+2 F
+(NIL) 197.63 255.49 T
+3 8 Q
+(l) 63.65 228.55 T
+0 12 Q
+(class=ndExit \050) 81.65 228.55 T
+2 F
+(EXIT) 150.74 228.55 T
+0 F
+( statement\051) 179.54 228.55 T
+1 F
+(left) 81.65 210.62 T
+2 F
+(LOOP) 117.65 210.62 T
+0 F
+( construct that is left \050) 146.45 210.62 T
+2 F
+(left.mode=ndLoop) 251.44 210.62 T
+0 F
+(\051) 366.64 210.62 T
+3 8 Q
+(l) 63.65 183.69 T
+0 12 Q
+(class=ndReturn \050) 81.65 183.69 T
+2 F
+(RETURN) 163.4 183.69 T
+0 F
+( statement\051) 206.6 183.69 T
+1 F
+(obj) 81.65 165.75 T
+0 F
+(the procedure which is left with) 117.65 165.75 T
+2 F
+(RETURN) 272.95 165.75 T
+0 F
+(, or) 316.15 165.75 T
+2 F
+(NIL) 335.15 165.75 T
+0 F
+( if it is the module) 356.75 165.75 T
+1 F
+(left) 81.65 145.82 T
+0 F
+(result value \050) 117.65 145.82 T
+1 F
+(expr) 180.3 145.82 T
+(ession) 201.18 145.82 T
+0 F
+(\051,) 231.18 145.82 T
+2 F
+(NIL) 241.18 145.82 T
+0 F
+( for proper procedures) 262.78 145.82 T
+3 8 Q
+(l) 63.65 118.89 T
+0 12 Q
+(class=ndT) 81.65 118.89 T
+(rap \050) 130.66 118.89 T
+2 F
+(HALT) 152.98 118.89 T
+0 F
+( statement\051) 181.78 118.89 T
+1 F
+(left) 81.65 100.95 T
+0 F
+(trap number \050integer constant\051) 117.65 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "6" 15
+%%Page: "5" 16
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(5) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+3 8 Q
+0 X
+(l) 81.65 736.95 T
+2 12 Q
+(SYSTEM.DISPOSE) 99.65 736.95 T
+0 F
+( on pointer variable \050) 200.45 736.95 T
+2 F
+(subclass=scDispose) 301.09 736.95 T
+0 F
+(\051) 430.69 736.95 T
+1 F
+(left) 99.65 722.95 T
+0 F
+(: pointer \050) 114.98 722.95 T
+1 F
+(designator) 162.31 722.95 T
+0 F
+(\051) 213.65 722.95 T
+3 8 Q
+(l) 81.65 702.74 T
+2 12 Q
+(SYSTEM.COLLECT) 99.65 702.74 T
+0 F
+( \050) 200.45 702.74 T
+2 F
+(subclass=scCollect) 207.44 702.74 T
+0 F
+(\051) 337.04 702.74 T
+(has no parameters) 99.65 688.74 T
+3 8 Q
+(l) 63.65 661.54 T
+0 12 Q
+(class=ndCall \050procedure or function call\051) 81.65 661.54 T
+1 F
+(left) 81.65 643.33 T
+0 F
+1.51 (procedure designator \050) 117.65 643.33 P
+1 F
+1.51 (designator) 228.63 643.33 P
+0 F
+1.51 (\051, for type bound procedures this also contains the) 279.96 643.33 P
+(actual receiver) 117.65 629.33 T
+(.) 187.28 629.33 T
+(Note: This can also be a procedure variable.) 117.65 615.33 T
+1 F
+(type) 81.65 595.12 T
+0 F
+(result type \050) 117.65 595.12 T
+2 F
+(noType) 174.97 595.12 T
+0 F
+( for proper procedures\051) 218.17 595.12 T
+1 F
+(right) 81.65 574.91 T
+0 F
+(parameter list \050) 117.65 574.91 T
+2 F
+(NIL) 190.3 574.91 T
+0 F
+( when empty; otherwise list of) 211.9 574.91 T
+1 F
+(expr) 360.55 574.91 T
+(essions) 381.43 574.91 T
+0 F
+( linked with) 416.1 574.91 T
+1 F
+(link) 476.44 574.91 T
+0 F
+(\051.) 494.44 574.91 T
+0.7 (Note: When calling type bound procedures the formal parameter list in) 117.65 560.91 P
+1 F
+0.7 (left.type) 468.3 560.91 P
+0 F
+0.7 ( con-) 506.62 560.91 P
+0.56 (tains the formal receiver as \336rst parameter; the actual receiver is stored as part of the) 117.65 546.91 P
+(procedure designator in) 117.65 532.91 T
+1 F
+(left.left) 233.95 532.91 T
+0 F
+( and not in the parameter list.) 267.62 532.91 T
+3 8 Q
+(l) 63.65 505.7 T
+0 12 Q
+(class=ndIfElse \050) 81.65 505.7 T
+2 F
+(IF) 159.4 505.7 T
+0 F
+( statement\051) 173.8 505.7 T
+1 F
+(right) 81.65 487.49 T
+2 F
+(ELSE) 117.65 487.49 T
+0 F
+( part \050) 146.45 487.49 T
+1 F
+(statements) 175.1 487.49 T
+0 F
+(\051) 225.77 487.49 T
+1 F
+(left) 81.65 467.29 T
+0 F
+(list of guarded commands \050) 117.65 467.29 T
+2 F
+(ndIf) 248.96 467.29 T
+0 F
+(\051 linked with) 277.76 467.29 T
+1 F
+(link) 342.1 467.29 T
+3 8 Q
+(l) 63.65 440.08 T
+0 12 Q
+(class=ndIf \050) 81.65 440.08 T
+2 F
+(IF) 138.73 440.08 T
+0 F
+( statement: guarded command\051) 153.13 440.08 T
+1 F
+(left) 81.65 421.87 T
+0 F
+(guard \050) 117.65 421.87 T
+1 F
+(boolean expr) 151.97 421.87 T
+(ession) 214.51 421.87 T
+0 F
+(\051) 244.51 421.87 T
+1 F
+(right) 81.65 401.66 T
+(statements) 117.65 401.66 T
+(link) 81.65 381.45 T
+0 F
+(next guarded command \050) 117.65 381.45 T
+2 F
+(ndIf) 237.29 381.45 T
+0 F
+(\051, or) 266.09 381.45 T
+2 F
+(NIL) 289.08 381.45 T
+3 8 Q
+(l) 63.65 354.24 T
+0 12 Q
+(class=ndCase \050) 81.65 354.24 T
+2 F
+(CASE) 154.07 354.24 T
+0 F
+( statement\051) 182.87 354.24 T
+1 F
+(left) 81.65 336.04 T
+0 F
+(selection expression \050integer or) 117.65 336.04 T
+2 F
+(CHAR) 270.95 336.04 T
+1 F
+(expr) 302.75 336.04 T
+(ession) 323.63 336.04 T
+0 F
+(\051) 353.63 336.04 T
+1 F
+(right.left) 81.65 315.83 T
+0 F
+(list of) 126.32 315.83 T
+2 F
+(CASE) 157 315.83 T
+0 F
+( branches \050) 185.8 315.83 T
+2 F
+(ndCaseDo) 238.44 315.83 T
+0 F
+( linked with) 296.04 315.83 T
+1 F
+(left) 356.38 315.83 T
+0 F
+(\051) 371.71 315.83 T
+1 F
+(right.right) 81.65 295.62 T
+2 F
+(ELSE part) 134.33 295.62 T
+0 F
+(\050) 206.33 295.62 T
+1 F
+(statements) 210.32 295.62 T
+0 F
+(\051) 260.99 295.62 T
+1 F
+(right.conval) 81.65 275.41 T
+0 F
+(constant record with the following values:) 142.98 275.41 T
+3 8 Q
+(l) 117.65 255.2 T
+1 12 Q
+(intval) 135.65 255.2 T
+0 F
+(: minimal) 162.98 255.2 T
+2 F
+(CASE) 212.33 255.2 T
+0 F
+( label) 241.13 255.2 T
+3 8 Q
+(l) 117.65 234.99 T
+1 12 Q
+(intval2) 135.65 234.99 T
+0 F
+(: maximal) 168.98 234.99 T
+2 F
+(CASE) 220.32 234.99 T
+0 F
+( label) 249.12 234.99 T
+3 8 Q
+(l) 117.65 214.79 T
+1 12 Q
+(set) 135.65 214.79 T
+0 F
+(={} if) 148.98 214.79 T
+(f no) 177.38 214.79 T
+2 F
+(ELSE) 199.38 214.79 T
+0 F
+( part exists) 228.18 214.79 T
+3 8 Q
+(l) 63.65 187.58 T
+0 12 Q
+(class=ndCaseDo \050sub structure of) 81.65 187.58 T
+2 F
+(CASE) 246.38 187.58 T
+0 F
+( statement\051) 275.18 187.58 T
+1 F
+(link) 81.65 169.37 T
+0 F
+-0.22 (list of) 117.65 169.37 P
+2 F
+-0.53 (CASE) 147.88 169.37 P
+0 F
+-0.22 ( labels for this branch \050) 176.68 169.37 P
+2 F
+-0.53 (ndConst) 286.54 169.37 P
+0 F
+-0.22 ( linked with) 336.94 169.37 P
+1 F
+-0.22 (link) 396.61 169.37 P
+0 F
+-0.22 (\051. These) 414.61 169.37 P
+2 F
+-0.53 (ndConst) 455.81 169.37 P
+0 F
+-0.22 ( have) 506.21 169.37 P
+1.21 (a special format: it\325) 117.65 155.37 P
+1.21 (s an intervall [) 214.25 155.37 P
+2 F
+2.89 (conval.intval) 286.85 155.37 P
+0 F
+1.21 (..) 380.45 155.37 P
+2 F
+2.89 (conval.intval2) 386.45 155.37 P
+0 F
+1.21 (] and the) 487.25 155.37 P
+(\336eld) 117.65 141.37 T
+1 F
+(type) 141.98 141.37 T
+0 F
+( holds a copy of the) 161.98 141.37 T
+2 F
+(CASE) 259.3 141.37 T
+0 F
+( expression\325) 288.1 141.37 T
+(s type.) 345.76 141.37 T
+1 F
+(right) 81.65 121.16 T
+(statements) 117.65 121.16 T
+(left) 81.65 100.95 T
+0 F
+(next) 117.65 100.95 T
+2 F
+(ndCaseDo) 141.31 100.95 T
+0 F
+( branch, or) 198.91 100.95 T
+2 F
+(NIL) 253.56 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "5" 16
+%%Page: "4" 17
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(4) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+3 8 Q
+0 X
+(l) 63.65 736.95 T
+0 12 Q
+(class=ndConst \050constant\051) 81.65 736.95 T
+1 F
+(obj) 81.65 719.95 T
+0 F
+1.37 (constant declaration \050) 117.65 719.95 P
+2 F
+3.28 (obj.mode=objConst) 223.69 719.95 P
+0 F
+1.37 (\051 or) 346.09 719.95 P
+2 F
+3.28 (NIL) 368.81 719.95 P
+0 F
+1.37 (, if the constant wasn\325) 390.41 719.95 P
+1.37 (t refe-) 501.3 719.95 P
+(renced with it\325) 117.65 705.95 T
+(s name) 186.97 705.95 T
+1 F
+(conval) 81.65 686.95 T
+0 F
+(constant value. Which \336eld actually holds the value is determined by) 117.65 686.95 T
+1 F
+(type) 451.61 686.95 T
+0 F
+(.) 471.6 686.95 T
+3 8 Q
+(l) 63.65 660.95 T
+0 12 Q
+(class=ndCall: See Statements.) 81.65 660.95 T
+4 18 Q
+(Appendix A.3) 63.65 605.95 T
+(Statements) 189.65 605.95 T
+0 12 Q
+0.48 (Most statements \050like) 63.65 573.95 P
+2 F
+1.16 (LOOP) 171.43 573.95 P
+0 F
+0.48 (,) 198.9 573.95 P
+2 F
+1.16 (WHILE) 205.38 573.95 P
+0 F
+0.48 (, etc.\051 can be translated into a single node with all substruc-) 241.38 573.95 P
+-0.01 (tures appended to this node. Other statements, e.g.) 63.65 559.95 P
+2 F
+-0.03 (FOR) 308.17 559.95 P
+0 F
+-0.01 (, have so many attributes attached to them) 329.77 559.95 P
+(that the informations have to be attached to more than one node.) 63.65 545.95 T
+-0.06 (A sequence of statements is linked with \336eld) 63.65 526.95 P
+1 F
+-0.06 (link) 281.11 526.95 P
+0 F
+-0.06 (.) 299.11 526.95 P
+1 F
+-0.06 (type) 305.05 526.95 P
+0 F
+-0.06 ( holds the pseudo type) 325.04 526.95 P
+2 F
+-0.15 (OTable.noType) 435.05 526.95 P
+0 F
+-0.06 (.) 528.65 526.95 P
+3 8 Q
+(l) 63.65 500.95 T
+0 12 Q
+(class=ndAssign \050assignment and prede\336ned procedures\051) 81.65 500.95 T
+0.39 (Standard procedures like) 63.65 483.95 P
+2 F
+0.95 (INC) 187.13 483.95 P
+0 F
+0.39 (,) 208.74 483.95 P
+2 F
+0.95 (DEC) 215.13 483.95 P
+0 F
+0.39 (,) 236.73 483.95 P
+2 F
+0.95 (INCL) 243.12 483.95 P
+0 F
+0.39 (,) 271.92 483.95 P
+2 F
+0.95 (EXCL) 278.32 483.95 P
+0 F
+0.39 ( etc. will be translated into nodes of this class.) 307.12 483.95 P
+(They are identi\336ed by the \336eld) 63.65 469.95 T
+1 F
+(subclass:) 214.3 469.95 T
+3 8 Q
+(l) 81.65 450.95 T
+0 12 Q
+(normal assignment \050) 99.65 450.95 T
+2 F
+(scAssign) 197.64 450.95 T
+0 F
+(\051) 255.24 450.95 T
+3 8 Q
+(l) 81.65 431.95 T
+2 12 Q
+(EXCL) 99.65 431.95 T
+0 F
+( \050) 128.45 431.95 T
+2 F
+(scExcl) 135.44 431.95 T
+0 F
+(\051,) 178.64 431.95 T
+2 F
+(INCL) 188.64 431.95 T
+0 F
+( \050) 217.44 431.95 T
+2 F
+(scIncl) 224.44 431.95 T
+0 F
+(\051) 267.64 431.95 T
+3 8 Q
+(l) 81.65 412.95 T
+2 12 Q
+(INC) 99.65 412.95 T
+0 F
+( \050) 121.25 412.95 T
+2 F
+(scInc) 128.24 412.95 T
+0 F
+(\051,) 164.24 412.95 T
+2 F
+(DEC) 174.24 412.95 T
+0 F
+( \050) 195.84 412.95 T
+2 F
+(scDesc) 202.84 412.95 T
+0 F
+(\051) 246.04 412.95 T
+3 8 Q
+(l) 81.65 393.95 T
+2 12 Q
+(COPY) 99.65 393.95 T
+0 F
+( \050) 128.45 393.95 T
+2 F
+(scCopy) 135.44 393.95 T
+0 F
+(\051) 178.64 393.95 T
+3 8 Q
+(l) 81.65 374.95 T
+2 12 Q
+(SYSTEM.GET) 99.65 374.95 T
+0 F
+( \050) 171.65 374.95 T
+2 F
+(scGet) 178.64 374.95 T
+0 F
+(\051,) 214.64 374.95 T
+2 F
+(SYSTEM.PUT) 224.64 374.95 T
+0 F
+( \050) 296.64 374.95 T
+2 F
+(scPut) 303.64 374.95 T
+0 F
+(\051) 339.64 374.95 T
+3 8 Q
+(l) 81.65 355.95 T
+2 12 Q
+(SYSTEM.GETREG) 99.65 355.95 T
+0 F
+( \050) 193.25 355.95 T
+2 F
+(scGetReg) 200.24 355.95 T
+0 F
+(\051,) 257.84 355.95 T
+2 F
+(SYSTEM.PUTREG) 267.84 355.95 T
+0 F
+( \050) 361.44 355.95 T
+2 F
+(scPutReg) 368.44 355.95 T
+0 F
+(\051) 426.04 355.95 T
+3 8 Q
+(l) 81.65 336.95 T
+2 12 Q
+(NEW \050scNewFix, scNewDyn\051 and SYSTEM.NEW) 99.65 336.95 T
+0 F
+( \050) 380.45 336.95 T
+2 F
+(scNewSys) 387.44 336.95 T
+0 F
+(\051) 445.04 336.95 T
+3 8 Q
+(l) 81.65 317.95 T
+2 12 Q
+(SYSTEM.DISPOSE) 99.65 317.95 T
+0 F
+( \050) 200.45 317.95 T
+2 F
+(scDispose) 207.44 317.95 T
+0 F
+(\051) 272.24 317.95 T
+3 8 Q
+(l) 81.65 298.95 T
+2 12 Q
+(SYSTEM.COLLECT) 99.65 298.95 T
+0 F
+( \050) 200.45 298.95 T
+2 F
+(scCollect) 207.44 298.95 T
+0 F
+(\051) 272.24 298.95 T
+(The \336rst parameter is stored in) 63.65 279.95 T
+1 F
+(left) 213.62 279.95 T
+0 F
+(, the second in) 228.96 279.95 T
+1 F
+(right) 301.28 279.95 T
+0 F
+(\050) 327.62 279.95 T
+1 F
+(expr) 331.62 279.95 T
+(essions) 352.5 279.95 T
+0 F
+(\051.) 387.17 279.95 T
+(Special cases:) 63.65 260.95 T
+3 8 Q
+(l) 81.65 241.95 T
+2 12 Q
+(SYSTEM.MOVE) 99.65 241.95 T
+0 F
+( \050) 178.85 241.95 T
+2 F
+(subclass=scMove) 185.84 241.95 T
+0 F
+(\051) 293.84 241.95 T
+(The \050three\051 parameters \050) 99.65 227.95 T
+1 F
+(expr) 215.93 227.95 T
+(essions) 236.81 227.95 T
+0 F
+(\051 are stored as list \050chained with) 271.48 227.95 T
+1 F
+(link) 427.78 227.95 T
+0 F
+(\051 in) 445.78 227.95 T
+1 F
+(right) 465.11 227.95 T
+0 F
+(.) 488.45 227.95 T
+3 8 Q
+(l) 81.65 208.95 T
+2 12 Q
+(NEW) 99.65 208.95 T
+0 F
+( on \336xed size data type \050) 121.25 208.95 T
+2 F
+(subclass=scNewFix) 238.56 208.95 T
+0 F
+(\051) 360.96 208.95 T
+1 F
+(left:) 99.65 194.95 T
+0 F
+(pointer \050) 121.98 194.95 T
+1 F
+(designator) 162.97 194.95 T
+0 F
+(\051) 214.31 194.95 T
+3 8 Q
+(l) 81.65 175.95 T
+2 12 Q
+(NEW) 99.65 175.95 T
+0 F
+( on \050multiple\051 open array type \050) 121.25 175.95 T
+2 F
+(subclass=scNewDyn) 271.88 175.95 T
+0 F
+(\051) 394.28 175.95 T
+1 F
+(left) 99.65 161.95 T
+0 F
+(: pointer \050) 114.98 161.95 T
+1 F
+(designator) 162.31 161.95 T
+0 F
+(\051) 213.65 161.95 T
+1 F
+(right) 99.65 147.95 T
+0 F
+(: list of dimension lengths \050) 122.99 147.95 T
+1 F
+(expr) 254.66 147.95 T
+(essions) 275.54 147.95 T
+0 F
+(\051, linked with) 310.21 147.95 T
+1 F
+(link) 377.54 147.95 T
+3 8 Q
+(l) 81.65 128.95 T
+2 12 Q
+(COPY) 99.65 128.95 T
+0 F
+( \050) 128.45 128.95 T
+2 F
+(subclass=scCopy) 135.44 128.95 T
+0 F
+(\051) 243.44 128.95 T
+1 F
+(left) 99.65 114.95 T
+0 F
+(: string constant or variable \050) 114.98 114.95 T
+1 F
+(designator) 253.3 114.95 T
+0 F
+( or) 304.63 114.95 T
+1 F
+(constexpr) 320.63 114.95 T
+(ession) 366.84 114.95 T
+0 F
+(\051) 396.84 114.95 T
+1 F
+(right) 99.65 100.95 T
+0 F
+(: string variable, destination of copy \050) 122.99 100.95 T
+1 F
+(designator) 303.3 100.95 T
+0 F
+(\051) 354.64 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "4" 17
+%%Page: "3" 18
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(3) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+3 8 Q
+0 X
+(l) 63.65 736.95 T
+0 12 Q
+(class=ndConst \050constant\051: See Expression.) 81.65 736.95 T
+4 18 Q
+(Appendix A.2) 63.65 679.85 T
+(Expr) 189.65 679.85 T
+(essions) 228.33 679.85 T
+0 12 Q
+0.52 (All Oberon-2 constructs denoting a value are part of the category) 63.65 646.79 P
+1 F
+0.52 (expr) 385.01 646.79 P
+0.52 (ession) 405.89 646.79 P
+0 F
+0.52 (. If in the following) 435.89 646.79 P
+0.45 (section a substructure\325) 63.65 632.79 P
+0.45 (s value is marked as) 171.87 632.79 P
+1 F
+0.45 (expr) 273.77 632.79 P
+0.45 (ession) 294.64 632.79 P
+0 F
+0.45 (, then this includes) 324.64 632.79 P
+1 F
+0.45 (designators) 419.45 632.79 P
+0 F
+0.45 ( \050see prece-) 475.45 632.79 P
+(ding chapter\051.) 63.65 618.79 T
+3 8 Q
+(l) 63.65 591.74 T
+0 12 Q
+(class=ndUpto \050set range\051) 81.65 591.74 T
+1 F
+(left) 81.65 573.69 T
+0 F
+(lower border \050) 117.65 573.69 T
+1 F
+(expr) 186.29 573.69 T
+(ession) 207.17 573.69 T
+0 F
+(\051) 237.17 573.69 T
+1 F
+(right) 81.65 553.64 T
+0 F
+-0.37 (upper border \050) 117.65 553.64 P
+1 F
+-0.37 (expr) 185.55 553.64 P
+-0.37 (ession\051) 206.43 553.64 P
+0 F
+-0.37 (. Note: Single set elements are stored as set ranges with equal) 240.43 553.64 P
+0.22 (lower and upper border) 117.65 539.64 P
+0.22 (. A) 229.94 539.64 P
+2 F
+0.53 (SET) 248.05 539.64 P
+0 F
+0.22 ( of the form) 269.65 539.64 P
+2 F
+0.53 ({a..b,c,d..e}) 330.51 539.64 P
+0 F
+0.22 ( will be translated like) 424.11 539.64 P
+2 F
+({a..b}+{c..c}+{d..e}) 117.65 525.64 T
+0 F
+(.) 261.65 525.64 T
+3 8 Q
+(l) 63.65 498.58 T
+0 12 Q
+(class=ndMOp \050unary operator or prede\336ned function\051) 81.65 498.58 T
+1 F
+(left) 81.65 480.53 T
+0 F
+(operand resp. parameter \050) 117.65 480.53 T
+1 F
+(expr) 240.26 480.53 T
+(ession) 261.14 480.53 T
+0 F
+(\051) 291.14 480.53 T
+1 F
+(subclass) 81.65 460.48 T
+0 F
+(: operator code, can be divided into) 122.32 460.48 T
+3 8 Q
+(l) 117.65 440.43 T
+0 12 Q
+(Expressions) 135.65 440.43 T
+2 F
+(scNot) 135.65 426.43 T
+0 F
+(,) 171.65 426.43 T
+2 F
+(scMinus) 177.65 426.43 T
+0 F
+( \050includes) 228.05 426.43 T
+2 F
+(SET) 278.04 426.43 T
+0 F
+( and numerical data types\051) 299.64 426.43 T
+3 8 Q
+(l) 117.65 406.37 T
+0 12 Q
+(Prede\336ned functions) 135.65 406.37 T
+2 F
+(scAbs) 135.65 392.37 T
+0 F
+(,) 171.65 392.37 T
+2 F
+(scCap) 177.65 392.37 T
+0 F
+(,) 213.65 392.37 T
+2 F
+(scOdd) 219.65 392.37 T
+0 F
+(,) 255.65 392.37 T
+2 F
+(scAdr) 261.65 392.37 T
+0 F
+(,) 297.17 392.37 T
+2 F
+(scCc) 303.17 392.37 T
+0 F
+(, or) 331.97 392.37 T
+2 F
+(scSize) 350.96 392.37 T
+3 8 Q
+(l) 117.65 372.32 T
+0 12 Q
+(T) 135.65 372.32 T
+(ype Conversion \050) 142.14 372.32 T
+2 F
+(subclass=scConv) 224.8 372.32 T
+0 F
+(\051) 332.8 372.32 T
+1 F
+1.08 (type) 135.65 358.32 P
+0 F
+1.08 (is the destination type. The original type and the destination type are either) 159.72 358.32 P
+(numerical or) 135.65 344.32 T
+2 F
+(CHAR) 199.63 344.32 T
+0 F
+(.) 228.43 344.32 T
+3 8 Q
+(l) 117.65 324.27 T
+2 12 Q
+(SYSTEM.VAL) 135.65 324.27 T
+0 F
+( \050) 207.65 324.27 T
+2 F
+(subclass=scVal) 214.64 324.27 T
+0 F
+(\051) 315.44 324.27 T
+1 F
+(type) 135.65 310.27 T
+0 F
+( holds the destination type) 155.64 310.27 T
+3 8 Q
+(l) 63.65 283.22 T
+0 12 Q
+(class=ndDOp \050binary operator or prede\336ned function\051) 81.65 283.22 T
+1 F
+(left) 81.65 265.16 T
+0 F
+(left operand resp. \336rst parameter \050) 117.65 265.16 T
+1 F
+(expr) 280.93 265.16 T
+(ession) 301.81 265.16 T
+0 F
+(\051) 331.81 265.16 T
+1 F
+(right) 81.65 245.11 T
+0 F
+(right operand resp. second parameter \050) 117.65 245.11 T
+1 F
+(expr) 302.26 245.11 T
+(ession) 323.14 245.11 T
+0 F
+(\051) 353.14 245.11 T
+1 F
+(subclass) 81.65 225.06 T
+0 F
+(operator code, can be divided into) 125.32 225.06 T
+3 8 Q
+(l) 117.65 205.01 T
+0 12 Q
+(Expressions) 135.65 205.01 T
+4.36 (Arithmetic operators \050) 135.65 191.01 P
+2 F
+10.46 (scMinus) 251.01 191.01 P
+0 F
+4.36 (,) 301.41 191.01 P
+2 F
+10.46 (scPlus) 319.13 191.01 P
+0 F
+4.36 (,) 362.33 191.01 P
+2 F
+10.46 (scTimes) 372.69 191.01 P
+0 F
+4.36 (,) 423.09 191.01 P
+2 F
+10.46 (scRDiv) 433.45 191.01 P
+0 F
+4.36 (,) 475.87 191.01 P
+2 F
+10.46 (scIDiv) 486.23 191.01 P
+0 F
+4.36 (,) 528.65 191.01 P
+2 F
+(scMod) 135.65 177.01 T
+0 F
+(\051, boolean operators \050) 171.65 177.01 T
+2 F
+(scAnd) 274.28 177.01 T
+0 F
+(,) 310.28 177.01 T
+2 F
+(scOr) 316.28 177.01 T
+0 F
+(\051,) 345.08 177.01 T
+2 F
+(IN) 355.08 177.01 T
+0 F
+( \050) 369.48 177.01 T
+2 F
+(scIn) 376.48 177.01 T
+0 F
+(\051,) 405.28 177.01 T
+3.8 (type test \050) 135.65 163.01 P
+2 F
+9.13 (scIs) 190.58 163.01 P
+0 F
+3.8 (\051, and relations \050) 219.38 163.01 P
+2 F
+9.13 (scEql) 309.44 163.01 P
+0 F
+3.8 (,) 345.44 163.01 P
+2 F
+9.13 (scNeq) 355.24 163.01 P
+0 F
+3.8 (,) 391.24 163.01 P
+2 F
+9.13 (scLss) 401.04 163.01 P
+0 F
+3.8 (,) 437.04 163.01 P
+2 F
+9.13 (scLeq) 446.85 163.01 P
+0 F
+3.8 (,) 482.85 163.01 P
+2 F
+9.13 (scGrt) 492.65 163.01 P
+0 F
+3.8 (,) 528.65 163.01 P
+2 F
+(scGeq) 135.65 149.01 T
+0 F
+(\051) 171.65 149.01 T
+3 8 Q
+(l) 117.65 128.95 T
+0 12 Q
+(Prede\336ned Functions) 135.65 128.95 T
+2 F
+(scAsh) 135.65 114.95 T
+0 F
+(,) 171.65 114.95 T
+2 F
+(scBit) 177.65 114.95 T
+0 F
+(,) 213.65 114.95 T
+2 F
+(scLsh) 219.65 114.95 T
+0 F
+(,) 255.65 114.95 T
+2 F
+(scRot) 261.65 114.95 T
+0 F
+(,) 297.65 114.95 T
+2 F
+(scLen) 303.65 114.95 T
+0 F
+(Note: For the function) 135.65 100.95 T
+2 F
+(LEN) 245.64 100.95 T
+0 F
+( a second parameter is added if necessary) 267.24 100.95 T
+(.) 464.72 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "3" 18
+%%Page: "2" 19
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(2) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+0 12 Q
+0 X
+1.43 (ectors. Is therefor) 63.65 736.95 P
+2 F
+3.42 (node) 155.23 736.95 P
+0 F
+1.43 ( part of a designator then) 184.02 736.95 P
+2 F
+3.42 (node) 315.22 736.95 P
+0 F
+1.43 ( has to be a \050quali\336ed\051 identi\336er with) 344.02 736.95 P
+2 F
+0.07 (node.left=NIL) 63.65 722.95 P
+0 F
+0.03 (, or it is a selector of a kind determined by) 157.25 722.95 P
+2 F
+0.07 (node.class) 363.54 722.95 P
+0 F
+0.03 ( and whose pre\336x is) 435.54 722.95 P
+0.66 (stored in) 63.65 708.95 P
+2 F
+1.59 (node.left) 109.63 708.95 P
+0 F
+0.66 (.) 174.43 708.95 P
+1 F
+0.66 (type) 181.09 708.95 P
+0 F
+0.66 ( holds the data type of the expression that results from applying the) 201.09 708.95 P
+(selector to it\325) 63.65 694.95 T
+(s pre\336x.) 126.31 694.95 T
+(For all nodes of this class holds:) 63.65 674.21 T
+1 F
+(left) 81.65 653.47 T
+0 F
+0.03 (points to the pre\336x of the selector \050) 117.65 653.47 P
+1 F
+0.03 (designator) 286.15 653.47 P
+0 F
+0.03 (\051. The \336eld is) 337.49 653.47 P
+2 F
+0.07 (NIL) 404.6 653.47 P
+0 F
+0.03 (, if the node denotes a) 426.2 653.47 P
+(variable, constant, procedure, or type identi\336er) 117.65 639.47 T
+(.) 341.6 639.47 T
+1 F
+(type) 81.65 618.74 T
+0 F
+(is the type of the current node \050when applied to the pre\336x in) 117.65 618.74 T
+1 F
+(left) 408.6 618.74 T
+0 F
+(\051.) 423.94 618.74 T
+(Here a list of the single classes:) 63.65 598 T
+3 8 Q
+(l) 63.65 570.26 T
+0 12 Q
+(class=ndV) 81.65 570.26 T
+(ar \050variable\051) 131.08 570.26 T
+1 F
+(obj) 81.65 551.52 T
+0 F
+(variable or value parameter parameter resp. receiver \050) 117.65 551.52 T
+2 F
+(obj.mode=objVar) 374.87 551.52 T
+0 F
+(\051) 482.87 551.52 T
+3 8 Q
+(l) 63.65 523.78 T
+0 12 Q
+(class=ndV) 81.65 523.78 T
+(arPar \050) 131.08 523.78 T
+2 F
+(VAR) 163.39 523.78 T
+0 F
+( parameter\051) 184.99 523.78 T
+1 F
+(obj) 81.65 505.04 T
+2 F
+(VAR) 117.65 505.04 T
+0 F
+( parameter resp. receiver \050) 139.25 505.04 T
+2 F
+(obj.mode=objVarPar) 264.85 505.04 T
+0 F
+(\051) 394.45 505.04 T
+3 8 Q
+(l) 63.65 477.3 T
+0 12 Q
+(class=ndField \050record \336eld\051) 81.65 477.3 T
+1 F
+(obj) 81.65 458.56 T
+0 F
+(record \336eld \050) 117.65 458.56 T
+2 F
+(obj.mode=objField) 179.63 458.56 T
+0 F
+(\051) 302.03 458.56 T
+3 8 Q
+(l) 63.65 430.82 T
+0 12 Q
+(class=ndTBProc, class=ndTBSuper \050type bound procedure\051) 81.65 430.82 T
+1 F
+(obj) 81.65 412.08 T
+0 F
+(type bound procedure \050) 117.65 412.08 T
+2 F
+(obj.mode=objTBProc) 229.28 412.08 T
+0 F
+(\051) 358.88 412.08 T
+1 F
+(type) 81.65 391.34 T
+0 F
+(the procedure\325) 117.65 391.34 T
+(s formal parameter list \050) 186.62 391.34 T
+2 F
+(struct.form=strTBProc) 301.93 391.34 T
+0 F
+(\051.) 453.13 391.34 T
+(Note: The \336rst parameter in the list is actually the receiver) 117.65 377.34 T
+(.) 396.94 377.34 T
+3 8 Q
+(l) 63.65 349.6 T
+0 12 Q
+(class=ndDeref \050pointer dereference\051) 81.65 349.6 T
+3 8 Q
+(l) 63.65 321.87 T
+0 12 Q
+(class=ndIndex \050array index\051) 81.65 321.87 T
+1 F
+(right) 81.65 303.13 T
+0 F
+(index \050) 117.65 303.13 T
+1 F
+(expr) 151.31 303.13 T
+(ession) 172.19 303.13 T
+0 F
+(\051) 202.19 303.13 T
+3 8 Q
+(l) 63.65 275.39 T
+0 12 Q
+(class=ndGuard \050type guard\051) 81.65 275.39 T
+1 F
+(obj) 81.65 256.65 T
+0 F
+(type against which the variable is checked) 117.65 256.65 T
+2 F
+(\050obj.mode=objType) 323.27 256.65 T
+0 F
+(\051) 445.67 256.65 T
+3 8 Q
+(l) 63.65 228.91 T
+0 12 Q
+(class=ndT) 81.65 228.91 T
+(ype \050data type\051) 130.24 228.91 T
+1 F
+(obj) 81.65 210.17 T
+0 F
+1.4 (data type \050) 117.65 210.17 P
+2 F
+3.37 (obj.mode=objType) 171.11 210.17 P
+0 F
+1.4 (\051. Used in conjunction with type tests,) 286.31 210.17 P
+2 F
+3.37 (SIZE) 481.12 210.17 P
+0 F
+1.4 ( and) 509.92 210.17 P
+2 F
+(SYSTEM.VAL) 117.65 196.17 T
+0 F
+(.) 189.65 196.17 T
+3 8 Q
+(l) 63.65 168.43 T
+0 12 Q
+(class=ndProc \050procedure\051) 81.65 168.43 T
+1 F
+(obj) 81.65 149.69 T
+0 F
+(procedure \050) 117.65 149.69 T
+2 F
+(mode=objExtProc, objIntProc, or objLocalProc) 172.62 149.69 T
+0 F
+(\051) 489.42 149.69 T
+0.6 (Note: This can\325) 117.65 135.69 P
+0.6 (t be a prede\336ned procedure since these are converted by the parser in) 193.27 135.69 P
+(expressions of the class) 117.65 121.69 T
+2 F
+(ndMOp) 233.63 121.69 T
+0 F
+(,) 269.63 121.69 T
+2 F
+(ndDOp) 275.63 121.69 T
+0 F
+(, or) 311.63 121.69 T
+2 F
+(ndAssign) 330.62 121.69 T
+0 F
+(.) 388.22 121.69 T
+1 F
+(type) 81.65 100.95 T
+0 F
+(the procedure\325) 117.65 100.95 T
+(s formal parameter list \050) 186.62 100.95 T
+2 F
+(struct.form=strProc) 301.93 100.95 T
+0 F
+(\051) 438.73 100.95 T
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "2" 19
+%%Page: "1" 20
+595.3 841.9 0 FMBEGINPAGE
+[0 0 0 1 0 0 0]
+[ 0 1 1 0 1 0 0]
+[ 1 0 1 0 0 1 0]
+[ 1 1 0 0 0 0 1]
+[ 1 0 0 0 0 1 1]
+[ 0 1 0 0 1 0 1]
+[ 0 0 1 0 1 1 0]
+ 7 FrameSetSepColors
+FrameNoSep
+0 0 0 1 0 0 0 K
+63.65 770.95 531.65 780.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 59.95 531.65 69.95 R
+V
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 10 Q
+0 X
+(1) 295.15 63.29 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+63.65 96.95 531.65 744.95 R
+7 X
+V
+4 18 Q
+0 X
+(Appendix A) 63.65 732.95 T
+(Syntax T) 171.65 732.95 T
+(r) 239.83 732.95 T
+(ee) 247.5 732.95 T
+0 12 Q
+0.03 (This data structure contains all the elements of the source program that execute actions \050i.e. state-) 63.65 699.95 P
+1.59 (ments and expressions\051, or that encapsulate actions \050module or procedures\051. Constant, type or) 63.65 685.95 P
+-0.54 (variable declarations can\325) 63.65 671.95 P
+-0.54 (t be found here. They are part of the symbol table and are only referenced) 185.64 671.95 P
+-0.4 (from nodes of the syntax tree. Running the parser will result in a single node, the root of the syntax) 63.65 657.95 P
+(tree, describing the compiled module.) 63.65 643.95 T
+2 F
+(TYPE) 99.65 600.29 T
+(Node = POINTER TO NodeDesc;) 117.65 588.29 T
+(NodeDesc = RECORD) 117.65 576.29 T
+(class, subclass : SHORTINT;) 135.65 564.29 T
+(left, right, link : Node;) 135.65 552.29 T
+(type : OTable.Struct;) 135.65 540.29 T
+(obj : OTable.Object;) 135.65 528.29 T
+(conval : OTable.Const;) 135.65 516.29 T
+(pos : LONGINT) 135.65 504.29 T
+(END;) 117.65 492.29 T
+0 F
+-0.28 (The function of a single node is determined by the \336eld) 63.65 465.95 P
+1 F
+-0.28 (class) 329.6 465.95 P
+0 F
+-0.28 (. The possible values for this \336eld are) 353.6 465.95 P
+0.32 (de\336ned as symbolic constants in module) 63.65 451.95 P
+2 F
+0.77 (OEParse) 262.9 451.95 P
+0 F
+0.32 ( \050their pre\336x is) 313.3 451.95 P
+2 F
+0.77 (nd) 388.58 451.95 P
+0 F
+0.32 (\051, e.g. the value) 402.98 451.95 P
+2 F
+0.77 (ndWhile) 481.25 451.95 P
+0 F
+0.77 (denotes a) 63.65 437.95 P
+2 F
+1.86 (WHILE) 113.18 437.95 P
+0 F
+0.77 ( loop, and) 149.18 437.95 P
+2 F
+1.86 (ndVar) 202.17 437.95 P
+0 F
+0.77 ( stands for an arbitrary variable that isn\325) 238.17 437.95 P
+0.77 (t declared as a) 435.65 437.95 P
+2 F
+1.86 (VAR) 510.05 437.95 P
+0 F
+(parameter) 63.65 423.95 T
+(.) 110.96 423.95 T
+0.05 (The classes) 63.65 403.95 P
+2 F
+0.13 (ndDOp) 121.74 403.95 P
+0 F
+0.05 (\050dyadic operator\051,) 165.07 403.95 P
+2 F
+0.13 (ndMOp) 254.15 403.95 P
+0 F
+0.05 ( \050monadic operator\051 and) 290.15 403.95 P
+2 F
+0.13 (ndAssign) 409 403.95 P
+0 F
+0.05 ( \050assignment\051) 466.6 403.95 P
+-0.32 (are further subdivided by the \336eld) 63.65 389.95 P
+1 F
+-0.32 (subclass) 227.68 389.95 P
+0 F
+-0.32 ( \050legal values:) 268.35 389.95 P
+2 F
+-0.77 (OEParse.scXXX) 337.7 389.95 P
+0 F
+-0.32 (\051. E.g. the expression) 431.3 389.95 P
+2 F
+(a-b) 63.65 375.95 T
+0 F
+( will be translated into a node of) 85.25 375.95 T
+2 F
+(class=ndDOp, subclass=scMinus) 243.23 375.95 T
+0 F
+(.) 452.03 375.95 T
+0.68 (Each expression evaluates into a value of a determined type \050see [M\232s93b], Appendix A\051. Each) 63.65 355.95 P
+0.72 (operator expects operands of determined types. This type information is stored in the \336eld) 63.65 341.95 P
+1 F
+0.72 (type) 508.66 341.95 P
+0 F
+0.72 (.) 528.65 341.95 P
+3.41 (The compiler depends on this \336eld for type checks and when inserting conversion nodes) 63.65 327.95 P
+(\050) 63.65 313.95 T
+2 F
+(class=ndConv) 67.64 313.95 T
+0 F
+(\051.) 154.04 313.95 T
+1 F
+(obj) 63.65 293.95 T
+0 F
+( holds references to declared objects \050e.g. for a procedures call or as reference to a variable\051.) 78.98 293.95 T
+1 F
+-0.54 (pos) 63.65 273.95 P
+0 F
+-0.54 ( is the character position in the source \336le where the expression resp. the statement was de\336ned.) 80.32 273.95 P
+(This allows for \324to the point\325 error messages.) 63.65 259.95 T
+4 18 Q
+(Appendix A.1) 63.65 220.95 T
+(Designators) 189.65 220.95 T
+0 12 Q
+-0.54 (A designator designates a constant, a variable, a procedure or a data type. It has the following \050sim-) 63.65 187.95 P
+(pli\336ed\051 form:) 63.65 173.95 T
+2 F
+(Designator = Qualident {Selector},) 99.65 155.29 T
+0 F
+0.03 (i.e., an \050possibly quali\336ed\051 identi\336er is followed by a sequence of selectors. This structure will be) 63.65 128.95 P
+0.38 (translated into a linear list \050the elements are linked with) 63.65 114.95 P
+1 F
+0.38 (left) 337.39 114.95 P
+0 F
+0.38 (\051 in reversed order with regard to the) 352.72 114.95 P
+-0.23 (source text: The list\325) 63.65 100.95 P
+-0.23 (s last element is the quali\336ed identi\336er) 161.27 100.95 P
+-0.23 (, preceded \050in reverse order\051 by the sel-) 344.7 100.95 P
+351.65 490.95 522.65 625.95 C
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+387.65 536.95 453.32 605.95 R
+7 X
+0 0 0 1 0 0 0 K
+V
+0.5 H
+2 Z
+0 X
+N
+2 10 Q
+(class) 406.12 591.82 T
+(subclass) 397.12 579.91 T
+(type) 409.12 568 T
+(obj) 412.12 556.09 T
+(conval) 403.12 544.18 T
+0 0 0 1 0 0 0 K
+0 0 0 1 0 0 0 K
+378.8 517.72 369.65 509.95 373.29 521.39 376.05 519.55 4 Y
+V
+387.65 536.95 376.05 519.55 2 L
+N
+465.83 521.62 468.65 509.95 460.07 518.35 462.95 519.99 4 Y
+V
+453.32 536.95 462.95 519.98 2 L
+N
+474.86 611.21 486.65 608.95 475.45 604.62 475.16 607.92 4 Y
+V
+453.32 605.95 475.16 607.92 2 L
+N
+(link) 486.65 608.95 T
+(left) 360.65 500.95 T
+(right) 459.65 500.95 T
+-8.35 24.95 603.65 816.95 C
+0 0 0 1 0 0 0 K
+FMENDPAGE
+%%EndPage: "1" 20
+%%Trailer
+%%BoundingBox: 0 0 595.3 841.9
+%%PageOrder: Descend
+%%Pages: 20
+%%DocumentFonts: Times-Roman
+%%+ Times-Italic
+%%+ Courier
+%%+ ZapfDingbats
+%%+ Times-Bold
+%%EOF

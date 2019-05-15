@@ -1,0 +1,299 @@
+Note: Version 1.16 is the last update of o2c.  As of now this package
+is no longer supported by its authors.  If you have problems with o2c
+you might try to switch to one of the compilers of the OOC project.
+Its home page is
+  http://cognac.informatik.uni-kl.de/~oberon1/ooc/ooc_home.html
+OOC also includes an Oberon to C translator called oo2c.  It's very
+similar to o2c, although it has several advantages: 
+  o it translates to ANSI-C
+  o it generates more efficient C code
+  o it uses autoconf to configure and install itself on a wide variety
+    of Unix systems 
+  o it'll profit from future optimizations implemented as part of OOC.
+You can get oo2c at ftp://cognac.informatik.uni-kl.de/pub/ooc/oo2c/
+
+-- Michael van Acken
+-- Juergen Zimmermann
+
+------------------------------------------------------------------------
+
+Changes since 1.15:
+
+If LEN or ENTIER appeared as top level operator of a ConstExpr, the 
+constant's type remained LONGINT instead of being changed to the smallest
+enclosing integer type.
+
+The compiler wrongly emitted an error message when applying SHORT to
+the constant result of an invocation of LEN or ENTIER.
+
+String constants derived from a non-printable character are now
+properly quoted in the emitted C code.
+
+
+
+Changes since 1.14:
+
+Fixed type tests that take the result of a function evaluation for their
+left hand side.
+
+Fixed possible name clash between temporary internal variable and Oberon-2
+identifier.
+
+Fixed mapping of LONGREAL values to little endian in module Files.
+
+Changed RealStr.Take to handle `out of range' errors properly.
+
+
+
+Changes since 1.13:
+
+Fixed obscure bug in calls to type-bound procedures.  If the given record
+contained redefined but not exported type-bound procedures from another
+module, the index calculated for the type-bound procedure was too high.
+
+The GCC won't issue a warning when passing a pointer to to a variable
+parameter of type SYSTEM.PTR.
+
+The decimal representation of MAX(REAL) was rejected as a REAL
+constant.  This broke the compilation of the OOC math libraries.
+
+
+
+Changes since 1.12:
+
+New library module XYplane for X11.
+[ Note: 
+  If linking to the X11 lib fails, then try to add the command line 
+  option --ldflags <lpath> to the o2c invocation; a likely value
+  for <lpath> is "-L/usr/X11/lib" or "-L/usr/lib/X11".  
+  For Solaris you have to add "-lsocket" to the linker flags, too. ]
+
+Fixed last fix for unnamed record types.  It broke the header file
+generated from X11.Mod.
+
+Fixed finalization code in Files.c.
+
+Fixed implementation of SYSTEM.LSH.
+
+A failed type guard will print the dynamic type of the tested variable.
+
+
+
+Changes since 1.11:
+
+Fixed minor bug that caused broken C code for unnamed record types.
+
+ASSERT generated code that passed a file position to an INTEGER,
+instead of LONGINT.
+
+New lib module `FIn' from Bernd Bohnet <bohnet@ind.uni-stuttgart.de>.
+It's similar to `In', but reads from a file.  See lib/FIn.Mod for details. 
+
+Fixed bug in byte swap code in `lib/Files.c'.
+
+Fixed bug in `lib/Files.c' which caused finalization cycles when the
+garbage collector was used.
+
+
+
+Changes since 1.10:
+
+Generated names for exported boolean constants missed the module
+prefix, possibly leading to name clashes when linking modules. 
+
+Oops.  RealStr.GiveFixed dropped negative sign.
+
+All type-bound procedures for an exported record type were
+visible. Even those not marked as "exported".
+
+oberon2.el: Minor fix in search for declarations.
+
+
+
+Changes since 1.9:
+
+Extended record types were sometimes allocated as atomic although they
+contained pointers, causing the garbage collector to miss those pointers
+and to collect heap objects prematurely.
+
+Fixed bug that produced broken code for expressions of the form `a-c',
+where `c' is a negative constant (the output was something like `a--123'). 
+
+Added option `--redir' to programs `o2whereis' and `o2b'.
+
+Fixed bug in symbol table handling which allowed forward declarations of
+procedures to have different export marks than the corresponding procedure
+definition.
+
+
+
+Changes since 1.8:
+
+A call to LEN was rejected whenever the variable was of an EXTERNAL
+array type--even if it was a fixed length array.
+
+Oops.  Assigning a string to an array of length >1 was _always_
+accepted.  
+
+Assignment between arrays did only copy the first few bytes if the array
+type wasn't associated with a name.
+
+Comparison of array pointers was rejected.
+(Thanks to Alexander Sheverdyaev who pointed the above 4 bugs out to me
+ and even suggested solutions -- mva)
+
+In accordance with the Oakwood Guidelines (revision 1A) type testing or
+type guarding a NIL pointer is illegal.  With enabled run-time checks this
+will abort the program and print an error message to stderr.  
+
+Fixed SYSTEM.VAL(T,x) where `x' is an expression.
+
+Size information was lost when defining a forward declared type, which in
+turn caused SIZE to fail.
+
+Fixed bug that prevented using SYSTEM.NEW on variables of EXTERNAL type. 
+
+Fixed bug in type guards on pointer variables that (most of the time)
+ignored failed guards and (sometimes) complained about succeeded guards. 
+
+Changed oberon2.el to include history lists for compilation commands,
+module and procedure names, formal parameter lists, etc.  The find
+functions (`C-c .', `C-c 4 .', etc) will also keep a history of the
+identifiers that were searched for.  The history is accessed by M-p and
+M-n while in mini buffer mode.
+The new function o2-find-def-undef-cursor (`C-c /' or `C-c -') will,
+similar to `S-mouse-3', display (and blink to) the declaration of the
+identifier under the cursor.  The current window, buffer, and point remain 
+unchanged. 
+
+
+
+Changes since 1.7:
+
+Options -F resp --file was removed.  Makefiles are now created with
+  "o2c --makefile Makefile Module [Command]".
+The argument after --makefile sets the output file.
+
+Fixed bug that caused broken code when type guarding a pointer with
+disabled type checks.
+
+Fixed bug that botched the length information when passing an external
+array to a formal value parameter of open array type.
+
+Fixed signal handler in Rts.c.  The one introduced with 1.7 was broken on
+most systems.
+
+Fixed bug in Files.c. After the file's registration (Files.Register),
+all subsequent calls to Files.Write* were ignored.
+
+Fixed bug in o2ef that printed obsolete lines of source code in context mode.
+
+Added menu to the Emacs Oberon-2 mode (access via menu bar or with
+C-mouse-3, ie, press control with right mouse button).  This should make
+it easier for beginners to use the mode.  New function S-mouse-3 (shift
+with right mouse button) will display the definition of the qualified
+identifier under the mouse cursor in another window (it's similar to `C-u
+C-c 4 .'). 
+
+Note: If you are using the Emacs package hilit19, you'll probably want to
+exchange the line
+         (hilit-string-find ?\\ string)
+in the hilit pattern description for Oberon-2 with
+         ("\"[^\n\"]*\"\\|\'[^\n\']*\'" 0 string)
+The old version gets confused by single quote characters and colorizes 
+everything behind them as `string'.  The complete pattern description can
+be found in INSTALL and oberon2.el.
+
+
+
+
+Changes since 1.6:
+
+Fixed bug which caused an compile time error if a forward
+declared type-bound procedure was resolved.
+
+Fixed bug with wrong 'mnolev' for local variables within
+type bound procedures.
+
+A type-bound procedure that isn't marked as exported, but redefines an
+exported procedure, will now produce an error message.
+
+Bugfix: Extensions of records can now contain a field named `base'.
+
+Bugfix: Calling EXTERNAL procedures with an ARRAY OF BYTE is now
+possible. 
+
+Bugfix: The constant SYSTEM.GC wasn't handled properly when translating 
+it into C code.
+
+Corrected type tests/type guards on pointer variables with value NIL:
+such tests always evaluate to TRUE and the guards never fail.  [Note: This
+is plain wring; since version 1.9 they will always trap.]
+
+Changed Rts to call registered termination procedures when an error or a
+termination signal is raised, and on normal program termination (previously 
+only the latter was done).
+
+Changed #include statements in (generated) C files to contain only the
+file name, not the path to the included file.  All possible paths to
+header files are extracted from ~/.o2c.red and passed as -I options to gcc.
+This allows for greater flexibility when including other modules from
+EXTERNAL .c files.  Additional, the paths in ~/.o2c.red are now allowed to
+contain `.' or `..' parts. 
+
+Corrections in X11.Mod, Xutil.Mod.
+
+oberon2.el:
+Made o2-insert-module (C-c m) smarter: it'll take the file name as default for
+  the module name.
+Added variable o2-block-suffix.  A `(setq o2-block-suffix nil)' in your
+  ~/.emacs file will suppress comments like (* if *), (* while *), etc when
+  inserting structured statements with C-c i, C-c w, etc.
+Added function o2-insert-typebound-redef (C-c C-t).  Like C-c t, it inserts
+  a type-bound procedure, but it'll only ask for the procedure name and the
+  receiver.  The formal parameters and the export flag are taken from the 
+  (existing) base definition.  This should save a lot of typing when building a
+  hierachy of objects.
+
+
+
+
+
+Changes since 1.5:
+
+Added support for the gc package.  New predefined procedure
+SYSTEM.COLLECT and new predefined constant SYSTEM.GC.  New compiler
+options --usegc and --nogc.  See README for details. 
+
+NEW, SYSTEM.NEW, and SYSTEM.DISPOSE can't be used to allocate
+resp. deallocate EXTERNAL types.  
+
+Fixed bug that sometimes caused broken symbolfiles to be written. 
+
+Fixed bug when linking to EXTERNAL object file (...["C"] EXTERNAL
+["xyz.o"]...).  Added code for EXTERNAL archive files (...["C"]
+EXTERNAL ["xyz.a"]...).
+
+Updated man pages, README, KNOWN_PROBLEMS.
+
+
+
+
+Changes since 1.4:
+
+Bugfix: Under certain conditions the compiler wouldn't recognize missing 
+source files during a make.  Note: The paths to the sources of _all_
+imported modules (including the standard libs) have to recorded in ~/.o2c.red. 
+
+Fixed SYSTEM.VAL.  
+
+Changed Files.Close to deallocate file handle if Files.permanentClose is
+set to TRUE (this is an extension of this library and not part of the 
+Oakwood Guidelines).  See Files.Close for details.
+
+Extended module Redir to allow multiple patterns in connection with one
+path list, e.g. "*.c, *.h, *.o = obj" is possible in ~/.o2c.red.
+Added Function Redir.Free to deallocate memory of a redirection table.
+
+Updated README (inserted up to date description of Emacs major mode, added
+references to docs/Internal.ps).

@@ -1,0 +1,66 @@
+The list a known problems.  These are not considered as bugs and won't
+be `corrected'.  Note that o2c is no longer maintained by its authors,
+meaning that true bugs won't be corrected, either.
+------------------------------------------------------------------------
+
+
+There is no integrated garbage collector, but it's possible to include
+Hans-J. Boehm's conservative garbage collector.  `Conervative' means,
+that it'll treat every possible heap, stack, or register location as a
+pointer that keeps a memory block alive.  It has no access to
+information which memory addresses are actually pointers.  Therefor
+not all memory blocks that are no longer referenced are recognized as
+such, leading to larger memory usage than strictly necessary (plus
+overhead for the gc's own data structures).
+When using a gc that wasn't compiled with ALL_INTERIOR_POINTERS, it
+isn't possible to place arrays with 5 or more open dimensions on the
+heap.   Otherwise the memory may be freed although it is still
+referenced.  Note: The compiler will not detect this.
+
+
+
+Designators that appear just once in the Oberon-2 source code may be
+evaluated multiple times in the generated C code.  Unless you make
+use of side effects inside of designators (i.e., use a side-effecting 
+function to calculate an array index) you won't notice this.
+Example (F will be called twice): 
+MODULE Test;
+IMPORT Out;
+  
+VAR calls, i: INTEGER;
+    array : ARRAY 1 OF POINTER TO ARRAY OF INTEGER;
+  
+PROCEDURE F (i: INTEGER): INTEGER;
+  BEGIN
+    INC (calls);
+    Out.String ("call "); Out.Int (calls, 0); Out.Ln;
+    RETURN i
+  END F;
+
+PROCEDURE Proc (a: ARRAY OF INTEGER);
+  END Proc;
+
+BEGIN
+  calls := 0; i := 0; NEW (array[0], 8);
+  Proc (array[F(i)]^)  (* F will be called twice *)
+END Test.
+
+
+
+SIZE(T) can't be used as part of a constant expression if T is a
+RECORD or ARRAY type. 
+
+
+
+ENTIER is rounding toward zero instead of -infinity, as stated by the
+language report.  That is, ENTIER(-0.5) will result to 0 instead of -1.
+
+
+
+In order to run a make (command 'o2c --make ...' or 'o2c -M ...'), all
+module sources have to be accessible, since the compiler depends on the
+sources (and not on the symbol, .c, or .o files) to find all modules
+that are imported directly or indirectly.  That means, that the path
+to the original libraries in lib/, where e.g. Out.Mod or Strings.Mod 
+can be found, _must_ be part of the list of paths associated with *.Mod
+in ~/.o2c.red.

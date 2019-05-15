@@ -1,0 +1,185 @@
+This file documents the installation of the "Oberon-2 -> gcc"
+compiler.  
+Copyright (C) 1993-1996 Michael van Acken & Juergen Zimmermann.  
+
+
+Requirements
+************
+
+  The Oberon-2 compiler needs a working GNU CC, Version 2.5 or
+newer. In order to use the Emacs major mode you must have Emacs
+version 18 or later. The compiler will only run on 32 bit UNIX
+systems. 
+
+
+Plattforms resp GCC versions (tested so far)
+*******************************************
+hppa1.1-hp-hpux/2.5.8
+sparc-sun-sunos4.1.4/2.7.0
+sparc-sun-solaris2.4/2.7.0
+iX86-unknown-linux/2.5.8
+iX86-unknown-linux/2.6.3
+
+
+Installing the compiler
+***********************
+
+  Here is the procedure for installing the Oberon-2 compiler on a
+Unix system. Change to o2c-1.16.
+
+There are two possible versions of the compiler: 
+One without a garbage collector (this is the default case for the
+distributed compiler source) and another with an external garbage
+collector called gc (see the README for more details on gc). 
+
+1. Adjust the paths in `Makefile'.
+
+2. If you want to build a compiler with garbage collection, please
+   adjust the file 'compiler/OMachine.Mod'.  You'll have to change the
+   constants defCodeForGC and gcLibPath.  Note: The garbage collector
+   is not part of this distribution!
+
+3. Build the compiler with `make'.
+
+4. `make install' will install the compiler and create `~/.o2c.red' if
+   it doesn't exist.  The compiler depends on this file to locate and
+   store files.  Remember to execute the `rehash' command for (t)csh,
+   otherwise the shell will not find the newly installed binaries. 
+
+5. `make clean' will remove all intermediate files that aren't
+   necessary to run the compiler.  Note: Run it only after a
+   successful install, since it'll remove all locally generated
+   binaries and the makefiles and the C sources that were used to 
+   generate them.
+
+6. In order to use the Oberon-2 emacs major-mode, you'll have to
+   add the following lines to your `~/.emacs' file.
+
+	;;; Oberon-2 specific settings:
+	; set load-path to incorporate directory with oberon2.el
+	(setq load-path (cons 
+                    (expand-file-name "~/o2c-1.16/system/emacs") 
+                    load-path))
+	; auto load oberon2.el if oberon-2-mode is called
+	(autoload 'oberon-2-mode "oberon2" "The Oberon-2 major mode." t)
+	; set oberon-2-mode as major mode for all files ending in ".Mod"
+	(setq auto-mode-alist (cons '("\\.Mod$" . oberon-2-mode) auto-mode-alist))
+
+   If the file oberon2.el resides in another location than 
+   ~/o2c-1.16/system/emacs, please modify the `load-path' 
+   accordingly.  If you are using Emacs version 19.22 or older, replace  
+   "oberon2" with "oberon2_18" in the line '(autoload ..)', since the
+   package oberon2.el will only work with the compile.el package of
+   Emacs 19.28 (or above, I hope).
+
+   Add 
+	(setq o2-cwd (expand-file-name "dir"))  
+   if you want Emacs to execute o2c, o2b, etc in the directory "dir",
+   regardless of the directory it was started from (or if Emacs aborts
+   with an error complaining that it couldn't resolve the environment
+   variable PWD).
+
+
+
+Some hints to make editing under Emacs more comfortable
+
+   The function that is used most is the one that places the cursor at 
+   the next error position after a compile.  It is bound to the 2 key
+   sequence C-c ' (or C-c `).
+   You can bind the function to a single key, eg F8, by adding one of
+   the following lines to .emacs:
+      (global-set-key [f8] 'o2-next-error)
+   under X, and
+      (global-set-key "[19~" 'o2-next-error)
+   on a text terminal (you'll have to replace the cryptic string by
+   the one that Emacs will produce when pressing `C-q F8').
+
+   If you are working with a X color display, you might try to add the 
+   following piece of code to your ~/.emacs file (for version 19+).
+   It'll colorize keywords and comments:
+
+	(cond (window-system
+	       (require 'hilit19)
+	       (hilit-set-mode-patterns
+	        '(o2-mode oberon-2-mode)
+	        '(("(\\*" "\\*)" comment)
+		  ("\"[^\n\"]*\"\\|\'[^\n\']*\'" 0 string)
+	          ("^[ \t]*PROCEDURE" nil defun)
+	          ("\\<\\(RECORD\\|ARRAY\\|OF\\|POINTER\\|TO\\|BEGIN\\|END\\|FOR\\|BY\\|IF\\|THEN\\|ELSE\\|ELSIF\\|CASE\\|WHILE\\|DO\\|MODULE\\|FROM\\|RETURN\\|IMPORT\\|VAR\\|LOOP\\|UNTIL\\|OR\\|DIV\\|EXIT\\|IN\\|IS\\|REPEAT\\|WITH\\|CONST\\|TYPE\\)\\>" nil keyword)))))
+       
+   The current hilit19 will only hilight files upto a length of 60000
+   characters.  To increase this boundary to, say, 100000 characters,
+   add  (setq hilit-auto-highlight-maxout 100000)  to ~/.emacs.
+
+
+
+
+NOTE
+  Since the default paths in `~/.o2c.red' are relative to the directory 
+  `o2c-1.16', you'll have to run o2c from this directory.  You can 
+  remove this limitation by providing absolute paths in `~/.o2c.red'.  
+  The section 'Emacs Mode' in the README describes which working 
+  directory is used when calling o2c from within Emacs.
+
+  If you want to use the compiler for projects which reside outside
+  the directory `o2c-1.16', you should edit the file
+  `~/.o2c.red' in the following way:
+
+  a) Change the existing relativ paths in `~/.o2c.red' to absolute
+     paths. 
+
+  b) Insert the (relative/absolute) paths for your project before the
+     paths for the compiler.  This has to be done because files are
+     always created in the first location found.  Most installations
+     will protect the compiler's directories for writing, so every
+     compilation would result in an error. 
+
+  c) Make sure that the directories for the created files exist, since
+     the compiler will not create them but fail with an error.
+
+  Here is a short example which was used during the developement of
+  some litte projects: 
+---> cut here <---
+# NOTE: `~user/', `~/', `..' and `.' are allowed as part of the paths
+#       +RCS is only useful for module sources (*.Mod).
+
+# paths for sources
+*.Mod   = 
+        .;              # first search the current directory
+        scanner;
+        ownlib;
+        /tools/public/lib/o2c-1.16/compiler;
+        /tools/public/lib/o2c-1.16/lib
+        + RCS           # include RCS files in the search
+#
+# generated files
+*.h, *.m, *.o, *.c = obj; /tools/public/lib/o2c-1.16/obj
+*.c     = /tools/public/lib/o2c-1.16/lib
+*.OSym  = sym; /tools/public/lib/o2c-1.16/sym
+
+_OGCC.?, ErrorList.Txt = /tools/public/lib/o2c-1.16/system
+---> cut here <---
+
+
+Bug-reports
+***********
+
+This package is no longer supported by its authors.  There is no use
+in sending any bug reports.  If you have problems with o2c you might
+try to switch to one of the compilers of the OOC project. Its home
+page is
+  http://cognac.informatik.uni-kl.de/~oberon1/ooc/ooc_home.html
+
+OOC also includes an Oberon to C translator called oo2c.  It's very
+similar to o2c, although it has several advantages: 
+  o it translates to ANSI-C
+  o it generates more efficient C code
+  o it uses autoconf to configure and install itself on a wide variety
+    of Unix systems 
+  o it'll profit from future optimizations implemented as part of OOC.
+
+You can get oo2c here:
+  ftp://cognac.informatik.uni-kl.de/pub/ooc/oo2c/
+
+-- Michael van Acken
+-- Juergen Zimmermann

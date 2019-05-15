@@ -1,0 +1,798 @@
+First the legal stuff:
+
+    O2C -- an Oberon-2 to GCC translator
+    Copyright (C) 1995 Michael van Acken, Juergen Zimmermann
+
+    O2C is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    O2C is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with O2C; see the file COPYING.  If not, write to
+    the Free Software Foundation, 59 Temple Place - Suite 330,
+    Boston, MA 02111-1307, USA.
+
+
+Contents
+0. Introduction
+1. Including the GC Package
+2. Emacs Mode
+3. Notes on the Implementation
+4. Interfacing to Other Languages
+Appendix: Man Pages
+
+===============================================================================
+
+
+0. Introduction
+
+o2c is an Oberon-2 (pre-)compiler.  The source language is Oberon-2 
+as described in 
+
+  H. Moessenboeck, N. Wirth: The Programming Language Oberon-2;
+  Institut fuer Computersysteme, ETH Zuerich, March 1995.  
+
+o2c translates into a (GNU specific) version of C and calls gcc to
+create an executable from the intermediate C code.  All calls to gcc
+are handled by o2c, you won't notice that the gcc is involved except
+for the delay in compilation time it causes.   
+
+  Translation process:
+
+  Oberon-2               C                Machine Code
+  M.Mod     ------->  M.h, M.c  ------->  M.o
+             (o2c)               (gcc)
+
+It is possible to link programs with Hans-J. Boehm's conservative
+garbage collector.
+
+
+The primary site for o2c is 
+  ftp://ftp.uni-kl.de/pub/informatik/software/o2c-1.x.tar.gz
+
+This package contains 4 programs:
+  o2c		The compiler.
+  o2b		A symbol file browser.
+  o2ef		An error filter (if you don't use Emacs).
+  o2whereis	A tool to locate files (used by Emacs).
+
+Man pages for the commands and a Postscript file describing the
+internal data structures of the compiler can be found in the directory
+docs/; ASCII versions of the man pages are appended to this file.
+
+INSTALL describes how to install the programs on your system, how to
+add the Oberon-2 Mode to Emacs, and how to configure the compiler for
+the gc package.
+
+
+--------
+NOTE:
+This package is no longer supported by its authors.  There is no use
+in sending any bug reports.  If you have problems with o2c you might
+try to switch to one of the compilers of the OOC project. Its home
+page is
+  http://cognac.informatik.uni-kl.de/~oberon1/ooc/ooc_home.html
+
+OOC also includes an Oberon to C translator called oo2c.  It's very
+similar to o2c, although it has several advantages: 
+  o it translates to ANSI-C
+  o it generates more efficient C code
+  o it uses autoconf to configure and install itself on a wide variety
+    of Unix systems 
+  o it'll profit from future optimizations implemented as part of OOC.
+
+You can get oo2c here:
+  ftp://cognac.informatik.uni-kl.de/pub/ooc/oo2c/
+--------
+
+
+
+
+
+
+1. Including the GC Package
+
+The gc can be found (ftp) at parcftp.xerox.com in the directory pub/gc. 
+This package implements a conservative garbage collector for standard
+C programs.  `Conservative' means, that it'll consider every possible
+heap, stack, or register location as a pointer, regardless of the
+semantics that was associated with this location by the compiler.
+This has to be compared to the gc implemented in the ETH Oberon
+systems, where the compiler passes information about possible pointer
+locations to the run time system.  The conservative approach needs
+more time to do its collection, and it may keep objects that could be
+freed if they are `referenced' by some data that isn't actually a
+pointer.  It may be slow and not 100% effective, but it's the only way
+to implement a gc for C programs.
+
+When installing gc you have the option to set ALL_INTERIOR_POINTERS,
+or not.  If set, all pointers to the interior of a memory block are
+considered valid, and they'll keep the block alive (i.e., it won't be
+freed by the gc).  This has the disadvantage that some byte patterns,
+that are considered by gc as potential references into an object, keep
+the object alive although it could be collected.
+Without ALL_INTERIOR_POINTERS, only pointers to the offsets 0, 4, 8,
+12, and 16 (this is set in file _OGCC.c, function _init__OGCC()) into
+a memory block are considered valid, i.e. as legal references to this 
+block.  This increases the probability of an object of being
+collected, and may increase the gc's performance.  The disadvantage
+is, that open arrays on the heap are limited to a maximum of 4 (open)
+dimensions (this can be increased by modifying _init__OGCC()).  
+
+The procedure NEW will allocate a memory block as `atomic' (i.e., call
+GC_malloc_atomic), if the variable's type doesn't contain any
+pointers (type tags don't count as such).  During a garbage collection
+such blocks are not searched for potential references to other
+objects.  This decreases the time for collections, and decreases the
+possibility for pseudo-references to keep other objects alive.  That
+way large character arrays or huge numerical matrices won't have a
+negative impact on the gc's performance. 
+
+The predefined constant SYSTEM.GC is TRUE, if the program was compiled
+with support for gc.  The predefined procedure SYSTEM.COLLECT can be
+used to explicitly start a garbage collection (usually calls to to
+NEW will trigger a collection if the current heap size is exhausted).
+
+A word of warning: It's a bad idea to mix object files that where
+compiled for gc with files that where not.  If an object was allocated
+under gc control, and is only kept alive by references from objects
+that weren't allocated under gc control, the gc will consider the
+object as unreachable and may deallocate it.  This would invalidate
+all exisiting references to this object, causing nasty (and
+untraceable) data corruption.  Therefor the options --usegc and --nogc
+should be used with caution, better stick to the default setting
+compiled into the compiler. 
+
+
+
+
+
+2. Emacs Mode
+
+This compiler comes with a major mode for the FSF GNU Emacs to manage
+Oberon-2 source code.  It can make the task of writing an Oberon-2
+program considerably easier.  See INSTALL on how to get this mode
+installed.  
+
+The oberon2.el package provides functions to
+ - insert Oberon-2 syntactic structures
+ - selectively display lines of source code
+ - locate Oberon-2 files and declarations
+ - support the compilation of programs and to locate errors.
+
+Emacs will interpret error messages generated by the compiler and
+automatically place the cursor at the error position.
+
+If you put an assignment like 
+  (setq o2-cwd (expand-file-name "dir"))
+in your ~/.emacs file, the compiler and the browser will be executed
+in the directory dir.  dir has to be an absolute path, i.e. something
+like /usr/home/doop/ or ~/o2c/.  
+Without this setq Emacs will use the current working directory on
+startup to execute o2c and o2b commands.
+
+The following text is a copy of the major mode help you'll get under
+Emacs with 'C-h m', provided your buffer has activated the Oberon-2
+Mode.  The mode can be activated manually by pressing 'M-x
+oberon-2-mode'.  See INSTALL on how to set up Emacs to put the buffer
+of each file ending in '.Mod' into this mode. 
+
+"Oberon-2 mode:
+Major mode for editing Oberon-2 code.
+
+Indentation:
+RET		make a newline, but indent like previous line
+TAB		indent for o2-indent spaces
+DEL		convert tabs to spaces while moving backward
+C-c TAB		add/remove indentation level(s) to region
+The variable o2-ident determines how much spaces are inserted per indentation
+level (default 2). 
+
+Inserting Oberon-2 constructs:
+C-c m		MODULE outline
+C-c p		PROCEDURE outline 
+C-c t		typebound PROCEDURE outline 
+C-c C-t		redefinition of typebound PROCEDURE
+C-c i		IF THEN statement
+C-c C-e		insert ELSIF
+C-c c		CASE statement
+C-c C-w		WITH statement
+C-c e		insert ELSE 
+C-c b		insert a '|' 
+C-c f		FOR statement
+C-c w		WHILE statement
+C-c r		REPEAT UNTIL statement 
+C-c l		LOOP statement
+C-c C-r		RECORD constructor
+C-c h		comment with various information about the module
+
+Move by procedure headings:
+C-c C-n		move to next procedure
+C-c C-p		move to previous procedure
+C-c C-u		move to procedure, to which the present one is local
+M-C-h		put mark at end of procedure, point at the beginning
+
+Functions to hide procedure bodies and declarations:
+C-c C-h		hide whole procedure
+C-c C-s		show whole procedure again
+C-c C-l		hide bodies of all local procedures
+M-x o2-hide-proc	hide local declarations and the body
+M-x o2-show-proc	show local declarations and body again
+M-x o2-hide-all		hide all of buffer except procedure headings
+M-x o2-show-all		make all text in the buffer visible again
+
+Managing source code:
+C-c C-f		find file to a given module name
+C-c 4 f		like C-c C-f, but display in another window
+C-c 5 f		like C-c C-f, but display in another frame
+C-c C-d		generate and display the definition of a module
+C-c 4 d		like C-c C-d, but display in another window
+C-c 5 d		like C-c C-d, but display in another frame
+C-c .		display (same window) the definition of an identifier
+C-c 4 .		display (other window) the definition of an identifier
+C-c 5 .		display (other frame) the definition of an identifier
+C-c /		display & blink to declaration of ident under cursor
+C-c ,		display (same window) a procedure bound to a given type
+C-c 4 ,		display (other window) a procedure bound to a given type
+C-c 5 ,		display (other frame) a procedure bound to a given type
+All the above functions accept a module's alias name (as declared in the 
+current buffers IMPORT list) instead of the real module name. For further
+information on 'C-c .' or 'C-c ,' use C-h k.
+Any of the above functions that displays files in another window or frame won't
+change the selected window if the `C-u' prefix is set.  Example: `C-u C-c 4 .'
+will display the source of the definition of the given identifier in another
+window, but the current window stays selected and point stays at the current
+position.
+`S-mouse-3' (ie, shift with right mouse button) will, similar to `C-c /',
+invoke `C-u C-c 4 .' with the qualified identifier under the mouse cursor as 
+argument and blink to the found position.
+
+Compiling:
+M-c		compile current buffer
+C-u M-c		prompt for compile command and compile current buffer
+M-C-c		run a make on a module
+C-c '		display the next error
+C-c g		prompt for module and error position, goto position
+
+Searches will distinct cases. Delete converts tabs to spaces as it moves back. 
+Emacs won't use tab characters. 
+M-; will indent or create a comment on the current line at column 41 
+(default).
+The Oberon-2 menu can also be invoked with `C-mouse-3' (ie, control with right
+mouse button) under GNU Emacs 19.29."
+
+
+
+
+3. Notes on the Implementation
+
+The compiler itself is written in subset of Oberon-2, fairly similar
+to Modula-2.  To distribute the compiler, it is called on itself to
+produce the required C sources and makefiles. 
+
+The generated C code makes use of the following GNU C extensions:
+ - nested functions, to simplify translation of Oberon-2 nested
+   procedures 
+ - expression statements, to allow simple macros
+ - alloca, to hold copies of value ARRAY parameters on the stack 
+
+The front end is strictly seperated from the back end.  It generates a
+description of the compiled program in form of an internal data
+structure (which is discribed in docs/Internal.ps).  This is passed to
+the back end to generate the desired translation.  
+
+The compiler deviates from the ETH compilers in the following points:  
+ - the SYSTEM procedures GETREG, PUTREG, and CC are disabled
+ - SIZE(T), where T is a RECORD or ARRAY type, can't be used as part
+   of a constant expression 
+ - the rounding behaviour of ENTIER is undefined (it depends on the C
+   type cast operator and I don't know if and how its rounding is
+   defined)  
+ - it won't do garbage collection unless you have Hans-J. Boehm's
+   conservative garbage collector installed and told the compiler to
+   make use of it (see section 1 resp. INSTALL)
+ - there is a new prefined procedure SYSTEM.DISPOSE:
+   DISPOSE(v), where v is a pointer to ARRAY or RECORD and v has
+     been allocated storage to with NEW(v) or NEW(v, n0, n1, ..).
+     DISPOSE deallocates the storage block whose address is stored in
+     v and sets v to NIL.  
+     DISPOSE will also free memory allocated to v by SYSTEM.NEW if
+     (and only if) v is of type SYSTEM.PTR.
+ - new predefined constant SYSTEM.GC; it's TRUE if the program was
+   compiled with gc support
+ - new predefined procedure SYSTEM.COLLECT;  runs an explicit garbage
+   collection (normally this happens implicit if NEW runs out of
+   memory).  This is a noop if no gc support is included.
+ - delayed loading of modules is impossible, the only similarity to
+   the Oberon System's command mechanism is the possibility to declare 
+   an exported parameterless procedure as the program's entry point
+   when running a make
+
+
+
+
+4. Interfacing to Other Languages
+
+4.1 External Modules
+
+External modules allow to link arbitrary libraries to an Oberon-2
+program.  They are similar to C header files: they contain
+descriptions of data types, variables and procedures exported by
+libraries.  
+Note: These modules have to be considered as unsafe, low-level, and system 
+(or rather compiler) dependent.  Their syntax follows (in part) the one 
+suggested in the Oakwood Guidelines.
+
+
+The syntax differs from the one in the Oberon-2 report in the following 
+rules (an example can be found at the end of this chapter):
+  Module = "MODULE" ident "[" <convention> "]" "EXTERNAL" 
+           "[" <externalLibrayName> "]" ";" 
+           [ImportList] DeclSeq "END" ident ".".
+  ExtIdentDef = IdentDef [ "[" <externalName> "]" ].
+  ExtIdentList = ExtIdentDef {"," ExtIdentDef}.
+  VarDecl = ExtIdentList ":" Type.
+  ProcDecl = "PROCEDURE" ExtIdentDef [FormalPars].
+
+<convention> denotes a calling convention, e.g. "C", "Pascal", "Modula-2".
+Any other convention than "C" will cause a warning.
+
+<externalLibraryName> is the name of the external library that has to be 
+included by the external module.  A name ending in .c will include a C source
+file, .o will include an object file, .a will include an archive file,
+an empty string will be ignored and all other strings will cause the
+library of that name to be linked to the executable.
+
+<externalName> allows to set explicitly the name under which variables or
+procedures are accessed in the generated code.  If an external module M 
+declares a PROCEDURE X ["Y"];, then the procedure is called in Oberon-2 by 
+writing M.X and the compiler will translate it into a call to the C function Y.
+
+The following points differ from normal modules:
+ - The underscore '_' is treated as a character and can be part of an
+   identifier (but can't appear in the module name).
+ - No statements are allowed in an EXTERNAL module.  There is no BEGIN
+   part, no declartions local to procedures and there are no type
+   bound procedures.
+ - The last formal parameter of a procedure can be '..'.  It stands for an
+   arbitrary number of parameters.  This allows to define and use functions 
+   like printf (see Unix.Mod).
+ - The keyword RECORD may optionally be followed by '[UNION]'.  Such types
+   will be translated into the C type 'union'.
+ - The rule for matching parameter lists is extended as follows:
+   Two formal parameter lists match if additionally holds:
+   a) they don't contain open arrays or VAR records whose types are
+      defined in normal modules, or
+   b) both parameter lists are declared inside or both are declared
+      outside of an EXTERNAL module
+ - For each EXTERNAL module M.Mod including the external file "xyz.c" this
+   file has to define the function 'void _init_M(void)'.  This function will 
+   be called as part of the module initialization.
+
+
+4.2 External Types
+
+Types defined, i.e. constructed, in an external module differ somewhat from
+the ones defined in an Oberon-2 module, since such types need to be mapped 
+to C types.  These types are implemented differently from the normal types,
+and different rules of type compability apply to them.  Please note that an
+external type has be be constructed in an EXTERNAL module: Only structured
+types like pointer, record, array or procedure types can be external, and a
+simple type alias 'TYPE A=B;' will only transfer the external status of B to A.
+
+External Records
+They can't be extended and can't be an extension themselfes and
+they don't have a type descriptor, so 
+  a) they can't be part of type tests or type guards
+  b) type bound procedures cannot be defined on them
+  c) VAR parameters of this type are not passed together with a type tag
+  d) pointer to this types don't have a type tag
+It is possible to declare C-like union types be placing '[UNION]' after the
+RECORD keyword.
+
+External Open Arrays
+No length information is stored for them, so
+  a) the LEN function cannot be applied to them
+  b) parameters of this type are not passed together with length info
+  c) pointer to this type are not stored with length info
+  d) when passing an external ARRAY OF T to a formal Oberon-2 parameter of 
+     type ARRAY OF T, the parameter's array length is set to MAX(LONGINT) and
+     a warning is emitted
+An open array can't be element type of an external open array, i.e. multi-
+dimensional open arrays are not allowed.
+
+External Pointers
+Integer values can be assigned to such pointers, i.e. the result of a call to 
+SYSTEM.ADR can be passed directly to them.  NEW and SYSTEM.DISPOSE are
+not applicable on EXTERNAL pointers, or on pointers whose base type is
+EXTERNAL. 
+
+External Procedures
+The calling convention differs from the one for normal procedures: 
+  a) no type decriptors are passed for formal VAR record parameters
+  b) no length information is passed together with open array parameters
+The special parameter '..' is allowed to denote arbitrary actual parameters.
+
+
+4.3 Linking Order of Libraries
+
+If you want to include two libraries liba and libb, where libb depends on
+liba, you'll have to write two external modules and the module for libb has
+to import the one for liba directly.  This will ensure that "-llibb" will 
+be placed before "-lliba" in the linker option list.
+Example:
+  MODULE X11 ["C"] EXTERNAL ["X11"];
+  TYPE
+    DisplayPtr* = POINTER TO Display;
+    Display* = RECORD ... END;
+    ...
+  END X11;
+
+  MODULE Xmu ["C"] EXTERNAL ["Xmu"];
+  IMPORT X11 (*necessary!*);
+    ...
+  END Xmu.
+This way the linker will be called with "-lXmu -lX11".
+
+For further examples see Unix.Mod, MathL.Mod, and Types.Mod (all in
+directory lib/).
+
+
+
+
+Authors
+  Michael van Acken, Juergen Zimmermann 
+  Universitaet Kaiserlautern
+
+
+
+
+
+
+
+
+Appendix: Man Pages
+o2c(1)							   o2c(1)
+
+NAME
+       o2c - Oberon-2 to C compiler
+
+SYNOPSIS
+       o2c [option]...	filename
+       o2c [ -M|--make] [option]...  module [command]
+
+DESCRIPTION
+       o2c has two major modes of operation: compile and make.
+
+       compile	 No  option  -M or --make is set.  Translates one
+		 or more files into C code.  This is  quite  fast
+		 since	no  object files are generated, useful to
+		 check a given module for syntactic  or	 semantic
+		 errors.
+		 Example:
+		 o2c  Hello.Mod compiles the module Hello.  If no
+		 errors are found, the files Hello.c, Hello.OSym,
+		 and  Hello.h  are generated (the latter two only
+		 if the symbol file has changed).
+
+       make	 Option	 -M  or	 --make	 is  set.   All	  modules
+		 imported  directly or indirectly by a given main
+		 module are recompiled	if  necessary,	including
+		 compilation  into .o files.  In a final step the
+		 object files are linked together to form an exe-
+		 cutable.
+		 Example:
+		 o2c -M Hello World generates the executable file
+		 Hello_World.  World is the name of a  parameter-
+		 less  procedure  exported by module Hello.  It's
+		 called right after  the  module  initialization.
+		 In the terminology of the Oberon System it would
+		 be a command.
+		 o2c -M o2c generates the executable o2c.   Since
+		 the  startup  code  of module o2c doesn't termi-
+		 nate, no special command has to be executed.
+
+       Errors are reported like this:
+	    In file lib/Hello.Mod:
+	    14:139 ';' expected
+       The first number is the error's	position  in  the  source
+       code, i.e. file lib/Hello.Mod.  It's a character position,
+       not a line number.  After the colon follow the error  num-
+       ber and the error message.  If you prefer a different out-
+       put format, e.g. if you'ld like to read error messages  in
+       the  source  text  context,  use the filter o2ef (see also
+       o2ef(1)).
+
+       o2c uses the following suffixes for its input  and  output
+       files:
+       .Mod	 Oberon-2 source
+       .OSym	 symbol file
+       .c	 intermediate C code
+
+								1
+
+o2c(1)							   o2c(1)
+
+       .h	 intermediate header file
+       .o	 object file, generated by gcc
+
+       The file ~/.o2c.red tells the compiler where to search for
+       existing files and where to create new files, depending on
+       their suffix.  The file is a list of rules of the form
+		pattern {"," pattern} = path {";" path} [+RCS].
+       pattern	is  a string of characters that may contain ?  to
+       match a single arbitrary character and * to match zero  or
+       more characters.	 E.g.  *.Mod would match all files ending
+       in .Mod.
+       To locate a file file  the  path	 lists	of  the	 patterns
+       matching	 file are searched from left to right.	The first
+       path containing the file file is used.  If +RCS is set for
+       a source file M.Mod, RCS files RCS/M.Mod,v or M.Mod,v will
+       be found in addition to the perfect match M.Mod.	 The com-
+       piler  will  automatically retrieve the working file M.Mod
+       by calling co and will use it as input file.
+       For files generated by the compiler (e.g. symbol files  or
+       C  code)	 the  first  path in the list associated with the
+       first matching pattern will be used to store the file.
+
+       If file paths stored  in	 ~/.o2c.red  are  relative  to	a
+       directory, the compiler (and the browser) must be executed
+       in this directory.  Otherwise the compiler  will	 complain
+       about files not found.
+
+OPTIONS
+       Single  character options may be grouped together.  -MA is
+       equivalent to -M -A or --make --all.
+
+       --make, -M
+	      Make an executable.  The main module and	all  mod-
+	      ules  it depends on are checked for consistency and
+	      are recompiled if necessary.  gcc is called to gen-
+	      erate  the object files and to build an executable.
+
+       --all, -A
+	      Force (re-)compilation  of  all  imported	 modules.
+	      Ignored unless --make is set.
+
+       --file, -F
+	      Write  a	makefile  for  the given module into file
+	      Makefile.	 No compilation will  be  done.	  Ignored
+	      unless --make is set.
+
+       --warn, -W
+	      Print  additional	 warnings.   Without  this option
+	      only errors will be reported.
+
+       --redir <file>
+	      Use <file> as redirection	 table	(instead  of  the
+	      default ~/.o2c.red).
+
+								2
+
+o2c(1)							   o2c(1)
+
+       --help, -h
+	      Give a summary on how to call the compiler.
+
+       --version, -V
+	      Print compiler version.
+
+       --verbose, -v
+	      Print  calls  to co or gcc and recompilation steps.
+	      Useful in connection with --make.
+
+       -a     Disable assertions.  Any calls  to  the  predefined
+	      function ASSERT will be ignored.
+
+       -R     Normally	the  compiler will produce code to detect
+	      the following illegal program states:
+	       - a function is left without a return statement
+	       - a CASE expression does not match any label
+	       - a NIL pointer is being dereferenced
+	       - an array index is out of range
+	       - a SET index is out of range
+	       - RECORD assigment fails
+	       - a type guard or test is applied to a NIL pointer
+	       - a type guard fails
+	       - all guards of a WITH statement fail
+	      The option -R will disable all those checks.
+	      Note:  These checks are fairly expensive, since all
+	      of them are performed on C level.
+
+       -O     Optimize code, i.e. set -O2 when calling gcc.
+
+       --usegc
+	      Include support for gc package.  This overrides the
+	      compiler's default setting.  o2c has to be compiled
+	      with the correct path to	the  gc	 library.   Note:
+	      It's  dangerous  to  mix .o files that are compiled
+	      for gc with ones that are not.
+
+       --nogc Disable support for gc package.  This overrides the
+	      compiler's  default  setting.  Note: It's dangerous
+	      to mix .o files that aren't compiled  for	 gc  with
+	      ones that are.
+
+       -g     Include  debug information on C level, i.e. set -g3
+	      when calling gcc.
+
+       -s     Strip executable.	 Don't use this together with  -g
+	      since -s will cancel the effects of -g.
+
+       -p     Include profiler information (for gprof).
+
+       --cflags <string>
+	      Pass <string> as parameter(s) to the C compiler.
+
+								3
+
+o2c(1)							   o2c(1)
+
+       --ldflags <string>
+	      Pass <string> as parameter(s) to the linker.
+
+       The  options  -a,  -R,  -O,  -g,	 -s,  -p,  --cflags,  and
+       --ldflags will only take effect during a make, in particu-
+       lar  only  for  those files that are compiled by gcc while
+       these options are set.  If you  want  to	 make  sure  that
+       these  options  are  in	effect	for  all modules, use the
+       options --make --all, or -MA for short, to  recompile  all
+       modules.
+
+FILES
+       ~/.o2c.red	path list
+       ErrorList.txt	error messages
+       file.Mod		Oberon-2 source file
+       file.OSym	symbol file
+       file.c		intermediate C file
+       file.h		intermediate header file
+       file.o		object file
+       file.m		stores time of last compilation of EXTERNAL
+
+DIAGNOSTICS
+       The  exit  status  is  non  zero	 if  and only if an error
+       occured during compilation.
+
+SEE ALSO
+       o2b(1), o2ef(1), o2whereis(1)
+
+AUTHORS
+       Michael van Acken, Juergen Zimmermann
+
+								4
+
+o2b(1)							   o2b(1)
+
+NAME
+       o2b - Symbol file browser
+
+SYNOPSIS
+       o2b [option]...	module
+
+DESCRIPTION
+       o2b  reconstructs  a  printable representation from a mod-
+       ule's symbol file.  The output is similar to Modula-2 def-
+       inition files.
+
+OPTIONS
+       --expand, -x
+	      Expand  extended	records.   Print  for each record
+	      type its base types, which  fields  were	inherited
+	      from  them,  and	what  type  bound procedures were
+	      (re-)defined.
+
+       --external, -e
+	      Print external names.   For  external  modules  the
+	      calling  convention, the external library name, and
+	      (if they differ from the Oberon-2	 names)	 external
+	      names for variables and procedures are displayed.
+
+       --help, -h
+	      Give a summray on how to call o2b.
+
+       --version, -V
+	      Print browser version.
+
+       --redir <file>
+	      Use <file> as redirection	 table	(instead  of  the
+	      default ~/.o2c.red).
+
+
+FILES
+       ~/.o2c.red    path list
+       file.OSym     symbol file
+
+SEE ALSO
+       o2c(1), o2ef(1), o2whereis(1)
+
+AUTHORS
+       Michael van Acken, Juergen Zimmermann
+
+								1
+
+o2ef(1)							  o2ef(1)
+
+NAME
+       o2ef - Filter for error messages generated by o2c
+
+SYNOPSIS
+       o2c ... | o2ef [-c|-l|-L]
+
+DESCRIPTION
+       o2ef  filters  error  messages generated by o2c and trans-
+       forms them into another textual representation.	 This  is
+       only intended as a help for those who either can't use the
+       Oberon-2 Emacs mode (that's regrettable) or who don't want
+       to use Emacs (a grave mistake).
+       o2ef reads the errors emitted by o2c from stdin and writes
+       them to stdout in a new format, e.g. like a  C  compiler's
+       errors.
+
+OPTIONS
+       -c     Print  errors  in	 source	 text  context (default).
+	      Each line of source code	containing  an	error  is
+	      printed  with  a	few lines of leading and trailing
+	      lines.  The error position is marked,  followed  by
+	      the error text.
+
+       -l     Print  errors  in the format file:line:error.  This
+	      is the format used by gcc to describe errors.  Only
+	      the  line	 number	 containing the error is printed,
+	      the exact error position is lost.	 Many error  mes-
+	      sages will lose a lot of their usefulness since the
+	      exact error position carries a great deal of infor-
+	      mation.  Rather use -L instead.
+
+       -L     Print  errors in the format file:line,column:error.
+
+SEE ALSO
+       o2c(1), o2b(1), o2whereis(1)
+
+AUTHORS
+       Michael van Acken, Juergen Zimmermann
+
+								1
+
+
+o2whereis(1)					     o2whereis(1)
+
+NAME
+       o2whereis - locate files used or generated by o2c
+
+SYNOPSIS
+       o2whereis [-r] file
+
+DESCRIPTION
+       o2whereis  searches  the paths given in ~/.o2c.red for the
+       file file.  How the search is done is described in o2c(1).
+       The  full  path of the first file found is printed to std-
+       out.
+       o2whereis is used by the Oberon-2  Emacs	 mode  to  locate
+       source and symbol files.
+
+OPTIONS
+       -r     If just a RCS file is found, print the full path of
+	      the RCS file.  The default is to print the name  of
+	      the associated working file.
+
+       --redir <file>
+	      Use <file> as redirection	 table	(instead  of  the
+	      default ~/.o2c.red).
+
+
+FILES
+       ~/.o2c.red    path list
+
+SEE ALSO
+       o2c(1), o2b(1), o2ef(1)
+
+AUTHORS
+       Michael van Acken, Juergen Zimmermann
+
+								1

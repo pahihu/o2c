@@ -1,0 +1,49 @@
+.TH o2b 1
+.UC 5
+.SH NAME
+o2b \- Symbol file browser
+.SH SYNOPSIS
+.B o2b
+.RI [ option ]...
+.I module
+.SH DESCRIPTION
+.B o2b
+reconstructs a printable representation from a module's 
+symbol file.  The output is similar to Modula-2 definition
+files.
+.SH OPTIONS
+.TP
+.B --expand, -x
+Expand extended records.  Print for each record type
+its base types, which fields were inherited from them, and
+what type bound procedures were (re-)defined.
+.TP
+.B --external, -e
+Print external names.  For external modules the calling 
+convention, the external library name, and (if they differ from
+the Oberon-2 names) external names for variables and procedures
+are displayed.
+.TP
+.B --help, -h
+Give a summray on how to call
+.BR o2b .
+.TP
+.B --version, -V
+Print browser version.
+.TP
+.B --redir <file>
+Use 
+.I <file>
+as redirection table (instead of the default
+.IR ~/.o2c.red ).
+.SH FILES
+.nf
+.ta \w'file.OSymXXXXX'u
+~/.o2c.red		path list
+file.OSym		symbol file
+.Sp
+.fi
+.SH SEE ALSO
+o2c(1), o2ef(1), o2whereis(1)
+.SH AUTHORS
+Michael van Acken, Juergen Zimmermann

@@ -1,0 +1,75 @@
+CC = gcc
+CFLAGS = -O2 -DDISABLE_RTC -Iobj -Isystem -I-
+LDFLAGS = -Wl,-s -lm
+HFILES = obj/MathL.h obj/CType.h obj/Unix.h obj/Time.h obj/CharInfo.h obj/ConvTypes.h obj/Dos.h obj/Strings.h obj/IntStr.h obj/Strings2.h obj/Filenames.h obj/RealStr.h obj/Rts.h obj/Files.h obj/Out.h obj/FOut.h obj/Redir.h obj/OMachine.h obj/OScan.h obj/ODepend.h obj/OTable.h obj/OEParse.h obj/OGenGCC.h obj/OMakeGCC.h obj/OSym.h obj/OParse.h obj/o2c.h
+CFILES0 = obj/Time.c obj/CharInfo.c obj/ConvTypes.c obj/Strings.c obj/IntStr.c obj/Strings2.c obj/Filenames.c obj/RealStr.c obj/Out.c obj/FOut.c obj/Redir.c obj/OMachine.c obj/OScan.c obj/ODepend.c obj/OTable.c obj/OEParse.c obj/OGenGCC.c obj/OMakeGCC.c obj/OSym.c obj/OParse.c obj/o2c.c
+CFILES1 = $(CFILES0) lib/MathL.c lib/Unix.c lib/Dos.c lib/Rts.c lib/Files.c
+OBJS0 = obj/_OGCC.o obj/_o2c.o obj/MathL.o obj/Unix.o obj/Time.o obj/CharInfo.o obj/ConvTypes.o obj/Dos.o obj/Strings.o obj/IntStr.o obj/Strings2.o obj/Filenames.o obj/RealStr.o obj/Rts.o obj/Files.o obj/Out.o obj/FOut.o obj/Redir.o obj/OMachine.o obj/OScan.o obj/ODepend.o obj/OTable.o obj/OEParse.o obj/OGenGCC.o obj/OMakeGCC.o obj/OSym.o obj/OParse.o obj/o2c.o
+OBJS1 =
+
+# final targets
+all: build
+build: $(OBJS0) $(OBJS1)
+	$(CC) $(CFLAGS) -o o2c $(OBJS0) $(OBJS1) $(LDFLAGS)
+
+# clean will remove all generated files
+clean: 
+	-rm $(HFILES) $(CFILES0) $(OBJS0) _o2c
+
+obj/_OGCC.o: system/_OGCC.h system/_OGCC.h system/_OGCC.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/_OGCC.o -c system/_OGCC.c
+obj/MathL.o: system/_OGCC.h obj/MathL.h lib/MathL.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/MathL.o -c lib/MathL.c
+obj/Unix.o: system/_OGCC.h obj/Unix.h obj/CType.h lib/Unix.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Unix.o -c lib/Unix.c
+obj/Time.o: system/_OGCC.h obj/Time.h obj/MathL.h obj/Unix.h obj/CType.h obj/Time.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Time.o -c obj/Time.c
+obj/CharInfo.o: system/_OGCC.h obj/CharInfo.h obj/CharInfo.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/CharInfo.o -c obj/CharInfo.c
+obj/ConvTypes.o: system/_OGCC.h obj/ConvTypes.h obj/ConvTypes.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/ConvTypes.o -c obj/ConvTypes.c
+obj/Dos.o: system/_OGCC.h obj/Dos.h obj/Time.h lib/Dos.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Dos.o -c lib/Dos.c
+obj/Strings.o: system/_OGCC.h obj/Strings.h obj/Strings.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Strings.o -c obj/Strings.c
+obj/IntStr.o: system/_OGCC.h obj/IntStr.h obj/CharInfo.h obj/Strings.h obj/ConvTypes.h obj/IntStr.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/IntStr.o -c obj/IntStr.c
+obj/Strings2.o: system/_OGCC.h obj/Strings2.h obj/Strings.h obj/Strings2.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Strings2.o -c obj/Strings2.c
+obj/Filenames.o: system/_OGCC.h obj/Filenames.h obj/Dos.h obj/Strings2.h obj/Strings.h obj/Filenames.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Filenames.o -c obj/Filenames.c
+obj/RealStr.o: system/_OGCC.h obj/RealStr.h obj/ConvTypes.h obj/IntStr.h obj/Strings2.h obj/Strings.h obj/CType.h obj/Unix.h obj/RealStr.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/RealStr.o -c obj/RealStr.c
+obj/Rts.o: system/_OGCC.h obj/Rts.h obj/CType.h lib/Rts.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Rts.o -c lib/Rts.c
+obj/Files.o: system/_OGCC.h obj/Files.h obj/CType.h obj/Rts.h lib/Files.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Files.o -c lib/Files.c
+obj/Out.o: system/_OGCC.h obj/Out.h obj/RealStr.h obj/IntStr.h obj/ConvTypes.h obj/Strings.h obj/Unix.h obj/CType.h obj/Out.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Out.o -c obj/Out.c
+obj/FOut.o: system/_OGCC.h obj/FOut.h obj/Out.h obj/Rts.h obj/Strings.h obj/ConvTypes.h obj/RealStr.h obj/IntStr.h obj/CharInfo.h obj/Files.h obj/FOut.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/FOut.o -c obj/FOut.c
+obj/Redir.o: system/_OGCC.h obj/Redir.h obj/CharInfo.h obj/Out.h obj/Strings2.h obj/Strings.h obj/Rts.h obj/Filenames.h obj/Files.h obj/Dos.h obj/Redir.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/Redir.o -c obj/Redir.c
+obj/OMachine.o: system/_OGCC.h obj/OMachine.h obj/Redir.h obj/OMachine.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/OMachine.o -c obj/OMachine.c
+obj/OScan.o: system/_OGCC.h obj/OScan.h obj/Strings2.h obj/Strings.h obj/Redir.h obj/ConvTypes.h obj/Rts.h obj/RealStr.h obj/Out.h obj/Dos.h obj/Files.h obj/OMachine.h obj/OScan.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/OScan.o -c obj/OScan.c
+obj/ODepend.o: system/_OGCC.h obj/ODepend.h obj/OScan.h obj/OMachine.h obj/Strings2.h obj/Strings.h obj/Redir.h obj/Dos.h obj/Time.h obj/Out.h obj/ODepend.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/ODepend.o -c obj/ODepend.c
+obj/OTable.o: system/_OGCC.h obj/OTable.h obj/Rts.h obj/Out.h obj/OScan.h obj/OMachine.h obj/OTable.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/OTable.o -c obj/OTable.c
+obj/OEParse.o: system/_OGCC.h obj/OEParse.h obj/ConvTypes.h obj/IntStr.h obj/Strings2.h obj/Strings.h obj/OMachine.h obj/OTable.h obj/OScan.h obj/OEParse.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/OEParse.o -c obj/OEParse.c
+obj/OGenGCC.o: system/_OGCC.h obj/OGenGCC.h obj/ODepend.h obj/OEParse.h obj/OTable.h obj/OScan.h obj/OMachine.h obj/Filenames.h obj/Rts.h obj/Out.h obj/Redir.h obj/IntStr.h obj/Strings2.h obj/Strings.h obj/ConvTypes.h obj/RealStr.h obj/FOut.h obj/OGenGCC.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/OGenGCC.o -c obj/OGenGCC.c
+obj/OMakeGCC.o: system/_OGCC.h obj/OMakeGCC.h obj/OGenGCC.h obj/ODepend.h obj/OTable.h obj/OScan.h obj/OMachine.h obj/Filenames.h obj/Strings2.h obj/Dos.h obj/Redir.h obj/FOut.h obj/Time.h obj/Out.h obj/Strings.h obj/CharInfo.h obj/Rts.h obj/OMakeGCC.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/OMakeGCC.o -c obj/OMakeGCC.c
+obj/OSym.o: system/_OGCC.h obj/OSym.h obj/ODepend.h obj/OTable.h obj/OScan.h obj/OMachine.h obj/Strings.h obj/Rts.h obj/Out.h obj/Files.h obj/Redir.h obj/OSym.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/OSym.o -c obj/OSym.c
+obj/OParse.o: system/_OGCC.h obj/OParse.h obj/Strings.h obj/Filenames.h obj/Strings.h obj/OSym.h obj/OEParse.h obj/OTable.h obj/OScan.h obj/OMachine.h obj/OParse.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/OParse.o -c obj/OParse.c
+obj/o2c.o: system/_OGCC.h obj/o2c.h obj/OGenGCC.h obj/OMakeGCC.h obj/ODepend.h obj/OEParse.h obj/OScan.h obj/OMachine.h obj/OSym.h obj/OTable.h obj/OParse.h obj/Files.h obj/Dos.h obj/Redir.h obj/Strings2.h obj/Strings.h obj/Rts.h obj/Out.h obj/o2c.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/o2c.o -c obj/o2c.c
+obj/_o2c.o: system/_OGCC.h $(HFILES) obj/_o2c.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/_o2c.o -c obj/_o2c.c
+
