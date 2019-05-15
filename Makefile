@@ -26,6 +26,9 @@ all: o2c_stage2
 	touch all
 
 o2c_stage0:
+	if [ ! -d sym ]; then \
+		mkdir sym; \
+	fi
 	if [ -f obj.distrib ]; then \
 		-rm -rf obj; mv obj.distrib obj; rm -f obj/*.[o]; \
 	fi
