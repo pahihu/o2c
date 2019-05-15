@@ -1,3 +1,6 @@
+190515AP
+	- added missing sym/ directory
+
 190513AP V1.16.3
 	- patched to compile with gcc-mp-5 on High Sierra
 
