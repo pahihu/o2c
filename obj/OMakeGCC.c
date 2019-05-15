@@ -603,7 +603,7 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
     FOut_String(__o2opt_0, _o2opt);
     FOut_Ln();
   }
-  FOut_String(43, (CHAR *) "CC = gcc-apple-4.2 -m32 -fnested-functions");
+  FOut_String(19, (CHAR *) "CC = gcc-mp-5 -m32");
   FOut_Ln();
   FOut_String(9, (CHAR *) "CFLAGS =");
   FOut_String(256, (CHAR *) OMakeGCC_cflags);
@@ -803,7 +803,7 @@ void _init_OMakeGCC (void) {
   moduleId = add_module ("OMakeGCC");
   COPYSTRING(&(OMakeGCC_redirFile), "~/.o2c.red");
   OMakeGCC_makeOberon = TRUE;
-  COPYSTRING(&(OMakeGCC_cc), "gcc-apple-4.2 -m32 -fnested-functions");
+  COPYSTRING(&(OMakeGCC_cc), "gcc-mp-5 -m32");
   COPYSTRING(&(OMakeGCC_cflags), "");
   COPYSTRING(&(OMakeGCC_ldflags), "");
   OMakeGCC_inclPaths = (CHAR (* ))NULL;

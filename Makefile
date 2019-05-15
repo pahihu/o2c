@@ -3,7 +3,7 @@
 #       collector, please edit the variables `defCodeForGC' and `gcLibPath'
 #       in "compiler/OMachine.Mod" accordingly.
 
-CC = gcc-apple-4.2 -m32 -fnested-functions
+CC = gcc-mp-5 -m32
 # where to install the binaries?
 INSTALL_DIR = /opt/o2c
 BINDIR = $(INSTALL_DIR)/bin

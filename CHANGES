@@ -1,3 +1,6 @@
+190513AP V1.16.3
+	- patched to compile with gcc-mp-5 on High Sierra
+
 181115AP V1.16.2
 	- install target
 	- man pages in postscript format, 
