@@ -1,0 +1,13 @@
+181115AP V1.16.2
+	- install target
+	- man pages in postscript format, 
+	- customized o2c.red (contains install dir)
+	- install.docs installs CHANGES COPYING ChangeLog
+	  KNOWN_PROBLEMS and README
+	- enabled Boehm GC by default (expected in /opt/local/lib)
+	  to install on macOS: "port install boehmgc +universal"
+	- replaced C compiler -I- option with -iquote
+	- fixed SETTAG() macro in _OGCC.h to not use casted lvalue assignment
+
+181114AP V1.16.1
+	- patched to compile with apple-gcc-4.2 32bit only

@@ -5,15 +5,16 @@
 
 CC = gcc-apple-4.2 -m32 -fnested-functions
 # where to install the binaries?
-BIN     = /opt/o2c//bin
-MANPATH = /opt/o2c/share/man
+INSTALL_DIR = /opt/o2c
+BINDIR = $(INSTALL_DIR)/bin
+MANDIR = $(INSTALL_DIR)/share/man
 
 
 
 # you shouldn't have to change anything below
 
 # Note: These flags are only used to build the first (of three) compilers
-CFLAGS = -O2 -DDISABLE_RTC -Iobj -Isystem -I-
+CFLAGS = -O2 -DDISABLE_RTC -iquote obj -iquote system
 # LDFLAGS = -lm -Wl,-s
 LDFLAGS = -lm
 
@@ -64,29 +65,46 @@ o2c_stage2: o2c_stage1
 	./o2c -MORv --redir system/o2c.red.template UpdateLib
 	mv o2c o2c_stage2
 
-install: all
+install.bin: all
 	if [ ! -f $(HOME)/.o2c.red ]; then \
-		cp system/o2c.red.template $(HOME)/.o2c.red; \
+		cat system/o2c.red.install | sed "s+%INSTALL_DIR%+$(INSTALL_DIR)+" > $(HOME)/.o2c.red; \
 	fi
 	chmod -R ugo+rX *
 	-rm -f o2c
 	ln o2c_stage2 o2c
-	if [ ! -d $(BIN) ]; then \
-		mkdir -p $(BIN); \
+	if [ ! -d $(BINDIR) ]; then \
+		mkdir -p $(BINDIR); \
 	fi
 	for i in $(COMMANDS) ; do \
-		cp $$i $(BIN)/$$i ; \
-		chmod 755 $(BIN)/$$i ; \
+		cp $$i $(BINDIR)/$$i ; \
+		chmod 755 $(BINDIR)/$$i ; \
+	done
+	for d in compiler lib obj sym system ; do \
+		cp -rp $$d $(INSTALL_DIR) ; \
+	done
+
+install.docs:
+	if [ ! -d $(INSTALL_DIR)/docs ]; then \
+		mkdir -p $(INSTALL_DIR)/docs; \
+	fi
+	cp docs/*.ps $(INSTALL_DIR)/docs
+	for d in CHANGES ChangeLog COPYING README KNOWN_PROBLEMS ; do \
+		cp $$d $(INSTALL_DIR) ; \
 	done
 
 install.man:
-	if [ ! -d $(MANPATH)/man1 ]; then \
-		mkdir -p $(MANPATH)/man1; \
+	if [ ! -d $(MANDIR)/man1 ]; then \
+		mkdir -p $(MANDIR)/man1; \
 	fi
 	for i in $(COMMANDS) ; do \
-		cp docs/$$i.1 $(MANPATH)/man1/$$i.1 ; \
-		chmod 644 $(MANPATH)/man1/$$i.1 ; \
+		cp docs/$$i.1 $(MANDIR)/man1/$$i.1 ; \
+		chmod 644 $(MANDIR)/man1/$$i.1 ; \
 	done
+
+install: all
+	make install.bin
+	make install.man
+	make install.docs
 
 clean:
 	-rm -f makefile_o2c Makefile sizes

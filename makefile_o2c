@@ -1,5 +1,5 @@
 CC = gcc-apple-4.2 -m32 -fnested-functions
-CFLAGS = -O2 -DDISABLE_RTC -Iobj -Isystem -I-
+CFLAGS = -O2 -DDISABLE_RTC -iquote obj -iquote system
 LDFLAGS = -Wl,-s -lm
 HFILES = obj/MathL.h obj/CType.h obj/Unix.h obj/Time.h obj/CharInfo.h obj/ConvTypes.h obj/Dos.h obj/Strings.h obj/IntStr.h obj/Strings2.h obj/Filenames.h obj/RealStr.h obj/Rts.h obj/Files.h obj/Out.h obj/FOut.h obj/Redir.h obj/OMachine.h obj/OScan.h obj/ODepend.h obj/OTable.h obj/OEParse.h obj/OGenGCC.h obj/OMakeGCC.h obj/OSym.h obj/OParse.h obj/o2c.h
 CFILES0 = obj/Time.c obj/CharInfo.c obj/ConvTypes.c obj/Strings.c obj/IntStr.c obj/Strings2.c obj/Filenames.c obj/RealStr.c obj/Out.c obj/FOut.c obj/Redir.c obj/OMachine.c obj/OScan.c obj/ODepend.c obj/OTable.c obj/OEParse.c obj/OGenGCC.c obj/OMakeGCC.c obj/OSym.c obj/OParse.c obj/o2c.c

@@ -1,0 +1,25 @@
+# This file belongs in ~/.o2c.red, it tells the compiler where to search for
+# files matching certain patterns, and where to place newly generated files.
+# Non-absolute paths are relative to the directory where the compiler, browser,
+# etc. is started.
+# NOTE: `~user/', `~/', `..' and `.' are allowed as part of the paths
+#       +RCS is only useful for module sources (*.Mod).
+
+# paths for sources
+*.Mod	= 
+	.;		# first search the current directory
+	%INSTALL_DIR%/lib; # the standard libs, they _have to be_ in the path list
+	%INSTALL_DIR%/compiler	# the compiler sources
+	+ RCS		# include RCS files in the search
+
+# places for the compiler generated files
+*.c, *.h, *.o, *.m = obj; %INSTALL_DIR%/obj
+*.OSym = sym; %INSTALL_DIR%/sym
+
+# interface files, have to be in the path list
+*.c	= %INSTALL_DIR%/lib
+
+# system files: standard include file and list of error messages
+_OGCC.?, ErrorList.Txt = %INSTALL_DIR%/system
+
+

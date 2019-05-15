@@ -8,7 +8,7 @@ CONST
   (* This constant controls whether the compiler generates per default code for
      the gc package.  This default value may be overidden with the options 
      --nogc resp. --usegc.  See README for details. *)
-  defCodeForGC* = FALSE;
+  defCodeForGC* = TRUE;
   (* Where is the gc library located?  And how is it linked in?
      a) if the non-directory part of gcLibPath is "gc.a": gcLibPath will be put
         in the linkers object list (example: gcLibPath = "~/o2gcc/Test/gc.a");
@@ -18,7 +18,7 @@ CONST
      c) if gcLibPath isn't empty, it's assumed to be the path to the library
         libgc.*, and the linker is called with the parameters -L<gcLibPath> 
         -lgc (example: gcLibPath = "/usr/lang/o2c/lib") *)
-  gcLibPath* = "~/o2gcc/Test/gc.a";
+  gcLibPath* = "/opt/local/lib";
   
   
   maxSizeString* = 256;  (* Length(string constant)<maxSizeString *)

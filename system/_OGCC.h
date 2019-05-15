@@ -376,7 +376,7 @@ extern void* tmpNew;		/* set by NEWDYN */
 /* managing type descriptors */
 #define TAG(type, adr, pos) ((type*) (*((void**)(CHECK_NIL (void*, adr, pos))-1)))
 #define TAG_NC(type, adr) ((type*) (*((void**)(adr)-1)))
-#define SETTAG(adr, tag) (TAG_NC(void, adr) = (tag))
+#define SETTAG(adr, tag) {void **_padr = (void**)(adr)-1; *_padr = (tag);}
 #define BASETYPE(td, level) (*((void**)td-2-(level)))
 extern void* create_td (const char name[], int size_obj, int intd, void* base_td, int size_basetd);
 extern ModuleId add_module (const char name[]);

@@ -9,7 +9,7 @@ IMPORT
 
 VAR
   makeOberon : BOOLEAN;
-  cc : ARRAY 48 OF CHAR;
+  cc : ARRAY 64 OF CHAR;
   cflags, ldflags : ARRAY 256 OF CHAR;
   inclPaths : POINTER TO ARRAY OF CHAR;
   redirFile, makefile- : ARRAY 256 OF CHAR;
@@ -897,19 +897,19 @@ PROCEDURE Init*;
       IF MatchesHeader (pattern. wildcard) THEN
         path := pattern. paths;
         WHILE (path # NIL) DO
-          Str.Append (" -I", incl);
+          Str.Append (" -iquote ", incl);
           Str.Append (path. path, incl);
           path := path. next
         END
       END;
       pattern := pattern. next
     END;
-    IF (incl[0] # 0X) THEN
-      (* make sure, that the previous paths are only used for the ".." includes
-         and not for the <..> ones; this should avoid confusion if names of
-         system header files and o2c header files overlap *)
+    (* IF (incl[0] # 0X) THEN
+      make sure, that the previous paths are only used for the ".." includes
+      and not for the <..> ones; this should avoid confusion if names of
+      system header files and o2c header files overlap
       Str.Append (" -I-", incl)
-    END;
+    END; *)
     NEW (inclPaths, Str.Length (incl)+1);
     COPY (incl, inclPaths^)
   END Init;
