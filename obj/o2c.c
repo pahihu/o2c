@@ -301,7 +301,7 @@ static void o2c_EvalOptions (INTEGER (* _arg)) {
       goto _exit8965;
     }
   }
-  _exit8965:
+  _exit8965: ;
 }
 
 void o2c_Run (void) {

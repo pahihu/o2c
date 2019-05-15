@@ -9,7 +9,7 @@ IMPORT
 
 VAR
   makeOberon : BOOLEAN;
-  cc : ARRAY 16 OF CHAR;
+  cc : ARRAY 48 OF CHAR;
   cflags, ldflags : ARRAY 256 OF CHAR;
   inclPaths : POINTER TO ARRAY OF CHAR;
   redirFile, makefile- : ARRAY 256 OF CHAR;
@@ -700,7 +700,7 @@ PROCEDURE Makefile* (modName, comName, o2opt : ARRAY OF CHAR; VAR err : BOOLEAN)
       FOut.String (o2opt);
       FOut.Ln
     END;
-    FOut.String ("CC = gcc");
+    FOut.String ("CC = gcc-apple-4.2 -m32 -fnested-functions");
     FOut.Ln;
     FOut.String ("CFLAGS =");
     FOut.String (cflags);
@@ -918,7 +918,7 @@ PROCEDURE Init*;
 BEGIN
   redirFile := "~/.o2c.red";
   makeOberon := TRUE;
-  cc := "gcc";
+  cc := "gcc-apple-4.2 -m32 -fnested-functions";
   cflags := "";
   ldflags := "";  (* -lm will be set by GetLinkerFlags *)
   inclPaths := NIL;

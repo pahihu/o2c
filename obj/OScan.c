@@ -488,7 +488,7 @@ static void OScan_Comment (void) {
       }
     }
   }
-  _exit15076:
+  _exit15076: ;
 }
 
 static void OScan_GetString (CHAR _end) {

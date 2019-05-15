@@ -2064,7 +2064,7 @@ PROCEDURE StatementSeq (s : E.Node; off : INTEGER; paren : BOOLEAN);
           Off (off);
           O.String ("_exit");
           O.Int (s. pos, 0);
-          O.Char (":")
+          O.String (": ;")
         END |
       E.ndWithElse:
         n := s. left;

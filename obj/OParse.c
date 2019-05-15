@@ -178,7 +178,7 @@ static void OParse_FormalPars (OTable_Struct (* _fpars)) {
           OParse_CheckSym(OScan_semicolon);
         }
       }
-      _exit4930:
+      _exit4930: ;
     }
     OParse_CheckSym(OScan_rParen);
     if (OScan_sym==OScan_colon)  {
@@ -329,7 +329,7 @@ static void OParse_Designator (OEParse_Node (* _n)) {
       goto _exit11175;
     }
   }
-  _exit11175:
+  _exit11175: ;
 }
 
 static void OParse_ProcCall (OEParse_Node (* _call), OEParse_Node _proc) {
@@ -557,7 +557,7 @@ static void OParse_Expr (OEParse_Node (* _r)) {
         _Factor(&(DEREF(OEParse_Node, (* _r), 26228)._right));
         OEParse_Check(_r);
       }
-      _exit26036:
+      _exit26036: ;
     }
     if (OScan_sym==OScan_minus)  {
       (* _r) = OEParse_NewNode(OEParse_ndMOp);
@@ -579,7 +579,7 @@ static void OParse_Expr (OEParse_Node (* _r)) {
       _Term(&(DEREF(OEParse_Node, (* _r), 26802)._right));
       OEParse_Check(_r);
     }
-    _exit26626:
+    _exit26626: ;
   }
   _SimpleExpr(_r);
   if (OScan_sym<OScan_eql||OScan_sym>OScan_is)  {
@@ -899,7 +899,7 @@ static void OParse_StatementSeq (OEParse_Node (* _r), OEParse_Node _proc, OEPars
     }
     OParse_CheckSym(OScan_semicolon);
   }
-  _exit39869:
+  _exit39869: ;
 }
 
 static void OParse_IdentDef (OTable_Object (* _obj), SHORTINT _mode, SHORTINT _exp) {
@@ -946,7 +946,7 @@ static void OParse_IdentList (OTable_Object (* _first), OTable_Object (* _last),
       OScan_GetSym();
     }
   }
-  _exit42256:
+  _exit42256: ;
 }
 
 static void OParse_Type (OTable_Struct (* _t), LONGINT (* _pos), SHORTINT _exp) {

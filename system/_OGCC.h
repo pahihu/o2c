@@ -86,11 +86,12 @@ typedef void *PTR;
 
 /* some function prototypes */
 #ifndef NOPROTOTYPES
-  extern void* malloc (int SIZE);
-  extern void free (void *PTR);
+#include <sys/types.h>
+extern void* malloc (size_t SIZE);
+extern void free (void *PTR);
 #endif
 extern double fabs (double NUMBER);
-extern void* memccpy (void *TO, const void *FROM, int C, int SIZE);
+extern void* memccpy (void *TO, const void *FROM, int C, size_t SIZE);
 extern int toupper (int C);
 
 #ifdef GC
@@ -333,7 +334,7 @@ extern LONGINT ash (LONGINT value, LONGINT dir);
 #define COPY(from,to,maxsize) \
   ({int _max = (int) (maxsize); \
     if (!memccpy ((to), (from), 0, _max)) \
-      (char) (* ((to) + _max -1)) = '\000'; \
+      { char* _ptr = ((to) + _max -1); *_ptr = '\000';} \
   })
 
 /* memory move */

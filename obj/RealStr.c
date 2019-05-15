@@ -143,7 +143,7 @@ static void RealStr_RoundSigFigs (INTEGER _sigFigs, RealStr_NumberString _s) {
         INDEX(_s, _i, 25, 5013) = '0';
         DECI(_i, 1, 5035);
       }
-      _exit4895:
+      _exit4895: ;
     }
     {
       INTEGER _temp_ = 18;

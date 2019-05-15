@@ -2109,7 +2109,7 @@ static void OGenGCC_StatementSeq (OEParse_Node _s, INTEGER _off, BOOLEAN _paren)
             OGenGCC_Off(_off);
             FOut_String(6, (CHAR *) "_exit");
             FOut_Int(DEREF(OEParse_Node, _s, 65826)._pos, 0);
-            FOut_Char(':');
+            FOut_String(4, (CHAR *) ": ;");
           }
           break;
         }

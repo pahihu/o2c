@@ -54,7 +54,7 @@ Redir_Pattern Redir_Read (LONGINT __fileName_0, const CHAR (* __fileName_p)) {
           Files_Read(&(_r), &(_ch));
         }
       }
-      _exit3223:
+      _exit3223: ;
     }
 
     void _Match (CHAR _test) {
