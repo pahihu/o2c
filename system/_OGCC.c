@@ -1,5 +1,6 @@
 #include "_OGCC.h"
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
 #include <math.h>
@@ -87,7 +88,8 @@ void _init__OGCC (void) {
 #ifdef GC
 /* if you have installed gc as a SunOS 5 dynamic lib, include gc.h 
    and uncomment GC_INIT()  */
-/*  GC_INIT(); */  
+  GC_init();
+#if 0
 #ifdef NEED8ALIGN
   GC_register_displacement(8);
   GC_register_displacement(16);
@@ -96,6 +98,7 @@ void _init__OGCC (void) {
   GC_register_displacement(8);
   GC_register_displacement(12);
   GC_register_displacement(16);
+#endif
 #endif
 #endif
 }

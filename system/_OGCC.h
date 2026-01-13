@@ -65,6 +65,10 @@
 
 
 #include <float.h>
+#ifdef __MINGW32__
+// #include <string.h>
+// #include <malloc.h>
+#endif
 
 #define BITS_PER_CHAR 8  /* seems reasonable */
 #ifndef NULL
@@ -97,8 +101,8 @@ extern int toupper (int C);
 #ifdef GC
   extern void* GC_malloc (int SIZE);
   extern void* GC_malloc_atomic (int SIZE);
+  extern void  GC_register_displacement (int DISPL);
   extern void GC_free (void *PTR);
-  extern void GC_register_displacement (int DISPL);
   extern void GC_gcollect (void);
   typedef void (*GC_finalization_proc)(void * obj, void * client_data);
   extern void GC_register_finalizer(void * obj,

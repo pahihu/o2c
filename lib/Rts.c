@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <signal.h>
 #include <stdlib.h>
+#ifdef __MINGW32__
+#include <fcntl.h>
+#endif
 
 #define NOPROTOTYPES
 #include "_OGCC.h"
@@ -87,12 +90,18 @@ static void Rts_RunTermProcs (void) {
 }
 
 static void Rts_SignalHandler (int sig) {
-  signal(sig, SIG_DFL);  /* install default handler, necessary for SunOS 4 */
+  void (*handler)(int);
+  handler = signal(sig, SIG_DFL);  /* install default handler, necessary for SunOS 4 */
   if (Rts_noSignalHandlerInProgress) {
     Rts_noSignalHandlerInProgress = 0;
     Rts_RunTermProcs();
   }
+#ifdef __MINGW32__
+  if (SIG_ERR != handler)
+    handler(sig);
+#else
   kill(getpid(), sig);   /* raise signal to call default handler */
+#endif
 }
 
 static void Rts_CatchSignal (int sig) {
@@ -107,6 +116,10 @@ static void Rts_CatchSignal (int sig) {
 void _init_Rts (void) {
   int i, result;
   
+#ifdef __MINGW32__
+  _fmode = _O_BINARY;
+#endif
+  
   moduleId = add_module ("Rts");
   Rts_exitCode = 0;
   for (i=0; i != MAX_TERM_PROCS; i++) {
@@ -117,12 +130,18 @@ void _init_Rts (void) {
   Rts_CatchSignal(SIGFPE);
   Rts_CatchSignal(SIGILL);
   Rts_CatchSignal(SIGSEGV);
+#ifdef SIGBUS
   Rts_CatchSignal(SIGBUS);
+#endif
   Rts_CatchSignal(SIGABRT);
   /* termination signals */
+#ifdef SIGHUP
   Rts_CatchSignal(SIGHUP);
+#endif
   Rts_CatchSignal(SIGINT);
+#ifdef SIGQUIT
   Rts_CatchSignal(SIGQUIT);
+#endif
   Rts_CatchSignal(SIGTERM);
   /* normal program exit */
 #if defined(sun) && !defined(__svr4__)

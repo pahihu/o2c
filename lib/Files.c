@@ -2,7 +2,14 @@
 #include <errno.h>
 #include <stdio.h>
 #include <unistd.h> 
+#ifdef __MINGW32__
+#define S_IRGRP		0
+#define S_IWGRP		0
+#define S_IROTH		0
+#define S_IWOTH		0
+#else
 #include <sys/uio.h>
+#endif
 #include <time.h>
 #include <sys/stat.h>
 #include <stdlib.h>

@@ -3,7 +3,11 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#ifdef __MINGW32__
+#include <io.h>
+#else
 #include <pwd.h>
+#endif
 
 
 static ModuleId moduleId;
@@ -75,6 +79,16 @@ void Dos_GetDate (const CHAR *file, struct timeval *date, BOOLEAN *err) {
 }
 
 void Dos_GetUserHome (CHAR *home, const CHAR *user) {
+#ifdef __MINGW32__
+  int i;
+  
+  if (user) {
+  	sprintf(home, "%s/Users/%s", getenv("HOMEDRIVE"), user);
+  } else {
+  	sprintf(home, "%s%s", getenv("HOMEDRIVE"), getenv("HOMEPATH"));
+  	for (;*home;home++) if ('\\' == *home) *home = '/';
+  }
+#else
   struct passwd *entry;
 
   if (*user)
@@ -86,6 +100,7 @@ void Dos_GetUserHome (CHAR *home, const CHAR *user) {
     strcpy(home, entry->pw_dir);  /* danguerous */
   else
     home[0] = '\000';
+#endif
 }
 
 void Dos_GetCWD (CHAR *path) {

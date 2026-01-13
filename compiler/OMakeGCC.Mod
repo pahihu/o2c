@@ -700,7 +700,7 @@ PROCEDURE Makefile* (modName, comName, o2opt : ARRAY OF CHAR; VAR err : BOOLEAN)
       FOut.String (o2opt);
       FOut.Ln
     END;
-    FOut.String ("CC = gcc-mp-5 -m32");
+    FOut.String ("CC = gcc -m32");
     FOut.Ln;
     FOut.String ("CFLAGS =");
     FOut.String (cflags);
@@ -918,7 +918,7 @@ PROCEDURE Init*;
 BEGIN
   redirFile := "~/.o2c.red";
   makeOberon := TRUE;
-  cc := "gcc-mp-5 -m32";
+  cc := "gcc -m32";
   cflags := "";
   ldflags := "";  (* -lm will be set by GetLinkerFlags *)
   inclPaths := NIL;

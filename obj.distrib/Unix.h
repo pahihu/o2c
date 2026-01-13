@@ -4,19 +4,24 @@
 #include "_OGCC.h"
 #include "CType.h"
 
-typedef LONGINT Unix_fd;
-typedef struct Unix_timeval {
-  LONGINT tv_sec;
-  LONGINT tv_usec;
-} Unix_timeval;
-typedef void (* Unix_Proc) (void);
-extern LONGINT Unix_stdin, Unix_stdout, Unix_stderr;
-extern LONGINT Unix_Errno (void);
-extern BOOLEAN Unix_is_hugeval (LONGREAL x);
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/time.h>
 #include <unistd.h>
+
+typedef LONGINT Unix_fd;
+#if 1
+#define Unix_timeval timeval
+#else
+typedef struct Unix_timeval {
+  LONGINT tv_sec;
+  LONGINT tv_usec;
+} Unix_timeval;
+#endif
+typedef void (* Unix_Proc) (void);
+extern LONGINT Unix_stdin, Unix_stdout, Unix_stderr;
+extern LONGINT Unix_Errno (void);
+extern BOOLEAN Unix_is_hugeval (LONGREAL x);
 /*
 extern LONGINT printf (const CHAR (* template), ...);
 extern LONGINT sprintf (CHAR (* Unix_s), const CHAR (* template), ...);
