@@ -1,6 +1,12 @@
 #ifndef __OEParse_
 #define __OEParse_
 
+#ifdef MODULE_OEParse
+#define EXTERN_OEParse
+#else
+#define EXTERN_OEParse extern
+#endif
+
 #include "_OGCC.h"
 #include "OTable.h"
 
@@ -110,7 +116,7 @@ typedef struct OEParse_NodeDesc {
 typedef struct TD_OEParse_NodeDesc {
   TDCORE
 } TD_OEParse_NodeDesc;
-TD_OEParse_NodeDesc* td_OEParse_NodeDesc;
+EXTERN_OEParse TD_OEParse_NodeDesc* td_OEParse_NodeDesc;
 
 extern OEParse_Node OEParse_NewNode (SHORTINT _class);
 extern void OEParse_ErrT1 (LONGINT _pos, INTEGER _num, OTable_Struct (* _t1));

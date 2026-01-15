@@ -3,7 +3,7 @@
 #       collector, please edit the variables `defCodeForGC' and `gcLibPath'
 #       in "compiler/OMachine.Mod" accordingly.
 
-CC = gcc -m32
+CC = o2gcc
 # where to install the binaries?
 INSTALL_DIR = /opt/o2c
 BINDIR = $(INSTALL_DIR)/bin

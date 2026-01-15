@@ -1,6 +1,12 @@
 #ifndef __Redir_
 #define __Redir_
 
+#ifdef MODULE_Redir
+#define EXTERN_Redir
+#else
+#define EXTERN_Redir extern
+#endif
+
 #include "_OGCC.h"
 
 
@@ -25,11 +31,11 @@ typedef struct Redir_PathDesc {
 typedef struct TD_Redir_PatternDesc {
   TDCORE
 } TD_Redir_PatternDesc;
-TD_Redir_PatternDesc* td_Redir_PatternDesc;
+EXTERN_Redir TD_Redir_PatternDesc* td_Redir_PatternDesc;
 typedef struct TD_Redir_PathDesc {
   TDCORE
 } TD_Redir_PathDesc;
-TD_Redir_PathDesc* td_Redir_PathDesc;
+EXTERN_Redir TD_Redir_PathDesc* td_Redir_PathDesc;
 
 extern Redir_Pattern Redir_Read (LONGINT __fileName_0, const CHAR (* __fileName_p));
 extern void Redir_Free (Redir_Pattern (* _p));

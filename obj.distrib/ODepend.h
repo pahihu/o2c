@@ -1,6 +1,12 @@
 #ifndef __ODepend_
 #define __ODepend_
 
+#ifdef MODULE_ODepend
+#define EXTERN_ODepend
+#else
+#define EXTERN_ODepend extern
+#endif
+
 #include "_OGCC.h"
 #include "Unix.h"
 
@@ -39,11 +45,11 @@ extern const SHORTINT ODepend_flFirstFree;
 typedef struct TD_ODepend_ModuleDesc {
   TDCORE
 } TD_ODepend_ModuleDesc;
-TD_ODepend_ModuleDesc* td_ODepend_ModuleDesc;
+EXTERN_ODepend TD_ODepend_ModuleDesc* td_ODepend_ModuleDesc;
 typedef struct TD_ODepend_ImportDesc {
   TDCORE
 } TD_ODepend_ImportDesc;
-TD_ODepend_ImportDesc* td_ODepend_ImportDesc;
+EXTERN_ODepend TD_ODepend_ImportDesc* td_ODepend_ImportDesc;
 
 extern BOOLEAN ODepend_FindFilename (ODepend_Module _mod, SHORTINT _index, LONGINT __name_0, const CHAR (* __name_p));
 extern BOOLEAN ODepend_FindFile (ODepend_Module _mod, SHORTINT _index, LONGINT __ext_0, const CHAR (* __ext_p));

@@ -1,0 +1,2 @@
+#!/bin/bash
+exec gcc-15 -std=gnu89 -fno-builtin -Wno-implicit-function-declaration -Wno-int-conversion $*

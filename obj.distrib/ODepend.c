@@ -1,3 +1,5 @@
+#define MODULE_ODepend
+
 #include "ODepend.h"
 #include "Dos.h"
 #include "OMachine.h"

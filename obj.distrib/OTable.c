@@ -1,3 +1,5 @@
+#define MODULE_OTable
+
 #include "OTable.h"
 #include "OMachine.h"
 #include "OScan.h"

@@ -1,6 +1,12 @@
 #ifndef __OTable_
 #define __OTable_
 
+#ifdef MODULE_OTable
+#define EXTERN_OTable
+#else
+#define EXTERN_OTable extern
+#endif
+
 #include "_OGCC.h"
 
 
@@ -147,15 +153,15 @@ extern BOOLEAN OTable_external;
 typedef struct TD_OTable_ObjectDesc {
   TDCORE
 } TD_OTable_ObjectDesc;
-TD_OTable_ObjectDesc* td_OTable_ObjectDesc;
+EXTERN_OTable TD_OTable_ObjectDesc* td_OTable_ObjectDesc;
 typedef struct TD_OTable_StructDesc {
   TDCORE
 } TD_OTable_StructDesc;
-TD_OTable_StructDesc* td_OTable_StructDesc;
+EXTERN_OTable TD_OTable_StructDesc* td_OTable_StructDesc;
 typedef struct TD_OTable_ConstDesc {
   TDCORE
 } TD_OTable_ConstDesc;
-TD_OTable_ConstDesc* td_OTable_ConstDesc;
+EXTERN_OTable TD_OTable_ConstDesc* td_OTable_ConstDesc;
 
 extern void OTable_RecycleMem (OTable_Object (* _module));
 extern void OTable_OpenScope (OTable_Object _scope);

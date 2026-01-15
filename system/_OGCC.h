@@ -78,9 +78,17 @@
 /* C types that are used for the basic oberon types */
 typedef unsigned char BOOLEAN;
 typedef unsigned char CHAR;
+#if __PTRDIFF_WIDTH__ == 64
+#define __TAG_SIZE__ 8
+typedef signed short int SHORTINT;
+typedef signed int INTEGER;  /* see LI_FORMAT */
+typedef signed long int LONGINT;
+#else
+#define __TAG_SIZE__ 4
 typedef signed char SHORTINT;
 typedef signed short int INTEGER;  /* see LI_FORMAT */
 typedef signed int LONGINT;
+#endif
 typedef float REAL;		/* see MAX_REAL/MIN_REAL */
 typedef double LONGREAL;	/* see MAX_LONGREAL/MIN_LONGREAL */
 typedef unsigned int SET;	/* see MAX_SET */
@@ -97,6 +105,9 @@ extern void free (void *PTR);
 extern double fabs (double NUMBER);
 extern void* memccpy (void *TO, const void *FROM, int C, size_t SIZE);
 extern int toupper (int C);
+extern strcpy(char *TO, const char *FROM);
+extern memcpy(void *TO, const void *FROM, size_t SIZE);
+#include <alloca.h>
 
 #ifdef GC
   extern void* GC_malloc (int SIZE);
@@ -137,7 +148,11 @@ typedef unsigned int ULONGINT;
 #define MAX_SET 31
 
 /* format string used by printf for LONGINT (%i if int, %li if long int) */
+#if __PTRDIFF_WIDTH__ == 64
+#define LI_FORMAT "%li"
+#else
 #define LI_FORMAT "%i"
+#endif
 
 /* size of Oberon-2 identifiers */
 #define SIZE_IDENT 48
@@ -395,9 +410,9 @@ extern ModuleId add_module (const char name[]);
 #endif
 
 #define MALLOC_TAGGED(size,prefix_len) \
-  ((void**)MALLOC((size)+(prefix_len)*4)+(prefix_len))
+  ((void**)MALLOC((size)+(prefix_len)*__TAG_SIZE__)+(prefix_len))
 #define MALLOC_TAGGED_ATOMIC(size,prefix_len) \
-  ((void**)MALLOC_ATOMIC((size)+(prefix_len)*4)+(prefix_len))
+  ((void**)MALLOC_ATOMIC((size)+(prefix_len)*__TAG_SIZE__)+(prefix_len))
 
 #define MALLOC_OBJECT(size,prefix_len,atomic) \
 ({ void* ptr;  \

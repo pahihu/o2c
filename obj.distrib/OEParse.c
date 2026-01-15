@@ -1,3 +1,5 @@
+#define MODULE_OEParse
+
 #include "OEParse.h"
 #include "ConvTypes.h"
 #include "IntStr.h"

@@ -1,3 +1,5 @@
+#define MODULE_Redir
+
 #include "Redir.h"
 #include "CharInfo.h"
 #include "Dos.h"

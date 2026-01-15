@@ -1,3 +1,7 @@
+260115AP
+    - start of 64bit port
+    - o2gcc script to ease porting (compiler flags)
+
 190515AP
 	- added missing sym/ directory
 

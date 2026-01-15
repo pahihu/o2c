@@ -455,7 +455,7 @@ void OMakeGCC_Help (void) {
   Out_Ln();
   Out_String(42, (CHAR *) "-R                 Disable runtime checks");
   Out_Ln();
-  Out_String(60, (CHAR *) "-O                 Optimize code (set -O2 when calling gcc)");
+  Out_String(60, (CHAR *) "-O                 Optimize code (set -O2 when calling o2gcc)");
   Out_Ln();
   Out_String(63, (CHAR *) "-g                 Include debug information (on C level, -g3)");
   Out_Ln();
@@ -603,7 +603,7 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
     FOut_String(__o2opt_0, _o2opt);
     FOut_Ln();
   }
-  FOut_String(14, (CHAR *) "CC = gcc -m32");
+  FOut_String(11, (CHAR *) "CC = o2gcc");
   FOut_Ln();
   FOut_String(9, (CHAR *) "CFLAGS =");
   FOut_String(256, (CHAR *) OMakeGCC_cflags);
@@ -803,7 +803,7 @@ void _init_OMakeGCC (void) {
   moduleId = add_module ("OMakeGCC");
   COPYSTRING(&(OMakeGCC_redirFile), "~/.o2c.red");
   OMakeGCC_makeOberon = TRUE;
-  COPYSTRING(&(OMakeGCC_cc), "gcc -m32");
+  COPYSTRING(&(OMakeGCC_cc), "o2gcc");
   COPYSTRING(&(OMakeGCC_cflags), "");
   COPYSTRING(&(OMakeGCC_ldflags), "");
   OMakeGCC_inclPaths = (CHAR (* ))NULL;

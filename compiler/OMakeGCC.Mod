@@ -546,7 +546,7 @@ PROCEDURE Help*;
     Out.String ("--makefile <file>  Write makefile into <file>"); Out.Ln;
     Out.String ("-a                 Disable assertions"); Out.Ln;
     Out.String ("-R                 Disable runtime checks"); Out.Ln;
-    Out.String ("-O                 Optimize code (set -O2 when calling gcc)"); Out.Ln;
+    Out.String ("-O                 Optimize code (set -O2 when calling o2gcc)"); Out.Ln;
     Out.String ("-g                 Include debug information (on C level, -g3)"); Out.Ln;
     Out.String ("-s                 Strip executable"); Out.Ln;
     Out.String ("-p                 Include profiler information (for gprof)"); Out.Ln;
@@ -700,7 +700,7 @@ PROCEDURE Makefile* (modName, comName, o2opt : ARRAY OF CHAR; VAR err : BOOLEAN)
       FOut.String (o2opt);
       FOut.Ln
     END;
-    FOut.String ("CC = gcc -m32");
+    FOut.String ("CC = o2gcc");
     FOut.Ln;
     FOut.String ("CFLAGS =");
     FOut.String (cflags);
@@ -890,7 +890,7 @@ PROCEDURE Init*;
   BEGIN
     M.redir := Redir.Read (redirFile);
     S.ReadErrorList;
-    (* build include paths that are passed to gcc *)
+    (* build include paths that are passed to o2gcc *)
     incl := "";
     pattern := M.redir;
     WHILE (pattern # NIL) DO
@@ -918,7 +918,7 @@ PROCEDURE Init*;
 BEGIN
   redirFile := "~/.o2c.red";
   makeOberon := TRUE;
-  cc := "gcc -m32";
+  cc := "o2gcc";
   cflags := "";
   ldflags := "";  (* -lm will be set by GetLinkerFlags *)
   inclPaths := NIL;
