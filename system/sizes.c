@@ -43,13 +43,13 @@ int check_sizes (void) {
   check_size (BOOLEAN, "BOOLEAN", 1);
   check_size (CHAR, "CHAR", 1);
   check_size (BYTE, "BYTE", 1);
-  check_size (SHORTINT, "SHORTINT", 1);
-  check_size (INTEGER, "INTEGER", 2);
-  check_size (LONGINT, "LONGINT", 4);
+  check_size (SHORTINT, "SHORTINT", SIZEOF_SHORTINT);
+  check_size (INTEGER, "INTEGER", SIZEOF_INTEGER);
+  check_size (LONGINT, "LONGINT", SIZEOF_LONGINT);
   check_size (REAL, "REAL", 4);
   check_size (LONGREAL, "LONGREAL", 8);
   check_size (SET, "SET", 4);
-  check_size (PTR, "PTR", 4);
+  check_size (PTR, "PTR", SIZEOF_PTR);
   return failed;
 }
 

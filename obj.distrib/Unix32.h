@@ -22,7 +22,7 @@ typedef void (* Unix_Proc) (void);
 extern LONGINT Unix_stdin, Unix_stdout, Unix_stderr;
 extern LONGINT Unix_Errno (void);
 extern BOOLEAN Unix_is_hugeval (LONGREAL x);
-/*
+#if 0
 extern LONGINT printf (const CHAR (* template), ...);
 extern LONGINT sprintf (CHAR (* Unix_s), const CHAR (* template), ...);
 extern void exit (LONGINT status);
@@ -59,7 +59,7 @@ extern LONGINT lseek (LONGINT fildes, LONGINT offset, LONGINT whence);
 extern LONGINT ftruncate (LONGINT fildes, LONGINT length);
 extern LONGINT read (LONGINT fildes, LONGINT buf, LONGINT nbyte);
 extern LONGINT write (LONGINT fildes, LONGINT buf, LONGINT nbyte);
-*/
+#endif
 
 extern void _init_Unix (void);
 

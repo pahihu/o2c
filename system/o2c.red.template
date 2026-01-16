@@ -7,9 +7,9 @@
 
 # paths for sources
 *.Mod	= 
-	.;		# first search the current directory
+	.;		    # first search the current directory
 	lib;		# the standard libs, they _have to be_ in the path list
-	compiler	# the compiler sources
+	compiler 	# the compiler sources
 	+ RCS		# include RCS files in the search
 
 # places for the compiler generated files

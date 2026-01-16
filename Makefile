@@ -3,6 +3,7 @@
 #       collector, please edit the variables `defCodeForGC' and `gcLibPath'
 #       in "compiler/OMachine.Mod" accordingly.
 
+O2CARCH=64
 CC = o2gcc
 # where to install the binaries?
 INSTALL_DIR = /opt/o2c
@@ -21,11 +22,25 @@ LDFLAGS = -lm
 COMMANDS = o2c o2b o2whereis o2ef
 COMPILER = OBrowse ODepend OEParse OGenGCC OMachine OMakeGCC OParse OScan OSym OTable $(COMMANDS)
 
+AFILES   = lib/CType.Mod compiler/OGenGCC.Mod compiler/OMachine.Mod
 
-all: o2c_stage2
+all: force o2c_stage2
 	touch all
 
-o2c_stage0:
+force:
+	rm -f $(AFILES)
+
+lib/CType.Mod: lib/CType$(O2CARCH).Mod
+	cp $< $@
+
+compiler/OGenGCC.Mod: compiler/OGenGCC$(O2CARCH).Mod
+	cp $< $@
+
+compiler/OMachine.Mod: compiler/OMachine$(O2CARCH).Mod
+	cp $< $@
+
+
+o2c_stage0: $(AFILES)
 	if [ ! -d sym ]; then \
 		mkdir sym; \
 	fi

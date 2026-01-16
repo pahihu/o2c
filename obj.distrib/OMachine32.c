@@ -5,9 +5,10 @@ static ModuleId moduleId;
 
 
 const BOOLEAN OMachine_defCodeForGC = FALSE;
-const CHAR OMachine_gcLibPath[] = "~/o2gcc/Test/gc.a";
+const CHAR OMachine_gcLibPath[] = "";
 const INTEGER OMachine_maxSizeString = 256;
 const SHORTINT OMachine_maxSizeIdent = 48;
+const SHORTINT OMachine_maxLIntHexDigits = 8;
 const SHORTINT OMachine_minBool = 0;
 const SHORTINT OMachine_maxBool = 1;
 const SHORTINT OMachine_minChar = 0;

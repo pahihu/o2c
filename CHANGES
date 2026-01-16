@@ -1,3 +1,6 @@
+260116AP
+    - o2c_stage0 compiled
+
 260115AP
     - start of 64bit port
     - o2gcc script to ease porting (compiler flags)

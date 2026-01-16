@@ -21,8 +21,9 @@ CONST
   gcLibPath* = "/opt/local/lib";
   
   
-  maxSizeString* = 256;  (* Length(string constant)<maxSizeString *)
-  maxSizeIdent* = 48;    (* Length(identifier)<maxSizeIdent *)
+  maxSizeString* = 256;     (* Length(string constant)<maxSizeString *)
+  maxSizeIdent* = 48;       (* Length(identifier)<maxSizeIdent *)
+  maxLIntHexDigits* = 8;    (* max. number of hex digits in LONGINT *)
   (* MIN/MAX values of the standard data types *)
   minBool* = 0;             maxBool* = 1;
   minChar* = 0;             maxChar* = 0FFH;

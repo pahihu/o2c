@@ -48,7 +48,7 @@ PROCEDURE Mult* (a : Time; m : LONGREAL; VAR result : Time);
   BEGIN
     frac := MathL.modf ((a. tv_sec + a. tv_usec / 1.0D6)*m, int);
     result. tv_sec := ENTIER (int);
-    result. tv_usec := ENTIER (frac * 1.0D6);
+    result. tv_usec := SHORT (ENTIER (frac * 1.0D6)); (* XXX *)
     IF (result. tv_usec < 0) THEN
       DEC (result. tv_sec);
       INC (result. tv_usec, 1000000)

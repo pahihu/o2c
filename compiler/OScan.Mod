@@ -632,13 +632,13 @@ PROCEDURE Number;
       WHILE (buf[spos] = "0") DO 
         INC (spos)
       END;
-      IF (epos-spos > 7) THEN  (* value has more than 8 significant cyphers *)
+      IF (epos-spos > M.maxLIntHexDigits-1) THEN  (* value has more than LONGINT hex digits significant cyphers *)
         Err (spos, 6)
       ELSIF (spos <= epos) THEN  (* if any non-zero cyphers follow *)
         result := GetCypher (buf[spos], SHORT (spos), TRUE);
         INC (spos);
-        IF (epos-spos = 7) & (result >= 8) THEN
-          (* value is beyond MAX(LONGINT)=07FFFFFFFH *)
+        IF (epos-spos = M.maxLIntHexDigits-1) & (result >= 8) THEN
+          (* value is beyond MAX(LONGINT) *)
           DEC (result, 10H)
         END;
         WHILE (spos <= epos) DO

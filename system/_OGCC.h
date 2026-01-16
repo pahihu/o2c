@@ -83,11 +83,19 @@ typedef unsigned char CHAR;
 typedef signed short int SHORTINT;
 typedef signed int INTEGER;  /* see LI_FORMAT */
 typedef signed long int LONGINT;
+#define SIZEOF_SHORTINT 2
+#define SIZEOF_INTEGER  4
+#define SIZEOF_LONGINT  8
+#define SIZEOF_PTR      8
 #else
 #define __TAG_SIZE__ 4
 typedef signed char SHORTINT;
 typedef signed short int INTEGER;  /* see LI_FORMAT */
 typedef signed int LONGINT;
+#define SIZEOF_SHORTINT 1
+#define SIZEOF_INTEGER  2
+#define SIZEOF_LONGINT  4
+#define SIZEOF_PTR      4
 #endif
 typedef float REAL;		/* see MAX_REAL/MIN_REAL */
 typedef double LONGREAL;	/* see MAX_LONGREAL/MIN_LONGREAL */
@@ -105,8 +113,9 @@ extern void free (void *PTR);
 extern double fabs (double NUMBER);
 extern void* memccpy (void *TO, const void *FROM, int C, size_t SIZE);
 extern int toupper (int C);
-extern strcpy(char *TO, const char *FROM);
-extern memcpy(void *TO, const void *FROM, size_t SIZE);
+extern char* strcpy(char *TO, const char *FROM);
+extern void* memcpy(void *TO, const void *FROM, size_t SIZE);
+extern int printf(const char *FMT, ...);
 #include <alloca.h>
 
 #ifdef GC

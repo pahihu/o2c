@@ -10,6 +10,7 @@ extern const BOOLEAN OMachine_defCodeForGC;
 extern const CHAR OMachine_gcLibPath[];
 extern const INTEGER OMachine_maxSizeString;
 extern const SHORTINT OMachine_maxSizeIdent;
+extern const SHORTINT OMachine_maxLIntHexDigits;
 extern const SHORTINT OMachine_minBool;
 extern const SHORTINT OMachine_maxBool;
 extern const SHORTINT OMachine_minChar;

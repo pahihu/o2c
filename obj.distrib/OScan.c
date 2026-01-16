@@ -593,12 +593,12 @@ static void OScan_Number (void) {
     while (INDEX(DEREF(CHAR (* )[32767], OScan_buf, 19912), _spos, 32767, 19912)=='0')  {
       INCLI(_spos, 1, 19938);
     }
-    if (_epos- _spos>7)  {
+    if (_epos- _spos>OMachine_maxLIntHexDigits-1)  {
       OScan_Err(_spos, 6);
     } else if (_spos<=_epos)  {
       _result = (LONGINT) _GetCypher(INDEX(DEREF(CHAR (* )[32767], OScan_buf, 20163), _spos, 32767, 20163), (INTEGER) _spos, TRUE);
       INCLI(_spos, 1, 20200);
-      if (_epos- _spos==7&&_result>=8)  {
+      if (_epos- _spos==OMachine_maxLIntHexDigits-1&&_result>=8)  {
         DECLI(_result, 16, 20326);
       }
       while (_spos<=_epos)  {

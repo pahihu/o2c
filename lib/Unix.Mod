@@ -25,7 +25,7 @@ TYPE
 TYPE 
   timeval* = RECORD
     tv_sec* : C.longint;                    (* seconds *)
-    tv_usec* : C.longint                    (* microseconds *)
+    tv_usec* : C.int;                       (* microseconds *)
   END;
   Proc* = PROCEDURE;
   
@@ -45,7 +45,7 @@ PROCEDURE gettimeofday* (VAR tp : timeval; tzp : C.address) : C.int;
 PROCEDURE settimeofday* (VAR tp : timeval; tzp : C.address) : C.int;
 PROCEDURE fputc* (c : C.int; stream : C.FILE) : C.int;
 PROCEDURE fputs* (s : ARRAY OF C.char; stream : C.FILE) : C.int;
-PROCEDURE fgetc* (stream : C.FILE) : C.address;
+PROCEDURE fgetc* (stream : C.FILE) : C.int;
 PROCEDURE fgets* (VAR s : ARRAY OF C.char; count : C.int; stream : C.FILE) : C.address;
 PROCEDURE strtol* (string : ARRAY OF C.char;  VAR tailptr : C.address; base : C.int) : C.longint;
 PROCEDURE strtod* (string : ARRAY OF C.char; VAR tailptr : C.address) : C.double;
@@ -72,7 +72,7 @@ PROCEDURE tmpfile* () : C.FILE; (* [JnZ] *)
 
 PROCEDURE open* (path : ARRAY OF C.char; pflag : C.int; ..) : fd;
 PROCEDURE close* (fildes : fd) : C.int;
-PROCEDURE lseek* (fildes : fd ; offset : C.longint (* off_t *); whence : C.int) : C.int (* off_t *);
+PROCEDURE lseek* (fildes : fd ; offset : C.longint (* off_t *); whence : C.int) : C.longint (* off_t *);
 PROCEDURE ftruncate* (fildes : fd; length : C.size_t) : C.int; 
 
 PROCEDURE read* (fildes: fd; buf: C.address; nbyte: C.size_t): C.size_t;

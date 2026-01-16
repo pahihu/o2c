@@ -126,7 +126,7 @@ PROCEDURE Give* (VAR str : ARRAY OF CHAR; int : LONGINT;
     (* build representation in string 'b' *)
     IF (int = MIN (LONGINT)) THEN        (* smallest LONGINT, -int is an overflow *)
       b := "-2147483648";
-      e := 11
+      e := maxLength                     (* XXX *)
     ELSE
       IF (int < 0) THEN                  (* negative sign *)
         b[0] := "-"; int := -int; s := 1
