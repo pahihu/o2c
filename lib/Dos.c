@@ -82,7 +82,7 @@ void Dos_GetUserHome (CHAR *home, const CHAR *user) {
 #ifdef __MINGW32__
   int i;
   
-  if (user) {
+  if (user && strlen(user)) {
   	sprintf(home, "%s/Users/%s", getenv("HOMEDRIVE"), user);
   } else {
   	sprintf(home, "%s%s", getenv("HOMEDRIVE"), getenv("HOMEPATH"));

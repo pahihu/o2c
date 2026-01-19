@@ -19,7 +19,7 @@ clean:
 	-rm $(HFILES) $(CFILES0) $(addprefix obj/,$(AFILES)) $(OBJS0) _o2c
 
 force: $(addprefix obj/$(O2CARCH)/,$(AFILES))
-	cp obj/$(O2CARCH)/* obj/
+	cp -r obj/$(O2CARCH)/* obj/
 
 obj/_OGCC.o: system/_OGCC.h system/_OGCC.h system/_OGCC.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/_OGCC.o -c system/_OGCC.c

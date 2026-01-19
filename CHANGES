@@ -1,4 +1,6 @@
 260119AP
+    - MinGW32 Dos.GetUserHome fix, install using Git bash
+    - eliminate linker duplicate type descriptor symbol errors
     - MAX_SET is 63 on 64bit
     - more LONGINT dependencies removed
     - o2c_stage2 compiled

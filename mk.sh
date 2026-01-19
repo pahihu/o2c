@@ -8,7 +8,7 @@ ARCHFILES="lib/CType lib/IntStr compiler/OGenGCC compiler/OMachine"
 
 if [ ! -d obj.sav ];
 then
-    echo "obj.sav not found"
+    echo "copy obj.distrib to obj.sav"
     exit 1
 fi
 

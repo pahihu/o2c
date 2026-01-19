@@ -1,11 +1,11 @@
 #
 # install script
 #
-BINS="o2c o2b o2ef o2whereis system/o2gcc"
+BINS="o2c o2b o2ef o2whereis system/o2gcc system/o2gcc.bat"
 
 if [ $# -ne 1 ];
 then
-    echo "usage: mi <install_dir>"
+    echo "usage: mkinstall.sh <install_dir>"
     exit 1
 fi
 
