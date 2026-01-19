@@ -32,7 +32,7 @@ CONST
   minLInt* = -7FFFFFFFFFFFFFFFH-1;  maxLInt* = 07FFFFFFFFFFFFFFFH;
   minReal* = MIN(REAL);     maxReal* = MAX(REAL);      (* defined in _OGCC.h *)
   minLReal*= MIN(LONGREAL); maxLReal*= MAX(LONGREAL);  (* defined in _OGCC.h *)
-  minSet*  = 0;             maxSet*  = 31;
+  minSet*  = 0;             maxSet*  = 63;
   (* index range for PUTREG, GETREG, CC and HALT: *)
   minRegNum*=0; maxRegNum*=-1;           (* disabled *)
   minCC*=0; maxCC*=-1;                   (* disabled *)

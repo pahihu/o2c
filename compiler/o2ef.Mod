@@ -188,7 +188,7 @@ PROCEDURE SortErrors;
     WHILE (f # NIL) DO    
       newList := NIL;
       WHILE (f. errList # NIL) DO
-        e := RemLargestPos (f. errList, MIN (LONGINT));
+        e := RemLargestPos (f. errList, -MAX (LONGINT)-1);
         e. next := newList;
         newList := e
       END;

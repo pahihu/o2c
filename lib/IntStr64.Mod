@@ -48,7 +48,7 @@ PROCEDURE Take* (str : ARRAY OF CHAR; VAR int : LONGINT;
         int := 0;
         WHILE (s # e) DO
           digit := ORD (str [s])-ORD ("0");
-          IF (int > -922337203685477580) OR (int >= (MIN (LONGINT)+digit) DIV 10) THEN
+          IF (int > -922337203685477580) OR (int >= (-MAX (LONGINT)-1+digit) DIV 10) THEN
             int := int*10-digit;
             INC (s)
           ELSE
@@ -56,13 +56,13 @@ PROCEDURE Take* (str : ARRAY OF CHAR; VAR int : LONGINT;
             IF positive THEN
               int := MAX (LONGINT)
             ELSE
-              int := MIN (LONGINT)
+              int := -MAX (LONGINT) - 1
             END;
             RETURN
           END
         END;
         IF positive THEN  (* int holds a positive number: switch sign *)
-          IF (int = MIN (LONGINT)) THEN  (* overflow, not representable *)
+          IF (int = -MAX (LONGINT)-1) THEN  (* overflow, not representable *)
             format := Conv.outOfRange;
             int := MAX (LONGINT);
             RETURN
@@ -124,7 +124,7 @@ PROCEDURE Give* (VAR str : ARRAY OF CHAR; int : LONGINT;
     s, e, i, pos : INTEGER;
   BEGIN
     (* build representation in string 'b' *)
-    IF (int = MIN (LONGINT)) THEN        (* smallest LONGINT, -int is an overflow *)
+    IF (int = -MAX (LONGINT)-1) THEN        (* smallest LONGINT, -int is an overflow *)
       b := "-9223372036854775808";
       e := maxLength
     ELSE

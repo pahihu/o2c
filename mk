@@ -18,9 +18,15 @@ do
     cp $f$O2CARCH.Mod $f.Mod
 done
 
-rm -rf obj obj.distrib
+rm -f o2b o2ef o2whereis o2c o2c_stage*
+rm -rf obj obj.distrib UpdateLib
+rm -f sym/*
 cp -rp obj.sav obj
 
+#
+# STAGE0
+#
+echo "Building o2c_stage0..."
 rm -f obj/*.o make.log
 make -f makefile_o2c CC="$CC" CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" O2CARCH="$O2CARCH" build 2>&1 | tee make.log
 
@@ -36,10 +42,33 @@ touch obj/*.o
 ./o2c -MORsv --redir system/o2c.red.template o2whereis
 mv o2c o2c_stage0
 
-for f in $ARCHFILES
-do
-    rm $f.Mod
-done
+#
+# STAGE1
+#
+echo "Building o2c_stage1..."
+rm -f o2c_stage1 o2c_stage2 o2c all sym/* obj/*
+./o2c_stage0 -MRv --redir system/o2c.red.template o2c
+mv o2c o2c_stage1
 
-rm -rf obj obj.distrib
-rm -f sym/*
+#
+# STAGE2
+#
+rm -f o2c_stage2 o2c all sym/* obj/*
+./o2c_stage1 -MORsv --redir system/o2c.red.template o2c
+./o2c -MORv --redir system/o2c.red.template UpdateLib X
+touch obj/*.o
+./o2c -MORv --redir system/o2c.red.template UpdateLib
+mv o2c o2c_stage2
+
+
+# cleanup
+cp o2c_stage2 o2c
+rm -f o2c_stage*
+rm -rf obj.distrib UpdateLib
+exit 0
+
+# for f in $ARCHFILES
+# do
+#     rm $f.Mod
+# done
+

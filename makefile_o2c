@@ -7,34 +7,19 @@ CFILES0 = obj/Time.c obj/CharInfo.c obj/ConvTypes.c obj/Strings.c obj/IntStr.c o
 CFILES1 = $(CFILES0) lib/MathL.c lib/Unix.c lib/Dos.c lib/Rts.c lib/Files.c
 OBJS0 = obj/_OGCC.o obj/_o2c.o obj/MathL.o obj/Unix.o obj/Time.o obj/CharInfo.o obj/ConvTypes.o obj/Dos.o obj/Strings.o obj/IntStr.o obj/Strings2.o obj/Filenames.o obj/RealStr.o obj/Rts.o obj/Files.o obj/Out.o obj/FOut.o obj/Redir.o obj/OMachine.o obj/OScan.o obj/ODepend.o obj/OTable.o obj/OEParse.o obj/OGenGCC.o obj/OMakeGCC.o obj/OSym.o obj/OParse.o obj/o2c.o
 OBJS1 =
-AFILES = obj/CType.h obj/IntStr.c obj/OEParse.c obj/OGenGCC.c obj/OMachine.c obj/Unix.h
+AFILES = CType.h IntStr.c ODepend.c OEParse.c OGenGCC.c OMachine.c OMakeGCC.c OParse.c OTable.c Unix.h
 
 # final targets
 all: build
-build: $(LFILES) $(OBJS0) $(OBJS1)
+build: force $(LFILES) $(OBJS0) $(OBJS1)
 	$(CC) $(CFLAGS) -o o2c $(OBJS0) $(OBJS1) $(LDFLAGS)
 
 # clean will remove all generated files
 clean: 
-	-rm $(HFILES) $(CFILES0) $(AFILES) $(OBJS0) _o2c
+	-rm $(HFILES) $(CFILES0) $(addprefix obj/,$(AFILES)) $(OBJS0) _o2c
 
-obj/CType.h: obj/CType$(O2CARCH).h
-	cp $< $@
-
-obj/IntStr.c: obj/IntStr$(O2CARCH).c
-	cp $< $@
-
-obj/OEParse.c: obj/OEParse$(O2CARCH).c
-	cp $< $@
-
-obj/OGenGCC.c: obj/OGenGCC$(O2CARCH).c
-	cp $< $@
-
-obj/OMachine.c: obj/OMachine$(O2CARCH).c
-	cp $< $@
-
-obj/Unix.h: obj/Unix$(O2CARCH).h
-	cp $< $@
+force: $(addprefix obj/$(O2CARCH)/,$(AFILES))
+	cp obj/$(O2CARCH)/* obj/
 
 obj/_OGCC.o: system/_OGCC.h system/_OGCC.h system/_OGCC.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o obj/_OGCC.o -c system/_OGCC.c

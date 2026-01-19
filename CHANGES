@@ -1,3 +1,8 @@
+260119AP
+    - MAX_SET is 63 on 64bit
+    - more LONGINT dependencies removed
+    - o2c_stage2 compiled
+
 260116AP
     - o2c_stage0 compiled
 

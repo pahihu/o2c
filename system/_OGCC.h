@@ -99,7 +99,7 @@ typedef signed int LONGINT;
 #endif
 typedef float REAL;		/* see MAX_REAL/MIN_REAL */
 typedef double LONGREAL;	/* see MAX_LONGREAL/MIN_LONGREAL */
-typedef unsigned int SET;	/* see MAX_SET */
+typedef unsigned long SET;	/* see MAX_SET */
 typedef unsigned char BYTE;
 typedef void *PTR;
 
@@ -115,7 +115,7 @@ extern void* memccpy (void *TO, const void *FROM, int C, size_t SIZE);
 extern int toupper (int C);
 extern char* strcpy(char *TO, const char *FROM);
 extern void* memcpy(void *TO, const void *FROM, size_t SIZE);
-extern int printf(const char *FMT, ...);
+//extern int printf(const char *FMT, ...);
 #include <alloca.h>
 
 #ifdef GC
@@ -154,12 +154,12 @@ typedef unsigned int ULONGINT;
    the compiler, see module OMachine.Mod */
 
 /* maximum set index/set value if all BITS_PER_CHAR are set */
-#define MAX_SET 31
-
 /* format string used by printf for LONGINT (%i if int, %li if long int) */
 #if __PTRDIFF_WIDTH__ == 64
+#define MAX_SET   63
 #define LI_FORMAT "%li"
 #else
+#define MAX_SET   31
 #define LI_FORMAT "%i"
 #endif
 

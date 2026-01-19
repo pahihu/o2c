@@ -286,6 +286,9 @@ static void OGenGCC_GenTypeDescr (OEParse_Node _tdList, BOOLEAN _header) {
         OGenGCC_TypeDescrIdent(DEREF(OEParse_Node, _td, 9376)._type, FALSE);
         FOut_Char(';');
         OGenGCC_Off(0);
+        FOut_String(7, (CHAR *) "EXTERN");      /* AP 19.1.2026 patch */
+        OGenGCC_Ident(OTable_compiledModule);
+        FOut_Char(' ');
         OGenGCC_TypeDescrIdent(DEREF(OEParse_Node, _td, 9471)._type, FALSE);
         FOut_String(3, (CHAR *) "* ");
         OGenGCC_TypeDescrIdent(DEREF(OEParse_Node, _td, 9542)._type, TRUE);
@@ -770,10 +773,10 @@ static void OGenGCC_Const (OTable_Const _c, SHORTINT _form, OTable_Object _obj) 
           break;
         }
         case 3 ... 5: {
-          if (DEREF(OTable_Const, _c, 26609)._intval==(-2147483647-1))  {
+          if (DEREF(OTable_Const, _c, 26609)._intval==(-9223372036854775807L-1))  {
             FOut_String(3, (CHAR *) "(-");
-            FOut_Int(2147483647, 0);
-            FOut_String(4, (CHAR *) "-1)");
+            FOut_Int(9223372036854775807L, 0);
+            FOut_String(5, (CHAR *) "L-1)");
           } else {
             FOut_Int(DEREF(OTable_Const, _c, 26885)._intval, 0);
           }
@@ -2329,6 +2332,21 @@ static void OGenGCC_GenHeader (ODepend_Module _mod) {
   FOut_Char('_');
   FOut_Ln();
   FOut_Ln();
+  FOut_String(14, (CHAR *) "#ifdef MODULE");    /* AP 19.1.2026 patch */
+  OGenGCC_Ident(OTable_compiledModule);
+  FOut_Ln();
+  FOut_String(15, (CHAR *) "#define EXTERN");
+  OGenGCC_Ident(OTable_compiledModule);
+  FOut_Ln();
+  FOut_String(6, (CHAR *) "#else");
+  FOut_Ln();
+  FOut_String(15, (CHAR *) "#define EXTERN");
+  OGenGCC_Ident(OTable_compiledModule);
+  FOut_String(8, (CHAR *) " extern");
+  FOut_Ln();
+  FOut_String(7, (CHAR *) "#endif");
+  FOut_Ln();
+  FOut_Ln();
   OGenGCC_Include(_mod, TRUE);
   OGenGCC_GenTypeDescrForward(DEREF(OEParse_Node, OGenGCC_root, 72947)._link, TRUE);
   _obj = DEREF(OTable_Object, DEREF(OTable_Object, OTable_compiledModule, 73045)._link, 73051)._right;
@@ -2350,6 +2368,10 @@ static void OGenGCC_GenHeader (ODepend_Module _mod) {
 
 static void OGenGCC_GenModule (ODepend_Module _mod) {
   OGenGCC_tdGenerated = OTable_external;
+  FOut_String(15, (CHAR *) "#define MODULE");   /* AP 19.1.2026 patch */
+  OGenGCC_Ident(OTable_compiledModule);
+  FOut_Ln();
+  FOut_Ln();
   OGenGCC_Include(_mod, FALSE);
   FOut_Ln();
   FOut_String(26, (CHAR *) "static ModuleId moduleId;");
