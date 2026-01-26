@@ -4,4 +4,4 @@ then
     echo "usage: whis <file> pos"
     exit 1
 fi
-exec awk -v pos=$2 -f $HOME/bin/whereis.awk $1
+exec awk -v pos=$2 -f %INSTALL_DIR%/system/whereis.awk $1

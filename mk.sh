@@ -1,10 +1,14 @@
 O2CARCH=64
 CC="o2gcc -g"
-CFLAGS="-g -O0 -DDISABLE_RTC -iquote obj -iquote system"
+CFLAGS="-g -O0 -iquote obj -iquote system"
 # CFLAGS="-O2 -DDISABLE_RTC -iquote obj -iquote system"
 # LDFLAGS = -lm -Wl,-s
 LDFLAGS=-lm
 ARCHFILES="lib/CType lib/IntStr compiler/OGenGCC compiler/OMachine"
+
+MORsv="-Mv"
+MORv="-Mv"
+MRv="-Mv"
 
 if [ ! -d obj.sav ];
 then
@@ -33,13 +37,13 @@ make -f makefile_o2c CC="$CC" CFLAGS="$CFLAGS" LDFLAGS="$LDFLAGS" O2CARCH="$O2CA
 mv obj obj.distrib
 mkdir obj
 
-./o2c -vMOR --redir system/o2c.red.template o2c X
+./o2c $MORv --redir system/o2c.red.template o2c X
 cp obj.distrib/* obj
 touch obj/*.o
 
-./o2c -MORsv --redir system/o2c.red.template o2b
-./o2c -MORsv --redir system/o2c.red.template o2ef
-./o2c -MORsv --redir system/o2c.red.template o2whereis
+./o2c $MORsv --redir system/o2c.red.template o2b
+./o2c $MORsv --redir system/o2c.red.template o2ef
+./o2c $MORsv --redir system/o2c.red.template o2whereis
 mv o2c o2c_stage0
 
 #
@@ -47,17 +51,17 @@ mv o2c o2c_stage0
 #
 echo "Building o2c_stage1..."
 rm -f o2c_stage1 o2c_stage2 o2c all sym/* obj/*
-./o2c_stage0 -MRv --redir system/o2c.red.template o2c
+./o2c_stage0 $MRv --redir system/o2c.red.template o2c
 mv o2c o2c_stage1
 
 #
 # STAGE2
 #
 rm -f o2c_stage2 o2c all sym/* obj/*
-./o2c_stage1 -MORsv --redir system/o2c.red.template o2c
-./o2c -MORv --redir system/o2c.red.template UpdateLib X
+./o2c_stage1 $MORsv --redir system/o2c.red.template o2c
+./o2c $MORv --redir system/o2c.red.template UpdateLib X
 touch obj/*.o
-./o2c -MORv --redir system/o2c.red.template UpdateLib
+./o2c $MORv --redir system/o2c.red.template UpdateLib
 mv o2c o2c_stage2
 
 

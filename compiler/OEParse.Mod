@@ -791,7 +791,7 @@ PROCEDURE PredefProc* (VAR call : Node; id : SHORTINT; apar : Node; numPar : INT
       i : LONGINT;
     BEGIN
       i := -1;
-      WHILE (t. form=T.strDynArray) OR (t. form=T.strArray) & ~dyn DO
+      WHILE (t # NIL) & ((t. form=T.strDynArray) OR (t. form=T.strArray) & ~dyn) DO
         INC (i);
         t := t. base
       END;

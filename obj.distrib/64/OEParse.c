@@ -827,7 +827,7 @@ void OEParse_PredefProc (OEParse_Node (* _call), SHORTINT _id, OEParse_Node _apa
   LONGINT _ArrayDim (OTable_Struct _t, BOOLEAN _dyn) {
     LONGINT _i;
     _i = -1;
-    while (DEREF(OTable_Struct, _t, 30756)._form==OTable_strDynArray||(DEREF(OTable_Struct, _t, 30783)._form==OTable_strArray&&!_dyn))  {
+    while ((void*)_t!=(void*)NULL&&(DEREF(OTable_Struct, _t, 30756)._form==OTable_strDynArray||(DEREF(OTable_Struct, _t, 30783)._form==OTable_strArray&&!_dyn)))  {
       INCLI(_i, 1, 30820);
       _t = DEREF(OTable_Struct, _t, 30843)._base;
     }
