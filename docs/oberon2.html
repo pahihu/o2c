@@ -238,7 +238,7 @@ $ ConstExpression     = Expression.
 </strong></pre>
 
 A constant expression is an expression that can be evaluated by a mere textual
-scan without actually executing the program. Its operands are constants (<a HREF="#Cha8">Ch.8</a>) or predeclared functions (<a HREF="#Sec10.3">Ch.10.3</a>)
+scan without actually executing the program. Its operands are constants (<a HREF="#Cha8">Ch.8</a>) or predeclared functions (<a HREF="#Sec10.3">see 10.3</a>)
 that can be evaluated at compile time. Examples of constant
 declarations are:
 <p>
@@ -416,7 +416,7 @@ variable at all.
 
 Variables of a procedure type <i>T</i> have a procedure (or NIL) as value. If a
 procedure <i>P</i> is assigned to a variable of type <i>T</i>, the formal
-parameter lists (<a HREF="#Sec10.1">see Ch. 10.1</a>) of <i>P</i> and
+parameter lists (<a HREF="#Sec10.1">see 10.1</a>) of <i>P</i> and
 <i>T</i> must <i>match</i> (<a HREF="#AppA">see App. A</a>). <i>P</i> must
 not be a predeclared or type-bound procedure nor may it be local to another
 procedure.
@@ -485,7 +485,7 @@ is the current value of the expression <i>e</i>. The type of <i>e</i> must be an
 integer type. A designator of the form <i>a[e0, e1, ..., en]</i> stands for
 <i>a[e0][e1]...[en]</i>. If <i>r</i> designates a record, then <i>r.f</i> denotes
 the field <i>f</i> of <i>r</i> or the procedure <i>f</i> bound to the dynamic
-type of <i>r</i> (<a HREF="#Sec10.2">Ch. 10.2</a>). If <i>p</i> designates a
+type of <i>r</i> (<a HREF="#Sec10.2">see 10.2</a>). If <i>p</i> designates a
 pointer, <i>p^</i> denotes the variable which is referenced by <i>p</i>. The
 designators <i>p^.f</i> and <i>p^[e]</i> may be abbreviated as <i>p.f</i> and
 <i>p[e]</i>, i.e. record and array selectors imply dereferencing. If <i>a</i> or
@@ -639,7 +639,7 @@ if
 <li><i>T</i> is an extension of the static type of <i>v</i>
 </ol>
 
-Examples of expressions (<a HREF="#Cha7">refer to examples in Ch.7</a>):
+Examples of expressions (refer to examples in <a HREF="#Cha7">Ch. 7</a>):
 
 <pre>
     1991                   INTEGER
@@ -699,7 +699,7 @@ becomes the dynamic type of <i>e</i>;
 <i>v[m]</i> becomes 0X.
 </ol>
 
-Examples of assignments (refer to examples in <a HREF="#Cha7">Ch.7</a>):
+Examples of assignments (refer to examples in <a HREF="#Cha7">Ch. 7</a>):
 <pre>
     i := 0
     p := i = j
@@ -738,7 +738,7 @@ Examples:
 <pre>
     WriteInt(i*2+1)  (* <a HREF="#Sec10.1">see 10.1</a> *)
     INC(w[k].count)
-    t.Insert(&quot;John&quot;)  (* <a HREF="#Cha11">see Ch.11</a> *)
+    t.Insert(&quot;John&quot;)  (* <a HREF="#Cha11">see Ch. 11</a> *)
 </pre>
 
 <a NAME="Sec9.3"><h3>9.3 Statement sequences</h3></a>
@@ -896,7 +896,7 @@ sequence.
 A return statement indicates the termination of a procedure. It is denoted by the
 symbol RETURN, followed by an expression if the procedure is a function
 procedure. The type of the expression must be <i>assignment compatible</i> (<a HREF="#AppA">see App. A</a>) with the result type specified in the
-procedure heading (<a HREF="#Cha10">see Ch.10</a>).<p>
+procedure heading (<a HREF="#Cha10">see Ch. 10</a>).<p>
 
 Function procedures require the presence of a return statement indicating the
 result value. In proper procedures, a return statement is implied by the end of
@@ -1069,14 +1069,14 @@ to any type <i>T1</i> which is an extension of <i>T0</i>. However, a procedure
 in which case it overrides the binding of <i>P</i>. <i>P'</i> is considered a
 <i>redefinition</i> of <i>P</i> for <i>T1</i>. The formal parameters of <i>P</i>
 and <i>P'</i> must <i>match</i> (<a HREF="#AppA">see App. A</a>). If
-<i>P</i> and <i>T1</i> are exported (<a HREF="#Cha4">see Chapter 4</a>)
+<i>P</i> and <i>T1</i> are exported (<a HREF="#Cha4">see Ch. 4</a>)
 <i>P'</i> must be exported too.<p>
 
 If <i>v</i> is a designator and <i>P</i> is a type-bound procedure, then
 <i>v.P</i> denotes that procedure <i>P</i> which is bound to the dynamic type of
 <i>v</i>. Note, that this may be a different procedure than the one bound to the
 static type of <i>v</i>. <i>v</i> is passed to <i>P</i> 's receiver according to
-the parameter passing rules specified in <a HREF="#Sec10.1">Chapter 10.1</a>.<p>
+the parameter passing rules specified in <a HREF="#Sec10.1">10.1</a>.<p>
 
 If <i>r</i> is a receiver parameter declared with type <i>T</i>, <i>r.P^</i>
 denotes the (redefined) procedure <i>P</i> bound to the base type of <i>T</i>. In
@@ -1196,14 +1196,13 @@ then <i>x</i> is referred to as <i>A.x</i> within <i>M</i>. If <i>A</i> is
 imported as <i>B := A</i>, the object <i>x</i> must be referenced as <i>B.x</i>.
 This allows short alias names in qualified identifiers. A module must not import
 itself. Identifiers that are to be exported (i.e. that are to be visible in
-client modules) must be marked by an export mark in their declaration (<a HREF="#Cha4">see Chapter 4</a>).<p>
+client modules) must be marked by an export mark in their declaration (<a HREF="#Cha4">see Ch. 4</a>).<p>
 
 The statement sequence following the symbol BEGIN is executed when the module is
 added to a system (loaded), which is done after the imported modules have been
 loaded. It follows that cyclic import of modules is illegal. Individual
 (parameterless and exported) procedures can be activated from the system, and
-these procedures serve as <i>commands</i> (<a HREF="#SecD1">see Appendix
-D1</a>).
+these procedures serve as <i>commands</i> (<a HREF="#SecD1">see App. D1</a>).
 
 <pre>
     MODULE Trees;  (* exports: Tree, Node, Insert, Search, Write, Init *)
@@ -1645,8 +1644,8 @@ The following paragraphs show a possible implementation of type descriptors.<p>
 The dynamic type of a record corresponds to the address of its type descriptor.
 For dynamically allocated records this address is stored in a so-called <i>type
 tag</i> which precedes the actual record data and which is invisible for the
-programmer. If t is a variable of type <i>CenterTree</i> (<a HREF="#Cha6">see
-example in Ch. 6</a>) Figure D5.1 shows one possible implementation of the run
+programmer. If t is a variable of type <i>CenterTree</i> (see example in <a HREF="#Cha6">
+Ch. 6</a>) Figure D5.1 shows one possible implementation of the run
 time data structures.<p>
 
 <img SRC="figured5.gif" WIDTH="439" HEIGHT="212"><p>
