@@ -29,6 +29,7 @@ CONST
   scGeq*=S.geq; scIn*=S.in; scIs*=S.is;
   scNot*=17;
   scSize*=T.predSIZE; scAbs*=T.predABS; scCap*=T.predCAP; scOdd*=T.predODD; 
+  scEntier*=T.predENTIER;
   scAdr*=T.sysADR; scCc*=T.sysCC;
   scAsh*=T.predASH; scBit*=T.sysBIT; scLsh*=T.sysLSH; scRot*=T.sysROT; 
   scLen*=T.predLEN; scVal*=T.sysVAL;
@@ -49,6 +50,7 @@ CONST
   grpPointer = -6;                       (* types of first parameter SYSTEM.NEW *)
   grpNumOrSet = -7;                      (* numeric or set type *)
   grpIntOrChar* = -8;                    (* integer or char type *)
+  grpReal* = -9;                         (* 260128AP real types *)
 
   intSet* = {T.strShortInt, T.strInteger, T.strLongInt};
   realSet* = {T.strReal, T.strLongReal};
@@ -364,6 +366,7 @@ PROCEDURE ChkType* (n : Node; form : SHORTINT);
       | grpPointer: set := {T.strPointer, T.strSysPtr}; expected := "Pointer"
       | grpNumOrSet: set := numSet+{T.strSet}; expected := "Numeric or SET"
       | grpIntOrChar: set := numSet+{T.strChar}; expected := "Integer or CHAR"
+      | grpReal: set := realSet; expected := "Real"
       END;
       IF ~(n. type. form IN set) THEN
         ErrTx
@@ -443,6 +446,9 @@ PROCEDURE Check* (VAR r : Node);
         ELSE  (* form IN realSet *)
           c. real := ABS (c. real)
         END
+      | scEntier:
+        c. intval := ENTIER (c. real);
+        r. left. type := T.predeclType[T.strLongInt]
       | scCap:
         c. intval := ORD (CAP (CHR (c. intval)))
       | scOdd:
@@ -561,6 +567,9 @@ PROCEDURE Check* (VAR r : Node);
       ELSIF (subcl=scAbs) THEN  (* ABS on numeric expression *)
         ChkType (left, grpNumeric);
         RETURN left. type
+      ELSIF (subcl=scEntier) THEN (* 260128AP ENTIER on real expression *)
+        ChkType (left, grpReal);
+        RETURN T.predeclType[T.strLongInt]
       ELSIF (subcl=scCap) THEN  (* CAP on char expression *)
         ChkType (left, T.strChar);
         RETURN T.predeclType[T.strChar]
@@ -917,11 +926,11 @@ PROCEDURE PredefProc* (VAR call : Node; id : SHORTINT; apar : Node; numPar : INT
           SetInt (call)
         END
       END |
-    T.predCHR, T.predENTIER, T.predLONG, T.predORD, T.predSHORT:  (* E.ndConv *)
+    T.predCHR, (*T.predENTIER,*) T.predLONG, T.predORD, T.predSHORT:  (* E.ndConv *)
       IF ChkParNum (1) THEN
         CASE id OF
           T.predCHR: set := intSet |
-          T.predENTIER: set := realSet |
+          (*T.predENTIER: set := realSet |*)
           T.predLONG: set := {T.strShortInt, T.strInteger, T.strReal} |
           T.predORD: set := {T.strChar} |
           T.predSHORT: set := {T.strLongInt, T.strInteger, T.strLongReal} |
@@ -932,7 +941,7 @@ PROCEDURE PredefProc* (VAR call : Node; id : SHORTINT; apar : Node; numPar : INT
         ELSE
           CASE id OF
             T.predCHR: Convert (apar, T.strChar) |
-            T.predENTIER: Convert (apar, T.strLongInt) |
+            (*T.predENTIER: Convert (apar, T.strLongInt) |*)
             T.predLONG: Convert (apar, apar. type. form+1) |
             T.predORD: Convert (apar, T.strInteger)  |
             T.predSHORT: Convert (apar, apar. type. form-1) |
@@ -942,7 +951,7 @@ PROCEDURE PredefProc* (VAR call : Node; id : SHORTINT; apar : Node; numPar : INT
         apar. type := T.predeclType[T.strUndef]
       END;
       call := apar |
-    T.predABS, T.predCAP, T.predODD, T.sysADR, T.sysCC:  (* E.ndMOp *)
+    T.predABS, T.predCAP, T.predENTIER, T.predODD, T.sysADR, T.sysCC:  (* E.ndMOp *)
       call := NewNode (ndMOp);
       IF ChkParNum (1) THEN
         call. left := apar;

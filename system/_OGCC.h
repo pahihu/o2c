@@ -64,6 +64,7 @@
 #endif
 
 
+#include <math.h>
 #include <float.h>
 #ifdef __MINGW32__
 // #include <string.h>
@@ -83,6 +84,10 @@ typedef unsigned char CHAR;
 typedef signed short int SHORTINT;
 typedef signed int INTEGER;  /* see LI_FORMAT */
 typedef signed long int LONGINT;
+/* unsigned equivalents to the integer data types */
+typedef unsigned short int USHORTINT;
+typedef unsigned int UINTEGER;
+typedef unsigned long int ULONGINT;
 #define SIZEOF_SHORTINT 2
 #define SIZEOF_INTEGER  4
 #define SIZEOF_LONGINT  8
@@ -92,6 +97,10 @@ typedef signed long int LONGINT;
 typedef signed char SHORTINT;
 typedef signed short int INTEGER;  /* see LI_FORMAT */
 typedef signed int LONGINT;
+/* unsigned equivalents to the integer data types */
+typedef unsigned char USHORTINT;
+typedef unsigned short int UINTEGER;
+typedef unsigned int ULONGINT;
 #define SIZEOF_SHORTINT 1
 #define SIZEOF_INTEGER  2
 #define SIZEOF_LONGINT  4
@@ -139,11 +148,6 @@ extern void* memcpy(void *TO, const void *FROM, size_t SIZE);
   #define FREE free
 #endif
 
-
-/* unsigned equivalents to the integer data types */
-typedef unsigned char USHORTINT;
-typedef unsigned short int UINTEGER;
-typedef unsigned int ULONGINT;
 
 /* floating point MIN/MAX values */
 #define MAX_REAL FLT_MAX
@@ -209,6 +213,10 @@ extern Type td_type;
 
 /* CAP function */
 #define CAP(char) ((CHAR) toupper((int) (char)))
+
+/* ENTIER function */
+#define ENTIERR(real) ((LONGINT) floorf(real))
+#define ENTIERLR(real) ((LONGINT) floor(real))
 
 
 

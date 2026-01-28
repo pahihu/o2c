@@ -461,6 +461,7 @@ PROCEDURE Expr* (expr : E.Node; paren : BOOLEAN);
       CASE expr. subcl OF
         E.scAbs: o := "ABS" |
         E.scCap: o := "CAP" |
+        E.scENTIER: o := "ENTIER" |
         E.scOdd: o := "ODD" |
         E.scAdr: o := ".ADR" |
         E.scCc: o := ".CC" |

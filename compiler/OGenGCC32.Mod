@@ -1690,6 +1690,7 @@ PROCEDURE Expr (expr : E.Node; paren : BOOLEAN);
       | E.scNot: str := "!"
       | E.scAbs: str := "ABS"; flags := {fAddType, fAddPosition}
       | E.scCap: str := "CAP"
+      | E.scEntier: str := "ENTIER"; flags := {fAddType}
       | E.scOdd: str := "ODD"; flags := {fAddType}
       | E.scSize: str := "sizeof"
       END;
