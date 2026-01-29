@@ -287,14 +287,14 @@ procedures in <a HREF="#Sec10.3">10.3</a>. The values of the given basic
 types are the following:
 
 <pre>
-    BOOLEAN     the truth values TRUE and FALSE
-    CHAR        the characters of the extended ASCII set (0X .. 0FFX)
-    SHORTINT    the integers between MIN(SHORTINT) and MAX(SHORTINT)
-    INTEGER     the integers between MIN(INTEGER) and MAX(INTEGER)
-    LONGINT     the integers between MIN(LONGINT) and MAX(LONGINT)
-    REAL        the real numbers between MIN(REAL) and MAX(REAL)
-    LONGREAL    the real numbers between MIN(LONGREAL) and MAX(LONGREAL)
-    SET         the sets of integers between 0 and MAX(SET)
+    1. BOOLEAN     the truth values TRUE and FALSE
+    2. CHAR        the characters of the extended ASCII set (0X .. 0FFX)
+    3. SHORTINT    the integers between MIN(SHORTINT) and MAX(SHORTINT)
+    4. INTEGER     the integers between MIN(INTEGER) and MAX(INTEGER)
+    5. LONGINT     the integers between MIN(LONGINT) and MAX(LONGINT)
+    6. REAL        the real numbers between MIN(REAL) and MAX(REAL)
+    7. LONGREAL    the real numbers between MIN(LONGREAL) and MAX(LONGREAL)
+    8. SET         the sets of integers between 0 and MAX(SET)
 </pre>
 
 Types 3 to 5 are <i>integer types</i>, types 6 and 7 are <i>real types</i>, and
@@ -327,9 +327,9 @@ is understood as an abbreviation of<p>
 
 <pre>
     ARRAY L0 OF
-    ARRAY L1 OF
-    ...
-    ARRAY Ln OF T
+      ARRAY L1 OF
+      ...
+        ARRAY Ln OF T
 </pre>
 
 Arrays declared without length are called <i>open arrays</i>. They are restricted
@@ -364,7 +364,8 @@ Record types are extensible, i.e. a record type can be declared as an extension
 of another record type. In the example<p>
 
 <pre>
-    T0 = RECORD x: INTEGER END<br> T1 = RECORD (T0) y: REAL END
+    T0 = RECORD x: INTEGER END
+    T1 = RECORD (T0) y: REAL END
 </pre>
 
 <i>T1</i> is a (direct) <i>extension</i> of <i>T0</i> and <i>T0</i> is the
@@ -562,7 +563,7 @@ These operators apply to BOOLEAN operands and yield a BOOLEAN result.
 <h4>8.2.2 Arithmetic operators</h4>
 
 <pre>
-    <ins>symbol result</ins>
+    <ins>symbol result          </ins>
     +      sum
     -      difference
     *      product
@@ -587,8 +588,8 @@ any <i>x</i> and positive divisors <i>y</i>:
 Examples:
 <pre>
     x    y    x DIV y    x MOD y
-    5    3    1          2
-    -5   3    -2         1
+    5    3       1         2
+   -5    3      -2         1
 </pre>
 
 <h4>8.2.3 Set Operators</h4>
@@ -613,7 +614,7 @@ curly brackets. The elements must be integers in the range 0..MAX(SET). A range
 <h4>8.2.4 Relations</h4>
 
 <pre>
-    <ins>symbol result         </ins>
+    <ins>symbol result           </ins>
     =      equal
     #      unequal
     &lt;      less
@@ -1121,7 +1122,7 @@ variable, <i>x</i> and <i>n</i> for expressions, and <i>T</i> for a type.<p>
 
 <h4>Function Procedures</h4>
 <pre>
-    Name        Argument type        Result type    Function
+    <ins>Name        Argument type        Result type    Function                       </ins>
     ABS(x)      numeric type         type of x      absolute value
     ASH(x, n)   x, n: integer type   LONGINT        arithmetic shift (x * 2^n)
     CAP(x)      CHAR                 CHAR           x is letter: corresponding
@@ -1150,7 +1151,7 @@ variable, <i>x</i> and <i>n</i> for expressions, and <i>T</i> for a type.<p>
 
 <h4>Proper procedures</h4>
 <pre>
-    Name               Argument types                Function
+    <ins>Name               Argument types                Function                    </ins>
     ASSERT(x)          x: Boolean expression         terminate program execution
                                                      if not x
     ASSERT(x, n)       x: Boolean expression;        terminate program execution
@@ -1263,13 +1264,13 @@ these procedures serve as <i>commands</i> (<a HREF="#SecD1">see App. D1</a>).
 <dl>
 <dt><b>Integer types</b>
 <dd>SHORTINT, INTEGER, LONGINT
-
+<p>
 <dt><b>Real types</b>
 <dd>REAL, LONGREAL
-
+<p>
 <dt><b>Numeric types</b>
 <dd>integer types, real types
-
+<p>
 <dt><b>Same types</b>
 <dd>Two variables <i>a</i> and <i>b</i> with types <i>Ta</i> and <i>Tb</i> are of
 the <i>same</i> type if
@@ -1280,7 +1281,7 @@ the <i>same</i> type if
 <li><i>a</i> and <i>b</i> appear in the same identifier list in a variable,
 record field, or formal parameter declaration and are not open arrays.
 </ol>
-
+<p>
 <dt><b>Equal types</b>
 <dd>Two types <i>Ta</i> and <i>Tb</i> are <i>equal</i> if
 <ol>
@@ -1290,12 +1291,12 @@ or
 <li><i>Ta</i> and <i>Tb</i> are procedure types whose formal parameter lists
 <i>match</i>.
 </ol>
-
+<p>
 <dt><b>Type inclusion</b>
 <dd>Numeric types <i>include</i> (the values of) smaller numeric types according
 to the following hierarchy:<p>
 LONGREAL &gt;= REAL &gt;= LONGINT &gt;= INTEGER &gt;= SHORTINT
-
+<p>
 <dt><b>Type extension</b> (base type)
 <dd>Given a type declaration <i>Tb = RECORD(Ta)...END</i>, <i>Tb</i> is a
 <i>direct extension</i> of <i>Ta</i>, and <i>Ta</i> is a <i>direct base type</i>
@@ -1308,7 +1309,7 @@ of <i>Tb</i>. A type <i>Tb</i> is an <i>extension</i> of a type <i>Ta</i>
 If <i>Pa = POINTER TO Ta</i> and <i>Pb = POINTER TO Tb </i>, <i>Pb</i> is an
 <i>extension</i> of <i>Pa</i> (<i>Pa</i> is) a <i>base type</i> of <i>Pb</i> ) if
 <i>Tb</i> is an <i>extension</i> of <i>Ta</i>.
-
+<p>
 <dt><b>Assignment compatible</b>
 <dd>An expression <i>e</i> of type <i>Te</i> is <i>assignment compatible</i> with
 a variable <i>v</i> of type <i>Tv</i> if one of the following conditions hold:
@@ -1326,7 +1327,7 @@ characters, and <i>m</i> <<i>n</i>;
 <li><i>Tv</i> is a procedure type and <i>e</i> is the name of a procedure whose
 formal parameters <i>match</i> those of <i>Tv</i>.
 </ol>
-
+<p>
 <dt><b>Array compatible</b>
 <dd>An actual parameter <i>a</i> of type <i>Ta</i> is <i>array compatible</i>
 with a formal parameter <i>f</i> of type <i>Tf</i> if
@@ -1336,14 +1337,15 @@ with a formal parameter <i>f</i> of type <i>Tf</i> if
 are <i>array compatible</i>, or
 <li><i>Tf</i> is ARRAY OF CHAR and <i>a</i> is a string.
 </ol>
-
+<p>
 <dt><b>Expression compatible</b>
 <dd>For a given operator, the types of its operands are <i>expression
 compatible</i> if they conform to the following table (which shows also the
 result type of the expression). Character arrays that are to be compared must
 contain 0X as a terminator. Type T1 must be an extension of type T0:
 
-<pre>operator  first operand       second operand      result type
+<pre>
+<ins>operator  first operand       second operand      result type            </ins>
 + - *     <i>numeric</i>             <i>numeric</i>             smallest <i>numeric</i>
                                                   type including
                                                   both operands
@@ -1367,7 +1369,7 @@ OR &amp; ~    BOOLEAN             BOOLEAN             BOOLEAN
           NIL                 NIL
 IN        <i>integer</i>             SET                 BOOLEAN
 IS        type T0             type T1             BOOLEAN</pre>
-
+<p>
 <dt><b>Matching formal parameter lists</b>
 <dd>Two formal parameter lists <i>match</i> if
 <ol>
@@ -1468,7 +1470,7 @@ variable, <i>x</i>, <i>y</i>, <i>a</i>, and <i>n</i> for expressions, and
 
 <h4><i>Function procedures</i></h4>
 <pre>
-    Name         Argument types            Result type    Function
+    <ins>Name         Argument types            Result type    Function             </ins>
     ADR(v)       any                       LONGINT        address of variable v
     BIT(a, n)    a: LONGINT                BOOLEAN        bit n of Mem[a]
                  n: <i>integer</i>
@@ -1483,7 +1485,7 @@ variable, <i>x</i>, <i>y</i>, <i>a</i>, and <i>n</i> for expressions, and
 
 <h4><i>Proper procedures</i></h4>
 <pre>
-    Name             Argument types                    Function
+    <ins>Name             Argument types                    Function                            </ins>
     GET(a, v)        a: LONGINT; v: any basic type,    v := Mem[a]
                      pointer, procedure type
     PUT(a, x)        a: LONGINT; x: any basic type,    Mem[a] := x
