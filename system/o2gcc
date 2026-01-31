@@ -1,4 +1,4 @@
 #!/bin/bash
 OPTS="-fno-builtin -Wno-implicit-function-declaration -Wno-int-conversion -Wno-builtin-declaration-mismatch"
 LDFLAGS="-L/opt/homebrew/lib"
-exec gcc-15 -std=gnu89 $OPTS $LDFLAGS $*
+exec gcc -std=gnu89 $OPTS $LDFLAGS $*
