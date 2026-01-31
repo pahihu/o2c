@@ -1,4 +1,4 @@
-O2CARCH=Unix32
+O2CARCH=MinGW64
 CC="o2gcc -g"
 CFLAGS="-g -O0 -iquote obj -iquote system"
 # CFLAGS="-O2 -DDISABLE_RTC -iquote obj -iquote system"
@@ -54,7 +54,7 @@ mv o2c o2c_stage1
 # STAGE2
 #
 rm -f o2c_stage2 o2c all sym/* obj/*
-./o2c_stage1 $MORsv --redir system/o2c.red.template o2c
+./o2c_stage1 --nogc $MORsv --redir system/o2c.red.template o2c
 ./o2c $MORv --redir system/o2c.red.template UpdateLib X
 touch obj/*.o
 ./o2c $MORv --redir system/o2c.red.template UpdateLib
