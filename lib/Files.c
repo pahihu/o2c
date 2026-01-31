@@ -50,7 +50,17 @@ static void CreateTmpName(CHAR *name)
 {
   CHAR *tmp = NULL;
   
+#ifdef __MINGW64__
+  CHAR *pdir, dir[256];
+  pdir = getenv("TMP");
+  if (!pdir)
+  {
+    strcpy(dir, "/tmp"); pdir = dir;
+  }
+  tmp = (CHAR*)tempnam(pdir,"o2c");
+#else
   tmp = (CHAR*)tmpnam(NULL);
+#endif
   COPY(tmp,name,maxFilenameLen);
 }
 
@@ -500,7 +510,7 @@ void Files_Delete(const CHAR *name, INTEGER *Files_res)
 
 int get_o2time (long int sec, LONGINT *t, LONGINT *d)
 {
-   long int clock;
+   time_t clock;
    struct tm *timestamp;
    
    clock = sec;

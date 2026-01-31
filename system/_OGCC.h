@@ -80,20 +80,28 @@
 typedef unsigned char BOOLEAN;
 typedef unsigned char CHAR;
 #if __PTRDIFF_WIDTH__ == 64
-#define __TAG_SIZE__ 8
+# define __TAG_SIZE__ 8
 typedef signed short int SHORTINT;
 typedef signed int INTEGER;  /* see LI_FORMAT */
+# ifdef __MINGW64__
+typedef signed long long int LONGINT;
+# else
 typedef signed long int LONGINT;
+# endif
 /* unsigned equivalents to the integer data types */
 typedef unsigned short int USHORTINT;
 typedef unsigned int UINTEGER;
+# ifdef __MINGW64__
+typedef unsigned long long int ULONGINT;
+# else
 typedef unsigned long int ULONGINT;
-#define SIZEOF_SHORTINT 2
-#define SIZEOF_INTEGER  4
-#define SIZEOF_LONGINT  8
-#define SIZEOF_PTR      8
+# endif
+# define SIZEOF_SHORTINT 2
+# define SIZEOF_INTEGER  4
+# define SIZEOF_LONGINT  8
+# define SIZEOF_PTR      8
 #else
-#define __TAG_SIZE__ 4
+# define __TAG_SIZE__ 4
 typedef signed char SHORTINT;
 typedef signed short int INTEGER;  /* see LI_FORMAT */
 typedef signed int LONGINT;
@@ -101,10 +109,10 @@ typedef signed int LONGINT;
 typedef unsigned char USHORTINT;
 typedef unsigned short int UINTEGER;
 typedef unsigned int ULONGINT;
-#define SIZEOF_SHORTINT 1
-#define SIZEOF_INTEGER  2
-#define SIZEOF_LONGINT  4
-#define SIZEOF_PTR      4
+# define SIZEOF_SHORTINT 1
+# define SIZEOF_INTEGER  2
+# define SIZEOF_LONGINT  4
+# define SIZEOF_PTR      4
 #endif
 typedef float REAL;		/* see MAX_REAL/MIN_REAL */
 typedef double LONGREAL;	/* see MAX_LONGREAL/MIN_LONGREAL */
@@ -125,7 +133,11 @@ extern int toupper (int C);
 extern char* strcpy(char *TO, const char *FROM);
 extern void* memcpy(void *TO, const void *FROM, size_t SIZE);
 //extern int printf(const char *FMT, ...);
+#ifdef __MINGW32__
+#define alloca(x) __builtin_alloca((x))
+#else
 #include <alloca.h>
+#endif
 
 #ifdef GC
   extern void* GC_malloc (int SIZE);
@@ -161,7 +173,11 @@ extern void* memcpy(void *TO, const void *FROM, size_t SIZE);
 /* format string used by printf for LONGINT (%i if int, %li if long int) */
 #if __PTRDIFF_WIDTH__ == 64
 #define MAX_SET   63
+#ifdef __MINGW64__
+#define LI_FORMAT "%lli"
+#else
 #define LI_FORMAT "%li"
+#endif
 #else
 #define MAX_SET   31
 #define LI_FORMAT "%i"

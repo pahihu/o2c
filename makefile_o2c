@@ -1,4 +1,4 @@
-O2CARCH = 64
+O2CARCH = Unix64
 CC = o2gcc
 CFLAGS = -O2 -DDISABLE_RTC -iquote obj -iquote system
 LDFLAGS = -Wl,-s -lm
@@ -7,7 +7,6 @@ CFILES0 = obj/Time.c obj/CharInfo.c obj/ConvTypes.c obj/Strings.c obj/IntStr.c o
 CFILES1 = $(CFILES0) lib/MathL.c lib/Unix.c lib/Dos.c lib/Rts.c lib/Files.c
 OBJS0 = obj/_OGCC.o obj/_o2c.o obj/MathL.o obj/Unix.o obj/Time.o obj/CharInfo.o obj/ConvTypes.o obj/Dos.o obj/Strings.o obj/IntStr.o obj/Strings2.o obj/Filenames.o obj/RealStr.o obj/Rts.o obj/Files.o obj/Out.o obj/FOut.o obj/Redir.o obj/OMachine.o obj/OScan.o obj/ODepend.o obj/OTable.o obj/OEParse.o obj/OGenGCC.o obj/OMakeGCC.o obj/OSym.o obj/OParse.o obj/o2c.o
 OBJS1 =
-AFILES = CType.h IntStr.c ODepend.c OEParse.c OGenGCC.c OMachine.c OMakeGCC.c OParse.c OTable.c Unix.h
 
 # final targets
 all: build
@@ -16,9 +15,9 @@ build: force $(LFILES) $(OBJS0) $(OBJS1)
 
 # clean will remove all generated files
 clean: 
-	-rm $(HFILES) $(CFILES0) $(addprefix obj/,$(AFILES)) $(OBJS0) _o2c
+	-rm $(HFILES) $(CFILES0) $(OBJS0) _o2c
 
-force: $(addprefix obj/$(O2CARCH)/,$(AFILES))
+force:
 	cp -r obj/$(O2CARCH)/* obj/
 
 obj/_OGCC.o: system/_OGCC.h system/_OGCC.h system/_OGCC.c

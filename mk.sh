@@ -1,10 +1,9 @@
-O2CARCH=64
+O2CARCH=Unix32
 CC="o2gcc -g"
 CFLAGS="-g -O0 -iquote obj -iquote system"
 # CFLAGS="-O2 -DDISABLE_RTC -iquote obj -iquote system"
 # LDFLAGS = -lm -Wl,-s
 LDFLAGS=-lm
-ARCHFILES="lib/CType lib/IntStr compiler/OGenGCC compiler/OMachine"
 
 MORsv="-Mv"
 MORv="-Mv"
@@ -16,11 +15,8 @@ then
     exit 1
 fi
 
-for f in $ARCHFILES
-do
-    echo "$f$O2CARCH.Mod => $f.Mod"
-    cp $f$O2CARCH.Mod $f.Mod
-done
+cp lib/$O2CARCH/*.Mod lib/
+cp compiler/$O2CARCH/*.Mod compiler/
 
 rm -f o2b o2ef o2whereis o2c o2c_stage*
 rm -rf obj obj.distrib UpdateLib
