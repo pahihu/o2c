@@ -1,18 +1,20 @@
+#define MODULE_OMachine
+
 #include "OMachine.h"
 
 static ModuleId moduleId;
 
 
 
-const BOOLEAN OMachine_defCodeForGC = FALSE;
-const CHAR OMachine_gcLibPath[] = "";
-const INTEGER OMachine_maxSizeString = 256;
+const BOOLEAN OMachine_defCodeForGC = TRUE;
+const CHAR OMachine_gcLibPath = '\000';
+const SHORTINT OMachine_maxSizeString = 256;
 const SHORTINT OMachine_maxSizeIdent = 48;
 const SHORTINT OMachine_maxLIntHexDigits = 16;
 const SHORTINT OMachine_minBool = 0;
 const SHORTINT OMachine_maxBool = 1;
 const SHORTINT OMachine_minChar = 0;
-const INTEGER OMachine_maxChar = 255;
+const SHORTINT OMachine_maxChar = 255;
 const SHORTINT OMachine_minSInt = -32768;
 const SHORTINT OMachine_maxSInt = 32767;
 const INTEGER OMachine_minInt = (-2147483647-1);
@@ -30,7 +32,7 @@ const SHORTINT OMachine_maxRegNum = -1;
 const SHORTINT OMachine_minCC = 0;
 const SHORTINT OMachine_maxCC = -1;
 const SHORTINT OMachine_minTrapNum = 0;
-const INTEGER OMachine_maxTrapNum = 255;
+const SHORTINT OMachine_maxTrapNum = 255;
 const SHORTINT OMachine_defAssertTrap = 1;
 const CHAR OMachine_moduleExtension[] = "Mod";
 const CHAR OMachine_symbolExtension[] = "OSym";

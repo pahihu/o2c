@@ -116,7 +116,11 @@ typedef unsigned int ULONGINT;
 #endif
 typedef float REAL;		/* see MAX_REAL/MIN_REAL */
 typedef double LONGREAL;	/* see MAX_LONGREAL/MIN_LONGREAL */
+#ifdef __MINGW64__
+typedef unsigned long long SET;	/* see MAX_SET */
+#else
 typedef unsigned long SET;	/* see MAX_SET */
+#endif
 typedef unsigned char BYTE;
 typedef void *PTR;
 

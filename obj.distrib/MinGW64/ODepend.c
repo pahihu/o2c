@@ -165,7 +165,7 @@ ODepend_Module ODepend_Dependencies (LONGINT __modName_0, CHAR (* _modName), BOO
       COPYSTRING(&(DEREF(ODepend_Module, _mod, 10339)._extName), "");
       DEREF(ODepend_Module, _mod, 10367)._extClass = 0;
       DEREF(ODepend_Module, _mod, 10395)._import = (ODepend_Import)NULL;
-      DEREF(ODepend_Module, _mod, 10423)._flags = 0x00000000U;
+      DEREF(ODepend_Module, _mod, 10423)._flags = 0x0000000000000000ULL;
       _modules = _mod;
     }
     return _mod;
@@ -187,7 +187,7 @@ ODepend_Module ODepend_Dependencies (LONGINT __modName_0, CHAR (* _modName), BOO
         } else {
           _errNum = 100+(INTEGER) _s;
         }
-        OScan_Err(-1, _errNum);
+        OScan_Err(-1LL, _errNum);
         INCL(DEREF(ODepend_Module, _mod, 11769)._flags, ODepend_flScanError, 11760);
         (* _err) = TRUE;
       }
@@ -218,7 +218,7 @@ ODepend_Module ODepend_Dependencies (LONGINT __modName_0, CHAR (* _modName), BOO
         _CheckSym(OScan_string);
         _CheckSym(OScan_rBrak);
         if (OScan_sym!=OScan_ident||STRNEQ(OScan_ref, "EXTERNAL"))  {
-          OScan_Err(-1, 102);
+          OScan_Err(-1LL, 102);
           INCL(DEREF(ODepend_Module, _mod, 13069)._flags, ODepend_flScanError, 13060);
           (* _err) = TRUE;
         }
@@ -279,7 +279,7 @@ ODepend_Module ODepend_Dependencies (LONGINT __modName_0, CHAR (* _modName), BOO
         _ScanModule(_mod);
       }
     }
-    _exit14792:
+    _exit14792: ;
     if (!(* _err))  {
       _modules = ODepend_TopSort(_modules, FALSE, 98, (CHAR *) _errFile);
       if ((void*)_modules==(void*)NULL)  {

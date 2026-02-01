@@ -1,0 +1,2 @@
+rm -rf obj.sav/MinGW64
+cp -rp obj.sav/MinGW64.old obj.sav/MinGW64

@@ -1,0 +1,6 @@
+FILES=$(ls obj.sav/MinGW64.new)
+for f in $FILES
+do
+  echo $f
+  cp obj/$f obj.sav/MinGW64.new
+done

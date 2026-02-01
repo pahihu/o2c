@@ -1,6 +1,12 @@
 #ifndef __CType_
 #define __CType_
 
+#ifdef MODULE_CType
+#define EXTERN_CType
+#else
+#define EXTERN_CType extern
+#endif
+
 #include "_OGCC.h"
 
 typedef CHAR CType_char;
@@ -20,7 +26,7 @@ typedef INTEGER CType_uid_t;
 typedef INTEGER CType_gid_t;
 typedef CHAR (* CType_charPtr1d);
 typedef CType_charPtr1d (* CType_charPtr2d);
-typedef LONGINT (* CType_intPtr1d);
+typedef INTEGER (* CType_intPtr1d);
 typedef void (* CType_Proc) (void);
 
 extern void _init_CType (void);

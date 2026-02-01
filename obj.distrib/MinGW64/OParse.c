@@ -1,3 +1,5 @@
+#define MODULE_OParse
+
 #include "OParse.h"
 #include "Filenames.h"
 #include "OMachine.h"
@@ -120,7 +122,7 @@ static void OParse_FormalPars (OTable_Struct (* _fpars)) {
             DEREF(OTable_Object, _last, 5238)._link = _obj;
           }
           OScan_GetSym();
-          INCLI(DEREF(OTable_Struct, (* _fpars), 5325)._len, 1, 5315);
+          INCLI(DEREF(OTable_Struct, (* _fpars), 5325)._len, 1LL, 5315);
           goto _exit4930;
         } else {
           if (OScan_sym==OScan_var)  {
@@ -140,7 +142,7 @@ static void OParse_FormalPars (OTable_Struct (* _fpars)) {
                 _last = DEREF(OTable_Object, _last, 6419)._link;
               }
               OScan_GetSym();
-              INCLI(DEREF(OTable_Struct, (* _fpars), 6499)._len, 1, 6489);
+              INCLI(DEREF(OTable_Struct, (* _fpars), 6499)._len, 1LL, 6489);
             } else {
               OEParse_Err(100);
               OScan_GetSym();
@@ -154,13 +156,13 @@ static void OParse_FormalPars (OTable_Struct (* _fpars)) {
             }
             OParse_CheckSym(OScan_comma);
           }
-          _exit5816:
+          _exit5816: ;
           if (_resynch)  {
             goto _exit4930;
           }
           OParse_CheckSym(OScan_colon);
           OParse_Type(&(DEREF(OTable_Object, _last, 7130)._type), &(_pos), OTable_exportNot);
-          if ((void*)DEREF(OTable_Struct, DEREF(OTable_Object, _last, 7177)._type, 7183)._obj==(void*)NULL&&!IN(DEREF(OTable_Struct, DEREF(OTable_Object, _last, 7204)._type, 7210)._form, 0x00048001U, 7217))  {
+          if ((void*)DEREF(OTable_Struct, DEREF(OTable_Object, _last, 7177)._type, 7183)._obj==(void*)NULL&&!IN(DEREF(OTable_Struct, DEREF(OTable_Object, _last, 7204)._type, 7210)._form, 0x0000000000048001ULL, 7217))  {
             OScan_Err(_pos, 212);
           }
           if ((void*)_first==(void*)NULL)  {
@@ -184,7 +186,7 @@ static void OParse_FormalPars (OTable_Struct (* _fpars)) {
     if (OScan_sym==OScan_colon)  {
       OScan_GetSym();
       OParse_Type(&(DEREF(OTable_Struct, (* _fpars), 8032)._base), &(_pos), OTable_exportNot);
-      if (!IN(DEREF(OTable_Struct, DEREF(OTable_Struct, (* _fpars), 8101)._base, 8107)._form, 0x0000F1FEU, 8114))  {
+      if (!IN(DEREF(OTable_Struct, DEREF(OTable_Struct, (* _fpars), 8101)._base, 8107)._form, 0x000000000000F1FEULL, 8114))  {
         OScan_Err(_pos, 221);
       } else if ((void*)DEREF(OTable_Struct, DEREF(OTable_Struct, (* _fpars), 8318)._base, 8324)._obj==(void*)NULL)  {
         OScan_Err(_pos, 212);
@@ -238,7 +240,7 @@ static void OParse_Designator (OEParse_Node (* _n)) {
     DEREF(OEParse_Node, (* _n), 10629)._conval = OTable_NewConst();
     ASSERT_TYPE(TAG(TD_OTable_ConstDesc, DEREF(OEParse_Node, (* _n), 10717)._conval, 10725), td_OTable_ConstDesc, 10725);
     DEREF(OTable_Const, DEREF(OEParse_Node, (* _n), 10717)._conval, 10725) = DEREF(OTable_Const, DEREF(OTable_Object, _obj, 10733)._const, 10740);
-    if (-3<DEREF(OTable_Object, _obj, 10773)._mnolev&&DEREF(OTable_Object, _obj, 10789)._mnolev<0)  {
+    if (-3LL<DEREF(OTable_Object, _obj, 10773)._mnolev&&DEREF(OTable_Object, _obj, 10789)._mnolev<0LL)  {
       DEREF(OEParse_Node, (* _n), 10831)._obj = (OTable_Object)NULL;
     }
   } else if (DEREF(OTable_Object, _obj, 10928)._mode==OTable_objVarPar)  {
@@ -246,7 +248,7 @@ static void OParse_Designator (OEParse_Node (* _n)) {
   } else if (DEREF(OTable_Object, _obj, 10996)._mode==OTable_objType)  {
     DEREF(OEParse_Node, (* _n), 11026)._class = OEParse_ndType;
     return;
-  } else if (IN(DEREF(OTable_Object, _obj, 11074)._mode, 0x00000380U, 11081))  {
+  } else if (IN(DEREF(OTable_Object, _obj, 11074)._mode, 0x0000000000000380ULL, 11081))  {
     DEREF(OEParse_Node, (* _n), 11142)._class = OEParse_ndProc;
   }
   while(1) {
@@ -349,7 +351,7 @@ static void OParse_ProcCall (OEParse_Node (* _call), OEParse_Node _proc) {
       _ExprList(&(DEREF(OEParse_Node, (* _node), 15825)._link));
     }
   }
-  if (DEREF(OEParse_Node, _proc, 15882)._class!=OEParse_ndProc&&!IN(DEREF(OTable_Struct, DEREF(OEParse_Node, _proc, 15910)._type, 15916)._form, 0x00018000U, 15923))  {
+  if (DEREF(OEParse_Node, _proc, 15882)._class!=OEParse_ndProc&&!IN(DEREF(OTable_Struct, DEREF(OEParse_Node, _proc, 15910)._type, 15916)._form, 0x0000000000018000ULL, 15923))  {
     OEParse_ErrNT1(174, _proc);
   }
   _apar = (OEParse_Node)NULL;
@@ -369,7 +371,7 @@ static void OParse_ProcCall (OEParse_Node (* _call), OEParse_Node _proc) {
   DEREF(OEParse_Node, (* _call), 16397)._right = _apar;
   if (DEREF(OEParse_Node, _proc, 16426)._class==OEParse_ndProc&&(void*)DEREF(OTable_Object, DEREF(OEParse_Node, _proc, 16453)._obj, 16458)._const!=(void*)NULL)  {
     OEParse_PredefProc(_call, (SHORTINT) DEREF(OTable_Const, DEREF(OTable_Object, DEREF(OEParse_Node, _proc, 16557)._obj, 16562)._const, 16569)._intval, _apar, _numPar, _endOfParams);
-  } else if (IN(DEREF(OTable_Struct, DEREF(OEParse_Node, _proc, 16644)._type, 16650)._form, 0x00018000U, 16657))  {
+  } else if (IN(DEREF(OTable_Struct, DEREF(OEParse_Node, _proc, 16644)._type, 16650)._form, 0x0000000000018000ULL, 16657))  {
     _fpar = DEREF(OTable_Struct, DEREF(OEParse_Node, _proc, 16801)._type, 16807)._link;
     if (DEREF(OTable_Struct, DEREF(OEParse_Node, _proc, 16829)._type, 16835)._form==OTable_strTBProc)  {
       _fpar = DEREF(OTable_Object, _fpar, 16882)._link;
@@ -390,7 +392,7 @@ static void OParse_ProcCall (OEParse_Node (* _call), OEParse_Node _proc) {
           if (!((((_ftype==DEREF(OEParse_Node, _apar, 18072)._type||(_fform==OTable_strRecord&&OTable_ExtOf(DEREF(OEParse_Node, _apar, 18132)._type, _ftype)))||(_fform==OTable_strDynArray&&(DEREF(OTable_Struct, DEREF(OTable_Struct, _ftype, 18195)._base, 18201)._form==OTable_strSysByte||OEParse_ArrayComp(_apar, _ftype))))||(_fform==OTable_strSysByte&&(DEREF(OTable_Struct, DEREF(OEParse_Node, _apar, 18298)._type, 18304)._form==OTable_strShortInt||DEREF(OTable_Struct, DEREF(OEParse_Node, _apar, 18334)._type, 18340)._form==OTable_strChar)))||(_fform==OTable_strSysPtr&&DEREF(OTable_Struct, DEREF(OEParse_Node, _apar, 18403)._type, 18409)._form==OTable_strPointer)))  {
             OEParse_ErrT1(DEREF(OEParse_Node, _apar, 18463)._pos, 168, &(_ftype));
           }
-          if (IN(DEREF(OEParse_Node, _apar, 18580)._class, 0x0000030EU, 18588))  {
+          if (IN(DEREF(OEParse_Node, _apar, 18580)._class, 0x000000000000030EULL, 18588))  {
             INCL(DEREF(OTable_Object, DEREF(OEParse_Node, _apar, 18676)._obj, 18681)._flags, OTable_flagAddressed, 18666);
           }
         }
@@ -433,7 +435,7 @@ static void OParse_Expr (OEParse_Node (* _r)) {
             OParse_Expr(_limit);
             OEParse_ChkType((* _limit), OEParse_grpInteger);
             if (DEREF(OTable_Struct, DEREF(OEParse_Node, (* _limit), 20780)._type, 20786)._form!=OTable_strUndef&&DEREF(OEParse_Node, (* _limit), 20815)._class==OEParse_ndConst)  {
-              OEParse_ChkRange((* _limit), 0, 31, 229);
+              OEParse_ChkRange((* _limit), 0LL, 63LL, 229);
             }
           }
           (* _range) = OEParse_NewNode(OEParse_ndUpto);
@@ -662,7 +664,7 @@ static void OParse_StatementSeq (OEParse_Node (* _r), OEParse_Node _proc, OEPars
     void _RemoveBranch (OEParse_Node (* _n)) {
       if ((void*)(* _n)!=(void*)NULL)  {
         if (DEREF(OEParse_Node, DEREF(OEParse_Node, (* _n), 31003)._left, 31009)._class==OEParse_ndConst)  {
-          if (DEREF(OTable_Const, DEREF(OEParse_Node, DEREF(OEParse_Node, (* _n), 31052)._left, 31058)._conval, 31066)._intval==0)  {
+          if (DEREF(OTable_Const, DEREF(OEParse_Node, DEREF(OEParse_Node, (* _n), 31052)._left, 31058)._conval, 31066)._intval==0LL)  {
             (* _n) = DEREF(OEParse_Node, (* _n), 31127)._link;
             _RemoveBranch(_n);
           } else {
@@ -761,10 +763,10 @@ static void OParse_StatementSeq (OEParse_Node (* _r), OEParse_Node _proc, OEPars
         }
         OScan_GetSym();
       }
-      _exit34886:
+      _exit34886: ;
       if (OScan_sym==OScan_else)  {
         OScan_GetSym();
-        DEREF(OTable_Const, DEREF(OEParse_Node, DEREF(OEParse_Node, (* _node), 35309)._right, 35316)._conval, 35324)._set = 0x00000002U;
+        DEREF(OTable_Const, DEREF(OEParse_Node, DEREF(OEParse_Node, (* _node), 35309)._right, 35316)._conval, 35324)._set = 0x0000000000000002ULL;
         OParse_StatementSeq(&(DEREF(OEParse_Node, DEREF(OEParse_Node, (* _node), 35407)._right, 35414)._right), _proc, _loop);
       }
       OParse_CheckSym(OScan_end);
@@ -789,7 +791,7 @@ static void OParse_StatementSeq (OEParse_Node (* _r), OEParse_Node _proc, OEPars
       DEREF(OEParse_Node, DEREF(OEParse_Node, (* _node), 36196)._left, 36202)._link = _n;
       OEParse_ChkVar(_n);
       OEParse_ChkType(_n, OEParse_grpInteger);
-      if ((DEREF(OEParse_Node, _n, 36287)._class!=OEParse_ndVar&&DEREF(OEParse_Node, _n, 36310)._class!=OEParse_ndVarPar)||DEREF(OTable_Object, DEREF(OEParse_Node, _n, 36337)._obj, 36342)._mnolev<0)  {
+      if ((DEREF(OEParse_Node, _n, 36287)._class!=OEParse_ndVar&&DEREF(OEParse_Node, _n, 36310)._class!=OEParse_ndVarPar)||DEREF(OTable_Object, DEREF(OEParse_Node, _n, 36337)._obj, 36342)._mnolev<0LL)  {
         OScan_Err(DEREF(OEParse_Node, _n, 36379)._pos, 231);
       }
       OParse_CheckSym(OScan_becomes);
@@ -803,12 +805,12 @@ static void OParse_StatementSeq (OEParse_Node (* _r), OEParse_Node _proc, OEPars
         OScan_GetSym();
         _pos = OScan_lastSym;
         OParse_ConstExpr(&(DEREF(OEParse_Node, _n, 36995)._conval), &(DEREF(OEParse_Node, _n, 37006)._type));
-        if (!IN(DEREF(OTable_Struct, DEREF(OEParse_Node, _n, 37031)._type, 37037)._form, OEParse_intSet, 37044)||DEREF(OTable_Const, DEREF(OEParse_Node, _n, 37062)._conval, 37070)._intval==0)  {
+        if (!IN(DEREF(OTable_Struct, DEREF(OEParse_Node, _n, 37031)._type, 37037)._form, OEParse_intSet, 37044)||DEREF(OTable_Const, DEREF(OEParse_Node, _n, 37062)._conval, 37070)._intval==0LL)  {
           OScan_Err(_pos, 234);
         }
       } else {
         DEREF(OEParse_Node, _n, 37246)._conval = OTable_NewConst();
-        DEREF(OTable_Const, DEREF(OEParse_Node, _n, 37283)._conval, 37291)._intval = 1;
+        DEREF(OTable_Const, DEREF(OEParse_Node, _n, 37283)._conval, 37291)._intval = 1LL;
         DEREF(OEParse_Node, _n, 37317)._type = INDEX(OTable_predeclType, OTable_strLongInt, 14, 37340);
         OEParse_SetInt(_n);
       }
@@ -847,10 +849,10 @@ static void OParse_StatementSeq (OEParse_Node (* _r), OEParse_Node _proc, OEPars
         DEREF(OEParse_Node, _n, 38518)._link = OEParse_NewNode(OEParse_ndWithGuard);
         _n = DEREF(OEParse_Node, _n, 38571)._link;
       }
-      _exit37949:
+      _exit37949: ;
       if (OScan_sym==OScan_else)  {
         OScan_GetSym();
-        DEREF(OTable_Const, DEREF(OEParse_Node, (* _node), 38656)._conval, 38664)._set = 0x00000002U;
+        DEREF(OTable_Const, DEREF(OEParse_Node, (* _node), 38656)._conval, 38664)._set = 0x0000000000000002ULL;
         OParse_StatementSeq(&(DEREF(OEParse_Node, (* _node), 38706)._right), _proc, _loop);
       }
       OParse_CheckSym(OScan_end);
@@ -917,7 +919,7 @@ static void OParse_IdentDef (OTable_Object (* _obj), SHORTINT _mode, SHORTINT _e
       DEREF(OTable_Object, (* _obj), 41556)._mark = OTable_exportWrite;
     }
     OScan_GetSym();
-    if ((OTable_external&&IN(_mode, 0x00000210U, 41689))&&OScan_sym==OScan_lBrak)  {
+    if ((OTable_external&&IN(_mode, 0x0000000000000210ULL, 41689))&&OScan_sym==OScan_lBrak)  {
       OScan_GetSym();
       NEWFIX(DEREF(OTable_Object, (* _obj), 41788)._extName, 1);
       COPY(OScan_ref, DEREF(OTable_String, DEREF(OTable_Object, (* _obj), 41824)._extName, 41833), 256);
@@ -963,7 +965,7 @@ static void OParse_Type (OTable_Struct (* _t), LONGINT (* _pos), SHORTINT _exp) 
     OParse_ConstExpr(&(_const), &(_t0));
     if (!IN(DEREF(OTable_Struct, _t0, 43527)._form, OEParse_intSet, 43534))  {
       OScan_Err(_pos, 207);
-    } else if (DEREF(OTable_Const, _const, 43632)._intval<=0)  {
+    } else if (DEREF(OTable_Const, _const, 43632)._intval<=0LL)  {
       OScan_Err(_pos, 206);
     }
     DEREF(OTable_Struct, (* _t), 43723)._len = DEREF(OTable_Const, _const, 43737)._intval;
@@ -1009,7 +1011,7 @@ static void OParse_Type (OTable_Struct (* _t), LONGINT (* _pos), SHORTINT _exp) 
       if (OScan_sym==OScan_ident&&STREQL(OScan_ref, "UNION"))  {
         INCL(DEREF(OTable_Struct, (* _t), 45183)._flags, OTable_flagUnion, 45176);
       } else {
-        OScan_Err(-1, 103);
+        OScan_Err(-1LL, 103);
       }
       OScan_GetSym();
       OParse_CheckSym(OScan_rBrak);
@@ -1018,7 +1020,7 @@ static void OParse_Type (OTable_Struct (* _t), LONGINT (* _pos), SHORTINT _exp) 
       OParse_Qualident(&(_obj), &(_p));
       if ((DEREF(OTable_Object, _obj, 45482)._mode==OTable_objType&&DEREF(OTable_Struct, DEREF(OTable_Object, _obj, 45508)._type, 45514)._form==OTable_strRecord)&&!IN(OTable_flagUnion, DEREF(OTable_Struct, DEREF(OTable_Object, _obj, 45570)._type, 45576)._flags, 45564))  {
         DEREF(OTable_Struct, (* _t), 45601)._base = DEREF(OTable_Object, _obj, 45614)._type;
-        DEREF(OTable_Struct, (* _t), 45633)._len = DEREF(OTable_Struct, DEREF(OTable_Struct, (* _t), 45643)._base, 45649)._len+1;
+        DEREF(OTable_Struct, (* _t), 45633)._len = DEREF(OTable_Struct, DEREF(OTable_Struct, (* _t), 45643)._base, 45649)._len+1LL;
         if (IN(OTable_flagExternal, DEREF(OTable_Struct, DEREF(OTable_Struct, (* _t), 45691)._base, 45697)._flags, 45687))  {
           OScan_Err(_p, 152);
         }
@@ -1049,7 +1051,7 @@ static void OParse_Type (OTable_Struct (* _t), LONGINT (* _pos), SHORTINT _exp) 
       }
       OScan_GetSym();
     }
-    _exit45918:
+    _exit45918: ;
     OParse_CheckSym(OScan_end);
     DEREF(OTable_Struct, (* _t), 46756)._size = OTable_structSize((* _t));
     _init = OEParse_NewNode(OEParse_ndInitTd);
@@ -1076,7 +1078,7 @@ static void OParse_Type (OTable_Struct (* _t), LONGINT (* _pos), SHORTINT _exp) 
     }
     if ((void*)DEREF(OTable_Struct, (* _t), 47842)._base==(void*)NULL)  {
       OParse_Type(&(DEREF(OTable_Struct, (* _t), 47942)._base), &(_p), _exp);
-      if (!IN(DEREF(OTable_Struct, DEREF(OTable_Struct, (* _t), 48007)._base, 48013)._form, 0x000E0001U, 48020))  {
+      if (!IN(DEREF(OTable_Struct, DEREF(OTable_Struct, (* _t), 48007)._base, 48013)._form, 0x00000000000E0001ULL, 48020))  {
         OScan_Err(_p, 208);
       }
     }
@@ -1149,13 +1151,13 @@ static void OParse_DeclSeq (SHORTINT _exp, OEParse_Node (* _declProcs)) {
           if (DEREF(OTable_Struct, _record, 50748)._form!=OTable_strRecord||(void*)DEREF(OTable_Struct, _record, 50780)._obj==(void*)NULL)  {
             OScan_Err(_p, 223);
             _record = INDEX(OTable_predeclType, OTable_strUndef, 14, 50894);
-          } else if (DEREF(OTable_Object, DEREF(OTable_Struct, _record, 50932)._obj, 50937)._mnolev!=0)  {
+          } else if (DEREF(OTable_Object, DEREF(OTable_Struct, _record, 50932)._obj, 50937)._mnolev!=0LL)  {
             OScan_Err(_p, 224);
             _record = INDEX(OTable_predeclType, OTable_strUndef, 14, 51048);
           }
           OParse_CheckSym(OScan_rParen);
-          if (OTable_LevelOfTopScope()!=0)  {
-            OScan_Err(-1, 222);
+          if (OTable_LevelOfTopScope()!=0LL)  {
+            OScan_Err(-1LL, 222);
           }
         }
       }
@@ -1163,7 +1165,7 @@ static void OParse_DeclSeq (SHORTINT _exp, OEParse_Node (* _declProcs)) {
         OParse_IdentDef(&(DEREF(OEParse_Node, (* _proc), 51361)._obj), _mode, _exp- 1);
       } else {
         DEREF(OEParse_Node, (* _proc), 51408)._obj = OParse_NewObject(4, (CHAR *) OScan_undefStr, _mode);
-        OScan_Err(-1, 100);
+        OScan_Err(-1LL, 100);
         OScan_GetSym();
       }
       if (_mode==OTable_objLocalProc&&DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 51548)._obj, 51553)._mark!=OTable_exportNot)  {
@@ -1174,7 +1176,7 @@ static void OParse_DeclSeq (SHORTINT _exp, OEParse_Node (* _declProcs)) {
       if (_mode==OTable_objTBProc||_mode==OTable_objForwardTBProc)  {
         DEREF(OTable_Object, _rec, 51856)._link = DEREF(OTable_Struct, DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 51870)._obj, 51875)._type, 51881)._link;
         DEREF(OTable_Struct, DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 51903)._obj, 51908)._type, 51914)._link = _rec;
-        INCLI(DEREF(OTable_Struct, DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 51948)._obj, 51953)._type, 51959)._len, 1, 51939);
+        INCLI(DEREF(OTable_Struct, DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 51948)._obj, 51953)._type, 51959)._len, 1LL, 51939);
         DEREF(OTable_Struct, DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 51981)._obj, 51986)._type, 51992)._form = OTable_strTBProc;
         if (DEREF(OTable_Struct, _record, 52092)._form==OTable_strRecord)  {
           OTable_InsertField(DEREF(OEParse_Node, (* _proc), 52148)._obj, _record);
@@ -1196,7 +1198,7 @@ static void OParse_DeclSeq (SHORTINT _exp, OEParse_Node (* _declProcs)) {
         }
         OParse_CheckSym(OScan_end);
         if (OScan_sym!=OScan_ident||STRNEQ(OScan_ref, DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 52946)._obj, 52951)._name))  {
-          OScan_ErrIns(-1, 200, 48, (CHAR *) DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 52999)._obj, 53004)._name);
+          OScan_ErrIns(-1LL, 200, 48, (CHAR *) DEREF(OTable_Object, DEREF(OEParse_Node, (* _proc), 52999)._obj, 53004)._name);
         }
         OScan_GetSym();
         if ((void*)DEREF(OEParse_Node, (* _proc), 53155)._right==(void*)NULL)  {
@@ -1262,7 +1264,7 @@ static void OParse_DeclSeq (SHORTINT _exp, OEParse_Node (* _declProcs)) {
       goto _exit53444;
     }
   }
-  _exit53444:
+  _exit53444: ;
   _ProcDecl(_declProcs);
 }
 
@@ -1300,7 +1302,7 @@ void OParse_Module (OEParse_Node (* _mod)) {
       }
       OScan_GetSym();
     }
-    _exit55977:
+    _exit55977: ;
     OParse_CheckSym(OScan_semicolon);
   }
   (* _mod) = (OEParse_Node)NULL;
@@ -1312,7 +1314,7 @@ void OParse_Module (OEParse_Node (* _mod)) {
     if (OScan_sym==OScan_ident)  {
       Filenames_GetFile(256, (CHAR *) OScan_sourceName, 49, (CHAR *) _sourceName);
       if (STRNEQ(_sourceName, OScan_ref))  {
-        OScan_WarnIns(-1, 298, 49, (CHAR *) _sourceName);
+        OScan_WarnIns(-1LL, 298, 49, (CHAR *) _sourceName);
       }
       OTable_compiledModule = OParse_NewObject(256, (CHAR *) OScan_ref, OTable_objModule);
       OTable_OpenScope(DEREF(OTable_Object, OTable_compiledModule, 57112)._link);
@@ -1327,7 +1329,7 @@ void OParse_Module (OEParse_Node (* _mod)) {
         OParse_CheckSym(OScan_string);
         OParse_CheckSym(OScan_rBrak);
         if (OScan_sym!=OScan_ident||STRNEQ(OScan_ref, "EXTERNAL"))  {
-          OScan_Err(-1, 102);
+          OScan_Err(-1LL, 102);
         }
         OParse_CheckSym(OScan_ident);
         OParse_CheckSym(OScan_lBrak);
@@ -1359,7 +1361,7 @@ void OParse_Module (OEParse_Node (* _mod)) {
         }
         OParse_CheckSym(OScan_end);
         if (OScan_sym!=OScan_ident||STRNEQ(OScan_ref, DEREF(OTable_Object, OTable_compiledModule, 59248)._name))  {
-          OScan_ErrIns(-1, 200, 48, (CHAR *) DEREF(OTable_Object, OTable_compiledModule, 59308)._name);
+          OScan_ErrIns(-1LL, 200, 48, (CHAR *) DEREF(OTable_Object, OTable_compiledModule, 59308)._name);
         }
         OScan_GetSym();
         OParse_CheckSym(OScan_period);

@@ -18,6 +18,7 @@ clean:
 	-rm $(HFILES) $(CFILES0) $(OBJS0) _o2c
 
 force:
+	-echo "using O2CARCH=$(O2CARCH) environment"
 	cp -r obj/$(O2CARCH)/* obj/
 
 obj/_OGCC.o: system/_OGCC.h system/_OGCC.h system/_OGCC.c
