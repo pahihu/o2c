@@ -1,3 +1,5 @@
+#define MODULE_IntStr
+
 #include "IntStr.h"
 #include "CharInfo.h"
 #include "ConvTypes.h"
@@ -39,7 +41,7 @@ void IntStr_Take (LONGINT __str_0, const CHAR (* __str_p), LONGINT (* _int), SHO
       (* _int) = 0;
       while (_s!=_e)  {
         _digit = (LONGINT) ((INTEGER) (* PTR_INDEX(_str, _s, __str_0, 1, 1913))- 48);
-        if ((* _int)>-214748364||(* _int)>=DIVLI((-2147483647-1)+_digit, 10, 1994))  {
+        if ((* _int)>-214748364||(* _int)>=DIVLI((-2147483647L-1)+_digit, 10, 1994))  {
           (* _int) = (* _int)*10- _digit;
           INCI(_s, 1, 2052);
         } else {
@@ -47,13 +49,13 @@ void IntStr_Take (LONGINT __str_0, const CHAR (* __str_p), LONGINT (* _int), SHO
           if (_positive)  {
             (* _int) = 2147483647;
           } else {
-            (* _int) = (-2147483647-1);
+            (* _int) = (-2147483647L-1);
           }
           return;
         }
       }
       if (_positive)  {
-        if ((* _int)==(-2147483647-1))  {
+        if ((* _int)==(-2147483647L-1))  {
           (* _format) = ConvTypes_outOfRange;
           (* _int) = 2147483647;
           return;
@@ -101,12 +103,12 @@ void IntStr_Give (LONGINT __str_0, CHAR (* _str), LONGINT _int, INTEGER _width, 
   const SHORTINT _maxLength = 11;
   CHAR _b[12];
   INTEGER _s, _e, _i, _pos;
-  if (_int==(-2147483647-1))  {
+  if (_int==(-2147483647L-1))  {
     COPYSTRING(&(_b), "-2147483648");
     _e = 11;
   } else {
     if (_int<0)  {
-      INDEX(_b, 0, 12, 4575) = '-';
+      INDEX(_b, 0, 12, 4612) = '-';
       _int = -_int;
       _s = 1;
     } else {
@@ -114,11 +116,11 @@ void IntStr_Give (LONGINT __str_0, CHAR (* _str), LONGINT _int, INTEGER _width, 
     }
     _e = _s;
     do  {
-      INDEX(_b, _e, 12, 4766) = (CHAR) (MODLI(_int, 10, 4782)+48);
-      _int = DIVLI(_int, 10, 4820);
-      INCI(_e, 1, 4836);
+      INDEX(_b, _e, 12, 4803) = (CHAR) (MODLI(_int, 10, 4819)+48);
+      _int = DIVLI(_int, 10, 4857);
+      INCI(_e, 1, 4873);
     } while (!(_int==0));
-    INDEX(_b, _e, 12, 4874) = '\000';
+    INDEX(_b, _e, 12, 4911) = '\000';
     IntStr_Reverse(12, (CHAR *) _b, _s, _e- 1);
   }
   _s = _width- _e;
@@ -126,10 +128,10 @@ void IntStr_Give (LONGINT __str_0, CHAR (* _str), LONGINT _int, INTEGER _width, 
     {
       INTEGER _temp_ = _s- 1;
       for(_i = 0 ; _i <= _temp_ ; _i += 1) {
-        (* PTR_INDEX(_str, _i, __str_0, 1, 5098)) = ' ';
+        (* PTR_INDEX(_str, _i, __str_0, 1, 5135)) = ' ';
       }
     }
-    (* PTR_INDEX(_str, _s, __str_0, 1, 5124)) = '\000';
+    (* PTR_INDEX(_str, _s, __str_0, 1, 5161)) = '\000';
     {
       SHORTINT _temp_ = _where;
       switch (_temp_) {
@@ -142,10 +144,10 @@ void IntStr_Give (LONGINT __str_0, CHAR (* _str), LONGINT _int, INTEGER _width, 
           break;
         }
         case 1: {
-          _pos = _s- DIVI(_s, 2, 5312);
+          _pos = _s- DIVI(_s, 2, 5349);
           break;
         }
-        default: NO_LABEL (_temp_, 5202);
+        default: NO_LABEL (_temp_, 5239);
       }
     }
     Strings_Insert(12, (CHAR *) _b, _pos, __str_0, _str);

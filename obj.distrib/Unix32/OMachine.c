@@ -1,11 +1,13 @@
+#define MODULE_OMachine
+
 #include "OMachine.h"
 
 static ModuleId moduleId;
 
 
 
-const BOOLEAN OMachine_defCodeForGC = FALSE;
-const CHAR OMachine_gcLibPath[] = "";
+const BOOLEAN OMachine_defCodeForGC = TRUE;
+const CHAR OMachine_gcLibPath = '\000';
 const INTEGER OMachine_maxSizeString = 256;
 const SHORTINT OMachine_maxSizeIdent = 48;
 const SHORTINT OMachine_maxLIntHexDigits = 8;
@@ -17,7 +19,7 @@ const SHORTINT OMachine_minSInt = -128;
 const SHORTINT OMachine_maxSInt = 127;
 const INTEGER OMachine_minInt = -32768;
 const INTEGER OMachine_maxInt = 32767;
-const LONGINT OMachine_minLInt = (-2147483647-1);
+const LONGINT OMachine_minLInt = (-2147483647L-1);
 const LONGINT OMachine_maxLInt = 2147483647;
 const REAL OMachine_minReal = MIN_REAL;
 const REAL OMachine_maxReal = MAX_REAL;

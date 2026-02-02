@@ -1,6 +1,12 @@
 #ifndef __CType_
 #define __CType_
 
+#ifdef MODULE_CType
+#define EXTERN_CType
+#else
+#define EXTERN_CType extern
+#endif
+
 #include "_OGCC.h"
 
 typedef CHAR CType_char;
