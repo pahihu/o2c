@@ -13,7 +13,7 @@ struct TD_OTable_ScopeStackDesc;
 struct TD_OTable_SymbolTableCacheDesc;
 struct TD_OTable_SymbolTableImportedDesc;
 
-static const SHORTINT OTable_objCollected = 31;
+static const SHORTINT OTable_objCollected = 63;
 const SHORTINT OTable_objUndef = 0;
 const SHORTINT OTable_objScope = 1;
 const SHORTINT OTable_objConst = 2;
@@ -30,11 +30,11 @@ const SHORTINT OTable_objForwardType = 12;
 const SHORTINT OTable_objForwardProc = 13;
 const SHORTINT OTable_objForwardTBProc = 14;
 static const SHORTINT OTable_objProtoTBProc = 15;
-static const SET OTable_procedureObjects = 0x00000300U;
-static const SET OTable_forwardObjects = 0x00007000U;
-static const SET OTable_scopeObjects = 0x00000F00U;
-static const SET OTable_methodObjects = 0x0000C800U;
-static const SET OTable_usableObjects = 0x00000FFCU;
+static const SET OTable_procedureObjects = 0x00000300UL;
+static const SET OTable_forwardObjects = 0x00007000UL;
+static const SET OTable_scopeObjects = 0x00000F00UL;
+static const SET OTable_methodObjects = 0x0000C800UL;
+static const SET OTable_usableObjects = 0x00000FFCUL;
 const SHORTINT OTable_exportNot = 0;
 const SHORTINT OTable_exportWrite = 2;
 const SHORTINT OTable_exportRead = 1;
@@ -132,7 +132,7 @@ typedef struct OTable_SymbolTableImportedDesc {
 static OTable_SymbolTableCache OTable_symbolCache;
 static LONGINT OTable_cacheMnolev;
 static const CHAR OTable_systemIdent[] = "SYSTEM";
-static const LONGINT OTable_systemKey = 1283764;
+static const INTEGER OTable_systemKey = 1283764;
 const SHORTINT OTable_compileMnolev = 0;
 const SHORTINT OTable_predeclMnolev = -1;
 const SHORTINT OTable_systemMnolev = -2;
@@ -147,15 +147,15 @@ static OTable_Object OTable_collectedObjs;
 typedef struct TD_OTable_ScopeStackDesc {
   TDCORE
 } TD_OTable_ScopeStackDesc;
-TD_OTable_ScopeStackDesc* td_OTable_ScopeStackDesc;
+EXTERN_OTable TD_OTable_ScopeStackDesc* td_OTable_ScopeStackDesc;
 typedef struct TD_OTable_SymbolTableCacheDesc {
   TDCORE
 } TD_OTable_SymbolTableCacheDesc;
-TD_OTable_SymbolTableCacheDesc* td_OTable_SymbolTableCacheDesc;
+EXTERN_OTable TD_OTable_SymbolTableCacheDesc* td_OTable_SymbolTableCacheDesc;
 typedef struct TD_OTable_SymbolTableImportedDesc {
   TDCORE
 } TD_OTable_SymbolTableImportedDesc;
-TD_OTable_SymbolTableImportedDesc* td_OTable_SymbolTableImportedDesc;
+EXTERN_OTable TD_OTable_SymbolTableImportedDesc* td_OTable_SymbolTableImportedDesc;
 
 OTable_Object OTable_NewObject (LONGINT __name_0, const CHAR (* __name_p), SHORTINT _mode, LONGINT _pos);
 
@@ -212,16 +212,16 @@ void OTable_RecycleMem (OTable_Object (* _module)) {
 
   void _RecycleObject (OTable_Object _obj) {
     if ((void*)_obj!=(void*)NULL)  {
-      if (IN(DEREF(OTable_Object, _obj, 9373)._mode, 0x00000FFCU, 9379))  {
+      if (IN(DEREF(OTable_Object, _obj, 9373)._mode, 0x00000FFCUL, 9379))  {
         _RecycleObject(DEREF(OTable_Object, _obj, 9439)._left);
         _RecycleObject(DEREF(OTable_Object, _obj, 9474)._right);
       }
-      if (IN(DEREF(OTable_Object, _obj, 9511)._mode, 0x00000B82U, 9517))  {
+      if (IN(DEREF(OTable_Object, _obj, 9511)._mode, 0x00000B82UL, 9517))  {
         _RecycleObject(DEREF(OTable_Object, _obj, 9601)._link);
       } else if (DEREF(OTable_Object, _obj, 9627)._mode==OTable_objType)  {
         _RecycleStruct(DEREF(OTable_Object, _obj, 9676)._type);
       }
-      if (!IN(DEREF(OTable_Object, _obj, 9713)._mode, 0x80000000U, 9719)&&_MnolevOk(DEREF(OTable_Object, _obj, 9752)._mnolev, _mnolev))  {
+      if (!IN(DEREF(OTable_Object, _obj, 9713)._mode, 0x00000000UL, 9719)&&_MnolevOk(DEREF(OTable_Object, _obj, 9752)._mnolev, _mnolev))  {
         OTable_CollectObject(_obj);
       }
     }
@@ -511,7 +511,7 @@ OTable_Const OTable_NewConst (void) {
   DEREF(OTable_Const, _const, 19157)._intval = 0;
   DEREF(OTable_Const, _const, 19174)._intval2 = 0;
   DEREF(OTable_Const, _const, 19196)._real = 0.0000000000000000E+00;
-  DEREF(OTable_Const, _const, 19213)._set = 0x00000000U;
+  DEREF(OTable_Const, _const, 19213)._set = 0x00000000UL;
   DEREF(OTable_Const, _const, 19228)._string = (OTable_String)NULL;
   return _const;
   NO_RETURN (19080);
@@ -521,7 +521,7 @@ OTable_Struct OTable_NewStruct (SHORTINT _form) {
   OTable_Struct _str;
   NEWREC(_str, td_OTable_StructDesc, 0);
   DEREF(OTable_Struct, _str, 19376)._form = _form;
-  DEREF(OTable_Struct, _str, 19392)._flags = 0x00000000U;
+  DEREF(OTable_Struct, _str, 19392)._flags = 0x00000000UL;
   DEREF(OTable_Struct, _str, 19407)._len = 0;
   DEREF(OTable_Struct, _str, 19423)._base = (OTable_Struct)NULL;
   DEREF(OTable_Struct, _str, 19438)._obj = (OTable_Object)NULL;
@@ -550,7 +550,7 @@ OTable_Object OTable_NewObject (LONGINT __name_0, const CHAR (* __name_p), SHORT
   DEREF(OTable_Object, _new, 19875)._adr = 0;
   DEREF(OTable_Object, _new, 19891)._pos = _pos;
   DEREF(OTable_Object, _new, 19905)._type = INDEX(OTable_predeclType, OTable_strUndef, 14, 19923);
-  DEREF(OTable_Object, _new, 19942)._flags = 0x00000000U;
+  DEREF(OTable_Object, _new, 19942)._flags = 0x00000000UL;
   DEREF(OTable_Object, _new, 19957)._mnolev = 0;
   if (IN(_mode, OTable_forwardObjects, 19995))  {
     INCL(DEREF(OTable_Object, _new, 20033)._flags, OTable_flagForward, 20025);
@@ -559,7 +559,7 @@ OTable_Object OTable_NewObject (LONGINT __name_0, const CHAR (* __name_p), SHORT
     DEREF(OTable_Object, _new, 20107)._link = OTable_NewObject(4, (CHAR *) OScan_undefStr, OTable_objScope, _pos);
     DEREF(OTable_Object, DEREF(OTable_Object, _new, 20160)._link, 20165)._left = _new;
   }
-  if ((void*)OTable_scopeStack!=(void*)NULL&&!IN(_mode, 0x00000040U, 20222))  {
+  if ((void*)OTable_scopeStack!=(void*)NULL&&!IN(_mode, 0x00000040UL, 20222))  {
     DEREF(OTable_Object, _new, 20252)._scope = DEREF(OTable_ScopeStack, OTable_scopeStack, 20270)._topScope;
   } else {
     DEREF(OTable_Object, _new, 20299)._scope = (OTable_Object)NULL;
@@ -783,7 +783,7 @@ static BOOLEAN OTable_FormalParMatch (OTable_Object _proc1, OTable_Object _proc2
     _par1 = DEREF(OTable_Object, _par1, 29622)._link;
     _par2 = DEREF(OTable_Object, _par2, 29639)._link;
   }
-  _exit29261:
+  _exit29261: ;
   return _res;
   NO_RETURN (29028);
 }
@@ -830,7 +830,7 @@ static BOOLEAN OTable_FormalParMatchTB (OTable_Object _proc1, OTable_Object _pro
     _par1 = DEREF(OTable_Object, _par1, 30917)._link;
     _par2 = DEREF(OTable_Object, _par2, 30934)._link;
   }
-  _exit30549:
+  _exit30549: ;
   return _res;
   NO_RETURN (29705);
 }
@@ -894,12 +894,12 @@ static void OTable_InsertNextObject (OTable_Object _obj) {
 static void OTable_UpdateForNewInsert (OTable_Object (* _obj)) {
   DEREF(OTable_Object, (* _obj), 33215)._scope = DEREF(OTable_ScopeStack, OTable_scopeStack, 33234)._topScope;
   DEREF(OTable_Object, (* _obj), 33252)._mnolev = DEREF(OTable_Object, DEREF(OTable_ScopeStack, OTable_scopeStack, 33271)._topScope, 33280)._mnolev;
-  if (!IN(DEREF(OTable_Object, (* _obj), 33301)._mode, 0x00003400U, 33307)&&OTable_IsLocalObject((* _obj)))  {
+  if (!IN(DEREF(OTable_Object, (* _obj), 33301)._mode, 0x00003400UL, 33307)&&OTable_IsLocalObject((* _obj)))  {
     OTable_InsertNextObject((* _obj));
   }
-  if (IN(DEREF(OTable_Object, (* _obj), 33437)._mode, 0x00000380U, 33443)&&OTable_IsLocalObject((* _obj)))  {
+  if (IN(DEREF(OTable_Object, (* _obj), 33437)._mode, 0x00000380UL, 33443)&&OTable_IsLocalObject((* _obj)))  {
     DEREF(OTable_Object, DEREF(OTable_Object, (* _obj), 33581)._link, 33586)._mnolev = DEREF(OTable_Object, (* _obj), 33598)._mnolev+1;
-  } else if (IN(DEREF(OTable_Object, (* _obj), 33625)._mode, 0x00000008U, 33631)&&(void*)DEREF(OTable_Struct, DEREF(OTable_Object, (* _obj), 33651)._type, 33656)._obj==(void*)NULL)  {
+  } else if (IN(DEREF(OTable_Object, (* _obj), 33625)._mode, 0x00000008UL, 33631)&&(void*)DEREF(OTable_Struct, DEREF(OTable_Object, (* _obj), 33651)._type, 33656)._obj==(void*)NULL)  {
     DEREF(OTable_Struct, DEREF(OTable_Object, (* _obj), 33682)._type, 33687)._obj = (* _obj);
   }
 }
@@ -910,7 +910,7 @@ void OTable_Insert (OTable_Object (* _obj)) {
   if ((void*)_old!=(void*)NULL)  {
     if (DEREF(OTable_Object, _old, 34188)._mode==OTable_objForwardType)  {
       if (DEREF(OTable_Object, (* _obj), 34232)._mode==OTable_objType)  {
-        if (IN(DEREF(OTable_Struct, DEREF(OTable_Object, (* _obj), 34271)._type, 34276)._form, 0x000E0000U, 34282))  {
+        if (IN(DEREF(OTable_Struct, DEREF(OTable_Object, (* _obj), 34271)._type, 34276)._form, 0x000E0000UL, 34282))  {
           OTable_CopyObject((* _obj), _old);
           (* _obj) = _old;
           DEREF(OTable_Struct, DEREF(OTable_Object, (* _obj), 34394)._type, 34399)._obj = (* _obj);
@@ -922,7 +922,7 @@ void OTable_Insert (OTable_Object (* _obj)) {
         OScan_Err(DEREF(OTable_Object, (* _obj), 34699)._pos, 61);
       }
     } else if (DEREF(OTable_Object, _old, 34737)._mode==OTable_objForwardProc)  {
-      if (IN(DEREF(OTable_Object, (* _obj), 34781)._mode, 0x00000380U, 34787))  {
+      if (IN(DEREF(OTable_Object, (* _obj), 34781)._mode, 0x00000380UL, 34787))  {
         if (DEREF(OTable_Object, (* _obj), 34893)._mark!=DEREF(OTable_Object, _old, 34904)._mark)  {
           OScan_Err(DEREF(OTable_Object, (* _obj), 34938)._pos, 68);
         }
@@ -987,7 +987,7 @@ void OTable_InsertForOSym (OTable_Object (* _obj), OTable_Object (* _last)) {
         }
       }
     }
-    _exit37415:
+    _exit37415: ;
     DEREF(OTable_Object, (* _obj), 37710)._sort = _ptr;
   }
   (* _last) = (* _obj);
@@ -1108,7 +1108,7 @@ void OTable_InsertField (OTable_Object _obj, OTable_Struct _struct) {
       }
     }
   }
-  if (IN(DEREF(OTable_Object, _obj, 41471)._mode, 0x00000800U, 41477))  {
+  if (IN(DEREF(OTable_Object, _obj, 41471)._mode, 0x00000800UL, 41477))  {
     if (OTable_IsLocalObject(_obj))  {
       DEREF(OTable_Object, DEREF(OTable_Object, _obj, 41542)._link, 41547)._mnolev = DEREF(OTable_Object, _obj, 41559)._mnolev+1;
     } else {
@@ -1296,7 +1296,7 @@ static void OTable_InitPredefined (void) {
 static void OTable_InitSYSTEM (void) {
   OTable_Object _new;
   OTable_system = OTable_NewObject(7, (CHAR *) OTable_systemIdent, OTable_objModule, -1);
-  DEREF(OTable_Const, DEREF(OTable_Object, OTable_system, 47826)._const, 47832)._intval = OTable_systemKey;
+  DEREF(OTable_Const, DEREF(OTable_Object, OTable_system, 47826)._const, 47832)._intval = 1283764;
   DEREF(OTable_Object, OTable_system, 47858)._mnolev = -2;
   DEREF(OTable_Object, DEREF(OTable_Object, OTable_system, 47892)._link, 47897)._mnolev = -2;
   OTable_OpenScope(DEREF(OTable_Object, OTable_system, 47940)._link);

@@ -311,6 +311,9 @@ PROCEDURE GenTypeDescr (tdList : E.Node; header : BOOLEAN);
           TypeDescrIdent (td. type, FALSE);
           O.Char (";");        
           Off (0);
+          O.String ("EXTERN");              (* AP 19.1.2026 mark TD as module extern *)
+          Ident (T.compiledModule);
+          O.Char (" ");
           TypeDescrIdent (td. type, FALSE);
           O.String ("* ");
           TypeDescrIdent (td. type, TRUE);
@@ -842,7 +845,7 @@ PROCEDURE Const (c : T.Const; form : SHORTINT; obj : T.Object);
           O.Char (CHR (ORD("A") - 10 + nibble))
         END
       END;
-      O.Char ("U")
+      O.String ("UL")
     END SetConst;
 
   BEGIN
@@ -861,11 +864,11 @@ PROCEDURE Const (c : T.Const; form : SHORTINT; obj : T.Object);
       T.strChar:
         CharConst (c. intval, TRUE) |
       T.strShortInt..T.strLongInt:
-        IF (c. intval = MIN(LONGINT)) THEN
+        IF (c. intval = -MAX(LONGINT)-1) THEN
           (* this way we won't draw a warning since MAX(LONGINT) < -MIN(LONGINT) *)
           O.String ("(-");
           O.Int (MAX (LONGINT), 0);  (* largest writable positive integer *)
-          O.String ("-1)")
+          O.String ("L-1)")
         ELSE
           O.Int (c. intval, 0)
         END |
@@ -2299,6 +2302,21 @@ PROCEDURE GenHeader (mod : Dep.Module);
     O.Char ("_");
     O.Ln;
     O.Ln;
+    O.String ("#ifdef MODULE");          (* AP 19.1.2026 write conditional EXPORT for TDs *)
+    Ident (T.compiledModule);
+    O.Ln;
+    O.String ("#define EXTERN");
+    Ident (T.compiledModule);
+    O.Ln;
+    O.String ("#else");
+    O.Ln;
+    O.String ("#define EXTERN");
+    Ident (T.compiledModule);
+    O.String (" extern");
+    O.Ln;
+    O.String ("#endif");
+    O.Ln;
+    O.Ln;
     Include (mod, TRUE);       (* include all header that are part of the symbol file *)
     (* write forward declarations of type descriptor types *)
     GenTypeDescrForward (root. link, TRUE);
@@ -2325,6 +2343,10 @@ PROCEDURE GenHeader (mod : Dep.Module);
 PROCEDURE GenModule (mod : Dep.Module);
   BEGIN
     tdGenerated := T.external;           (* no type descs in external module *)
+    O.String ("#define MODULE");         (* AP 19.1.2026 mark MODULE compile *)
+    Ident (T.compiledModule);
+    O.Ln;
+    O.Ln;
     Include (mod, FALSE);      (* include modules that don't appear in the symbol file *)
     O.Ln;
     O.String ("static ModuleId moduleId;");

@@ -1,3 +1,5 @@
+#define MODULE_IntStr
+
 #include "IntStr.h"
 #include "CharInfo.h"
 #include "ConvTypes.h"
@@ -39,13 +41,13 @@ void IntStr_Take (LONGINT __str_0, const CHAR (* __str_p), LONGINT (* _int), SHO
       (* _int) = 0;
       while (_s!=_e)  {
         _digit = (LONGINT) ((INTEGER) (* PTR_INDEX(_str, _s, __str_0, 1, 1913))- 48);
-        if ((* _int)>-922337203685477580L||(* _int)>=DIVLI((-9223372036854775807L-1)+_digit, 10, 1994))  {
+        if ((* _int)>-922337203685477580||(* _int)>=DIVLI((-9223372036854775807L-1)+_digit, 10, 2006))  {
           (* _int) = (* _int)*10- _digit;
-          INCI(_s, 1, 2052);
+          INCI(_s, 1, 2064);
         } else {
           (* _format) = ConvTypes_outOfRange;
           if (_positive)  {
-            (* _int) = 9223372036854775807L;
+            (* _int) = 9223372036854775807;
           } else {
             (* _int) = (-9223372036854775807L-1);
           }
@@ -55,7 +57,7 @@ void IntStr_Take (LONGINT __str_0, const CHAR (* __str_p), LONGINT (* _int), SHO
       if (_positive)  {
         if ((* _int)==(-9223372036854775807L-1))  {
           (* _format) = ConvTypes_outOfRange;
-          (* _int) = 9223372036854775807L;
+          (* _int) = 9223372036854775807;
           return;
         } else {
           (* _int) = -(* _int);
@@ -73,7 +75,7 @@ SHORTINT IntStr_Format (LONGINT __str_0, const CHAR (* __str_p)) {
   VALUE_ARRAY(_str, __str_p, 1*__str_0);
   IntStr_Take(__str_0, _str, &(_int), &(_format));
   return _format;
-  NO_RETURN (2672);
+  NO_RETURN (2692);
 }
 
 LONGINT IntStr_Value (LONGINT __str_0, const CHAR (* __str_p)) {
@@ -83,17 +85,17 @@ LONGINT IntStr_Value (LONGINT __str_0, const CHAR (* __str_p)) {
   VALUE_ARRAY(_str, __str_p, 1*__str_0);
   IntStr_Take(__str_0, _str, &(_int), &(_format));
   return _int;
-  NO_RETURN (3062);
+  NO_RETURN (3082);
 }
 
 static void IntStr_Reverse (LONGINT __str_0, CHAR (* _str), INTEGER _start, INTEGER _end) {
   CHAR _h;
   while (_start<_end)  {
-    _h = (* PTR_INDEX(_str, _start, __str_0, 1, 3631));
-    (* PTR_INDEX(_str, _start, __str_0, 1, 3644)) = (* PTR_INDEX(_str, _end, __str_0, 1, 3659));
-    (* PTR_INDEX(_str, _end, __str_0, 1, 3670)) = _h;
-    INCI(_start, 1, 3688);
-    DECI(_end, 1, 3701);
+    _h = (* PTR_INDEX(_str, _start, __str_0, 1, 3651));
+    (* PTR_INDEX(_str, _start, __str_0, 1, 3664)) = (* PTR_INDEX(_str, _end, __str_0, 1, 3679));
+    (* PTR_INDEX(_str, _end, __str_0, 1, 3690)) = _h;
+    INCI(_start, 1, 3708);
+    DECI(_end, 1, 3721);
   }
 }
 
@@ -102,11 +104,11 @@ void IntStr_Give (LONGINT __str_0, CHAR (* _str), LONGINT _int, INTEGER _width, 
   CHAR _b[21];
   INTEGER _s, _e, _i, _pos;
   if (_int==(-9223372036854775807L-1))  {
-    COPYSTRING(&(_b), "-9223372036854775808L");
-    _e = _maxLength;
+    COPYSTRING(&(_b), "-9223372036854775808");
+    _e = 20;
   } else {
     if (_int<0)  {
-      INDEX(_b, 0, 21, 4575) = '-';
+      INDEX(_b, 0, 21, 4614) = '-';
       _int = -_int;
       _s = 1;
     } else {
@@ -114,11 +116,11 @@ void IntStr_Give (LONGINT __str_0, CHAR (* _str), LONGINT _int, INTEGER _width, 
     }
     _e = _s;
     do  {
-      INDEX(_b, _e, 21, 4766) = (CHAR) (MODLI(_int, 10, 4782)+48);
-      _int = DIVLI(_int, 10, 4820);
-      INCI(_e, 1, 4836);
+      INDEX(_b, _e, 21, 4805) = (CHAR) (MODLI(_int, 10, 4821)+48);
+      _int = DIVLI(_int, 10, 4859);
+      INCI(_e, 1, 4875);
     } while (!(_int==0));
-    INDEX(_b, _e, 21, 4874) = '\000';
+    INDEX(_b, _e, 21, 4913) = '\000';
     IntStr_Reverse(21, (CHAR *) _b, _s, _e- 1);
   }
   _s = _width- _e;
@@ -126,10 +128,10 @@ void IntStr_Give (LONGINT __str_0, CHAR (* _str), LONGINT _int, INTEGER _width, 
     {
       INTEGER _temp_ = _s- 1;
       for(_i = 0 ; _i <= _temp_ ; _i += 1) {
-        (* PTR_INDEX(_str, _i, __str_0, 1, 5098)) = ' ';
+        (* PTR_INDEX(_str, _i, __str_0, 1, 5137)) = ' ';
       }
     }
-    (* PTR_INDEX(_str, _s, __str_0, 1, 5124)) = '\000';
+    (* PTR_INDEX(_str, _s, __str_0, 1, 5163)) = '\000';
     {
       SHORTINT _temp_ = _where;
       switch (_temp_) {
@@ -142,10 +144,10 @@ void IntStr_Give (LONGINT __str_0, CHAR (* _str), LONGINT _int, INTEGER _width, 
           break;
         }
         case 1: {
-          _pos = _s- DIVI(_s, 2, 5312);
+          _pos = _s- DIVI(_s, 2, 5351);
           break;
         }
-        default: NO_LABEL (_temp_, 5202);
+        default: NO_LABEL (_temp_, 5241);
       }
     }
     Strings_Insert(21, (CHAR *) _b, _pos, __str_0, _str);

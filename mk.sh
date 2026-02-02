@@ -1,4 +1,4 @@
-O2CARCH=MinGW64
+O2CARCH=Unix64
 CC="o2gcc -g"
 CFLAGS="-g -O0 -iquote obj -iquote system"
 # CFLAGS="-O2 -DDISABLE_RTC -iquote obj -iquote system"

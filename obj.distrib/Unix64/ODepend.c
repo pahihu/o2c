@@ -165,7 +165,7 @@ ODepend_Module ODepend_Dependencies (LONGINT __modName_0, CHAR (* _modName), BOO
       COPYSTRING(&(DEREF(ODepend_Module, _mod, 10339)._extName), "");
       DEREF(ODepend_Module, _mod, 10367)._extClass = 0;
       DEREF(ODepend_Module, _mod, 10395)._import = (ODepend_Import)NULL;
-      DEREF(ODepend_Module, _mod, 10423)._flags = 0x00000000U;
+      DEREF(ODepend_Module, _mod, 10423)._flags = 0x00000000UL;
       _modules = _mod;
     }
     return _mod;
@@ -279,7 +279,7 @@ ODepend_Module ODepend_Dependencies (LONGINT __modName_0, CHAR (* _modName), BOO
         _ScanModule(_mod);
       }
     }
-    _exit14792:
+    _exit14792: ;
     if (!(* _err))  {
       _modules = ODepend_TopSort(_modules, FALSE, 98, (CHAR *) _errFile);
       if ((void*)_modules==(void*)NULL)  {

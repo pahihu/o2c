@@ -1,6 +1,7 @@
-FILES=$(ls obj.sav/MinGW64.new)
+DIR=Unix64
+FILES=$(ls obj.sav/$DIR.new)
 for f in $FILES
 do
   echo $f
-  cp obj/$f obj.sav/MinGW64.new
+  cp obj/$f obj.sav/$DIR.new
 done

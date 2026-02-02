@@ -845,7 +845,7 @@ PROCEDURE Const (c : T.Const; form : SHORTINT; obj : T.Object);
           O.Char (CHR (ORD("A") - 10 + nibble))
         END
       END;
-      O.Char ("UL")
+      O.String ("UL")
     END SetConst;
 
   BEGIN

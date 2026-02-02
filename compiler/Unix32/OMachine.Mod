@@ -18,7 +18,7 @@ CONST
      c) if gcLibPath isn't empty, it's assumed to be the path to the library
         libgc.*, and the linker is called with the parameters -L<gcLibPath> 
         -lgc (example: gcLibPath = "/usr/lang/o2c/lib") *)
-  gcLibPath* = "/opt/local/lib";
+  gcLibPath* = "";
   
   
   maxSizeString* = 256;     (* Length(string constant)<maxSizeString *)

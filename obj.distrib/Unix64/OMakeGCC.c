@@ -1,3 +1,5 @@
+#define MODULE_OMakeGCC
+
 #include "OMakeGCC.h"
 #include "CharInfo.h"
 #include "Dos.h"
@@ -97,7 +99,7 @@ ODepend_Module OMakeGCC_ModuleInfo (LONGINT __fileName_0, const CHAR (* __fileNa
   VALUE_ARRAY(_fileName, __fileName_p, 1*__fileName_0);
   NEWREC(_mod, td_ODepend_ModuleDesc, 0);
   DEREF(ODepend_Module, _mod, 3552)._next = (ODepend_Module)NULL;
-  DEREF(ODepend_Module, _mod, 3574)._flags = 0x00000001U;
+  DEREF(ODepend_Module, _mod, 3574)._flags = 0x00000001UL;
   DEREF(ODepend_Module, _mod, 3611)._import = (ODepend_Import)NULL;
   COPY(_fileName, INDEX(DEREF(ODepend_Module, _mod, 3651)._file, ODepend_flModExists, 5, 3657), 256);
   COPY(DEREF(OTable_Object, OTable_compiledModule, 3703)._name, DEREF(ODepend_Module, _mod, 3714)._name, 98);
@@ -135,7 +137,7 @@ static void OMakeGCC_GenMainModule (ODepend_Module _module, LONGINT __modName_0,
     Strings_Append(__comName_0, _comName, 98, (CHAR *) DEREF(ODepend_Module, _module, 5087)._name);
   }
   ODepend_NewFile(_module, OGenGCC_cFile, 2, (CHAR *) "c");
-  DEREF(ODepend_Module, _module, 5161)._flags = 0x00000008U;
+  DEREF(ODepend_Module, _module, 5161)._flags = 0x00000008UL;
   FOut_Open(256, (CHAR *) INDEX(DEREF(ODepend_Module, _module, 5206)._file, OGenGCC_cFile, 5, 5212));
   _rts = FALSE;
   _mod = _modules;
@@ -210,7 +212,7 @@ static void OMakeGCC_GenAddObjs (ODepend_Module _depList, LONGINT __str_0, CHAR 
   COPY("", _str, __str_0);
   _mod = _depList;
   while ((void*)_mod!=(void*)NULL)  {
-    if (IN(DEREF(ODepend_Module, _mod, 7631)._extClass, 0x0000000CU, 7642)&&OMakeGCC_ContainedIn(__str_0, _str, 1, (CHAR *) "", 256, (CHAR *) DEREF(ODepend_Module, _mod, 7715)._extName)<0)  {
+    if (IN(DEREF(ODepend_Module, _mod, 7631)._extClass, 0x0000000CUL, 7642)&&OMakeGCC_ContainedIn(__str_0, _str, 1, (CHAR *) "", 256, (CHAR *) DEREF(ODepend_Module, _mod, 7715)._extName)<0)  {
       Strings2_AppendChar(' ', __str_0, _str);
       Strings_Append(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 7799)._file, OGenGCC_objFile, 5, 7805), __str_0, _str);
     }
@@ -321,7 +323,7 @@ static void OMakeGCC_LinkWithGC (void) {
   CHAR _path[256];
   if (OMachine_generateCodeForGC)  {
     Strings_Append(6, (CHAR *) " -DGC", 256, (CHAR *) OMakeGCC_cflags);
-    Filenames_ExpandPath(256, (CHAR *) _full, 18, (CHAR *) OMachine_gcLibPath);
+    Filenames_ExpandPath(256, (CHAR *) _full, 1, (CHAR *) "");
     Filenames_GetPath(256, (CHAR *) _full, 256, (CHAR *) _path, 256, (CHAR *) _file);
     if (STREQL(_file, "gc.a"))  {
       Strings2_AppendChar(' ', 256, (CHAR *) OMakeGCC_ldflags);
@@ -374,7 +376,7 @@ void OMakeGCC_Build (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT __
   OMakeGCC_LinkWithGC();
   NEWREC(_sup, td_ODepend_ModuleDesc, 0);
   COPYSTRING(&(DEREF(ODepend_Module, _sup, 14724)._name), "_OGCC");
-  DEREF(ODepend_Module, _sup, 14750)._flags = 0x00000000U;
+  DEREF(ODepend_Module, _sup, 14750)._flags = 0x00000000UL;
   if (!ODepend_FindFile(_sup, OGenGCC_header, 2, (CHAR *) "h"))  {
     Out_String(32, (CHAR *) "Error: Can't find file _OGCC.h.");
     Out_Ln();
@@ -455,7 +457,7 @@ void OMakeGCC_Help (void) {
   Out_Ln();
   Out_String(42, (CHAR *) "-R                 Disable runtime checks");
   Out_Ln();
-  Out_String(60, (CHAR *) "-O                 Optimize code (set -O2 when calling o2gcc)");
+  Out_String(62, (CHAR *) "-O                 Optimize code (set -O2 when calling o2gcc)");
   Out_Ln();
   Out_String(63, (CHAR *) "-g                 Include debug information (on C level, -g3)");
   Out_Ln();
@@ -492,7 +494,7 @@ BOOLEAN OMakeGCC_Option (LONGINT __arg_0, const CHAR (* __arg_p)) {
     return FALSE;
   }
   return TRUE;
-  NO_RETURN (19153);
+  NO_RETURN (19155);
 }
 
 BOOLEAN OMakeGCC_OptionExt (LONGINT __arg0_0, const CHAR (* __arg0_p), LONGINT __arg1_0, const CHAR (* __arg1_p)) {
@@ -501,7 +503,7 @@ BOOLEAN OMakeGCC_OptionExt (LONGINT __arg0_0, const CHAR (* __arg0_p), LONGINT _
   VALUE_ARRAY(_arg0, __arg0_p, 1*__arg0_0);
   VALUE_ARRAY(_arg1, __arg1_p, 1*__arg1_0);
   if (STREQL(_arg0, "-cc"))  {
-    COPY(_arg1, OMakeGCC_cc, 48);
+    COPY(_arg1, OMakeGCC_cc, 64);
   } else if (STREQL(_arg0, "--cflags"))  {
     Strings2_AppendChar(' ', 256, (CHAR *) OMakeGCC_cflags);
     Strings_Append(__arg1_0, _arg1, 256, (CHAR *) OMakeGCC_cflags);
@@ -516,7 +518,7 @@ BOOLEAN OMakeGCC_OptionExt (LONGINT __arg0_0, const CHAR (* __arg0_p), LONGINT _
     return FALSE;
   }
   return TRUE;
-  NO_RETURN (20020);
+  NO_RETURN (20022);
 }
 
 void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT __comName_0, const CHAR (* __comName_p), LONGINT __o2opt_0, const CHAR (* __o2opt_p), BOOLEAN (* _err)) {
@@ -530,12 +532,12 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
   CHAR _appStr[8192];
 
   void _WriteODepend (ODepend_Module _mod, ODepend_Import _import, BOOLEAN _depH) {
-    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21143)._file, OGenGCC_objFile, 5, 21149));
+    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21145)._file, OGenGCC_objFile, 5, 21151));
     FOut_String(3, (CHAR *) ": ");
-    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _sup, 21213)._file, OGenGCC_header, 5, 21219));
+    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _sup, 21215)._file, OGenGCC_header, 5, 21221));
     if (_depH)  {
       FOut_Char(' ');
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21302)._file, OGenGCC_header, 5, 21308));
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21304)._file, OGenGCC_header, 5, 21310));
     }
     if ((void*)_import==(void*)NULL&&!_depH)  {
       FOut_String(11, (CHAR *) " $(HFILES)");
@@ -543,18 +545,18 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
       _inode = _import;
       while ((void*)_inode!=(void*)NULL)  {
         FOut_Char(' ');
-        FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, DEREF(ODepend_Import, _inode, 21527)._module, 21535)._file, OGenGCC_header, 5, 21541));
-        _inode = DEREF(ODepend_Import, _inode, 21580)._next;
+        FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, DEREF(ODepend_Import, _inode, 21529)._module, 21537)._file, OGenGCC_header, 5, 21543));
+        _inode = DEREF(ODepend_Import, _inode, 21582)._next;
       }
     }
     FOut_Char(' ');
-    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21655)._file, OGenGCC_cFile, 5, 21661));
+    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21657)._file, OGenGCC_cFile, 5, 21663));
     FOut_Ln();
     FOut_Char(CharInfo_ht);
     FOut_String(32, (CHAR *) "$(CC) $(CPPFLAGS) $(CFLAGS) -o ");
-    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21798)._file, OGenGCC_objFile, 5, 21804));
+    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21800)._file, OGenGCC_objFile, 5, 21806));
     FOut_String(5, (CHAR *) " -c ");
-    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21870)._file, OGenGCC_cFile, 5, 21876));
+    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 21872)._file, OGenGCC_cFile, 5, 21878));
     FOut_Ln();
   }
   VALUE_ARRAY(_modName, __modName_p, 1*__modName_0);
@@ -566,9 +568,9 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
   }
   OMakeGCC_LinkWithGC();
   NEWREC(_sup, td_ODepend_ModuleDesc, 0);
-  DEREF(ODepend_Module, _sup, 22111)._flags = 0x00000000U;
-  DEREF(ODepend_Module, _sup, 22133)._import = (ODepend_Import)NULL;
-  COPYSTRING(&(DEREF(ODepend_Module, _sup, 22157)._name), "_OGCC");
+  DEREF(ODepend_Module, _sup, 22113)._flags = 0x00000000UL;
+  DEREF(ODepend_Module, _sup, 22135)._import = (ODepend_Import)NULL;
+  COPYSTRING(&(DEREF(ODepend_Module, _sup, 22159)._name), "_OGCC");
   if (!ODepend_FindFile(_sup, OGenGCC_header, 2, (CHAR *) "h")||!ODepend_FindFile(_sup, OGenGCC_cFile, 2, (CHAR *) "c"))  {
     Out_String(50, (CHAR *) "Error: Can't locate _OGCC.h or _OGCC.c, aborting.");
     Out_Ln();
@@ -579,16 +581,16 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
   _mod = _depList;
   while ((void*)_mod!=(void*)NULL)  {
     OMakeGCC_CompilationHook(_mod);
-    if (!IN(ODepend_flModExists, DEREF(ODepend_Module, _mod, 22612)._flags, 22606))  {
+    if (!IN(ODepend_flModExists, DEREF(ODepend_Module, _mod, 22614)._flags, 22608))  {
       ODepend_NewFile(_mod, ODepend_flModExists, 4, (CHAR *) OMachine_moduleExtension);
     }
     ODepend_NewFile(_mod, ODepend_flSymExists, 5, (CHAR *) OMachine_symbolExtension);
     ODepend_NewFile(_mod, OGenGCC_header, 2, (CHAR *) "h");
-    if (DEREF(ODepend_Module, _mod, 22820)._extClass!=OGenGCC_extCSource||!IN(OGenGCC_cFile, DEREF(ODepend_Module, _mod, 22870)._flags, 22864))  {
+    if (DEREF(ODepend_Module, _mod, 22822)._extClass!=OGenGCC_extCSource||!IN(OGenGCC_cFile, DEREF(ODepend_Module, _mod, 22872)._flags, 22866))  {
       ODepend_NewFile(_mod, OGenGCC_cFile, 2, (CHAR *) "c");
     }
     ODepend_NewFile(_mod, OGenGCC_objFile, 2, (CHAR *) "o");
-    _mod = DEREF(ODepend_Module, _mod, 23078)._next;
+    _mod = DEREF(ODepend_Module, _mod, 23080)._next;
   }
   NEWREC(_main, td_ODepend_ModuleDesc, 0);
   OMakeGCC_GenMainModule(_main, __modName_0, _modName, __comName_0, _comName, _depList);
@@ -607,7 +609,7 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
   FOut_Ln();
   FOut_String(9, (CHAR *) "CFLAGS =");
   FOut_String(256, (CHAR *) OMakeGCC_cflags);
-  FOut_String(GET_LEN(OMakeGCC_inclPaths, 0), CHECK_NIL(CHAR (* ), OMakeGCC_inclPaths, 23691));
+  FOut_String(GET_LEN(OMakeGCC_inclPaths, 0), CHECK_NIL(CHAR (* ), OMakeGCC_inclPaths, 23661));
   FOut_Ln();
   FOut_String(10, (CHAR *) "LDFLAGS =");
   OMakeGCC_GetLinkerFlags(_depList, 8192, (CHAR *) _appStr, _err);
@@ -618,8 +620,8 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
     _mod = _depList;
     while ((void*)_mod!=(void*)NULL)  {
       FOut_Char(' ');
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 24030)._file, ODepend_flSymExists, 5, 24036));
-      _mod = DEREF(ODepend_Module, _mod, 24074)._next;
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 24000)._file, ODepend_flSymExists, 5, 24006));
+      _mod = DEREF(ODepend_Module, _mod, 24044)._next;
     }
     FOut_Ln();
   }
@@ -627,41 +629,41 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
   _mod = _depList;
   while ((void*)_mod!=(void*)NULL)  {
     FOut_Char(' ');
-    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 24309)._file, OGenGCC_header, 5, 24315));
-    _mod = DEREF(ODepend_Module, _mod, 24346)._next;
+    FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 24279)._file, OGenGCC_header, 5, 24285));
+    _mod = DEREF(ODepend_Module, _mod, 24316)._next;
   }
   FOut_Ln();
   FOut_String(10, (CHAR *) "CFILES0 =");
   _mod = _depList;
   while ((void*)_mod!=(void*)NULL)  {
-    if (!IN(ODepend_flExternal, DEREF(ODepend_Module, _mod, 24616)._flags, 24610))  {
+    if (!IN(ODepend_flExternal, DEREF(ODepend_Module, _mod, 24586)._flags, 24580))  {
       FOut_Char(' ');
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 24680)._file, OGenGCC_cFile, 5, 24686));
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 24650)._file, OGenGCC_cFile, 5, 24656));
     }
-    _mod = DEREF(ODepend_Module, _mod, 24726)._next;
+    _mod = DEREF(ODepend_Module, _mod, 24696)._next;
   }
   FOut_Ln();
   FOut_String(21, (CHAR *) "CFILES1 = $(CFILES0)");
   _mod = _depList;
   while ((void*)_mod!=(void*)NULL)  {
-    if (DEREF(ODepend_Module, _mod, 24896)._extClass==OGenGCC_extCSource)  {
+    if (DEREF(ODepend_Module, _mod, 24866)._extClass==OGenGCC_extCSource)  {
       FOut_Char(' ');
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 24980)._file, OGenGCC_cFile, 5, 24986));
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 24950)._file, OGenGCC_cFile, 5, 24956));
     }
-    _mod = DEREF(ODepend_Module, _mod, 25026)._next;
+    _mod = DEREF(ODepend_Module, _mod, 24996)._next;
   }
   FOut_Ln();
   FOut_String(9, (CHAR *) "OBJS0 = ");
-  FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _sup, 25154)._file, OGenGCC_objFile, 5, 25160));
+  FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _sup, 25124)._file, OGenGCC_objFile, 5, 25130));
   FOut_Char(' ');
-  FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _main, 25218)._file, OGenGCC_objFile, 5, 25224));
+  FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _main, 25188)._file, OGenGCC_objFile, 5, 25194));
   _mod = _depList;
   while ((void*)_mod!=(void*)NULL)  {
-    if (!IN(ODepend_flExternal, DEREF(ODepend_Module, _mod, 25317)._flags, 25311)||DEREF(ODepend_Module, _mod, 25342)._extClass==OGenGCC_extCSource)  {
+    if (!IN(ODepend_flExternal, DEREF(ODepend_Module, _mod, 25287)._flags, 25281)||DEREF(ODepend_Module, _mod, 25312)._extClass==OGenGCC_extCSource)  {
       FOut_Char(' ');
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 25425)._file, OGenGCC_objFile, 5, 25431));
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 25395)._file, OGenGCC_objFile, 5, 25401));
     }
-    _mod = DEREF(ODepend_Module, _mod, 25473)._next;
+    _mod = DEREF(ODepend_Module, _mod, 25443)._next;
   }
   FOut_Ln();
   FOut_String(8, (CHAR *) "OBJS1 =");
@@ -705,35 +707,35 @@ void OMakeGCC_Makefile (LONGINT __modName_0, const CHAR (* __modName_p), LONGINT
   if (OMakeGCC_makeOberon)  {
     _mod = _depList;
     while ((void*)_mod!=(void*)NULL)  {
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 26758)._file, ODepend_flSymExists, 5, 26764));
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 26728)._file, ODepend_flSymExists, 5, 26734));
       FOut_Char(' ');
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 26833)._file, OGenGCC_header, 5, 26839));
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 26803)._file, OGenGCC_header, 5, 26809));
       FOut_Char(' ');
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 26903)._file, OGenGCC_cFile, 5, 26909));
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 26873)._file, OGenGCC_cFile, 5, 26879));
       FOut_String(3, (CHAR *) ": ");
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 26975)._file, ODepend_flModExists, 5, 26981));
-      _inode = DEREF(ODepend_Module, _mod, 27021)._import;
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 26945)._file, ODepend_flModExists, 5, 26951));
+      _inode = DEREF(ODepend_Module, _mod, 26991)._import;
       while ((void*)_inode!=(void*)NULL)  {
         FOut_Char(' ');
-        FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, DEREF(ODepend_Import, _inode, 27117)._module, 27125)._file, ODepend_flSymExists, 5, 27131));
-        _inode = DEREF(ODepend_Import, _inode, 27175)._next;
+        FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, DEREF(ODepend_Import, _inode, 27087)._module, 27095)._file, ODepend_flSymExists, 5, 27101));
+        _inode = DEREF(ODepend_Import, _inode, 27145)._next;
       }
       FOut_Ln();
       FOut_Char(CharInfo_ht);
       FOut_String(17, (CHAR *) "$(O2C) $(O2OPT) ");
-      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 27311)._file, ODepend_flModExists, 5, 27317));
+      FOut_String(256, (CHAR *) INDEX(DEREF(ODepend_Module, _mod, 27281)._file, ODepend_flModExists, 5, 27287));
       FOut_Ln();
-      _mod = DEREF(ODepend_Module, _mod, 27372)._next;
+      _mod = DEREF(ODepend_Module, _mod, 27342)._next;
     }
     FOut_Ln();
   }
   _WriteODepend(_sup, (ODepend_Import)NULL, TRUE);
   _mod = _depList;
   while ((void*)_mod!=(void*)NULL)  {
-    if (!IN(ODepend_flExternal, DEREF(ODepend_Module, _mod, 27575)._flags, 27569)||DEREF(ODepend_Module, _mod, 27591)._extClass==OGenGCC_extCSource)  {
-      _WriteODepend(_mod, DEREF(ODepend_Module, _mod, 27655)._import, TRUE);
+    if (!IN(ODepend_flExternal, DEREF(ODepend_Module, _mod, 27545)._flags, 27539)||DEREF(ODepend_Module, _mod, 27561)._extClass==OGenGCC_extCSource)  {
+      _WriteODepend(_mod, DEREF(ODepend_Module, _mod, 27625)._import, TRUE);
     }
-    _mod = DEREF(ODepend_Module, _mod, 27698)._next;
+    _mod = DEREF(ODepend_Module, _mod, 27668)._next;
   }
   _WriteODepend(_main, (ODepend_Import)NULL, FALSE);
   FOut_Ln();
@@ -753,8 +755,8 @@ void OMakeGCC_Init (void) {
     VALUE_ARRAY(_pattern, __pattern_p, 1*__pattern_0);
     _len = Strings_Length(__pattern_0, _pattern);
     _i = _len- 1;
-    while (_i>=0&&(* PTR_INDEX(_pattern, _i, __pattern_0, 1, 28203))!='.')  {
-      DECI(_i, 1, 28225);
+    while (_i>=0&&(* PTR_INDEX(_pattern, _i, __pattern_0, 1, 28173))!='.')  {
+      DECI(_i, 1, 28195);
     }
     if (_i>=0)  {
       Strings_Extract(__pattern_0, _pattern, _i, 2147483647, 256, (CHAR *) _suffix);
@@ -764,39 +766,35 @@ void OMakeGCC_Init (void) {
     }
     _i = _len- 1;
     while (_i>=0)  {
-      if ((* PTR_INDEX(_pattern, _i, __pattern_0, 1, 28602))=='*'||(* PTR_INDEX(_pattern, _i, __pattern_0, 1, 28624))=='?')  {
+      if ((* PTR_INDEX(_pattern, _i, __pattern_0, 1, 28572))=='*'||(* PTR_INDEX(_pattern, _i, __pattern_0, 1, 28594))=='?')  {
         Strings_Extract(__pattern_0, _pattern, _i, 2147483647, 256, (CHAR *) _suffix);
         if (Strings2_Match(256, (CHAR *) _suffix, 3, (CHAR *) ".h"))  {
           return TRUE;
         }
       }
-      DECI(_i, 1, 28805);
+      DECI(_i, 1, 28775);
     }
     return FALSE;
-    NO_RETURN (27934);
+    NO_RETURN (27904);
   }
   OMachine_redir = Redir_Read(256, (CHAR *) OMakeGCC_redirFile);
   OScan_ReadErrorList();
   COPYSTRING(&(_incl), "");
   _pattern = OMachine_redir;
   while ((void*)_pattern!=(void*)NULL)  {
-    if (_MatchesHeader(32, (CHAR *) DEREF(Redir_Pattern, _pattern, 29090)._wildcard))  {
-      _path = DEREF(Redir_Pattern, _pattern, 29130)._paths;
+    if (_MatchesHeader(32, (CHAR *) DEREF(Redir_Pattern, _pattern, 29062)._wildcard))  {
+      _path = DEREF(Redir_Pattern, _pattern, 29102)._paths;
       while ((void*)_path!=(void*)NULL)  {
         Strings_Append(10, (CHAR *) " -iquote ", 8192, (CHAR *) _incl);
-        Strings_Append(256, (CHAR *) DEREF(Redir_Path, _path, 29231)._path, 8192, (CHAR *) _incl);
-        _path = DEREF(Redir_Path, _path, 29268)._next;
+        Strings_Append(256, (CHAR *) DEREF(Redir_Path, _path, 29209)._path, 8192, (CHAR *) _incl);
+        _path = DEREF(Redir_Path, _path, 29246)._next;
       }
     }
-    _pattern = DEREF(Redir_Pattern, _pattern, 29322)._next;
+    _pattern = DEREF(Redir_Pattern, _pattern, 29300)._next;
   }
-  /*
-  if (INDEX(_incl, 0, 8192, 29350)!='\000')  {
-    Strings_Append(5, (CHAR *) " -I-", 8192, (CHAR *) _incl);
-  }*/
   NEWDYN(OMakeGCC_inclPaths, 1*Strings_Length(8192, (CHAR *) _incl)+1, 1, 1);
   SET_LEN(0, Strings_Length(8192, (CHAR *) _incl)+1);
-  COPY(_incl, CHECK_NIL(CHAR (* ), OMakeGCC_inclPaths, 29690), GET_LEN(OMakeGCC_inclPaths, 0));
+  COPY(_incl, CHECK_NIL(CHAR (* ), OMakeGCC_inclPaths, 29662), GET_LEN(OMakeGCC_inclPaths, 0));
 }
 
 void _init_OMakeGCC (void) {
